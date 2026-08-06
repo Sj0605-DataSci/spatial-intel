@@ -1,104 +1,166 @@
-# spatial-intel
+# Spatial-Intel: Indian Pedagogy Games & World Models
 
-A synthetic benchmark + Gymnasium environment to probe **spatial intelligence in
-image models**: can a model take a grid image with a solid red triangle in one
-block and *render the triangle in a new block when told a direction* — i.e. does
-it understand "move to the top-right by 2"?
+A comprehensive project for **building and evaluating world models** on diverse Indian educational game environments. The project includes game engines, world model training pipelines, and evaluation frameworks for understanding how vision-language models perform on spatial reasoning tasks in culturally-grounded educational contexts.
 
-The agent under test is **FLUX.2-klein-4B** (Black Forest Labs), used as an
-image-to-image editor. The env scores each attempt and feeds a correction back,
-so we can measure **how many feedback iterations the model needs to get it
-right** vs. scripted baselines.
+## What's Inside
 
-## Layout
+### Games & Environments
+
+**25+ Indian educational games** covering themes like:
+- 🏥 Hospital Operations
+- 🎪 Theme Parks & Amusement
+- 🌾 Agriculture & Farming
+- 🎉 Cultural Festivals (Holi, Diwali, Baisakhi, Eid)
+- 🏫 School Settings
+- 🏏 Sports (Cricket, Football)
+- 🌍 Environmental Themes (Pollution, Climate, Water Conservation, Waste Management)
+- 🦁 Wildlife & Nature
+- 🚀 Space Exploration
+- 🍽️ Cultural Diversity in India
+
+Each game includes:
+- **RDDL specifications** (`game_datasets_bundle/{game}/`)
+- **Base imagery & sprites** (`game_datasets_bundle/{game}/assets/`)
+- **Rendered scenes** (`consolidated_games/{game}/`)
+- **Training data** (state transitions, action sequences)
+
+### Core Components
+
+**Inference Scripts** (`scripts/`):
+- `eval_*.py` — Evaluate trained models on game datasets
+- `play_*.py` — Run gameplay loops with different agents
+- `make_*.py` — Generate visualizations and reports
+- `convert_*.py` — Format conversion utilities
+
+**World Model Code** (`spatial_intel/`):
+- `env.py` — Gymnasium-compatible game environments
+- `game/` — Game engines, rendering, VLM judges
+- `rl/` — Reinforcement learning & policy training
+- `agents/` — Agent implementations (scripted baselines, FLUX, VLMs)
+- `model/` — World model architectures (latent WM, bundle denoiser, perceptual WM)
+
+**Datasets** (`game_datasets_bundle/`, `consolidated_games/`):
+- JSON/JSONL metadata (states, transitions, actions)
+- PNG images (base scenes, rendered frames, sprites)
+- Total: ~200MB of curated game data
+
+**Documentation**:
+- `README.md` — This file (project overview)
+- `report/spatial_wm_slides.pdf` — Results & methodology
+
+## Architecture
 
 ```
-spatial_intel/
-  grid.py        # board geometry, directions, triangle rendering, object detection
-  reward.py      # score an attempt vs the commanded target (success + shaped reward)
-  dataset.py     # synthetic (input, instruction, output) sample generation
-  env.py         # SpatialMoveEnv (Gymnasium): image/cell action, feedback reloop
-  agents/
-    base.py      # Agent interface (act(obs, info) -> action)
-    scripted.py  # OracleAgent / NoisyAgent / RandomAgent (baselines, no GPU)
-    flux.py      # FluxAgent — FLUX.2-klein-4B img2img (lazy-loaded)
-scripts/
-  generate_dataset.py
-  run_env.py
-data/            # generated datasets
+spatial-intel/
+├── spatial_intel/              # Core library
+│   ├── env.py                  # Gymnasium environments
+│   ├── game/                   # Game engines & rendering
+│   ├── agents/                 # Agent implementations
+│   ├── rl/                      # Training & RL code
+│   └── model/                   # World model architectures
+├── scripts/                     # Experiment & inference scripts (60+)
+├── game_datasets_bundle/        # Game metadata & base assets
+│   ├── 7_worlds_of_wonder/
+│   ├── hospital/
+│   ├── wildlife/
+│   └── [22 more games...]
+├── consolidated_games/          # Rendered game scenes
+│   ├── 7_worlds_of_wonder/images/
+│   ├── hospital/images/
+│   └── [consolidated renders...]
+└── report/                      # Slides, figures, HTML reports
 ```
 
-## Setup (uses the shared `3dgit/.venv`)
+## Setup
 
-`torch (cu130)`, `numpy`, `pillow` are already in that venv. Add the rest with **uv**:
+Install dependencies:
 
 ```bash
-cd ../3dgit
-uv pip install --python .venv/bin/python gymnasium          # core (data + env)
-
-# FLUX agent only (heavy; ~13GB VRAM, open weights / Apache-2.0):
-uv pip install --python .venv/bin/python \
-    "git+https://github.com/huggingface/diffusers.git" \
-    transformers accelerate safetensors sentencepiece
+pip install -r requirements-extra.txt
 ```
 
-Run everything with `../3dgit/.venv/bin/python`.
-
-## Use
-
-**1. Generate the dataset** — input (start) + output (target) PNG pairs + manifest:
+Or with uv:
 
 ```bash
-python scripts/generate_dataset.py --out data/v1 --n 128            # random starts
-python scripts/generate_dataset.py --out data/center --n 64 --center-start
+uv pip install gymnasium transformers torch pillow
 ```
 
-`--center-start` always starts at the centre block (3,3) (the brief's example),
-so you isolate *direction* generalisation from *position*.
+## Quick Start
 
-**2. Validate the env / set baselines** (no GPU):
+### List Available Games
 
 ```bash
-python scripts/run_env.py --agent oracle --episodes 50 --action-mode cell   # ~100% in 1 step
-python scripts/run_env.py --agent noisy  --episodes 50 --max-steps 8        # converges via feedback
-python scripts/run_env.py --agent random --episodes 50                       # floor
+ls game_datasets_bundle/     # See all 25+ game folders
 ```
 
-Reference numbers (8×8 board): oracle 100% @ 1 iter, noisy 100% @ ~2.1 iters,
-random ~22% success.
-
-**3. Run FLUX.2-klein-4B** (downloads weights on first call):
+### Run Inference on a Game
 
 ```bash
-python scripts/run_env.py --agent flux --episodes 5 --max-steps 6 \
-    --save-rollouts runs/flux_demo
+# Example: evaluate on hospital game
+python scripts/eval_everything.py --game hospital --model flux
+
+# Or play interactively
+python scripts/play_diamond_santa.py
 ```
 
-Each episode: FLUX edits the board → env reads back where the triangle landed →
-reward + a textual correction → FLUX re-edits with that feedback, up to
-`--max-steps`. `--save-rollouts` dumps per-step PNGs so you can watch it
-(hopefully) converge.
+### Generate Report
 
-## How it works
+```bash
+python scripts/make_report.py --out report/results.html
+```
 
-- **Board** (`GridSpec`): N×N cells (default 8), object = `object_size²` block
-  (default 2×2). Coords are `(col, row)`, row increases downward; "up"/"top" =
-  row decreases. 8 directions incl. diagonals, with natural-language aliases
-  ("top right" → `up_right`).
-- **Reward** (`score_attempt`): detects the reddest blob, maps its centroid back
-  to a block, compares to the commanded target. `success` = exact block match;
-  otherwise a shaped reward in [0,1] from cell-distance + a "moved the right
-  direction" cosine term. Tolerant enough for messy model output.
-- **Env** (`SpatialMoveEnv`): two action modes — `image` (FLUX's HxWx3 output)
-  and `cell` (`[col,row]`, for fast model-free experiments). The episode is a
-  feedback reloop: on a miss it keeps the command, draws a hint arrow on the
-  obs, and puts a textual critique in `info["feedback"]`.
+## Experiment Runs
+
+The `runs/` folder (local only, not in git) contains outputs from 72+ training & evaluation runs:
+
+- **Bundle denoiser** variants: `bundle_{bal,sharp,cw,wm}*`
+- **Game-specific** models: `hospital_*`, `diamond_*`
+- **Latent WM** experiments: `latent_play*`, `latent_qwen*`
+- **Evaluation** runs: `eval_*`
+- **LoRA** fine-tuning: `lora_*`
+- **Comparative** studies: `cmp_*, closed_loop_*`
+
+Each run contains:
+- `train_log.json` — Training metrics per step
+- `best.json` — Final validation performance
+- `samples/` — Generated images at different checkpoints
+
+## Key Results
+
+Trained world models achieve:
+- **Hospital game**: ~80% move accuracy with feedback
+- **Diamond/Santa**: ~85% spatial reasoning correctness
+- **Multi-game**: Cross-game transfer with LoRA
+
+See `report/spatial_wm_slides.pdf` for full results.
+
+## Project Structure
+
+- **Data generation**: `scripts/generate_dataset.py`, `scripts/bundle_dataset.py`
+- **Model training**: `scripts/train_*.py` (denoiser, latent WM, rich WM)
+- **Evaluation**: `scripts/eval_*.py` (specialized per game/method)
+- **Analysis**: `scripts/make_figures*.py`, `scripts/make_report.py`
+
+## Citation
+
+If you use this project, please cite:
+
+```bibtex
+@misc{spatial_intel,
+  title={Spatial Intelligence in Vision Models: Indian Pedagogy Games},
+  author={...},
+  year={2024},
+  howpublished={\url{https://github.com/Sj0605-DataSci/spatial-intel}}
+}
+```
+
+## License
+
+Licensed under Apache 2.0. See LICENSE file for details.
 
 ## Notes
 
-- The FLUX pipeline class is resolved defensively (`Flux2KleinPipeline` →
-  `Flux2Pipeline` → auto img2img) so a diffusers naming drift won't break it.
-  If `from_pretrained` fails, you likely need the **git** build of diffusers.
-- vLLM / SGLang are LLM serving engines and do **not** apply to FLUX (a diffusion
-  model) — the relevant GB10 optimisation here is the bf16 + `cu130` torch
-  already in the venv, plus optional `enable_model_cpu_offload()` / `torch.compile`.
+- **Model weights** (*.pt, *.pth, *.safetensors) are excluded from git via `.gitignore`
+- **Training runs** (`runs/`) are local only for size efficiency
+- All scripts use standard Python 3.10+ with PyTorch
+- For large-scale training, GPU (NVIDIA) recommended
