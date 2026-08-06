@@ -1,0 +1,175 @@
+topic: Wildlife
+objective: Players rescue endangered animals and restore ecosystems by solving puzzles
+  and engaging with local communities.
+environment_description: Diverse ecosystems including rainforests, savannahs, and
+  oceans, with unique flora and fauna illustrating biodiversity challenges.
+domain:
+- name: Alex
+  image_prompt: A young wildlife conservationist wearing practical outdoor gear with
+    a notebook and binoculars, showing a determined expression.
+- name: elephant_calf
+  image_prompt: A curious young elephant with large, expressive eyes, exuding friendliness.
+- name: tiger
+  image_prompt: A majestic tiger in a natural setting, emphasizing its beauty and
+    vulnerability.
+- name: panda
+  image_prompt: A gentle panda nestled among bamboo, representing conservation targets.
+- name: rainforest
+  image_prompt: Lush rainforest setting filled with diverse plants and animals, illustrating
+    the ecosystem's richness.
+- name: savannah
+  image_prompt: Sprawling savannah with grasses and trees, highlighting the habitat
+    of unique wildlife.
+- name: ocean
+  image_prompt: Vibrant ocean scene with coral reefs, fish, and sea turtles, showcasing
+    marine biodiversity.
+classes:
+- class_name: conservationist
+  list_of_objects:
+  - Alex
+- class_name: animal_companion
+  list_of_objects:
+  - elephant_calf
+- class_name: endangered_animal
+  list_of_objects:
+  - tiger
+  - panda
+- class_name: ecosystem
+  list_of_objects:
+  - rainforest
+  - savannah
+  - ocean
+state_of_objects:
+- class_name: conservationist
+  isMovable: true
+- class_name: animal_companion
+  isMovable: false
+- class_name: endangered_animal
+  isMovable: false
+- class_name: ecosystem
+  isMovable: false
+state_variables:
+- name: animals_rescued
+  type: integer
+- name: habitat_restored
+  type: integer
+- name: is_rescued_tiger
+  type: boolean
+- name: is_rescued_panda
+  type: boolean
+- name: is_restored_rainforest
+  type: boolean
+- name: is_restored_savannah
+  type: boolean
+- name: is_restored_ocean
+  type: boolean
+actions:
+- name: RescueTiger(conservationist, endangered_animal)
+- name: RescuePanda(conservationist, endangered_animal)
+- name: RestoreRainforest(conservationist, ecosystem)
+- name: RestoreSavannah(conservationist, ecosystem)
+- name: RestoreOcean(conservationist, ecosystem)
+transitions:
+- action: RescueTiger(?conservationist, ?endangered_animal)
+  preconditions:
+  - animals_rescued < 2
+  - ?conservationist.x == ?endangered_animal.x
+  - ?conservationist.y == ?endangered_animal.y
+  - ?endangered_animal == tiger
+  - NOT is_rescued_tiger
+  effects:
+  - animals_rescued = animals_rescued + 1
+  - is_rescued_tiger = true
+  side_effects:
+  - ShowText(true, 'Tiger rescued successfully!')
+- action: RescuePanda(?conservationist, ?endangered_animal)
+  preconditions:
+  - animals_rescued < 2
+  - ?conservationist.x == ?endangered_animal.x
+  - ?conservationist.y == ?endangered_animal.y
+  - ?endangered_animal == panda
+  - NOT is_rescued_panda
+  effects:
+  - animals_rescued = animals_rescued + 1
+  - is_rescued_panda = true
+  side_effects:
+  - ShowText(true, 'Panda rescued successfully!')
+- action: RestoreRainforest(?conservationist, ?ecosystem)
+  preconditions:
+  - habitat_restored < 3
+  - ?conservationist.x == ?ecosystem.x
+  - ?conservationist.y == ?ecosystem.y
+  - ?ecosystem == rainforest
+  - NOT is_restored_rainforest
+  effects:
+  - habitat_restored = habitat_restored + 1
+  - is_restored_rainforest = true
+  side_effects:
+  - ShowText(true, 'Rainforest restored!')
+- action: RestoreSavannah(?conservationist, ?ecosystem)
+  preconditions:
+  - habitat_restored < 3
+  - ?conservationist.x == ?ecosystem.x
+  - ?conservationist.y == ?ecosystem.y
+  - ?ecosystem == savannah
+  - NOT is_restored_savannah
+  effects:
+  - habitat_restored = habitat_restored + 1
+  - is_restored_savannah = true
+  side_effects:
+  - ShowText(true, 'Savannah restored!')
+- action: RestoreOcean(?conservationist, ?ecosystem)
+  preconditions:
+  - habitat_restored < 3
+  - ?conservationist.x == ?ecosystem.x
+  - ?conservationist.y == ?ecosystem.y
+  - ?ecosystem == ocean
+  - NOT is_restored_ocean
+  effects:
+  - habitat_restored = habitat_restored + 1
+  - is_restored_ocean = true
+  side_effects:
+  - ShowText(true, 'Ocean restored!')
+goal: animals_rescued == 2 AND habitat_restored == 3
+reward: animals_rescued + habitat_restored * 2
+max_reward: 8
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: Alex
+  x: '1'
+  y: '1'
+- domain_object: elephant_calf
+  x: '2'
+  y: '2'
+- domain_object: tiger
+  x: '3'
+  y: '3'
+- domain_object: panda
+  x: '4'
+  y: '4'
+- domain_object: rainforest
+  x: '2'
+  y: '4'
+- domain_object: savannah
+  x: '3'
+  y: '2'
+- domain_object: ocean
+  x: '4'
+  y: '3'
+initial_state_variables:
+- name: animals_rescued
+  value: 0
+- name: habitat_restored
+  value: 0
+- name: is_rescued_tiger
+  value: false
+- name: is_rescued_panda
+  value: false
+- name: is_restored_rainforest
+  value: false
+- name: is_restored_savannah
+  value: false
+- name: is_restored_ocean
+  value: false

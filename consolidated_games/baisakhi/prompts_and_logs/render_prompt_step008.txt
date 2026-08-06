@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'player' (looks like: A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.)
+  FROM cell (C3, R2)  [pixels x≈612–816, y≈408–612]
+  TO   cell (C4, R2)  [pixels x≈816–1020, y≈408–612]
+
+1. ERASE 'player' from (C3, R2) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'player' once at (C4, R2).
+3. Nothing else changes.

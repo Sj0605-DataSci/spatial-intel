@@ -1,0 +1,21 @@
+**Game States:**
+
+1. **Wonder Restoration Progress:**  
+   Measures completion of puzzles and hidden object challenges for each wonder. Signals when a wonder is fully restored.
+
+2. **Cultural Insight Level:**  
+   Gauges the depth of historical and cultural knowledge gained. Unlocks new story layers and guides provided by the Curator and Cultural Guardians.
+
+3. **Preservation vs. Development Balance:**  
+   Tracks player decisions impacting the state of wonders. Influences narrative direction and outcomes guided by Preservation Advocate and Modern Developer.
+
+4. **Artifact Discovery Count:**  
+   Counts artifacts found, crucial for unlocking deeper narratives and gaining insights from Architect Spirits.
+
+5. **Emotional Connection Scale:**  
+   Reflects player's engagement with moral choices and personal responses to the wonders' histories. Affects interaction depth with narrative elements.
+
+6. **Time Anomalies Solved:**  
+   Indicates puzzles solved related to historical dilemmas, impacting Wonder Restoration and narrative advancement.
+
+Each state variable aligns with both the gameplay mechanics and the thematic depth of exploring the significance and preservation challenges associated with the 7 Wonders.

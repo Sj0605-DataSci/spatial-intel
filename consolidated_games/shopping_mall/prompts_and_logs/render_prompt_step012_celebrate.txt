@@ -1,0 +1,7 @@
+CELEBRATE at cell (C0, R2):
+'A stylish young adult equipped with a shopping cart and a list, ready to tackle mall challenges with enthusiasm.' performs 'engage event' with 'An energetic event manager orchestrating mall_wide events, juggling schedules and interacting with participants.'.
+
+1. Add a celebration effect at (C0, R2): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Participated in event!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

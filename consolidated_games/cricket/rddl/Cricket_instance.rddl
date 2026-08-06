@@ -1,0 +1,57 @@
+instance Cricket { 
+
+	 domain = Cricket;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { captain_strategist };
+		 batsman : { ace_batsman };
+		 bowler : { spin_wizard };
+		 fielder : { field_master };
+		 rookie : { rookie_player };
+		 field : { cricket_field };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 batsman-x(ace_batsman, x2);
+		 batsman-y(ace_batsman, y1);
+		 bowler-x(spin_wizard, x3);
+		 bowler-y(spin_wizard, y1);
+		 fielder-x(field_master, x4);
+		 fielder-y(field_master, y1);
+		 rookie-x(rookie_player, x5);
+		 rookie-y(rookie_player, y1);
+		 field-x(cricket_field, x3);
+		 field-y(cricket_field, y3);
+	 };
+
+	 init-state {
+		 player-x(captain_strategist, x1);
+		 player-y(captain_strategist, y1);
+		 runs_scored = 0;
+		 wickets_remaining = 10;
+		 overs_remaining = 5;
+		 strategy_executed_count = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

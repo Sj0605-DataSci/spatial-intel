@@ -1,0 +1,2 @@
+right
+Move right to (2,1) to get closer to SamStudent at (2,2).

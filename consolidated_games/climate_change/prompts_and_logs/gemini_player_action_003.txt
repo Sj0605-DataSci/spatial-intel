@@ -1,0 +1,2 @@
+left
+Moving left to (0,1) will bring Alex closer to the solar array at (0,2), allowing for the placement of another renewable resource.

@@ -1,0 +1,7 @@
+**Relocating the Sprite**
+
+I'm focused on moving 'riya'. First, I'll erase her from cell (C0, R0), replacing the vacated space with the grass texture from the surrounding cells to maintain the visual continuity. Then, I'll precisely redraw 'riya', including her tag and ring, in cell (C1, R0). The rest of the scene, all other sprites, background, grid, and labels, will remain undisturbed.
+
+**Finalizing Instruction Compliance**
+
+I've confirmed the requested sprite, 'riya,' has been correctly relocated according to the provided coordinates. The old location is clean, and other image aspects remain unchanged. I'm moving forward with final submission since the image complies with the user's instructions.

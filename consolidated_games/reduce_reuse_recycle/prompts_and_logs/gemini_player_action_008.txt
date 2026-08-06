@@ -1,0 +1,2 @@
+left
+Eli is currently at (1,2), which is the location of the recycle_bin_glass. The plastic_bottle is collected and needs to be sorted into the recycle_bin_plastic, which is at (0,2). Moving 'left' will take Eli to the correct bin to sort the plastic bottle.

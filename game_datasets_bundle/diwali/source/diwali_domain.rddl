@@ -1,0 +1,111 @@
+domain Diwali_Celebration{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   diya : object ;
+   rangoli : object ;
+   meal : object ;
+   event_area : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+diya-x(diya,xpos) : { non-fluent , bool , default=false } ;
+diya-y(diya,ypos) : { non-fluent , bool , default=false } ;
+rangoli-x(rangoli,xpos) : { non-fluent , bool , default=false } ;
+rangoli-y(rangoli,ypos) : { non-fluent , bool , default=false } ;
+meal-x(meal,xpos) : { non-fluent , bool , default=false } ;
+meal-y(meal,ypos) : { non-fluent , bool , default=false } ;
+event_area-x(event_area,xpos) : { non-fluent , bool , default=false } ;
+event_area-y(event_area,ypos) : { non-fluent , bool , default=false } ;
+tasks_completed : { state-fluent , int , default=0 } ;
+is_diya_placed : { state-fluent , bool , default=false } ;
+is_rangoli_placed : { state-fluent , bool , default=false } ;
+is_meal_ready : { state-fluent , bool , default=false } ;
+complete_task-player-diya(player,diya) : { action-fluent , bool , default=false } ;
+complete_task-player-rangoli(player,rangoli) : { action-fluent , bool , default=false } ;
+complete_task-player-meal(player,meal) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+tasks_completed' = if (exists_{?player:player, ?diya:meal} [ complete_task-player-meal(?player, ?diya) & tasks_completed < 3 & exists_{?x:xpos} [player-x(?player, ?x) & meal-x(?diya, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & meal-y(?diya, ?y)] & ~is_diya_placed ] )  then tasks_completed + 1
+ else if (exists_{?player:player, ?rangoli:meal} [ complete_task-player-meal(?player, ?rangoli) & tasks_completed < 3 & exists_{?x:xpos} [player-x(?player, ?x) & meal-x(?rangoli, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & meal-y(?rangoli, ?y)] & ~is_rangoli_placed ] )  then tasks_completed + 1
+ else if (exists_{?player:player, ?meal:meal} [ complete_task-player-meal(?player, ?meal) & tasks_completed < 3 & exists_{?x:xpos} [player-x(?player, ?x) & meal-x(?meal, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & meal-y(?meal, ?y)] & ~is_meal_ready ] )  then tasks_completed + 1
+ else tasks_completed
+;
+
+is_diya_placed' = if (exists_{?player:player, ?diya:meal} [ complete_task-player-meal(?player, ?diya) & tasks_completed < 3 & exists_{?x:xpos} [player-x(?player, ?x) & meal-x(?diya, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & meal-y(?diya, ?y)] & ~is_diya_placed ] )  then true
+ else is_diya_placed
+;
+
+is_rangoli_placed' = if (exists_{?player:player, ?rangoli:meal} [ complete_task-player-meal(?player, ?rangoli) & tasks_completed < 3 & exists_{?x:xpos} [player-x(?player, ?x) & meal-x(?rangoli, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & meal-y(?rangoli, ?y)] & ~is_rangoli_placed ] )  then true
+ else is_rangoli_placed
+;
+
+is_meal_ready' = if (exists_{?player:player, ?meal:meal} [ complete_task-player-meal(?player, ?meal) & tasks_completed < 3 & exists_{?x:xpos} [player-x(?player, ?x) & meal-x(?meal, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & meal-y(?meal, ?y)] & ~is_meal_ready ] )  then true
+ else is_meal_ready
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = tasks_completed;
+
+// max_reward = 3.0
+
+termination{
+tasks_completed == 3;
+};
+}

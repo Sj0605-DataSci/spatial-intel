@@ -1,0 +1,47 @@
+{
+  "0": {
+    "base": "MoveUp",
+    "target": null,
+    "control": "W"
+  },
+  "1": {
+    "base": "MoveDown",
+    "target": null,
+    "control": "S"
+  },
+  "2": {
+    "base": "MoveLeft",
+    "target": null,
+    "control": "A"
+  },
+  "3": {
+    "base": "MoveRight",
+    "target": null,
+    "control": "D"
+  },
+  "4": {
+    "base": "TreatPatient",
+    "target": "patient_1",
+    "control": "Space"
+  },
+  "5": {
+    "base": "TreatPatient",
+    "target": "patient_2",
+    "control": "Space"
+  },
+  "6": {
+    "base": "RestockResources",
+    "target": "supply_room",
+    "control": "Space"
+  },
+  "7": {
+    "base": "CoordinateStaff",
+    "target": "doctor",
+    "control": "Space"
+  },
+  "8": {
+    "base": "CoordinateStaff",
+    "target": "nurse",
+    "control": "Space"
+  }
+}

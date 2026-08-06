@@ -1,0 +1,1019 @@
+Error occurred while evaluating the game in YAML format. Traceback: Traceback (most recent call last):
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\eval.py", line 247, in _run_fitness
+    self.yaml_converter.convert_to_rmdp(self.curr_yaml_game)
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\yaml_to_rddl_with_p.py", line 203, in convert_to_rmdp
+    self.parsed_data = self.yaml_parser.parse_yaml(yaml_text)
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\gameRMDPparser.py", line 146, in parse_yaml
+    self.parsed_data["state_of_objects"] = self._parse_state_of_objects()
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\gameRMDPparser.py", line 222, in _parse_state_of_objects
+    name = self.check_section_name("state of objects")
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\gameRMDPparser.py", line 174, in check_section_name
+    raise Exception(f"Section {name} not found in the yaml file")
+Exception: Section state of objects not found in the yaml file
+Error message: Section state of objects not found in the yaml fileYAML file made from JSON output which threw the error: topic: Wildlife
+objective: Players rescue endangered animals and restore ecosystems by solving puzzles
+  and engaging with local communities.
+environment_description: Diverse ecosystems including rainforests, savannahs, and
+  oceans, with unique flora and fauna illustrating biodiversity challenges.
+domain:
+- name: player1
+  image_prompt: A young wildlife conservationist wearing practical outdoor gear with
+    a notebook and binoculars, showing a determined expression.
+- name: elephant_companion
+  image_prompt: A curious young elephant with large, expressive eyes, exuding friendliness.
+- name: tiger
+  image_prompt: A majestic tiger in a natural setting, emphasizing its beauty and
+    vulnerability.
+- name: panda
+  image_prompt: A gentle panda nestled among bamboo, representing conservation targets.
+- name: rainforest
+  image_prompt: Lush rainforest setting filled with diverse plants and animals, illustrating
+    the ecosystem's richness.
+- name: savannah
+  image_prompt: Sprawling savannah with grasses and trees, highlighting the habitat
+    of unique wildlife.
+- name: ocean
+  image_prompt: Vibrant ocean scene with coral reefs, fish, and sea turtles, showcasing
+    marine biodiversity.
+classes:
+- class_name: player
+  list_of_objects:
+  - player1
+  isMovable: true
+- class_name: companion
+  list_of_objects:
+  - elephant_companion
+  isMovable: false
+- class_name: creature
+  list_of_objects:
+  - tiger
+  - panda
+  isMovable: false
+- class_name: habitat
+  list_of_objects:
+  - rainforest
+  - savannah
+  - ocean
+  isMovable: false
+state_variables:
+- name: animals_rescued
+  type: integer
+- name: habitat_restored
+  type: integer
+- name: is_rescued
+  type: boolean
+- name: is_restored
+  type: boolean
+actions:
+- name: Rescue(?player, ?creature)
+- name: Restore(?player, ?habitat)
+transitions:
+- action: Rescue(?player, ?creature)
+  preconditions:
+  - animals_rescued < 2
+  - ?player.x == ?creature.x
+  - ?player.y == ?creature.y
+  - NOT is_rescued(?creature)
+  effects:
+  - animals_rescued = animals_rescued + 1
+  - is_rescued(?creature) = true
+  side_effects:
+  - ShowText(true, 'Animal rescued successfully!')
+- action: Restore(?player, ?habitat)
+  preconditions:
+  - habitat_restored < 3
+  - ?player.x == ?habitat.x
+  - ?player.y == ?habitat.y
+  - NOT is_restored(?habitat)
+  effects:
+  - habitat_restored = habitat_restored + 1
+  - is_restored(?habitat) = true
+  side_effects:
+  - ShowText(true, 'Ecosystem restored!')
+goal: animals_rescued == 2 AND habitat_restored == 3
+reward: animals_rescued + habitat_restored * 2
+max_reward: 8
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: player1
+  x: '1'
+  y: '1'
+- domain_object: elephant_companion
+  x: '2'
+  y: '2'
+- domain_object: tiger
+  x: '3'
+  y: '3'
+- domain_object: panda
+  x: '4'
+  y: '4'
+- domain_object: rainforest
+  x: '2'
+  y: '4'
+- domain_object: savannah
+  x: '3'
+  y: '2'
+- domain_object: ocean
+  x: '4'
+  y: '3'
+initial_state_variables:
+- name: animals_rescued
+  value: 0
+- name: habitat_restored
+  value: 0
+- name: is_rescued(tiger)
+  value: false
+- name: is_rescued(panda)
+  value: false
+- name: is_restored(rainforest)
+  value: false
+- name: is_restored(savannah)
+  value: false
+- name: is_restored(ocean)
+  value: false
+try to think of approaches to fix the error and output the correct game. make sure to follow the json schema mentioned earlier.Some common mistakes are 
+            1. ensure you use the class name correctly throughout the game. for eg: if the classname is "Box", then dont use "Boxes" or similiar. 
+            2. do not use domain names in preconditions, actions, goal or reward. for eg:
+                goal: numberPatientsTreated == 3  &  isTreated(patient1, pills1)  &  isTreated(patient2, bandage1)  &  isTreated(patient3, syringe1);
+                here patient1 is a domain object and should not be used in goal. use only class names, for eg patient in above example.
+                precondition: NOT artifacts_collected(?explorer_avatar)
+                here explorer_avatar is a domain object and should not be used in precondition. use only class names, for eg explorer in above example.
+            3. do not use class names in preconditions that are not defined in action arguments.
+                for eg: action = Match(class1, class2)
+                                precondition: NOT isTreated(class3)
+                                effect: isTreated(class3) = true 
+                                here class3 is not defined in action arguments, so should not be used in precondition.
+                        one possible fix is to add a new state variable numTreatedclass3
+                                precondition : true
+                                effect : numTreatedclass3 = numTreatedclass3 + 1
+                        or another fix is to remove this transition and replace with a correct one.
+            4. Give me output in JSON format only. Do not add any extra text or explanation outside the JSON.
+            5. CRITICAL: The goal and reward MUST use ONLY integer state variables (e.g., total_points == 5, number_items_collected == 3).
+               NEVER use boolean predicates with arguments in the goal or reward (e.g., is_at_landmark(Player, Landmark) is WRONG).
+               If you need to track something like "player reached a landmark", create an integer counter variable (e.g., landmarks_visited)
+               and increment it in the transition effect, then use that integer in the goal (e.g., landmarks_visited == 1).
+            6. Only the player/avatar class should have isMovable=true. All other classes MUST be isMovable=false.
+            7. max_reward must be a single integer value, not an expression.
+            8. side_effects must be a list of strings like "ShowText(true, 'text')", NOT dictionaries.
+            9. CRITICAL: Only ONE class should have isMovable=true (the player/avatar). All other classes must be isMovable=false.
+            10. CRITICAL: Every action that increments a counter MUST have a boolean guard (NOT is_done(?obj)) and set the guard (is_done(?obj) = true) in its effects. Without guards, counters overshoot == goals making the game unsolvable.
+            11. CRITICAL: Transition action arguments MUST use exact class names. If the action is defined as PerformTask(festival_participants, festival_items), the transition MUST say action: PerformTask(?festival_participants, ?festival_items). Using shortened names like ?participant or ?item will cause RDDL compilation errors.
+            12. The movable class must have exactly 1 instance (the player avatar). Multiple movable instances cause action space explosion and unsolvable games.
+            13. Do NOT use domain object names (like family_member_1, bonfire) in preconditions. Use class-typed variables instead.
+            14. COUNTER REACHABILITY: If counter starts at S and goal requires counter == T, the game must allow exactly (T-S) increments. Do NOT use a single global boolean guard on a counter needing multiple increments. Use precondition 'counter < T' instead, OR use per-object boolean guards where the class has exactly (T-S) objects.
+            15. OVERSHOOT PREVENTION: Precondition upper bound must exactly match goal value. If goal is 'score == 10', precondition must be 'score < 10', NOT 'score < 15'.
+        try to pinpoint the mistake in game and then fix itHere is the code for YAML to RDDL conversion which might help you debug the issue:
+import sys
+from gameRMDPparser import GameRMDPParser 
+from pathlib import Path
+import re
+
+
+
+class PVAR:
+    def __init__(self, name, args, info):
+        self.name = name
+        self.args = args
+        self.fluent_type = info[0]
+        self.type = info[1]
+        self.default = info[2]
+    
+    def __str__(self):
+        if (len(self.args) > 0): 
+            return f"{self.name}({','.join(self.args)}) : {{ {self.fluent_type} , {self.type} , {self.default} }}"
+        else:
+            return f"{self.name} : {{ {self.fluent_type} , {self.type} , {self.default} }}"
+
+
+class Branch:
+    def __init__(self):
+        self.conds = [] 
+        self.rhs = None
+        self.exist_str = None
+    
+    def _set_rhs(self, rhs):
+        self.rhs = rhs 
+    
+    def _set_exist_str(self, exist_str):
+        self.exist_str = exist_str
+
+    def _add_cond(self, conds): 
+        '''
+            conds is a list of cond
+            cond is a list:
+                if pvar then cond = [pvar_name, arg1, arg2, ...] where arg1 etc are indexes in args of pvar
+                if exist_str then cond = [exist_str]
+        '''
+        self.conds.extend(conds) 
+    
+    def _process_cond(self, cpfs):
+        ret = [] 
+        # print("pvar is ", cpfs.pvar) 
+        # print("args is ", cpfs.args) 
+        try:
+            for cond in self.conds:
+                '''
+                    this function is needed to convert the cond to a string
+                    if cond is of form [pvar_name, arg1, arg2, ...] then convert it to pvar_name(?arg1, ?arg2, ...)
+                    arg1 etc are indexes, mapped to strs using cpfs.args
+                '''
+                to_add = cond[0] 
+                if (len(cond) > 1):
+                    to_add += "( "
+                    for i in range(1, len(cond)):
+                        to_add += f"?{cpfs.args[cond[i]]}, "
+                    to_add = to_add[:-2]
+                    to_add += ") " 
+
+                ret.append(to_add) 
+        except:
+            print("conds is ", self.conds) 
+            exit(1) 
+        self.conds = ret 
+    
+    def __str__(self):
+        ret = f"if ("
+        if (len(self.conds) > 0):
+            if (self.exist_str != None):
+                ret += f"{self.exist_str}[ "
+            cond_str = " & ".join(self.conds) 
+            ret += f"{cond_str} "
+            if (self.exist_str != None):
+                ret += "] "
+            ret += ") "
+            ret += f" then {self.rhs}"
+            return ret
+        else:
+            return f"{self.rhs}"
+        
+
+class CPFS:
+    def __init__(self, pvar):
+        self.pvar = pvar 
+        self.branches = [] 
+        if ("(" in self.pvar):
+            self.args = self.pvar.split("(")[1].split(")")[0].split(",") 
+            self.args = [arg.strip() for arg in self.args]
+            self.pvar = self.pvar.split("(")[0]
+        else:
+            self.args = []
+    
+    def _add_branch(self, branch):
+        branch._process_cond(self) 
+        self.branches.append(branch)  
+    
+    def __str__(self):
+        pvar = self.pvar + "'"
+        
+        # replace args with ?args
+        for i in range(len(self.args)):
+            self.args[i] = f"?{self.args[i]}"
+        
+        if (len(self.args) > 0):
+            pvar += "(" + ",".join(self.args) + ")"
+
+        ret = f"{pvar} = "
+        ret += str(self.branches[0]) + "\n"
+        for branch in self.branches[1:]:
+            ret += f" else {str(branch)}" + "\n"
+        ret += ";\n" 
+        return ret
+    
+
+
+class YAML_to_RDDL:
+    '''
+        converts a yaml file to a rddl file for use by planner 
+    '''
+    def __init__(self):
+        self.yaml_parser = GameRMDPParser() 
+        print("yaml_to_rddl init") 
+
+    def _make_state_variables_unique(self):
+        import re
+        defined_bases = set()
+        
+        # Track bases of state variables
+        for sv in self.parsed_data.get("state_variables", []):
+            if "(" in sv:
+                defined_bases.add(sv.split("(")[0].strip())
+            else:
+                defined_bases.add(sv.strip())
+
+        # 1. Update state_variables dictionary
+        new_sv = {}
+        for sv, val in self.parsed_data.get("state_variables", {}).items():
+            if "(" in sv:
+                base = sv.split("(")[0].strip()
+                args = [a.strip() for a in sv.split("(")[1].split(")")[0].split(",")]
+                # e.g., is_collected -> is_collected_scripture
+                new_base = f"{base}_{'_'.join([a.lower() for a in args])}"
+                new_sv[f"{new_base}({', '.join(args)})"] = val
+            else:
+                new_sv[sv] = val
+        self.parsed_data["state_variables"] = new_sv
+
+        def rename_in_string(s):
+            if not isinstance(s, str): return s
+            matches = re.finditer(r'([a-zA-Z0-9_]+)\(([a-zA-Z0-9_\?,\s]+)\)', s)
+            out = s
+            for m in matches:
+                full = m.group(0)
+                base = m.group(1)
+                
+                # Only modify if it is a known overloaded state variable
+                if base not in defined_bases:
+                    continue
+                    
+                args_str = m.group(2)
+                args = [a.strip() for a in args_str.split(",")]
+                
+                arg_classes = []
+                for a in args:
+                    clean_a = a.replace('?', '').lower()
+                    found_class = False
+                    for c_name, c_info in self.parsed_data.get("classes", {}).items():
+                        if clean_a in [ins.lower() for ins in c_info.get("instances", [])]:
+                            arg_classes.append(c_name.lower())
+                            found_class = True
+                            break
+                    if not found_class:
+                        # Fallback: assume the variable name matches the class name
+                        arg_classes.append(clean_a)
+                
+                new_base = f"{base}_{'_'.join(arg_classes)}"
+                out = out.replace(full, f"{new_base}({args_str})")
+            return out
+
+        # 2. Update initial_state_variables
+        new_init = {}
+        for sv, val in self.parsed_data.get("initial_state_variables", {}).items():
+            new_init[rename_in_string(sv)] = val
+        self.parsed_data["initial_state_variables"] = new_init
+
+        # 3. Update transitions
+        for t in self.parsed_data.get("transitions", []):
+            if "preconditions" in t:
+                t["preconditions"] = [rename_in_string(p) for p in t["preconditions"]]
+            if "effects" in t:
+                t["effects"] = [rename_in_string(e) for e in t["effects"]]
+                
+        # 4. Update goal and reward
+        if "goal" in self.parsed_data:
+            self.parsed_data["goal"] = rename_in_string(self.parsed_data["goal"])
+        if "reward" in self.parsed_data:
+            self.parsed_data["reward"] = rename_in_string(self.parsed_data["reward"])
+    
+    def convert_to_rmdp(self, yaml_text):
+        self.parsed_data = self.yaml_parser.parse_yaml(yaml_text)
+        self._make_state_variables_unique()
+
+        # Build domain-object-to-class mapping for resolving object references
+        # e.g. "family_member_1" -> "festival_participants"
+        self.obj_to_class = {}
+        for clss, val in self.parsed_data.get("classes", {}).items():
+            for inst in val.get("instances", []):
+                self.obj_to_class[inst.lower()] = clss.lower()
+
+        self.name = self.parsed_data["topic"] 
+        # handle whitespaces etc in name
+        self.name = self.name.replace(" ", "_")
+        self.name = self.name.replace("-", "_")
+        self.name = self.name.replace(":", "_")
+
+        self.types = self.get_types()
+        self.pvars = self.get_pvariables()
+
+        for pvar in self.pvars:
+            try:
+                pass
+            except:
+                print(pvar.name)
+                print(pvar.args)
+                exit(-1)
+                
+        self.cpfs = self.get_cpfs()
+        self.reward = self.get_reward()
+        self.termination = self.get_termination()
+        self.max_reward = float(self.parsed_data["max_reward"])
+
+        x_size, y_size = self.get_grid_size()
+        self.x_size = x_size
+        self.y_size = y_size
+
+        self.non_fluents = self.get_non_fluents()
+        self.init_state = self.get_init_state()
+
+        
+    def render_domain(self):
+        self.domain = f"domain {self.name}{{ \n\n"
+        self.domain += """requirements = {
+        concurrent,           
+        reward-deterministic 
+    };\n\n"""
+        
+        self.domain += "types {\n"
+        for typ in self.types:
+            self.domain += f"   {typ} : object ;\n"
+        self.domain += "};\n\n"
+
+        self.domain += "pvariables {\n"
+        for pvar in self.pvars:
+            self.domain += f"{pvar} ;\n"
+        self.domain += "};\n\n"
+
+        self.domain += "cpfs {\n"
+        for cpf in self.cpfs:
+            self.domain += str(cpf) + "\n"
+        self.domain += "};\n\n"
+
+        self.domain += "action-preconditions {\n"
+        preconds = self.get_action_preconditions()
+        for precond in preconds:
+            self.domain += precond + "\n"
+        self.domain += "};\n\n"
+
+        self.domain += "reward = " + self.reward + ";\n\n"
+        # adding in form of a comment since it is not supported in rddl
+        self.domain += "// max_reward = " + str(self.max_reward) + "\n\n"
+        self.domain += "termination{\n" + self.termination + ";\n};\n"
+
+        self.domain += "}\n"
+        return self.domain 
+
+      
+    def get_types(self):
+        return ["xpos", "ypos"] + list(self.parsed_data["classes"].keys())   
+    
+    def get_pvariables(self):
+        pvars = []
+        pvar = PVAR("ADJACENT-LEFT", ["xpos", "xpos"], ["non-fluent", "bool", "default=false"])
+        pvars.append(pvar) 
+        pvar = PVAR("ADJACENT-RIGHT", ["xpos", "xpos"], ["non-fluent", "bool", "default=false"])
+        pvars.append(pvar)
+        pvar = PVAR("ADJACENT-UP", ["ypos", "ypos"], ["non-fluent", "bool", "default=false"])
+        pvars.append(pvar)
+        pvar = PVAR("ADJACENT-DOWN", ["ypos", "ypos"], ["non-fluent", "bool", "default=false"])
+        pvars.append(pvar)
+
+        for clss,val in self.parsed_data["classes"].items():
+            if (val["isMovable"]):
+                dirs = ["left", "right", "up", "down"]
+                for dir in dirs:
+                    pvar = PVAR(f"move-{dir}-{clss}", [clss], ["action-fluent", "bool", "default=false"])
+                    pvars.append(pvar)
+                
+                pvar = PVAR(f"has-moved-{clss}", [clss], ["state-fluent", "bool", "default=false"])
+                pvars.append(pvar)
+
+                pvar = PVAR(f"{clss}-x", [clss, "xpos"], ["state-fluent", "bool", "default=false"])
+                pvars.append(pvar)
+                pvar = PVAR(f"{clss}-y", [clss, "ypos"], ["state-fluent", "bool", "default=false"])
+                pvars.append(pvar)
+            else:
+                pvar = PVAR(f"{clss}-x", [clss, "xpos"], ["non-fluent", "bool", "default=false"])
+                pvars.append(pvar)
+                pvar = PVAR(f"{clss}-y", [clss, "ypos"], ["non-fluent", "bool", "default=false"])
+                pvars.append(pvar) 
+
+        # state fluents
+        for sv, val in self.parsed_data["state_variables"].items():
+            typ = val["type"].lower()
+            if (typ == "bool" or typ == "boolean"):
+                if ("(" in sv):
+                    args = sv.split("(")[1].split(")")[0].split(",") 
+                    sv_name = sv.split("(")[0] 
+                    args = [arg.strip() for arg in args]
+                    pvar = PVAR(sv_name, args, ["state-fluent", "bool", f"default=false"])
+                else:
+                    pvar = PVAR(sv, [], ["state-fluent", "bool", f"default=false"])
+            elif ("int" in typ or "integer" in typ):
+                pvar = PVAR(sv, [], ["state-fluent", "int", f"default=0"])
+            pvars.append(pvar)
+        
+        # Action fluents (Dynamic)
+        for action in self.parsed_data.get("actions", []):
+            if "(" not in action: continue
+            args = action.split("(")[1].split(")")[0].split(",")
+            args = [arg.strip().replace('?', '') for arg in args if arg.strip()]
+            action_name = action.split("(")[0].strip()
+            
+            if action_name.lower().startswith("move"):
+                continue
+
+            # Treat Match, Tap, Deposit etc natively as action-fluents
+            pvar_base_name = "-".join([action_name] + args)
+            pvar = PVAR(pvar_base_name, args, ["action-fluent", "bool", "default=false"])
+            pvars.append(pvar)
+        
+        return pvars
+
+    def get_cpfs(self):
+        cpfss = [] 
+        for clss,val in self.parsed_data["classes"].items():
+            if (val["isMovable"]):
+                cpfs = CPFS(f"{clss}-x({clss}, xpos)") 
+                branch = Branch()
+                branch._add_cond( [ [f"move-left-{clss}", 0], [f"{clss}-x", 0, 1], ["~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)]"] ])
+                branch._set_rhs("true") 
+                cpfs._add_branch(branch)
+
+                branch = Branch() 
+                branch._add_cond([[f"move-left-{clss}", 0], [f"exists_{{?x2:xpos}}[{clss}-x(?{clss}, ?x2) & ADJACENT-LEFT(?x2, ?xpos)]"] ])
+                branch._set_rhs("true")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond([[f"move-left-{clss}", 0], [f"~exists_{{?x2:xpos}}[{clss}-x(?{clss}, ?x2) & ADJACENT-LEFT(?x2, ?xpos)]"] ])
+                branch._set_rhs("false")
+                cpfs._add_branch(branch)    
+
+                branch = Branch()
+                branch._add_cond( [ [f"move-right-{clss}", 0], [f"{clss}-x", 0, 1], ["~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)]"] ])
+                branch._set_rhs("true")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond([[f"move-right-{clss}", 0], [f"exists_{{?x2:xpos}}[{clss}-x(?{clss}, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)]"] ])
+                branch._set_rhs("true")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond([[f"move-right-{clss}", 0], [f"~exists_{{?x2:xpos}}[{clss}-x(?{clss}, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)]"] ])
+                branch._set_rhs("false")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._set_rhs(f"{clss}-x(?{clss}, ?xpos)")
+                cpfs._add_branch(branch)
+                cpfss.append(cpfs)
+                
+                # y dir
+                cpfs = CPFS(f"{clss}-y({clss}, ypos)") 
+                branch = Branch()
+                branch._add_cond( [ [f"move-up-{clss}", 0], [f"{clss}-y", 0, 1], ["~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)]"] ])
+                branch._set_rhs("true") 
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond([[f"move-up-{clss}", 0], [f"exists_{{?y2:ypos}}[{clss}-y(?{clss}, ?y2) & ADJACENT-UP(?y2, ?ypos)]"] ])
+                branch._set_rhs("true")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond([[f"move-up-{clss}", 0], [f"~exists_{{?y2:ypos}}[{clss}-y(?{clss}, ?y2) & ADJACENT-UP(?y2, ?ypos)]"] ])
+                branch._set_rhs("false")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond( [ [f"move-down-{clss}", 0], [f"{clss}-y", 0, 1], ["~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)]"] ])
+                branch._set_rhs("true")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond([[f"move-down-{clss}", 0], [f"exists_{{?y2:ypos}}[{clss}-y(?{clss}, ?y2) & ADJACENT-DOWN(?y2, ?ypos)]"] ])
+                branch._set_rhs("true")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._add_cond([[f"move-down-{clss}", 0], [f"~exists_{{?y2:ypos}}[{clss}-y(?{clss}, ?y2) & ADJACENT-DOWN(?y2, ?ypos)]"] ])
+                branch._set_rhs("false")
+                cpfs._add_branch(branch)
+
+                branch = Branch()
+                branch._set_rhs(f"{clss}-y(?{clss}, ?ypos)")
+                cpfs._add_branch(branch)
+                cpfss.append(cpfs)
+
+                # has moved action fluent
+                cpfs = CPFS(f"has-moved-{clss}({clss})") 
+                branch = Branch()
+                branch._set_rhs(f"move-left-{clss}(?{clss}) | move-right-{clss}(?{clss}) | move-up-{clss}(?{clss}) | move-down-{clss}(?{clss})") 
+                cpfs._add_branch(branch)
+                cpfss.append(cpfs)
+
+       
+
+        
+        sv_cpfs = dict()
+        for sv, val in self.parsed_data["state_variables"].items():
+            cpfs = CPFS(sv)
+            sv_cpfs[sv] = cpfs
+
+        # Build base-name lookup for state variables with arguments.
+        # sv_cpfs keys use type names: "is_collected_clue(Clue)"
+        # but transition effects use ?variables: "is_collected_clue(?clue)"
+        # This mapping lets us match by base name when the full key doesn't match.
+        sv_base_to_key = {}
+        for key in sv_cpfs:
+            base = key.split("(")[0] if "(" in key else key
+            sv_base_to_key[base] = key
+
+        # Build action signature lookup from the "actions" list so we can
+        # resolve transition argument names (which may be abstract like
+        # "participant") back to their canonical class-typed names (like
+        # "festival_participants").
+        action_signatures = {}
+        for action in self.parsed_data.get("actions", []):
+            if "(" not in action: continue
+            a_name = action.split("(")[0].strip()
+            a_args = action.split("(")[1].split(")")[0].split(",")
+            a_args = [arg.strip().replace('?', '') for arg in a_args if arg.strip()]
+            action_signatures[a_name.lower()] = a_args
+
+        # prepare the condition. then for each effect, add the condition and effect to corresponding cpfs
+        for transition in self.parsed_data.get("transitions", []):
+            precond = []
+            if ("(" not in transition["action"]):
+                continue
+            action_args = transition["action"].split("(")[1].split(")")[0].split(",")
+            action_args = [action_arg.strip().replace('?', '') for action_arg in action_args]
+            action_name = transition["action"].split("(")[0].strip()
+
+            if action_name.lower().startswith("move"):
+                continue
+
+            # Resolve transition args to canonical class names from actions list
+            canonical_args = action_signatures.get(action_name.lower(), action_args)
+            # Build mapping: transition_arg -> canonical_class_type
+            arg_to_class = {}
+            for i, t_arg in enumerate(action_args):
+                if i < len(canonical_args):
+                    arg_to_class[t_arg.lower()] = canonical_args[i].lower()
+
+            # Use canonical args for the PVAR name (must match the action fluent definition)
+            pvar_base_name = "-".join([action_name] + [a.lower() for a in canonical_args])
+            pre = f"{pvar_base_name}" # Action fluent, no prime (') required
+
+            to_add_action_args = ["?"+arg.lower() for arg in action_args]
+            arg_str = "(" + ", ".join(to_add_action_args) + ")"
+            action_cond = pre + arg_str
+            precond.append([action_cond])
+
+            probability = transition.get("probability", None)
+            is_redundant = False
+
+            for prec in transition["preconditions"]:
+                if (type(prec) == bool):
+                    if (prec == True): continue
+                    elif (prec == False):
+                        is_redundant = True
+                        break
+                if (prec == None): continue
+                if (prec.lower() == "true"): continue
+                elif (prec.lower() == "false"):
+                    is_redundant = True
+                    break
+                
+                prec = self.modify_prec(prec, arg_to_class)
+                precond.append([prec])
+            
+            if (is_redundant): continue
+
+            for effect in transition["effects"]:
+                if (effect is None): continue
+                if ("=" not in effect): continue
+                state_var = effect.split("=")[0].strip() 
+                update = effect.split("=")[1].strip() 
+                
+                if ("(" in state_var):
+                    state_var_args = state_var.split("(")[1].split(")")[0].split(",")
+                    state_var_args = [arg.strip().lower() for arg in state_var_args]
+                else:
+                    state_var_args = []
+                
+                # Strip ? prefix from state_var_args for comparison, since
+                # action_args already have ? stripped (e.g., "clue" vs "?clue")
+                state_var_args_clean = [a.replace('?', '') for a in state_var_args]
+                missing_args = []
+                for arg in action_args:
+                    if (arg.lower() not in state_var_args_clean):
+                        missing_args.append(arg.lower())
+                
+                if (len(missing_args) > 0):
+                    exist_str = "exists_{"
+                    for arg in missing_args:
+                        # Use canonical class type for RDDL quantifier
+                        arg_type = arg_to_class.get(arg, arg)
+                        exist_str += f"?{arg}:{arg_type}, "
+                    exist_str = exist_str[:-2] + "} "
+                else :
+                    exist_str = None
+
+                if probability is not None:
+                    try:
+                        prob_val = float(probability)
+                        if prob_val < 1.0:
+                            old_val_str = state_var
+                            if "(" in old_val_str:
+                                args_list = ["?" + arg for arg in state_var_args]
+                                old_val_str = old_val_str.split("(")[0] + "(" + ", ".join(args_list) + ")"
+                            
+                            if update.lower() == "true":
+                                update = f"(Bernoulli({prob_val}) | {old_val_str})"
+                            elif update.lower() == "false":
+                                stay_true_prob = round(1.0 - prob_val, 4)
+                                update = f"(Bernoulli({stay_true_prob}) & {old_val_str})"
+                    except ValueError:
+                        pass
+
+                # Look up CPF: try exact match first, then fall back to base-name match
+                # (handles "is_collected_clue(?clue)" matching "is_collected_clue(Clue)")
+                sv_base = state_var.split("(")[0] if "(" in state_var else state_var
+                matched_key = state_var if state_var in sv_cpfs else sv_base_to_key.get(sv_base)
+                if matched_key and matched_key in sv_cpfs:
+                    cpfs = sv_cpfs[matched_key]
+                    branch = Branch()
+                    branch._set_exist_str(exist_str)
+                    branch._add_cond(precond)
+                    branch._set_rhs(update)
+                    cpfs._add_branch(branch)
+        
+        for key,val in sv_cpfs.items():
+            branch = Branch()
+            if ("(" in key):
+                args = key.split("(")[1].split(")")[0].split(",") 
+                args = ["?"+arg.strip().lower() for arg in args]
+                key = key.split("(")[0] + "(" + ",".join(args) + ")"
+            branch._set_rhs(key)
+            val._add_branch(branch)
+            cpfss.append(val)   
+            
+        return cpfss
+    
+    def _make_rddl_var(self, original, raw_name):
+        """Return the RDDL variable reference for a name.
+
+        If the original YAML text uses a ? prefix (e.g., ?eco_engineer), it is
+        always treated as a typed variable even if a domain object with the same
+        name exists.  Only bare names (no ? prefix) that match a known domain
+        object are treated as concrete instance references.
+        """
+        if original.startswith('?'):
+            # Explicitly marked as a variable in the YAML — keep ? prefix
+            return f"?{raw_name}"
+        if raw_name in self.obj_to_class:
+            # Bare domain object reference — no ? prefix
+            return raw_name
+        # Unknown bare name — treat as variable
+        return f"?{raw_name}"
+
+    def _resolve_class(self, name, arg_to_class):
+        """Resolve a name to its canonical class type.
+
+        Checks: arg_to_class mapping first, then domain-object-to-class mapping,
+        then falls back to the name itself.
+        """
+        lower = name.lower()
+        if lower in arg_to_class:
+            return arg_to_class[lower]
+        if lower in self.obj_to_class:
+            return self.obj_to_class[lower]
+        return lower
+
+    def modify_prec(self, prec, arg_to_class=None):
+        if arg_to_class is None:
+            arg_to_class = {}
+        prec = prec.replace("NOT ", "~")
+        prec = prec.replace(" AND ", " & ")
+
+        # Translate Object.x == Object.x syntax to RDDL 'exists' statements
+        match_x = re.search(r'([A-Za-z0-9_\?]+)\.x\s*==\s*([A-Za-z0-9_\?]+)\.x', prec)
+        if match_x:
+            a, b = match_x.groups()
+            a_raw, b_raw = a.replace('?', '').lower(), b.replace('?', '').lower()
+            a_class = self._resolve_class(a_raw, arg_to_class)
+            b_class = self._resolve_class(b_raw, arg_to_class)
+            # Domain objects (concrete instances) should NOT get ? prefix
+            a_var = self._make_rddl_var(a, a_raw)
+            b_var = self._make_rddl_var(b, b_raw)
+            prec = prec.replace(match_x.group(0), f"exists_{{?x:xpos}} [{a_class}-x({a_var}, ?x) & {b_class}-x({b_var}, ?x)]")
+
+        match_y = re.search(r'([A-Za-z0-9_\?]+)\.y\s*==\s*([A-Za-z0-9_\?]+)\.y', prec)
+        if match_y:
+            a, b = match_y.groups()
+            a_raw, b_raw = a.replace('?', '').lower(), b.replace('?', '').lower()
+            a_class = self._resolve_class(a_raw, arg_to_class)
+            b_class = self._resolve_class(b_raw, arg_to_class)
+            a_var = self._make_rddl_var(a, a_raw)
+            b_var = self._make_rddl_var(b, b_raw)
+            prec = prec.replace(match_y.group(0), f"exists_{{?y:ypos}} [{a_class}-y({a_var}, ?y) & {b_class}-y({b_var}, ?y)]")
+
+        return prec
+         
+    def _get_action_preconditions(self, clss):
+        preconds = []
+        precond = f"""forall_{{?{clss}:{clss}}}[
+            move-left-{clss}(?{clss}) => exists_{{?x1:xpos, ?x2:xpos}}[{clss}-x(?{clss}, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];"""
+        preconds.append(precond)
+
+        precond = f"""forall_{{?{clss}:{clss}}}[
+            move-right-{clss}(?{clss}) => exists_{{?x1:xpos, ?x2:xpos}}[{clss}-x(?{clss}, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];"""
+        preconds.append(precond)
+
+        precond = f"""forall_{{?{clss}:{clss}}}[
+            move-up-{clss}(?{clss}) => exists_{{?y1:ypos, ?y2:ypos}}[{clss}-y(?{clss}, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];"""
+        preconds.append(precond)
+
+        precond = f"""forall_{{?{clss}:{clss}}}[
+            move-down-{clss}(?{clss}) => exists_{{?y1:ypos, ?y2:ypos}}[{clss}-y(?{clss}, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];"""
+        preconds.append(precond)
+
+        return preconds
+        
+
+    def get_action_preconditions(self):
+        preconds = []
+        for clss in self.parsed_data["classes"]:
+            if (self.parsed_data["classes"][clss]["isMovable"]):
+                preconds.extend(self._get_action_preconditions(clss))
+        return preconds
+    
+    
+    def _quantify_predicates(self, expr):
+        """Find predicates with arguments in an expression and wrap them with
+        forall quantifiers so they are valid RDDL.
+
+        For example:
+            is_at_landmark_player_landmark(player, ?landmark)
+        becomes:
+            forall_{?player:player, ?landmark:landmark} [is_at_landmark_player_landmark(?player, ?landmark)]
+        """
+        def _replace_pred(match):
+            full = match.group(0)
+            pred_name = match.group(1)
+            args_str = match.group(2)
+
+            # Skip if this looks like an arithmetic function or comparison
+            if pred_name in ('Bernoulli', 'abs', 'min', 'max', 'floor', 'ceil',
+                             'round', 'log', 'exp', 'pow', 'sqrt', 'if'):
+                return full
+
+            # Look up the state variable definition to find argument types
+            sv_info = None
+            for sv_key in self.parsed_data.get("state_variables", {}):
+                if "(" in sv_key and sv_key.split("(")[0] == pred_name:
+                    sv_info = sv_key
+                    break
+
+            if sv_info is None:
+                return full  # Not a known state-variable predicate, leave as-is
+
+            # Get the declared argument types from the state variable definition
+            sv_type_args = sv_info.split("(")[1].split(")")[0].split(",")
+            sv_type_args = [a.strip() for a in sv_type_args]
+
+            args = [a.strip() for a in args_str.split(',')]
+
+            quant_vars = []
+            new_args = []
+            for i, arg in enumerate(args):
+                clean = arg.replace('?', '').strip()
+                # Determine the RDDL type for this argument
+                if i < len(sv_type_args):
+                    arg_type = sv_type_args[i]
+                else:
+                    arg_type = clean
+                var_name = f"?{clean}"
+                quant_vars.append(f"{var_name}:{arg_type}")
+                new_args.append(var_name)
+
+            new_pred = f"{pred_name}({', '.join(new_args)})"
+            if quant_vars:
+                return f"forall_{{{', '.join(quant_vars)}}} [{new_pred}]"
+            return new_pred
+
+        # Match predicate calls: word(args) — but not things like == or arithmetic
+        return re.sub(r'([a-zA-Z_][a-zA-Z0-9_]*)\(([^)]+)\)', _replace_pred, expr)
+
+    def get_termination(self):
+        goal = self.parsed_data["goal"]
+        goal = goal.replace("NOT ", " ~")
+        goal = goal.replace("AND", " & ")
+        goal = goal.replace("OR", " | ")
+        goal = self._quantify_predicates(goal)
+        return goal
+
+    def get_reward(self):
+        reward = self.parsed_data["reward"]
+        reward = reward.replace("NOT ", " ~")
+        reward = reward.replace("AND", " & ")
+        reward = reward.replace("OR", " | ")
+        reward = self._quantify_predicates(reward)
+        return reward
+
+    def get_grid_size(self):
+        x_size = self.parsed_data["grid_size"]["x_size"]
+        y_size = self.parsed_data["grid_size"]["y_size"]
+        return x_size, y_size
+
+    def _get_obj_pos(self, clss, obj):
+        for key,val in self.parsed_data["initial_state_objects"].items():
+            if (key == obj):
+                x = val["position"]["x"]
+                y = val["position"]["y"]
+                # Add 'x' and 'y' prefixes to match the RDDL objects (e.g., x1, y2)
+                return f"{clss}-x({obj}, x{x})", f"{clss}-y({obj}, y{y})"
+
+    def get_non_fluents(self):
+        non_fluents = []
+        for i in range(1,self.x_size):
+            non_fluents.append(f"ADJACENT-LEFT(x{i+1}, x{i})")
+        for i in range(1,self.x_size):
+            non_fluents.append(f"ADJACENT-RIGHT(x{i}, x{i+1})")
+        
+        for i in range(1,self.y_size):
+            non_fluents.append(f"ADJACENT-UP(y{i+1}, y{i})")
+        for i in range(1,self.y_size):
+            non_fluents.append(f"ADJACENT-DOWN(y{i}, y{i+1})")
+
+        for clss in self.parsed_data["classes"]:
+            if (not self.parsed_data["classes"][clss]["isMovable"]):
+                objs = self.parsed_data["classes"][clss]["instances"]
+                for obj in objs:
+                    x,y = self._get_obj_pos(clss, obj)
+                    non_fluents.append(x)
+                    non_fluents.append(y)
+        
+        return non_fluents
+
+    def get_init_state(self):
+        init_state = [] 
+        for clss in self.parsed_data["classes"]:
+            if (self.parsed_data["classes"][clss]["isMovable"]):
+                objs = self.parsed_data["classes"][clss]["instances"]
+                for obj in objs:
+                    x,y = self._get_obj_pos(clss, obj)
+                    init_state.append(x)
+                    init_state.append(y)
+        
+        for key,val in self.parsed_data["initial_state_variables"].items():
+            if (type(val) == bool and val == True):
+                init_state.append(f"{key}")
+            elif (type(val) == bool and val == False):
+                init_state.append(f"~{key}")
+            else:
+                init_state.append(f"{key} = {val}")
+        
+        return init_state
+
+
+    def render_instance(self):
+        self.instance = f"instance {self.name} {{ \n\n"
+        self.instance += "\t domain = " + self.name + ";\n\n"
+        self.instance += "\t objects {\n"
+        
+        x_pos = [f"x{i}" for i in range(1, self.x_size+1)]
+        y_pos = [f"y{i}" for i in range(1, self.y_size+1)]
+        self.instance += "\t\t xpos : { " + ", ".join(x_pos) + " };\n"
+        self.instance += "\t\t ypos : { " + ", ".join(y_pos) + " };\n"
+        for clss in self.parsed_data["classes"]:
+            instances_str = "{ " + ", ".join(self.parsed_data["classes"][clss]["instances"]) + " };" 
+            self.instance += f"\t\t {clss} : {instances_str}\n"
+        self.instance += "\t };\n\n"
+
+        self.instance += "\t non-fluents {\n"
+        for nf in self.non_fluents:
+            self.instance += f"\t\t {nf};\n"
+        self.instance += "\t };\n\n"
+
+        self.instance += "\t init-state {\n"
+        for state in self.init_state:
+            self.instance += f"\t\t {state};\n" 
+        self.instance += "\t };\n\n"
+
+        self.instance += "max-nondef-actions = 1;\n"
+        self.instance += "horizon = 100;\n"
+        self.instance += "discount = 0.80 ;\n"
+
+        self.instance += "}\n"
+        return self.instance
+
+
+def write_file_with_directories(file_path, content):
+    path = Path(file_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, 'w') as f:
+        f.write(content)
+    
+
+if __name__ == "__main__":
+    yaml_file = sys.argv[1]
+    domain_path = sys.argv[2]
+    instance_path = sys.argv[3]
+    converter = YAML_to_RDDL()
+    with open(yaml_file, "r") as f:
+        yaml_text = f.read()
+        converter.convert_to_rmdp(yaml_text)
+
+    rddl_domain = converter.render_domain()
+    write_file_with_directories(domain_path, rddl_domain)
+
+    rddl_instance = converter.render_instance() 
+    write_file_with_directories(instance_path, rddl_instance)

@@ -1,0 +1,51 @@
+instance Hospital_Heroes { 
+
+	 domain = Hospital_Heroes;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4 };
+		 ypos : { y1, y2, y3, y4 };
+		 player : { player_admin };
+		 patient : { patient_1, patient_2 };
+		 staff : { doctor, nurse };
+		 resources : { supply_room };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 patient-x(patient_1, x2);
+		 patient-y(patient_1, y2);
+		 patient-x(patient_2, x3);
+		 patient-y(patient_2, y2);
+		 staff-x(doctor, x2);
+		 staff-y(doctor, y3);
+		 staff-x(nurse, x3);
+		 staff-y(nurse, y3);
+		 resources-x(supply_room, x4);
+		 resources-y(supply_room, y4);
+	 };
+
+	 init-state {
+		 player-x(player_admin, x1);
+		 player-y(player_admin, y1);
+		 patient_treated = 0;
+		 staff_energy = 0;
+		 resource_stock = 0;
+		 total_score = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

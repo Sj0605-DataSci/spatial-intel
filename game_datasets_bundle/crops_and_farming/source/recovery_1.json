@@ -1,0 +1,271 @@
+{
+    "topic": "Crops and Farming",
+    "objective": "Farmer Ella must optimize her farm by arranging crops, managing resources, and cooperating with her neighbor Ben to achieve maximum yield and sustainability.",
+    "environment_description": "A dynamic farmland with vegetable fields, irrigation channels, and a neighboring farm. The setting reflects the changing seasons and the harmonious balance between traditional and sustainable farming practices.",
+    "domain": [
+        {
+            "name": "farmer_ella",
+            "image_prompt": "A determined young woman in sturdy boots and overalls, navigating a field with practical tools."
+        },
+        {
+            "name": "grandpa_sam",
+            "image_prompt": "An old man with a warm smile beside a barn, leaning on a walking stick."
+        },
+        {
+            "name": "neighbor_ben",
+            "image_prompt": "A middle_aged man with rolled_up sleeves, standing next to a water barrel."
+        },
+        {
+            "name": "emma_ecologist",
+            "image_prompt": "A young woman with glasses and a notepad, standing amidst compost bins and solar panels."
+        },
+        {
+            "name": "mentor_bird",
+            "image_prompt": "An observant bird perched on a farm signpost, hinting at hidden secrets."
+        },
+        {
+            "name": "weather_station",
+            "image_prompt": "A small station with meteorological equipment to predict weather changes."
+        }
+    ],
+    "classes": [
+        {
+            "class_name": "farmer",
+            "list_of_objects": [
+                "farmer_ella"
+            ]
+        },
+        {
+            "class_name": "wisdom_givers",
+            "list_of_objects": [
+                "grandpa_sam"
+            ]
+        },
+        {
+            "class_name": "neighbors",
+            "list_of_objects": [
+                "neighbor_ben"
+            ]
+        },
+        {
+            "class_name": "ecologist",
+            "list_of_objects": [
+                "emma_ecologist"
+            ]
+        },
+        {
+            "class_name": "mentor",
+            "list_of_objects": [
+                "mentor_bird"
+            ]
+        },
+        {
+            "class_name": "weather",
+            "list_of_objects": [
+                "weather_station"
+            ]
+        }
+    ],
+    "state_of_objects": [
+        {
+            "class_name": "farmer",
+            "isMovable": true
+        },
+        {
+            "class_name": "wisdom_givers",
+            "isMovable": false
+        },
+        {
+            "class_name": "neighbors",
+            "isMovable": false
+        },
+        {
+            "class_name": "ecologist",
+            "isMovable": false
+        },
+        {
+            "class_name": "mentor",
+            "isMovable": false
+        },
+        {
+            "class_name": "weather",
+            "isMovable": false
+        }
+    ],
+    "state_variables": [
+        {
+            "name": "soil_health",
+            "type": "integer"
+        },
+        {
+            "name": "irrigation_levels",
+            "type": "integer"
+        },
+        {
+            "name": "community_cooperation",
+            "type": "integer"
+        },
+        {
+            "name": "sustainability_score",
+            "type": "integer"
+        },
+        {
+            "name": "resource_management_done",
+            "type": "boolean"
+        }
+    ],
+    "actions": [
+        {
+            "name": "OptimizeResources(farmer, neighbors)"
+        },
+        {
+            "name": "GainWisdom(farmer, wisdom_givers)"
+        },
+        {
+            "name": "ImplementEcopractices(farmer, ecologist)"
+        },
+        {
+            "name": "ConsultWeather(farmer, weather)"
+        },
+        {
+            "name": "ReceiveGuidance(farmer, mentor)"
+        }
+    ],
+    "transitions": [
+        {
+            "action": "OptimizeResources(?farmer, ?neighbors)",
+            "preconditions": [
+                "community_cooperation < 10",
+                "?farmer.x == ?neighbors.x",
+                "?farmer.y == ?neighbors.y"
+            ],
+            "effects": [
+                "community_cooperation = community_cooperation + 2"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Resources optimized through cooperation!')"
+            ]
+        },
+        {
+            "action": "GainWisdom(?farmer, ?wisdom_givers)",
+            "preconditions": [
+                "soil_health < 10",
+                "?farmer.x == ?wisdom_givers.x",
+                "?farmer.y == ?wisdom_givers.y"
+            ],
+            "effects": [
+                "soil_health = soil_health + 2"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Wisdom gained from Grandpa Sam!')"
+            ]
+        },
+        {
+            "action": "ImplementEcopractices(?farmer, ?ecologist)",
+            "preconditions": [
+                "sustainability_score < 10",
+                "?farmer.x == ?ecologist.x",
+                "?farmer.y == ?ecologist.y"
+            ],
+            "effects": [
+                "sustainability_score = sustainability_score + 2"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Ecological practices implemented successfully!')"
+            ]
+        },
+        {
+            "action": "ConsultWeather(?farmer, ?weather)",
+            "preconditions": [
+                "irrigation_levels < 10",
+                "?farmer.x == ?weather.x",
+                "?farmer.y == ?weather.y"
+            ],
+            "effects": [
+                "irrigation_levels = irrigation_levels + 2"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Weather consultation improved irrigation!')"
+            ]
+        },
+        {
+            "action": "ReceiveGuidance(?farmer, ?mentor)",
+            "preconditions": [
+                "?farmer.x == ?mentor.x",
+                "?farmer.y == ?mentor.y",
+                "soil_health == 10",
+                "irrigation_levels == 10",
+                "community_cooperation == 10",
+                "sustainability_score == 10"
+            ],
+            "effects": [
+                "resource_management_done = true"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Guidance received from the Mentor Bird! All tasks complete.')",
+                "MoveImage(?farmer, ?farmer.x, ?farmer.y, HIDDEN, HIDDEN)"
+            ]
+        }
+    ],
+    "goal": "soil_health == 10 AND irrigation_levels == 10 AND community_cooperation == 10 AND sustainability_score == 10",
+    "reward": "soil_health + irrigation_levels + community_cooperation + sustainability_score",
+    "max_reward": 40,
+    "grid_size": {
+        "x_size": 6,
+        "y_size": 6
+    },
+    "initial_state_objects": [
+        {
+            "domain_object": "farmer_ella",
+            "x": 1,
+            "y": 1
+        },
+        {
+            "domain_object": "grandpa_sam",
+            "x": 3,
+            "y": 1
+        },
+        {
+            "domain_object": "neighbor_ben",
+            "x": 2,
+            "y": 3
+        },
+        {
+            "domain_object": "emma_ecologist",
+            "x": 4,
+            "y": 3
+        },
+        {
+            "domain_object": "mentor_bird",
+            "x": 3,
+            "y": 5
+        },
+        {
+            "domain_object": "weather_station",
+            "x": 5,
+            "y": 4
+        }
+    ],
+    "initial_state_variables": [
+        {
+            "name": "soil_health",
+            "value": 2
+        },
+        {
+            "name": "irrigation_levels",
+            "value": 2
+        },
+        {
+            "name": "community_cooperation",
+            "value": 2
+        },
+        {
+            "name": "sustainability_score",
+            "value": 2
+        },
+        {
+            "name": "resource_management_done",
+            "value": false
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+COLLECT at cell (C4, R2):
+'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' collect artifact 'A miniature painting depicting Mughal cultural richness.'.
+
+1. Show 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' with a sparkle/glow reaching toward 'A miniature painting depicting Mughal cultural richness.'.
+2. ERASE 'A miniature painting depicting Mughal cultural richness.' from (C4, R2) — fill with background texture. It must be completely gone.
+3. 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' stays at (C4, R2).
+4. Nothing else changes.

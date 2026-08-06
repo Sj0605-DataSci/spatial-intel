@@ -1,0 +1,2 @@
+down
+Arjun needs to move down to get closer to the diyas, which are at (1,2). Moving down will take Arjun to (1,1).

@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R3):
+'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' performs 'make decision'.
+
+1. Add a celebration effect at (C3, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Historical decision made!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R1):
+'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' collect 'A piece of intricately carved stone that holds a small piece of a wonder's history, lying among ruins.'.
+
+1. Show 'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' with a sparkle/glow reaching toward 'A piece of intricately carved stone that holds a small piece of a wonder's history, lying among ruins.'.
+2. ERASE 'A piece of intricately carved stone that holds a small piece of a wonder's history, lying among ruins.' from (C1, R1) — fill with background texture. It must be completely gone.
+3. 'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' stays at (C1, R1).
+4. Nothing else changes.

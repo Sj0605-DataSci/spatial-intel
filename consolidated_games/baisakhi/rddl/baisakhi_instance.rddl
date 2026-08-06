@@ -1,0 +1,56 @@
+instance Baisakhi_Celebration { 
+
+	 domain = Baisakhi_Celebration;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { player };
+		 festival_item : { wheat_bundle, dhol, phulkari_scarf };
+		 gurdwara : { prayer_space };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 festival_item-x(wheat_bundle, x2);
+		 festival_item-y(wheat_bundle, y2);
+		 festival_item-x(dhol, x3);
+		 festival_item-y(dhol, y3);
+		 festival_item-x(phulkari_scarf, x4);
+		 festival_item-y(phulkari_scarf, y2);
+		 gurdwara-x(prayer_space, x5);
+		 gurdwara-y(prayer_space, y5);
+	 };
+
+	 init-state {
+		 player-x(player, x1);
+		 player-y(player, y1);
+		 ~is_collected_festival_item(wheat_bundle);
+		 ~is_collected_festival_item(dhol);
+		 ~is_collected_festival_item(phulkari_scarf);
+		 ~collection_done_festival_item(wheat_bundle);
+		 ~collection_done_festival_item(dhol);
+		 ~collection_done_festival_item(phulkari_scarf);
+		 items_collected = 0;
+		 rituals_completed = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

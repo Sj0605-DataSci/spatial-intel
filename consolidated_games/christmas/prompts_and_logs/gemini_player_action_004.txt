@@ -1,0 +1,2 @@
+right
+Moving right to (3,1) brings Santa closer to family_home_1 at (3,3) without encountering any other characters immediately.

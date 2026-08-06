@@ -1,0 +1,53 @@
+instance Indian_History { 
+
+	 domain = Indian_History;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { player };
+		 artifact : { ashoka_artifact, gandhi_artifact, gupta_artifact, mughal_artifact };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 artifact-x(ashoka_artifact, x2);
+		 artifact-y(ashoka_artifact, y3);
+		 artifact-x(gandhi_artifact, x4);
+		 artifact-y(gandhi_artifact, y2);
+		 artifact-x(gupta_artifact, x3);
+		 artifact-y(gupta_artifact, y4);
+		 artifact-x(mughal_artifact, x5);
+		 artifact-y(mughal_artifact, y3);
+	 };
+
+	 init-state {
+		 player-x(player, x1);
+		 player-y(player, y1);
+		 ~is_collected_artifact(ashoka_artifact);
+		 ~is_collected_artifact(gandhi_artifact);
+		 ~is_collected_artifact(gupta_artifact);
+		 ~is_collected_artifact(mughal_artifact);
+		 artifacts_collected = 0;
+		 historical_decisions = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

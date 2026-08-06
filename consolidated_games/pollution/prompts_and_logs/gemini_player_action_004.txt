@@ -1,0 +1,2 @@
+down
+The urban_zone at (2,2) appears to be polluted (indicated by the spill) and is only one step away from the player's current position (2,1). Moving down will allow the player to interact with this polluted zone.

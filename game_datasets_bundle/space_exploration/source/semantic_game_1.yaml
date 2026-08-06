@@ -1,0 +1,150 @@
+topic: Space Exploration
+objective: Navigate the spacecraft, collect cosmic artifacts, and form alliances with
+  alien civilizations to complete the mission.
+environment_description: A vast cosmic landscape filled with swirling galaxies, mysterious
+  planets, and vibrant nebulae. The spacecraft journeys through this expansive universe,
+  encountering artifacts and alien civilizations.
+domain:
+- name: commander_vega
+  image_prompt: A confident leader in a high_tech, durable space suit with mission
+    patches, ready to face the unknown.
+- name: artifact_1
+  image_prompt: An ancient cosmic relic with glowing symbols, floating in space.
+- name: artifact_2
+  image_prompt: A mysterious device emanating a faint blue glow, hinting at alien
+    technology.
+- name: artifact_3
+  image_prompt: A crystalline structure pulsating with energy, suspended in a celestial
+    void.
+- name: alien_civilization_1
+  image_prompt: An advanced alien species with elegant starships and unique glyphs
+    communicating their intent.
+- name: alien_civilization_2
+  image_prompt: A peaceful alien society known for their wisdom and intricate cosmic
+    symbols.
+classes:
+- class_name: commander
+  list_of_objects:
+  - commander_vega
+- class_name: artifact
+  list_of_objects:
+  - artifact_1
+  - artifact_2
+  - artifact_3
+- class_name: alien_civilization
+  list_of_objects:
+  - alien_civilization_1
+  - alien_civilization_2
+state_of_objects:
+- class_name: commander
+  isMovable: true
+- class_name: artifact
+  isMovable: false
+- class_name: alien_civilization
+  isMovable: false
+state_variables:
+- name: is_collected(artifact)
+  type: bool
+- name: is_alliance_formed(alien_civilization)
+  type: bool
+- name: artifacts_collected
+  type: integer
+- name: alliances_formed
+  type: integer
+actions:
+- name: MoveUp(commander)
+- name: MoveDown(commander)
+- name: MoveLeft(commander)
+- name: MoveRight(commander)
+- name: Collect(commander, artifact)
+- name: FormAlliance(commander, alien_civilization)
+transitions:
+- action: MoveUp(?commander)
+  preconditions:
+  - ?commander.y < 4
+  effects:
+  - ?commander.y = ?commander.y + 1
+  side_effects:
+  - MoveImage(?commander, ?commander.x, ?commander.y - 1, ?commander.x, ?commander.y)
+- action: MoveDown(?commander)
+  preconditions:
+  - ?commander.y > 1
+  effects:
+  - ?commander.y = ?commander.y - 1
+  side_effects:
+  - MoveImage(?commander, ?commander.x, ?commander.y + 1, ?commander.x, ?commander.y)
+- action: MoveLeft(?commander)
+  preconditions:
+  - ?commander.x > 1
+  effects:
+  - ?commander.x = ?commander.x - 1
+  side_effects:
+  - MoveImage(?commander, ?commander.x + 1, ?commander.y, ?commander.x, ?commander.y)
+- action: MoveRight(?commander)
+  preconditions:
+  - ?commander.x < 4
+  effects:
+  - ?commander.x = ?commander.x + 1
+  side_effects:
+  - MoveImage(?commander, ?commander.x - 1, ?commander.y, ?commander.x, ?commander.y)
+- action: Collect(?commander, ?artifact)
+  preconditions:
+  - NOT is_collected(?artifact)
+  - ?commander.x == ?artifact.x
+  - ?commander.y == ?artifact.y
+  effects:
+  - is_collected(?artifact) = true
+  - artifacts_collected = artifacts_collected + 1
+  side_effects:
+  - MoveImage(?artifact, ?artifact.x, ?artifact.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Artifact collected!')
+- action: FormAlliance(?commander, ?alien_civilization)
+  preconditions:
+  - NOT is_alliance_formed(?alien_civilization)
+  - ?commander.x == ?alien_civilization.x
+  - ?commander.y == ?alien_civilization.y
+  effects:
+  - is_alliance_formed(?alien_civilization) = true
+  - alliances_formed = alliances_formed + 1
+  side_effects:
+  - ShowText(true, 'Alliance formed!')
+goal: artifacts_collected == 3 AND alliances_formed == 2
+reward: artifacts_collected + 2 * alliances_formed
+max_reward: 7
+grid_size:
+  x_size: 4
+  y_size: 4
+initial_state_objects:
+- domain_object: commander_vega
+  x: '1'
+  y: '1'
+- domain_object: artifact_1
+  x: '2'
+  y: '2'
+- domain_object: artifact_2
+  x: '3'
+  y: '3'
+- domain_object: artifact_3
+  x: '4'
+  y: '1'
+- domain_object: alien_civilization_1
+  x: '1'
+  y: '3'
+- domain_object: alien_civilization_2
+  x: '3'
+  y: '1'
+initial_state_variables:
+- name: is_collected(artifact_1)
+  value: false
+- name: is_collected(artifact_2)
+  value: false
+- name: is_collected(artifact_3)
+  value: false
+- name: is_alliance_formed(alien_civilization_1)
+  value: false
+- name: is_alliance_formed(alien_civilization_2)
+  value: false
+- name: artifacts_collected
+  value: 0
+- name: alliances_formed
+  value: 0

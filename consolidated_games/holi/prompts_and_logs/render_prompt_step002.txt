@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'riya' (looks like: A young woman with a gentle demeanor, wearing a colorful saree with intricate patterns, holding a tray of vibrant powders, emphasizing her role in conflict resolution.)
+  FROM cell (C1, R0)  [pixels x≈204–408, y≈0–204]
+  TO   cell (C1, R1)  [pixels x≈204–408, y≈204–408]
+
+1. ERASE 'riya' from (C1, R0) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'riya' once at (C1, R1).
+3. Nothing else changes.

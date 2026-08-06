@@ -1,0 +1,1 @@
+Christmas game grid, top-down. Move the red Santa 'S' badge one cell up, from cell (1,2) to cell (1,1). Keep every house, present, tree and snow pile exactly the same.

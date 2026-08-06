@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'santa' (looks like: A warm, cheerful figure dressed in a traditional red suit with a fluffy white beard, joyfully carrying a sack of gifts.)
+  FROM cell (C3, R3)  [pixels x≈612–816, y≈612–816]
+  TO   cell (C4, R3)  [pixels x≈816–1020, y≈612–816]
+
+1. ERASE 'santa' from (C3, R3) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'santa' once at (C4, R3).
+3. Nothing else changes.

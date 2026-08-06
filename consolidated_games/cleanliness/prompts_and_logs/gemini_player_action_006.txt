@@ -1,0 +1,2 @@
+right
+Move right to interact with the purple barrel at (4,2), which appears to be a source of pollution.

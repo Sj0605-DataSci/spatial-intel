@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R0):
+'A determined cricket captain in a team uniform, holding a clipboard with match strategies.' performs 'execute strategy' with 'A powerful batsman mid_swing, wearing a brightly colored team jersey and helmet.'.
+
+1. Add a celebration effect at (C1, R0): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Congratulations! Your team wins the match!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

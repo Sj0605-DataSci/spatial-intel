@@ -1,0 +1,2 @@
+right
+Move right to (4,2) to clean another visible pollution patch.

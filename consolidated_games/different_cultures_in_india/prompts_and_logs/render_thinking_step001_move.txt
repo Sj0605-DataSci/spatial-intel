@@ -1,0 +1,7 @@
+**Relocating the Explorer**
+
+I've determined the source and destination cells for the 'cultural\_explorer' sprite: (C0, R0) and (C0, R1), respectively. I plan to remove the sprite from the source location, using a grass texture for the source cell. Next, the sprite will be drawn exactly as before into its new location. Other elements of the scene are to remain untouched.
+
+**Assessing Exactitude of Move**
+
+I confirm the sprite was correctly relocated to the destination coordinates, and the source cell was correctly handled. Grid elements remain as expected and I can now proceed to present the result.

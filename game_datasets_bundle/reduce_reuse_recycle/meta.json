@@ -1,0 +1,28 @@
+{
+  "topic": "Reduce Reuse Recycle",
+  "mode": "full",
+  "num_states": 72,
+  "num_transitions": 204,
+  "num_actions_in_vocab": 7,
+  "grid": [
+    3,
+    3
+  ],
+  "engine_report": {
+    "topic": "Reduce Reuse Recycle",
+    "grid": [
+      3,
+      3
+    ],
+    "num_actions_defined": 5,
+    "reachable_states": 72,
+    "upper_bound_states": 144,
+    "total_transitions": 204,
+    "avg_branching": 2.833,
+    "max_branching": 5,
+    "num_goal_states": 9,
+    "optimal_route_len": 6,
+    "max_reward": 3,
+    "truncated": false
+  }
+}

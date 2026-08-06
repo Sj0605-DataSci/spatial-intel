@@ -1,0 +1,16 @@
+SCORE: 7
+
+ISSUES:
+
+- Counter `items_sorted` can overshoot due to lack of boolean guard.
+- Goals do not prevent counter from overshooting with unguarded actions.
+
+EXPECTED_BEHAVIOR:
+
+- Boolean guards should restrict sorting actions to single executions per recycle item.
+- Counter `items_sorted` should increment in a controlled manner to prevent exceeding the goal.
+
+ACTUAL_BEHAVIOR:
+
+- The `Sort` action lacks a guard to prevent multiple sorting of the same item.
+- Counter `items_sorted` can potentially exceed 3 due to repeated actions without restrictions.

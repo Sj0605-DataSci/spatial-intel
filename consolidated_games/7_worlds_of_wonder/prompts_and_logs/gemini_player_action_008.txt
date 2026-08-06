@@ -1,0 +1,2 @@
+up
+Move up to (3,3) to be on the same row as puzzle_1 and closer to artifact_2.

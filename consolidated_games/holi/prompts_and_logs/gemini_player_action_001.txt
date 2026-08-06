@@ -1,0 +1,2 @@
+right
+Riya moves right to (1,0) to approach obstacle_1, which she is suited to resolve as a conflict resolver.

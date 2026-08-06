@@ -1,0 +1,129 @@
+domain Waste_segregation{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   plastic : object ;
+   organic : object ;
+   metal : object ;
+   receptacle : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+plastic-x(plastic,xpos) : { non-fluent , bool , default=false } ;
+plastic-y(plastic,ypos) : { non-fluent , bool , default=false } ;
+organic-x(organic,xpos) : { non-fluent , bool , default=false } ;
+organic-y(organic,ypos) : { non-fluent , bool , default=false } ;
+metal-x(metal,xpos) : { non-fluent , bool , default=false } ;
+metal-y(metal,ypos) : { non-fluent , bool , default=false } ;
+receptacle-x(receptacle,xpos) : { non-fluent , bool , default=false } ;
+receptacle-y(receptacle,ypos) : { non-fluent , bool , default=false } ;
+is_collected_plastic(plastic) : { state-fluent , bool , default=false } ;
+is_collected_organic(organic) : { state-fluent , bool , default=false } ;
+is_collected_metal(metal) : { state-fluent , bool , default=false } ;
+is_sorted_plastic_receptacle(plastic,receptacle) : { state-fluent , bool , default=false } ;
+is_sorted_organic_receptacle(organic,receptacle) : { state-fluent , bool , default=false } ;
+is_sorted_metal_receptacle(metal,receptacle) : { state-fluent , bool , default=false } ;
+number_sorted : { state-fluent , int , default=0 } ;
+collect-player-plastic(player,plastic) : { action-fluent , bool , default=false } ;
+collect-player-organic(player,organic) : { action-fluent , bool , default=false } ;
+collect-player-metal(player,metal) : { action-fluent , bool , default=false } ;
+deposit-player-plastic-receptacle(player,plastic,receptacle) : { action-fluent , bool , default=false } ;
+deposit-player-organic-receptacle(player,organic,receptacle) : { action-fluent , bool , default=false } ;
+deposit-player-metal-receptacle(player,metal,receptacle) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+is_collected_plastic'(?plastic) = if (exists_{?player:player} [ collect-player-metal(?player, ?plastic) & ~is_collected_plastic(?plastic) & exists_{?x:xpos} [player-x(?player, ?x) & metal-x(?plastic, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & metal-y(?plastic, ?y)] ] )  then true
+ else is_collected_plastic(?plastic)
+;
+
+is_collected_organic'(?organic) = if (exists_{?player:player} [ collect-player-metal(?player, ?organic) & ~is_collected_organic(?organic) & exists_{?x:xpos} [player-x(?player, ?x) & metal-x(?organic, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & metal-y(?organic, ?y)] ] )  then true
+ else is_collected_organic(?organic)
+;
+
+is_collected_metal'(?metal) = if (exists_{?player:player} [ collect-player-metal(?player, ?metal) & ~is_collected_metal(?metal) & exists_{?x:xpos} [player-x(?player, ?x) & metal-x(?metal, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & metal-y(?metal, ?y)] ] )  then true
+ else is_collected_metal(?metal)
+;
+
+is_sorted_plastic_receptacle'(?plastic,?receptacle) = if (exists_{?player:player} [ deposit-player-metal-receptacle(?player, ?plastic, ?receptacle) & is_collected_plastic(?plastic) & ~is_sorted_plastic_receptacle(?plastic, ?receptacle) & number_sorted < 3 & exists_{?x:xpos} [player-x(?player, ?x) & receptacle-x(?receptacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & receptacle-y(?receptacle, ?y)] ] )  then true
+ else is_sorted_plastic_receptacle(?plastic,?receptacle)
+;
+
+is_sorted_organic_receptacle'(?organic,?receptacle) = if (exists_{?player:player} [ deposit-player-metal-receptacle(?player, ?organic, ?receptacle) & is_collected_organic(?organic) & ~is_sorted_organic_receptacle(?organic, ?receptacle) & number_sorted < 3 & exists_{?x:xpos} [player-x(?player, ?x) & receptacle-x(?receptacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & receptacle-y(?receptacle, ?y)] ] )  then true
+ else is_sorted_organic_receptacle(?organic,?receptacle)
+;
+
+is_sorted_metal_receptacle'(?metal,?receptacle) = if (exists_{?player:player} [ deposit-player-metal-receptacle(?player, ?metal, ?receptacle) & is_collected_metal(?metal) & ~is_sorted_metal_receptacle(?metal, ?receptacle) & number_sorted < 3 & exists_{?x:xpos} [player-x(?player, ?x) & receptacle-x(?receptacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & receptacle-y(?receptacle, ?y)] ] )  then true
+ else is_sorted_metal_receptacle(?metal,?receptacle)
+;
+
+number_sorted' = if (exists_{?player:player, ?plastic:metal, ?receptacle:receptacle} [ deposit-player-metal-receptacle(?player, ?plastic, ?receptacle) & is_collected_plastic(?plastic) & ~is_sorted_plastic_receptacle(?plastic, ?receptacle) & number_sorted < 3 & exists_{?x:xpos} [player-x(?player, ?x) & receptacle-x(?receptacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & receptacle-y(?receptacle, ?y)] ] )  then number_sorted + 1
+ else if (exists_{?player:player, ?organic:metal, ?receptacle:receptacle} [ deposit-player-metal-receptacle(?player, ?organic, ?receptacle) & is_collected_organic(?organic) & ~is_sorted_organic_receptacle(?organic, ?receptacle) & number_sorted < 3 & exists_{?x:xpos} [player-x(?player, ?x) & receptacle-x(?receptacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & receptacle-y(?receptacle, ?y)] ] )  then number_sorted + 1
+ else if (exists_{?player:player, ?metal:metal, ?receptacle:receptacle} [ deposit-player-metal-receptacle(?player, ?metal, ?receptacle) & is_collected_metal(?metal) & ~is_sorted_metal_receptacle(?metal, ?receptacle) & number_sorted < 3 & exists_{?x:xpos} [player-x(?player, ?x) & receptacle-x(?receptacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & receptacle-y(?receptacle, ?y)] ] )  then number_sorted + 1
+ else number_sorted
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = number_sorted;
+
+// max_reward = 3.0
+
+termination{
+number_sorted == 3;
+};
+}

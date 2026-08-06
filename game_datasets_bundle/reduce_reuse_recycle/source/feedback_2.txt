@@ -1,0 +1,186 @@
+STATIC ANALYSIS FAILED: The game has goal reachability issues that will cause infinite MCTS loops.
+
+Issues found:
+- NO BOUND: Action modifying 'items_sorted' has no upper-bound precondition and no boolean guard. Counter will increment indefinitely past goal value 3.
+
+Current game YAML:
+topic: Reduce Reuse Recycle
+objective: Players must sort recyclable items and complete community projects to transform
+  the city into an eco_friendly environment.
+environment_description: A cityscape shifts from pollution to green. Features include
+  separated recycle bins, community gardens, and renewable energy installations.
+domain:
+- name: eli
+  image_prompt: A young environmentalist in green attire, raising awareness about
+    recycling within the community.
+- name: plastic_bottle
+  image_prompt: A transparent recyclable plastic bottle, ready to be sorted into recycling
+    bins.
+- name: glass_jar
+  image_prompt: A clear glass jar with intricate engravings, designed for recycling.
+- name: metal_can
+  image_prompt: A shining metal can with a recyclable emblem, prepared for sorting.
+- name: recycle_bin_plastic
+  image_prompt: A blue bin labeled for plastic recyclables, neatly placed in the city.
+- name: recycle_bin_glass
+  image_prompt: A green bin designated for glass items, located near eco_friendly
+    installations.
+- name: recycle_bin_metal
+  image_prompt: A silver bin marked for metal recyclables, encouraging proper waste
+    management.
+classes:
+- class_name: player
+  list_of_objects:
+  - eli
+- class_name: recycle_item
+  list_of_objects:
+  - plastic_bottle
+  - glass_jar
+  - metal_can
+- class_name: recycle_bin
+  list_of_objects:
+  - recycle_bin_plastic
+  - recycle_bin_glass
+  - recycle_bin_metal
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: recycle_item
+  isMovable: false
+- class_name: recycle_bin
+  isMovable: false
+state_variables:
+- name: is_sorted(recycle_item)
+  type: bool
+- name: items_sorted
+  type: integer
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Sort(player, recycle_item, recycle_bin)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: Sort(?player, ?recycle_item, ?recycle_bin)
+  preconditions:
+  - NOT is_sorted(?recycle_item)
+  - ?player.x == ?recycle_item.x
+  - ?player.y == ?recycle_item.y
+  - ?recycle_item.x == ?recycle_bin.x
+  - ?recycle_item.y == ?recycle_bin.y
+  effects:
+  - is_sorted(recycle_item) = true
+  - items_sorted = items_sorted + 1
+  side_effects:
+  - MoveImage(?recycle_item, ?recycle_item.x, ?recycle_item.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Item sorted into the correct bin!')
+  - ShowText(items_sorted == 3, 'All items sorted successfully!')
+goal: items_sorted == 3
+reward: items_sorted
+max_reward: 3
+grid_size:
+  x_size: 3
+  y_size: 3
+initial_state_objects:
+- domain_object: eli
+  x: '1'
+  y: '1'
+- domain_object: plastic_bottle
+  x: '1'
+  y: '2'
+- domain_object: glass_jar
+  x: '2'
+  y: '2'
+- domain_object: metal_can
+  x: '3'
+  y: '2'
+- domain_object: recycle_bin_plastic
+  x: '1'
+  y: '3'
+- domain_object: recycle_bin_glass
+  x: '2'
+  y: '3'
+- domain_object: recycle_bin_metal
+  x: '3'
+  y: '3'
+initial_state_variables:
+- name: is_sorted(plastic_bottle)
+  value: false
+- name: is_sorted(glass_jar)
+  value: false
+- name: is_sorted(metal_can)
+  value: false
+- name: items_sorted
+  value: 0
+
+
+Fix the game by addressing each issue above. Common fixes:
+1. UNREACHABLE: Remove global boolean guards and use counter preconditions (e.g., 'counter < target_value') instead. The precondition alone stops the counter at the goal value.
+2. OVERSHOOT: Change the precondition upper bound to exactly match the goal value (e.g., if goal is 'score == 10', precondition must be 'score < 10').
+3. If you need boolean guards for per-object tracking, ensure the number of objects in the class equals the number of increments needed.
+
+Output ONLY the corrected JSON.
+Some common mistakes are 
+            1. ensure you use the class name correctly throughout the game. for eg: if the classname is "Box", then dont use "Boxes" or similiar. 
+            2. do not use domain names in preconditions, actions, goal or reward. for eg:
+                goal: numberPatientsTreated == 3  &  isTreated(patient1, pills1)  &  isTreated(patient2, bandage1)  &  isTreated(patient3, syringe1);
+                here patient1 is a domain object and should not be used in goal. use only class names, for eg patient in above example.
+                precondition: NOT artifacts_collected(?explorer_avatar)
+                here explorer_avatar is a domain object and should not be used in precondition. use only class names, for eg explorer in above example.
+            3. do not use class names in preconditions that are not defined in action arguments.
+                for eg: action = Match(class1, class2)
+                                precondition: NOT isTreated(class3)
+                                effect: isTreated(class3) = true 
+                                here class3 is not defined in action arguments, so should not be used in precondition.
+                        one possible fix is to add a new state variable numTreatedclass3
+                                precondition : true
+                                effect : numTreatedclass3 = numTreatedclass3 + 1
+                        or another fix is to remove this transition and replace with a correct one.
+            4. Give me output in JSON format only. Do not add any extra text or explanation outside the JSON.
+            5. CRITICAL: The goal and reward MUST use ONLY integer state variables (e.g., total_points == 5, number_items_collected == 3).
+               NEVER use boolean predicates with arguments in the goal or reward (e.g., is_at_landmark(Player, Landmark) is WRONG).
+               If you need to track something like "player reached a landmark", create an integer counter variable (e.g., landmarks_visited)
+               and increment it in the transition effect, then use that integer in the goal (e.g., landmarks_visited == 1).
+            6. Only the player/avatar class should have isMovable=true. All other classes MUST be isMovable=false.
+            7. max_reward must be a single integer value, not an expression.
+            8. side_effects must be a list of strings like "ShowText(true, 'text')", NOT dictionaries.
+            9. CRITICAL: Only ONE class should have isMovable=true (the player/avatar). All other classes must be isMovable=false.
+            10. CRITICAL: Every action that increments a counter MUST have a boolean guard (NOT is_done(?obj)) and set the guard (is_done(?obj) = true) in its effects. Without guards, counters overshoot == goals making the game unsolvable.
+            11. CRITICAL: Transition action arguments MUST use exact class names. If the action is defined as PerformTask(festival_participants, festival_items), the transition MUST say action: PerformTask(?festival_participants, ?festival_items). Using shortened names like ?participant or ?item will cause RDDL compilation errors.
+            12. The movable class must have exactly 1 instance (the player avatar). Multiple movable instances cause action space explosion and unsolvable games.
+            13. Do NOT use domain object names (like family_member_1, bonfire) in preconditions. Use class-typed variables instead.
+            14. COUNTER REACHABILITY: If counter starts at S and goal requires counter == T, the game must allow exactly (T-S) increments. Do NOT use a single global boolean guard on a counter needing multiple increments. Use precondition 'counter < T' instead, OR use per-object boolean guards where the class has exactly (T-S) objects.
+            15. OVERSHOOT PREVENTION: Precondition upper bound must exactly match goal value. If goal is 'score == 10', precondition must be 'score < 10', NOT 'score < 15'.
+        

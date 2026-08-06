@@ -1,0 +1,7 @@
+CELEBRATE at cell (C4, R4):
+'A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.' performs 'pray' with 'A peaceful area within the Gurdwara, inviting blessings and spiritual unity.'.
+
+1. Add a celebration effect at (C4, R4): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'All rituals completed! Baisakhi celebration is successful!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

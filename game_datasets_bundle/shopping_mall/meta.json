@@ -1,0 +1,28 @@
+{
+  "topic": "Shopping Mall Adventure",
+  "mode": "sampled",
+  "num_states": 3001,
+  "num_transitions": 6109,
+  "num_actions_in_vocab": 12,
+  "grid": [
+    7,
+    7
+  ],
+  "engine_report": {
+    "topic": "Shopping Mall Adventure",
+    "grid": [
+      7,
+      7
+    ],
+    "num_actions_defined": 4,
+    "reachable_states": 20000,
+    "upper_bound_states": 6272,
+    "total_transitions": 55974,
+    "avg_branching": 3.78,
+    "max_branching": 6,
+    "num_goal_states": 72,
+    "optimal_route_len": 11,
+    "max_reward": 33,
+    "truncated": true
+  }
+}

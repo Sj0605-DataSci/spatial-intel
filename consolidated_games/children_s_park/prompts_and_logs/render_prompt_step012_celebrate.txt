@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R1):
+'A lively child with curly hair and bright overalls, holding a playground blueprint with enthusiasm.' performs 'place equipment'.
+
+1. Add a celebration effect at (C1, R1): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Equipment placed!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

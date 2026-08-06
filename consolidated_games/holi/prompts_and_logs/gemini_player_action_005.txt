@@ -1,0 +1,2 @@
+down
+Riya is currently on obstacle_1 at (1,1). Moving down to (1,2) will place her next to Elder Mehta, which could be a step towards resolving a conflict or delivering an item, and also moves her off the current obstacle, assuming it's resolved or doesn't block movement.

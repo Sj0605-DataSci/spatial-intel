@@ -1,0 +1,135 @@
+{
+  "game": "different_cultures_in_india",
+  "session_id": "gemini_plays_different_cultures_in_india_1777118233",
+  "movable_chars": [
+    "cultural_explorer"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 6,
+  "goal": "symbols_collected == 3",
+  "won": true,
+  "final_scoreboard": {
+    "symbols_collected": 3
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "cultural_explorer",
+      "action": "down",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "symbols_collected": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "cultural_explorer",
+      "action": "right",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:cultural_symbol_1"
+      ],
+      "scoreboard": {
+        "symbols_collected": 1
+      }
+    },
+    {
+      "step": 3,
+      "character": "cultural_explorer",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "symbols_collected": 1
+      }
+    },
+    {
+      "step": 4,
+      "character": "cultural_explorer",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:cultural_symbol_2"
+      ],
+      "scoreboard": {
+        "symbols_collected": 2
+      }
+    },
+    {
+      "step": 5,
+      "character": "cultural_explorer",
+      "action": "right",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "symbols_collected": 2
+      }
+    },
+    {
+      "step": 6,
+      "character": "cultural_explorer",
+      "action": "down",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        3,
+        3
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:cultural_symbol_3"
+      ],
+      "scoreboard": {
+        "symbols_collected": 3
+      }
+    }
+  ]
+}

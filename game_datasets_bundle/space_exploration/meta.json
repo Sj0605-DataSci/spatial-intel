@@ -1,0 +1,28 @@
+{
+  "topic": "Space Exploration",
+  "mode": "full",
+  "num_states": 512,
+  "num_transitions": 1616,
+  "num_actions_in_vocab": 9,
+  "grid": [
+    4,
+    4
+  ],
+  "engine_report": {
+    "topic": "Space Exploration",
+    "grid": [
+      4,
+      4
+    ],
+    "num_actions_defined": 6,
+    "reachable_states": 512,
+    "upper_bound_states": 2048,
+    "total_transitions": 1616,
+    "avg_branching": 3.156,
+    "max_branching": 5,
+    "num_goal_states": 16,
+    "optimal_route_len": 14,
+    "max_reward": 7,
+    "truncated": false
+  }
+}

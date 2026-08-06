@@ -1,0 +1,2 @@
+right
+Move right to get closer to the grime_gremlin, which is likely a source of pollution.

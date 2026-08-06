@@ -1,0 +1,27 @@
+{
+  "0": {
+    "base": "MoveUp",
+    "target": null,
+    "control": "W"
+  },
+  "1": {
+    "base": "MoveDown",
+    "target": null,
+    "control": "S"
+  },
+  "2": {
+    "base": "MoveLeft",
+    "target": null,
+    "control": "A"
+  },
+  "3": {
+    "base": "MoveRight",
+    "target": null,
+    "control": "D"
+  },
+  "4": {
+    "base": "ExecuteStrategy",
+    "target": "ace_batsman",
+    "control": "Space"
+  }
+}

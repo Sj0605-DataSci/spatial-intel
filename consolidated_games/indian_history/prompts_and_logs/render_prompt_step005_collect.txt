@@ -1,0 +1,7 @@
+COLLECT at cell (C2, R3):
+'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' collect artifact 'A manuscript containing mathematical advancements from the Gupta Empire.'.
+
+1. Show 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' with a sparkle/glow reaching toward 'A manuscript containing mathematical advancements from the Gupta Empire.'.
+2. ERASE 'A manuscript containing mathematical advancements from the Gupta Empire.' from (C2, R3) — fill with background texture. It must be completely gone.
+3. 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' stays at (C2, R3).
+4. Nothing else changes.

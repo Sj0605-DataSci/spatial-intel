@@ -1,0 +1,62 @@
+instance Crops_and_Farming { 
+
+	 domain = Crops_and_Farming;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5, x6 };
+		 ypos : { y1, y2, y3, y4, y5, y6 };
+		 farmer : { farmer_ella };
+		 wisdom_givers : { grandpa_sam };
+		 neighbors : { neighbor_ben };
+		 ecologist : { emma_ecologist };
+		 mentor : { mentor_bird };
+		 weather : { weather_station };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-LEFT(x6, x5);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-RIGHT(x5, x6);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-UP(y6, y5);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 ADJACENT-DOWN(y5, y6);
+		 wisdom_givers-x(grandpa_sam, x3);
+		 wisdom_givers-y(grandpa_sam, y1);
+		 neighbors-x(neighbor_ben, x2);
+		 neighbors-y(neighbor_ben, y3);
+		 ecologist-x(emma_ecologist, x4);
+		 ecologist-y(emma_ecologist, y3);
+		 mentor-x(mentor_bird, x3);
+		 mentor-y(mentor_bird, y5);
+		 weather-x(weather_station, x5);
+		 weather-y(weather_station, y4);
+	 };
+
+	 init-state {
+		 farmer-x(farmer_ella, x1);
+		 farmer-y(farmer_ella, y1);
+		 soil_health = 2;
+		 irrigation_levels = 2;
+		 community_cooperation = 2;
+		 sustainability_score = 2;
+		 ~resource_management_done;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

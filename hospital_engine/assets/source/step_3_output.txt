@@ -1,0 +1,17 @@
+**Rules for Hospital Heroes:**
+
+1. **Patient Treatment:** Prioritize based on *Patient Health Level*. Urgent cases require immediate intervention to prevent health deterioration.
+
+2. **Supply Usage:** Use *Resource Inventory* wisely. Overuse depletes supplies, affecting treatment capability.
+
+3. **Staff Rotation:** *Staff Energy* depletes with tasks. Rotate staff to maintain efficiency and prevent burnout.
+
+4. **Surgery Outcomes:** Dr. Samantha's *Operation Success Rate* affects patient recovery. Improve with successful surgeries.
+
+5. **Maintain Cleanliness:** Ensure high *Cleanliness Level* to reduce infection risks and improve overall *Patient Satisfaction*.
+
+6. **Emergency Management:** Respond to *Emergency Alerts* promptly to boost hospital reputation and patient outcomes.
+
+7. **Resource Distribution:** Optimize *Supply Chain Efficiency* to ensure timely delivery to all wards.
+
+**End Goal:** Game evaluates performance on patient recovery rates, hospital reputation, and effective resource management.

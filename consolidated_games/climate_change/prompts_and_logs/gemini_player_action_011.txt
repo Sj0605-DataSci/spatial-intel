@@ -1,0 +1,2 @@
+down
+Alex is currently on the ice cap at (2,2). Moving down to (2,3) gets Alex closer to the community center at (3,3), which is needed for community support.

@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R3):
+'A determined young scientist with short, spiky hair and reflective glasses, wearing a utility belt with tools and a renewable energy monitor.' performs 'engage community' with 'A vibrant community hub decorated with educational posters on sustainability and renewable practices.'.
+
+1. Add a celebration effect at (C3, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Community mission completed!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

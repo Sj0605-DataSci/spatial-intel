@@ -1,0 +1,15 @@
+Rules:
+
+1. **Complete Shopping List**: Sam must collect all items on the list to progress to the next level. Missing items halt advancement.
+
+2. **Event Participation**: Sam can join timed events organized by Alex. Winning increases the Reputation Score and unlocks exclusive items.
+
+3. **Security Challenges**: Completing tasks set by Officer Terry enhances the Reputation Score and provides rewards like shortcuts or item discounts.
+
+4. **Cook-off Competitions**: Participating in Maria’s cook-offs boosts culinary skills. Winning unlocks unique recipes and boosts the Reputation Score.
+
+5. **Budget Management**: Sam must stay within budget, impacting purchase decisions. Overspending restricts available actions and event entry.
+
+6. **Time Management**: Utilize in-game time effectively to shop, participate in events, and complete all tasks before the mall closes.
+
+7. **Reputation Score Influence**: High scores unlock new interactions with characters and access to special promotions, influencing overall game strategy.

@@ -1,0 +1,2 @@
+down
+Moving down advances the playmaker towards the opponent's goal and closer to the striker for a potential future pass, while staying clear of the rival for now.

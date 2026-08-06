@@ -1,0 +1,2 @@
+left
+The player needs to collect the dhol to reach 3 collected items. The dhol is at (2,2) and the player is at (3,1). Moving left will bring the player closer to the dhol at (2,1).

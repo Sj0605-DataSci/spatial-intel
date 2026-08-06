@@ -1,0 +1,7 @@
+**Planning the Sprite Movement**
+
+I'm working on moving a character, 'commander_vega', between grid cells. The process involves identifying the starting and ending cells, (C2, R1) and (C2, R2), respectively. I'll need to clear the source cell by restoring the background. I have to move the sprite that is in the destination cell, 'artifact_2', before placing 'commander_vega'. Finally, I will place the character in the destination cell. All other grid elements will be left untouched.
+
+**Confirming The Sprite's Position**
+
+I've verified that the sprite, "commander_vega", is now correctly positioned at (C2, R2). I confirmed the successful erasure of the original location and that the new location had its previous occupant removed. It is aligned with the initial request, so I can complete this step.

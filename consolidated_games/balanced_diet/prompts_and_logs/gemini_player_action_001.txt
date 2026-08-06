@@ -1,0 +1,3 @@
+up
+Alex needs to collect healthy food items. Moving up will bring Alex closer to the fruit at (2,0).down
+Alex is at (1,1) and the protein_bar is at (1,3). Moving down will bring Alex closer to collecting the protein_bar, which is a healthy food item.

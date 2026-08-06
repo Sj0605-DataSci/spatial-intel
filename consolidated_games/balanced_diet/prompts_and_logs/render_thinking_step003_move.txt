@@ -1,0 +1,7 @@
+**Defining the Move**
+
+I've specified the actions needed to move 'alex'. The process breaks down into pinpointing the source cell (C2, R0) and the destination (C2, R1). I have described the need to erase the character from the original position, then place him in the new spot. Also, I must ensure that no other grid elements are affected by this move.
+
+**Verifying The Instructions**
+
+I have confirmed that the requested sprite has been repositioned as instructed. The prior location is empty, and the new destination cell shows the sprite. No other modifications were made. All instructions were correctly followed.

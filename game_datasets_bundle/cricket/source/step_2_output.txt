@@ -1,0 +1,22 @@
+**State Variables:**
+
+1. **Runs Required**  
+   Tracks remaining runs needed for victory. Reflects match pressure, influencing strategic decisions by the Captain Strategist.
+
+2. **Wickets in Hand**  
+   Monitors remaining batsmen, impacting the risk level Ace Batsman can take. Critical for tactical planning.
+
+3. **Overs Remaining**  
+   Shows time left in the match, pressing the Spin Wizard to craft effective bowling scenarios.
+
+4. **Player Morale**  
+   Affects performance. Influenced by successful plays or setbacks, triggers character growth, especially for the Rookie Player.
+
+5. **Field Arrangement**  
+   Visual representation of field strategy. Changes with Captain Strategist’s decisions, affecting Run Requirement.
+
+6. **Player Stamina**  
+   Influences effectiveness. Impacts the Field Master’s agility and Ace Batsman’s shot accuracy, requiring strategic substitutions.
+
+7. **Partnership Score**  
+   Tracks key run partnerships, enhancing team dynamics and relationships, emphasizing collaborative success.

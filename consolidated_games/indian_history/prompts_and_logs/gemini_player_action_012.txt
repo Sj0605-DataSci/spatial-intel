@@ -1,0 +1,2 @@
+right
+The game's objectives (4 artifacts collected and 1 historical decision made) have already been met. Moving right to (4,2) is a valid move.

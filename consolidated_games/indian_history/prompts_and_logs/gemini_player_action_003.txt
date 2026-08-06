@@ -1,0 +1,2 @@
+down
+The Ashoka artifact is at (1,2) and the player is at (1,1). Moving down will collect the artifact.

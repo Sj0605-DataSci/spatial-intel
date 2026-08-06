@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R1):
+'A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.' collect 'A bundle of golden wheat symbolizing the harvest, key for Baisakhi preparations.'.
+
+1. Show 'A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.' with a sparkle/glow reaching toward 'A bundle of golden wheat symbolizing the harvest, key for Baisakhi preparations.'.
+2. ERASE 'A bundle of golden wheat symbolizing the harvest, key for Baisakhi preparations.' from (C1, R1) — fill with background texture. It must be completely gone.
+3. 'A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.' stays at (C1, R1).
+4. Nothing else changes.

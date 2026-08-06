@@ -1,0 +1,286 @@
+{
+  "game": "7_worlds_of_wonder",
+  "session_id": "gemini_plays_7_worlds_of_wonder_1777112601",
+  "movable_chars": [
+    "player"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 12,
+  "goal": "artifacts_collected == 3 AND puzzles_solved == 2",
+  "won": true,
+  "final_scoreboard": {
+    "artifacts_collected": 3,
+    "puzzles_solved": 2,
+    "is_collected_artifact": 0,
+    "is_solved_puzzle": 0
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "player",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 0,
+        "puzzles_solved": 0,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "player",
+      "action": "right",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        2,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 0,
+        "puzzles_solved": 0,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "player",
+      "action": "right",
+      "from": [
+        2,
+        0
+      ],
+      "to": [
+        3,
+        0
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:artifact_3"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "puzzles_solved": 0,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "player",
+      "action": "down",
+      "from": [
+        3,
+        0
+      ],
+      "to": [
+        3,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "puzzles_solved": 0,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "player",
+      "action": "down",
+      "from": [
+        3,
+        1
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "puzzles_solved": 0,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "player",
+      "action": "down",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        3,
+        3
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:puzzle_2"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "puzzles_solved": 1,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "player",
+      "action": "down",
+      "from": [
+        3,
+        3
+      ],
+      "to": [
+        3,
+        4
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "puzzles_solved": 1,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 8,
+      "character": "player",
+      "action": "up",
+      "from": [
+        3,
+        4
+      ],
+      "to": [
+        3,
+        3
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:puzzle_2"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "puzzles_solved": 2,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 9,
+      "character": "player",
+      "action": "left",
+      "from": [
+        3,
+        3
+      ],
+      "to": [
+        2,
+        3
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "puzzles_solved": 2,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 10,
+      "character": "player",
+      "action": "up",
+      "from": [
+        2,
+        3
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:artifact_2"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "puzzles_solved": 2,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 11,
+      "character": "player",
+      "action": "left",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "puzzles_solved": 2,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    },
+    {
+      "step": 12,
+      "character": "player",
+      "action": "up",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:artifact_1"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 3,
+        "puzzles_solved": 2,
+        "is_collected_artifact": 0,
+        "is_solved_puzzle": 0
+      }
+    }
+  ]
+}

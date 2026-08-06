@@ -1,0 +1,2 @@
+left
+The player has collected all waste and needs to deposit them into the correct bins. The bins are to the left of the player's current position (3,2). Moving left will bring the player closer to the landfill bin at (2,2).

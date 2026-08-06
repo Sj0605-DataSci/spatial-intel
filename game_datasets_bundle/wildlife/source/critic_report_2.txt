@@ -1,0 +1,25 @@
+SCORE: 10
+
+ISSUES:
+
+- None
+
+EXPECTED_BEHAVIOR:
+
+- max_reward field is a single integer value.
+- Only the main player/avatar class has isMovable = true.
+- Action arguments use class names, not domain object names.
+- Transition arguments are preceded by a ? sign.
+- side_effects are a list of strings in the correct format.
+- Grid size is appropriate for the number of objects.
+- No probability values cause issues.
+- Total domain objects are within acceptable limits.
+- Variable types are consistent.
+- All objects are placed on the grid.
+- Goal and reward use only integer state variables.
+- Boolean guards on counter-modifying actions are present.
+- Goal counters can achieve their targets without overshoot.
+
+ACTUAL_BEHAVIOR:
+
+- The JSON structure aligns perfectly with all structural and semantic checks. The game mechanics function as intended without any issues.

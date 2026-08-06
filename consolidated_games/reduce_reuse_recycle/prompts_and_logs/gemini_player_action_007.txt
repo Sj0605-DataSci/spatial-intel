@@ -1,0 +1,2 @@
+right
+Eli is currently at (0,2) on the plastic recycle bin. The plastic bottle should now be sorted. The next closest item to collect is the glass jar at (1,1). Moving right to (1,2) is the first step towards it.

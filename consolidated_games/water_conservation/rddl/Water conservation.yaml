@@ -1,0 +1,156 @@
+topic: Water conservation
+objective: Players, as community leaders, must collect water_saving items and implement
+  strategies to boost village water security.
+environment_description: A vibrant, detailed village grid with modest homes, community
+  gardens with native plants, and rainwater systems. Paths lined with conservation
+  tools and greenery amidst an arid backdrop.
+domain:
+- name: player
+  image_prompt: A dedicated community leader in a simple outfit, ready to organize
+    and implement water conservation.
+- name: rain_barrel
+  image_prompt: A sturdy rain barrel designed to collect and store rainwater.
+- name: efficient_faucet
+  image_prompt: A modern faucet with a sensor to minimize water use.
+- name: native_plants
+  image_prompt: A collection of drought_tolerant plants with vibrant green leaves.
+- name: policy_card_1
+  image_prompt: A card representing a local government water conservation initiative.
+- name: policy_card_2
+  image_prompt: A card representing a community_driven water_saving project.
+classes:
+- class_name: player
+  list_of_objects:
+  - player
+- class_name: collectible_item
+  list_of_objects:
+  - rain_barrel
+  - efficient_faucet
+  - native_plants
+- class_name: policy_card
+  list_of_objects:
+  - policy_card_1
+  - policy_card_2
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: collectible_item
+  isMovable: false
+- class_name: policy_card
+  isMovable: false
+state_variables:
+- name: is_collected_rain_barrel
+  type: bool
+- name: is_collected_efficient_faucet
+  type: bool
+- name: is_collected_native_plants
+  type: bool
+- name: is_used_policy_card_1
+  type: bool
+- name: is_used_policy_card_2
+  type: bool
+- name: items_collected
+  type: integer
+- name: cards_used
+  type: integer
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Collect(player, collectible_item)
+- name: UsePolicy(player, policy_card)
+transitions:
+- action: MoveUp(player)
+  preconditions:
+  - player.y < grid_size.y
+  effects:
+  - player.y = player.y + 1
+  side_effects:
+  - MoveImage(player, player.x, player.y - 1, player.x, player.y)
+- action: MoveDown(player)
+  preconditions:
+  - player.y > 1
+  effects:
+  - player.y = player.y - 1
+  side_effects:
+  - MoveImage(player, player.x, player.y + 1, player.x, player.y)
+- action: MoveLeft(player)
+  preconditions:
+  - player.x > 1
+  effects:
+  - player.x = player.x - 1
+  side_effects:
+  - MoveImage(player, player.x + 1, player.y, player.x, player.y)
+- action: MoveRight(player)
+  preconditions:
+  - player.x < grid_size.x
+  effects:
+  - player.x = player.x + 1
+  side_effects:
+  - MoveImage(player, player.x - 1, player.y, player.x, player.y)
+- action: Collect(player, collectible_item)
+  preconditions:
+  - player.x == ?collectible_item.x
+  - player.y == ?collectible_item.y
+  - items_collected < 3
+  - NOT is_collected_?_collectible_item
+  effects:
+  - items_collected = items_collected + 1
+  - is_collected_?_collectible_item = true
+  side_effects:
+  - ShowText(true, 'Item collected!')
+  - MoveImage(?collectible_item, ?collectible_item.x, ?collectible_item.y, HIDDEN,
+    HIDDEN)
+- action: UsePolicy(player, policy_card)
+  preconditions:
+  - items_collected == 3
+  - player.x == ?policy_card.x
+  - player.y == ?policy_card.y
+  - cards_used < 2
+  - NOT is_used_?_policy_card
+  effects:
+  - cards_used = cards_used + 1
+  - is_used_?_policy_card = true
+  side_effects:
+  - ShowText(true, 'Policy card used to enhance community resilience!')
+goal: items_collected == 3 AND cards_used == 2
+reward: items_collected + 2 * cards_used
+max_reward: 7
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: player
+  x: '1'
+  y: '1'
+- domain_object: rain_barrel
+  x: '2'
+  y: '2'
+- domain_object: efficient_faucet
+  x: '3'
+  y: '3'
+- domain_object: native_plants
+  x: '4'
+  y: '4'
+- domain_object: policy_card_1
+  x: '2'
+  y: '4'
+- domain_object: policy_card_2
+  x: '4'
+  y: '2'
+initial_state_variables:
+- name: is_collected_rain_barrel
+  value: false
+- name: is_collected_efficient_faucet
+  value: false
+- name: is_collected_native_plants
+  value: false
+- name: is_used_policy_card_1
+  value: false
+- name: is_used_policy_card_2
+  value: false
+- name: items_collected
+  value: 0
+- name: cards_used
+  value: 0

@@ -1,0 +1,13 @@
+Game States:
+
+1. **Animals Rescued:** Tracks the number of endangered species saved, unlocking new puzzles and narrative segments.
+
+2. **Habitat Restored:** Measures progress in rebuilding ecosystems, impacting the availability of future puzzle challenges.
+
+3. **Conservation Points:** Earned through successful puzzle completions, these points reflect the player's conservation impact and influence story outcomes.
+
+4. **Companion Skills:** Represents the abilities of animal companions, enhancing their effectiveness in solving puzzles and finding hidden items.
+
+5. **Community Support:** Reflects the level of local villagers' involvement in conservation efforts, affecting available resources and hints.
+
+6. **Environmental Health:** Indicates the current status of the ecosystem, influencing the complexity of puzzles and storyline progression.

@@ -1,0 +1,7 @@
+COLLECT at cell (C2, R3):
+'A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.' collect 'A small, ornate box with charity donations, symbolizing the spirit of giving.'.
+
+1. Show 'A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.' with a sparkle/glow reaching toward 'A small, ornate box with charity donations, symbolizing the spirit of giving.'.
+2. ERASE 'A small, ornate box with charity donations, symbolizing the spirit of giving.' from (C2, R3) — fill with background texture. It must be completely gone.
+3. 'A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.' stays at (C2, R3).
+4. Nothing else changes.

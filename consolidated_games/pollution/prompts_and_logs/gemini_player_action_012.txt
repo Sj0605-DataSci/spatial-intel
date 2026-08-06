@@ -1,0 +1,2 @@
+down
+Moving down will take the player to the rural_zone at (3,3), allowing interaction with it.

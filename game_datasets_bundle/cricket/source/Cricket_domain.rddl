@@ -1,0 +1,110 @@
+domain Cricket{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   batsman : object ;
+   bowler : object ;
+   fielder : object ;
+   rookie : object ;
+   field : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+batsman-x(batsman,xpos) : { non-fluent , bool , default=false } ;
+batsman-y(batsman,ypos) : { non-fluent , bool , default=false } ;
+bowler-x(bowler,xpos) : { non-fluent , bool , default=false } ;
+bowler-y(bowler,ypos) : { non-fluent , bool , default=false } ;
+fielder-x(fielder,xpos) : { non-fluent , bool , default=false } ;
+fielder-y(fielder,ypos) : { non-fluent , bool , default=false } ;
+rookie-x(rookie,xpos) : { non-fluent , bool , default=false } ;
+rookie-y(rookie,ypos) : { non-fluent , bool , default=false } ;
+field-x(field,xpos) : { non-fluent , bool , default=false } ;
+field-y(field,ypos) : { non-fluent , bool , default=false } ;
+runs_scored : { state-fluent , int , default=0 } ;
+wickets_remaining : { state-fluent , int , default=0 } ;
+overs_remaining : { state-fluent , int , default=0 } ;
+strategy_executed_count : { state-fluent , int , default=0 } ;
+execute_strategy-player-batsman-bowler-fielder-rookie(player,batsman,bowler,fielder,rookie) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+runs_scored' = if (exists_{?player:player, ?batsman:batsman, ?bowler:bowler, ?fielder:fielder, ?rookie:rookie} [ execute_strategy-player-batsman-bowler-fielder-rookie(?player, ?batsman, ?bowler, ?fielder, ?rookie) & wickets_remaining > 0 & overs_remaining > 0 & runs_scored < 10 ] )  then runs_scored + 1
+ else runs_scored
+;
+
+wickets_remaining' = if (exists_{?player:player, ?batsman:batsman, ?bowler:bowler, ?fielder:fielder, ?rookie:rookie} [ execute_strategy-player-batsman-bowler-fielder-rookie(?player, ?batsman, ?bowler, ?fielder, ?rookie) & wickets_remaining > 0 & overs_remaining > 0 & runs_scored < 10 ] )  then wickets_remaining - 1
+ else wickets_remaining
+;
+
+overs_remaining' = if (exists_{?player:player, ?batsman:batsman, ?bowler:bowler, ?fielder:fielder, ?rookie:rookie} [ execute_strategy-player-batsman-bowler-fielder-rookie(?player, ?batsman, ?bowler, ?fielder, ?rookie) & wickets_remaining > 0 & overs_remaining > 0 & runs_scored < 10 ] )  then overs_remaining - 1
+ else overs_remaining
+;
+
+strategy_executed_count' = if (exists_{?player:player, ?batsman:batsman, ?bowler:bowler, ?fielder:fielder, ?rookie:rookie} [ execute_strategy-player-batsman-bowler-fielder-rookie(?player, ?batsman, ?bowler, ?fielder, ?rookie) & wickets_remaining > 0 & overs_remaining > 0 & runs_scored < 10 ] )  then strategy_executed_count + 1
+ else strategy_executed_count
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = runs_scored;
+
+// max_reward = 10.0
+
+termination{
+runs_scored == 10;
+};
+}

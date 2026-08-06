@@ -1,0 +1,2 @@
+right
+The player is at (0,0) and artifact_3 is at (3,0). Moving right will bring the player closer to artifact_3.

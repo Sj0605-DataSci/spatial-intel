@@ -1,0 +1,272 @@
+{
+    "topic": "Diwali Celebration",
+    "objective": "Arjun must complete all festive tasks to light up the neighborhood for Diwali.",
+    "environment_description": "A vibrant neighborhood during Diwali, with houses adorned with diyas, colorful rangoli on the streets, and a communal area bustling with festive activities.",
+    "domain": [
+        {
+            "name": "player_avatar",
+            "image_prompt": "A cheerful young boy in a vibrant kurta, dynamically interacting with his environment, showcasing diyas and vibrant decor, set against a bustling festival backdrop."
+        },
+        {
+            "name": "diyas_collection",
+            "image_prompt": "A collection of small, clay diyas arranged neatly, ready to be placed for the Diwali celebration."
+        },
+        {
+            "name": "rangoli_arts",
+            "image_prompt": "Colorful and intricate rangoli patterns, ready to decorate the entrance of houses."
+        },
+        {
+            "name": "diwali_meals",
+            "image_prompt": "Traditional Diwali meals, including sweets and savories, prepared with care."
+        },
+        {
+            "name": "community_area",
+            "image_prompt": "A central area in the neighborhood where community events take place, decorated with lanterns and banners for the festival."
+        }
+    ],
+    "classes": [
+        {
+            "class_name": "player",
+            "list_of_objects": [
+                "player1"
+            ]
+        },
+        {
+            "class_name": "diya",
+            "list_of_objects": [
+                "diya1"
+            ]
+        },
+        {
+            "class_name": "rangoli",
+            "list_of_objects": [
+                "rangoli1"
+            ]
+        },
+        {
+            "class_name": "meal",
+            "list_of_objects": [
+                "meal1"
+            ]
+        },
+        {
+            "class_name": "event_area",
+            "list_of_objects": [
+                "event_area1"
+            ]
+        }
+    ],
+    "state_of_objects": [
+        {
+            "class_name": "player",
+            "isMovable": true
+        },
+        {
+            "class_name": "diya",
+            "isMovable": false
+        },
+        {
+            "class_name": "rangoli",
+            "isMovable": false
+        },
+        {
+            "class_name": "meal",
+            "isMovable": false
+        },
+        {
+            "class_name": "event_area",
+            "isMovable": false
+        }
+    ],
+    "state_variables": [
+        {
+            "name": "tasks_completed",
+            "type": "integer"
+        },
+        {
+            "name": "is_diya_placed(diya)",
+            "type": "boolean"
+        },
+        {
+            "name": "is_rangoli_placed(rangoli)",
+            "type": "boolean"
+        },
+        {
+            "name": "is_meal_ready(meal)",
+            "type": "boolean"
+        }
+    ],
+    "actions": [
+        {
+            "name": "MoveUp(player)"
+        },
+        {
+            "name": "MoveDown(player)"
+        },
+        {
+            "name": "MoveLeft(player)"
+        },
+        {
+            "name": "MoveRight(player)"
+        },
+        {
+            "name": "CompleteTaskOnDiya(player, diya)"
+        },
+        {
+            "name": "CompleteTaskOnRangoli(player, rangoli)"
+        },
+        {
+            "name": "CompleteTaskOnMeal(player, meal)"
+        }
+    ],
+    "transitions": [
+        {
+            "action": "MoveUp(?player)",
+            "preconditions": [
+                "?player.y < grid_size.y"
+            ],
+            "effects": [
+                "?player.y = ?player.y + 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "MoveDown(?player)",
+            "preconditions": [
+                "?player.y > 1"
+            ],
+            "effects": [
+                "?player.y = ?player.y - 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "MoveLeft(?player)",
+            "preconditions": [
+                "?player.x > 1"
+            ],
+            "effects": [
+                "?player.x = ?player.x - 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "MoveRight(?player)",
+            "preconditions": [
+                "?player.x < grid_size.x"
+            ],
+            "effects": [
+                "?player.x = ?player.x + 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "CompleteTaskOnDiya(?player, ?diya)",
+            "preconditions": [
+                "tasks_completed < 3",
+                "?player.x == ?diya.x",
+                "?player.y == ?diya.y",
+                "NOT is_diya_placed(?diya)"
+            ],
+            "effects": [
+                "tasks_completed = tasks_completed + 1",
+                "is_diya_placed(?diya) = true"
+            ],
+            "side_effects": [
+                "ShowText(true, 'You have successfully placed the diyas!')"
+            ]
+        },
+        {
+            "action": "CompleteTaskOnRangoli(?player, ?rangoli)",
+            "preconditions": [
+                "tasks_completed < 3",
+                "?player.x == ?rangoli.x",
+                "?player.y == ?rangoli.y",
+                "NOT is_rangoli_placed(?rangoli)"
+            ],
+            "effects": [
+                "tasks_completed = tasks_completed + 1",
+                "is_rangoli_placed(?rangoli) = true"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Rangoli patterns are beautifully placed!')"
+            ]
+        },
+        {
+            "action": "CompleteTaskOnMeal(?player, ?meal)",
+            "preconditions": [
+                "tasks_completed < 3",
+                "?player.x == ?meal.x",
+                "?player.y == ?meal.y",
+                "NOT is_meal_ready(?meal)"
+            ],
+            "effects": [
+                "tasks_completed = tasks_completed + 1",
+                "is_meal_ready(?meal) = true"
+            ],
+            "side_effects": [
+                "ShowText(true, 'The meals are ready for Diwali!')"
+            ]
+        }
+    ],
+    "goal": "tasks_completed == 3",
+    "reward": "tasks_completed",
+    "max_reward": 3,
+    "grid_size": {
+        "x_size": 5,
+        "y_size": 5
+    },
+    "initial_state_objects": [
+        {
+            "domain_object": "player1",
+            "x": "1",
+            "y": "1"
+        },
+        {
+            "domain_object": "diya1",
+            "x": "2",
+            "y": "3"
+        },
+        {
+            "domain_object": "rangoli1",
+            "x": "4",
+            "y": "2"
+        },
+        {
+            "domain_object": "meal1",
+            "x": "3",
+            "y": "4"
+        },
+        {
+            "domain_object": "event_area1",
+            "x": "5",
+            "y": "5"
+        }
+    ],
+    "initial_state_variables": [
+        {
+            "name": "tasks_completed",
+            "value": 0
+        },
+        {
+            "name": "is_diya_placed(diya)",
+            "value": false
+        },
+        {
+            "name": "is_rangoli_placed(rangoli)",
+            "value": false
+        },
+        {
+            "name": "is_meal_ready(meal)",
+            "value": false
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+topic: Pollution
+objective: Restore polluted environments by reducing pollution levels across zones
+  and enhancing character satisfaction.
+environment_description: A diverse environment with coastal areas, urban landscapes,
+  and rural lands showing stages of pollution from oil spills, smog, and soil contamination.
+domain:
+- name: player
+  image_prompt: A dedicated environmentalist in casual attire, equipped with tools
+    and charts, ready to tackle pollution.
+- name: coastal_zone
+  image_prompt: A sandy beach with patches of oil spill, an area requiring cleanup
+    and restoration.
+- name: urban_zone
+  image_prompt: A bustling cityscape with smog_obscured buildings, reflecting urban
+    pollution challenges.
+- name: rural_zone
+  image_prompt: Farmlands with barren soil and scattered debris, a site needing soil
+    health revival.
+classes:
+- class_name: player
+  list_of_objects:
+  - player
+- class_name: zone
+  list_of_objects:
+  - coastal_zone
+  - urban_zone
+  - rural_zone
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: zone
+  isMovable: false
+state_variables:
+- name: pollution_level(zone)
+  type: integer
+- name: satisfaction
+  type: integer
+- name: zones_restored
+  type: integer
+- name: is_cleaned(zone)
+  type: boolean
+actions:
+- name: Clean(player, zone)
+- name: Evaluate(player, zone)
+transitions:
+- action: Clean(?player, ?zone)
+  preconditions:
+  - pollution_level(?zone) > 0
+  - zones_restored < 3
+  effects:
+  - pollution_level(?zone) = pollution_level(?zone) - 1
+  - zones_restored = zones_restored + 1
+  - is_cleaned(?zone) = true
+  side_effects:
+  - ShowText(true, 'Zone cleaned! Pollution level reduced.')
+- action: Evaluate(?player, ?zone)
+  preconditions:
+  - pollution_level(?zone) == 0
+  - satisfaction < 3
+  - ?player.x == ?zone.x
+  - ?player.y == ?zone.y
+  effects:
+  - satisfaction = satisfaction + 1
+  side_effects:
+  - ShowText(true, 'Zone fully restored! Satisfaction increased.')
+goal: zones_restored == 3 AND satisfaction == 3
+reward: zones_restored + 2 * satisfaction
+max_reward: 9
+grid_size:
+  x_size: 4
+  y_size: 4
+initial_state_objects:
+- domain_object: player
+  x: '1'
+  y: '1'
+- domain_object: coastal_zone
+  x: '2'
+  y: '2'
+- domain_object: urban_zone
+  x: '3'
+  y: '3'
+- domain_object: rural_zone
+  x: '4'
+  y: '4'
+initial_state_variables:
+- name: pollution_level(coastal_zone)
+  value: 3
+- name: pollution_level(urban_zone)
+  value: 3
+- name: pollution_level(rural_zone)
+  value: 3
+- name: satisfaction
+  value: 0
+- name: zones_restored
+  value: 0
+- name: is_cleaned(coastal_zone)
+  value: false
+- name: is_cleaned(urban_zone)
+  value: false
+- name: is_cleaned(rural_zone)
+  value: false

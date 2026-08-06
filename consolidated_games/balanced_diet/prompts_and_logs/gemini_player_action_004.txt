@@ -1,0 +1,2 @@
+right
+Alex is at (2,1). Moving right to (3,1) will bring Alex closer to the vegetable at (3,2).

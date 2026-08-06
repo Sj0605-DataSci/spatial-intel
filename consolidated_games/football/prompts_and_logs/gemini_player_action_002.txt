@@ -1,0 +1,2 @@
+right
+Moving right takes the playmaker closer to the opponent's goal, positioning them to potentially shoot or pass into a scoring opportunity.

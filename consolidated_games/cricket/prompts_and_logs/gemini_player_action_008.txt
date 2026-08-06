@@ -1,0 +1,2 @@
+down
+Move down to interact with the cricket_field and potentially initiate run-scoring actions.

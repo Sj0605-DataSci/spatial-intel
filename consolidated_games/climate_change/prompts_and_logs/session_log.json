@@ -1,0 +1,273 @@
+{
+  "game": "climate_change",
+  "session_id": "gemini_plays_climate_change_1777114319",
+  "movable_chars": [
+    "alex"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 12,
+  "goal": "ecosystem_health == 4 AND community_support == 1",
+  "won": false,
+  "final_scoreboard": {
+    "ecosystem_health": 8,
+    "community_support": 1,
+    "resources_placed": 4
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "alex",
+      "action": "down",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "ecosystem_health": 0,
+        "community_support": 0,
+        "resources_placed": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "alex",
+      "action": "right",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:forest_region"
+      ],
+      "scoreboard": {
+        "ecosystem_health": 2,
+        "community_support": 0,
+        "resources_placed": 1
+      }
+    },
+    {
+      "step": 3,
+      "character": "alex",
+      "action": "left",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "ecosystem_health": 2,
+        "community_support": 0,
+        "resources_placed": 1
+      }
+    },
+    {
+      "step": 4,
+      "character": "alex",
+      "action": "right",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:forest_region"
+      ],
+      "scoreboard": {
+        "ecosystem_health": 4,
+        "community_support": 0,
+        "resources_placed": 2
+      }
+    },
+    {
+      "step": 5,
+      "character": "alex",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "ecosystem_health": 4,
+        "community_support": 0,
+        "resources_placed": 2
+      }
+    },
+    {
+      "step": 6,
+      "character": "alex",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:forest_region"
+      ],
+      "scoreboard": {
+        "ecosystem_health": 6,
+        "community_support": 0,
+        "resources_placed": 3
+      }
+    },
+    {
+      "step": 7,
+      "character": "alex",
+      "action": "down",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "ecosystem_health": 6,
+        "community_support": 0,
+        "resources_placed": 3
+      }
+    },
+    {
+      "step": 8,
+      "character": "alex",
+      "action": "left",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        0,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "ecosystem_health": 6,
+        "community_support": 0,
+        "resources_placed": 3
+      }
+    },
+    {
+      "step": 9,
+      "character": "alex",
+      "action": "right",
+      "from": [
+        0,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "ecosystem_health": 6,
+        "community_support": 0,
+        "resources_placed": 3
+      }
+    },
+    {
+      "step": 10,
+      "character": "alex",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:ice_cap"
+      ],
+      "scoreboard": {
+        "ecosystem_health": 8,
+        "community_support": 0,
+        "resources_placed": 4
+      }
+    },
+    {
+      "step": 11,
+      "character": "alex",
+      "action": "down",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        3
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "ecosystem_health": 8,
+        "community_support": 0,
+        "resources_placed": 4
+      }
+    },
+    {
+      "step": 12,
+      "character": "alex",
+      "action": "right",
+      "from": [
+        2,
+        3
+      ],
+      "to": [
+        3,
+        3
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:community_center"
+      ],
+      "scoreboard": {
+        "ecosystem_health": 8,
+        "community_support": 1,
+        "resources_placed": 4
+      }
+    }
+  ]
+}

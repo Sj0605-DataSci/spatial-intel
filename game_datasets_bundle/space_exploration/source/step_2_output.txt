@@ -1,0 +1,13 @@
+Game States:
+
+1. Mission Progress: Measures objectives completed, including artefact collection and alliances formed. Reflects exploration success.
+
+2. Crew Morale: Represents the emotional state of the team; affected by decisions and events. Critical for maintaining team efficiency.
+
+3. Resource Inventory: Tracks collected resources and artefacts. Essential for trade and research activities.
+
+4. Spacecraft Integrity: Indicates health of the ship, influenced by obstacles encountered. Requires management by Engineer Lyra.
+
+5. Alien Relations: Gauges diplomatic success and trust levels with each civilization. Managed by Diplomat Solara.
+
+6. Cosmic Discoveries: Chronicles new cosmic phenomena uncovered by Scientist Nova, advancing storyline and gameplay.

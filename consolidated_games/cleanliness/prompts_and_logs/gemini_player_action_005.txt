@@ -1,0 +1,2 @@
+right
+Moving right to (3,2) to begin cleaning the visibly polluted patch of ground.

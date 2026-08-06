@@ -1,0 +1,2 @@
+left
+Move left to interact with Buddy Ben and increase friendship levels.

@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'joyful_ava' (looks like: A lively child with curly hair and bright overalls, holding a playground blueprint with enthusiasm.)
+  FROM cell (C0, R0)  [pixels x≈0–204, y≈0–204]
+  TO   cell (C1, R0)  [pixels x≈204–408, y≈0–204]
+
+1. ERASE 'joyful_ava' from (C0, R0) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'joyful_ava' once at (C1, R0).
+3. Nothing else changes.

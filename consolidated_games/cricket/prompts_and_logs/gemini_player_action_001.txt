@@ -1,0 +1,2 @@
+right
+Moving right to get closer to the cricket field at (2,2) and potentially interact with the ace_batsman at (1,0).

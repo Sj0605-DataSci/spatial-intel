@@ -1,0 +1,13 @@
+**Rules for Eid Harmony:**
+
+1. **Navigate with Clicks:** Move characters like Ayaan and Amira on the grid by clicking desired locations to initiate tasks.
+
+2. **Gratitude Tasks:** Completing acts of kindness, like organizing charity events, increases Gratitude Points.
+
+3. **Unity Challenges:** Resolving disputes by uncovering hidden letters boosts the Family Unity Meter.
+
+4. **Feast Puzzle:** Arrange food items correctly to raise the Feast Preparedness Level, symbolizing successful community preparation.
+
+5. **Hidden Object Search:** Finding symbolic objects augments Hidden Objects Found and unveils narrative depth.
+
+6. **Victory Condition:** Maximize all state variables (Gratitude Points, Family Unity Meter, etc.) to complete the celebratory Eid experience and unlock a harmonious family scene.

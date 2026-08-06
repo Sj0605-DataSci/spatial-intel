@@ -1,0 +1,3 @@
+Eli is currently at (0,2), which is the location of the recycle_bin_plastic. Since eli has already collected the plastic_bottle, being on the same cell as the correct recycling bin should trigger the sorting action. No further movement is needed to sort the plastic bottle. However, the game requires a move. Since eli is already on the bin, and the plastic bottle should be sorted, the next logical step is to move towards the next item to collect, which is the glass_jar at (1,1). To get there, eli needs to move 'up' first.
+
+up

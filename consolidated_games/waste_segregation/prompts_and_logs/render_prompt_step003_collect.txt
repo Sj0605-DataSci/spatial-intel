@@ -1,0 +1,7 @@
+COLLECT at cell (C2, R1):
+'An eager environmentalist equipped with a sorting guide, ready to organize waste in the neighborhood.' collect 'A heap of biodegradable waste consisting of vegetable peels and food scraps.'.
+
+1. Show 'An eager environmentalist equipped with a sorting guide, ready to organize waste in the neighborhood.' with a sparkle/glow reaching toward 'A heap of biodegradable waste consisting of vegetable peels and food scraps.'.
+2. ERASE 'A heap of biodegradable waste consisting of vegetable peels and food scraps.' from (C2, R1) — fill with background texture. It must be completely gone.
+3. 'An eager environmentalist equipped with a sorting guide, ready to organize waste in the neighborhood.' stays at (C2, R1).
+4. Nothing else changes.

@@ -1,0 +1,2 @@
+down
+Moving down brings Sam closer to both EventManagerAlex (0,2) and the ShoppingList (1,2). This path allows for interacting with EventManagerAlex on the way to the ShoppingList.

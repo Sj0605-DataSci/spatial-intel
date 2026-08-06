@@ -1,0 +1,2 @@
+down
+Eli needs to move down to the recycle_bin_plastic at (0,2) to sort the collected plastic bottle.

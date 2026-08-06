@@ -1,0 +1,2 @@
+right
+The player is currently on the recycling bin at (0,2). Since all waste types (plastic, organic, metal) are collected, the player needs to sort them into the correct bins. Assuming the plastic waste is sorted first by being on the recycling bin, the next step is to move to the compost bin at (1,2) to sort the organic waste.

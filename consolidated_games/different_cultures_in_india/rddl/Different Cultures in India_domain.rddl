@@ -1,0 +1,92 @@
+domain Different_Cultures_in_India{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   explorer : object ;
+   cultural_symbol : object ;
+   tapestry : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-explorer(explorer) : { action-fluent , bool , default=false } ;
+move-right-explorer(explorer) : { action-fluent , bool , default=false } ;
+move-up-explorer(explorer) : { action-fluent , bool , default=false } ;
+move-down-explorer(explorer) : { action-fluent , bool , default=false } ;
+has-moved-explorer(explorer) : { state-fluent , bool , default=false } ;
+explorer-x(explorer,xpos) : { state-fluent , bool , default=false } ;
+explorer-y(explorer,ypos) : { state-fluent , bool , default=false } ;
+cultural_symbol-x(cultural_symbol,xpos) : { non-fluent , bool , default=false } ;
+cultural_symbol-y(cultural_symbol,ypos) : { non-fluent , bool , default=false } ;
+tapestry-x(tapestry,xpos) : { non-fluent , bool , default=false } ;
+tapestry-y(tapestry,ypos) : { non-fluent , bool , default=false } ;
+is_collected_cultural_symbol(cultural_symbol) : { state-fluent , bool , default=false } ;
+symbols_collected : { state-fluent , int , default=0 } ;
+collect_symbol-explorer-cultural_symbol(explorer,cultural_symbol) : { action-fluent , bool , default=false } ;
+complete_tapestry-explorer-tapestry(explorer,tapestry) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+explorer-x'(?explorer,?xpos) = if (move-left-explorer( ?explorer)  & explorer-x( ?explorer, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-explorer( ?explorer)  & exists_{?x2:xpos}[explorer-x(?explorer, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-explorer( ?explorer)  & ~exists_{?x2:xpos}[explorer-x(?explorer, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-explorer( ?explorer)  & explorer-x( ?explorer, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-explorer( ?explorer)  & exists_{?x2:xpos}[explorer-x(?explorer, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-explorer( ?explorer)  & ~exists_{?x2:xpos}[explorer-x(?explorer, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else explorer-x(?explorer, ?xpos)
+;
+
+explorer-y'(?explorer,?ypos) = if (move-up-explorer( ?explorer)  & explorer-y( ?explorer, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-explorer( ?explorer)  & exists_{?y2:ypos}[explorer-y(?explorer, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-explorer( ?explorer)  & ~exists_{?y2:ypos}[explorer-y(?explorer, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-explorer( ?explorer)  & explorer-y( ?explorer, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-explorer( ?explorer)  & exists_{?y2:ypos}[explorer-y(?explorer, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-explorer( ?explorer)  & ~exists_{?y2:ypos}[explorer-y(?explorer, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else explorer-y(?explorer, ?ypos)
+;
+
+has-moved-explorer'(?explorer) = move-left-explorer(?explorer) | move-right-explorer(?explorer) | move-up-explorer(?explorer) | move-down-explorer(?explorer)
+;
+
+is_collected_cultural_symbol'(?cultural_symbol) = if (exists_{?explorer:explorer} [ collect_symbol-explorer-cultural_symbol(?explorer, ?cultural_symbol) & ~is_collected_cultural_symbol(?cultural_symbol) & exists_{?x:xpos} [explorer-x(?explorer, ?x) & cultural_symbol-x(?cultural_symbol, ?x)] & exists_{?y:ypos} [explorer-y(?explorer, ?y) & cultural_symbol-y(?cultural_symbol, ?y)] & symbols_collected < 3 ] )  then true
+ else is_collected_cultural_symbol(?cultural_symbol)
+;
+
+symbols_collected' = if (exists_{?explorer:explorer, ?cultural_symbol:cultural_symbol} [ collect_symbol-explorer-cultural_symbol(?explorer, ?cultural_symbol) & ~is_collected_cultural_symbol(?cultural_symbol) & exists_{?x:xpos} [explorer-x(?explorer, ?x) & cultural_symbol-x(?cultural_symbol, ?x)] & exists_{?y:ypos} [explorer-y(?explorer, ?y) & cultural_symbol-y(?cultural_symbol, ?y)] & symbols_collected < 3 ] )  then symbols_collected + 1
+ else symbols_collected
+;
+
+};
+
+action-preconditions {
+forall_{?explorer:explorer}[
+            move-left-explorer(?explorer) => exists_{?x1:xpos, ?x2:xpos}[explorer-x(?explorer, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?explorer:explorer}[
+            move-right-explorer(?explorer) => exists_{?x1:xpos, ?x2:xpos}[explorer-x(?explorer, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?explorer:explorer}[
+            move-up-explorer(?explorer) => exists_{?y1:ypos, ?y2:ypos}[explorer-y(?explorer, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?explorer:explorer}[
+            move-down-explorer(?explorer) => exists_{?y1:ypos, ?y2:ypos}[explorer-y(?explorer, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = symbols_collected * 3;
+
+// max_reward = 9.0
+
+termination{
+symbols_collected == 3;
+};
+}

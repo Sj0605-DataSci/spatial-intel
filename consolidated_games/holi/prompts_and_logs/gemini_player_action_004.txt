@@ -1,0 +1,2 @@
+left
+Move Riya left to interact with obstacle_1 and begin resolving the misunderstanding.

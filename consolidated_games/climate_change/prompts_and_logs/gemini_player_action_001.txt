@@ -1,0 +1,2 @@
+down
+Moving down to (0,1) brings Alex closer to both the forest region (1,1) and the solar array (0,2), allowing for flexibility in the next move to address ecosystem health.

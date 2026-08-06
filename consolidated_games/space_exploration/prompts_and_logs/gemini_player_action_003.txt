@@ -1,0 +1,2 @@
+right
+Moving right to get closer to artifact_2 at (2,2) and alien_civilization_2 at (2,0).

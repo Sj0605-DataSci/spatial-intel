@@ -1,0 +1,106 @@
+domain Balanced_Diet{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   healthy_food : object ;
+   unhealthy_food : object ;
+   area : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+healthy_food-x(healthy_food,xpos) : { non-fluent , bool , default=false } ;
+healthy_food-y(healthy_food,ypos) : { non-fluent , bool , default=false } ;
+unhealthy_food-x(unhealthy_food,xpos) : { non-fluent , bool , default=false } ;
+unhealthy_food-y(unhealthy_food,ypos) : { non-fluent , bool , default=false } ;
+area-x(area,xpos) : { non-fluent , bool , default=false } ;
+area-y(area,ypos) : { non-fluent , bool , default=false } ;
+is_collected_healthy_food(healthy_food) : { state-fluent , bool , default=false } ;
+is_collected_unhealthy_food(unhealthy_food) : { state-fluent , bool , default=false } ;
+meals_assembled : { state-fluent , int , default=0 } ;
+is_meal_prepared_area(area) : { state-fluent , bool , default=false } ;
+collect-player-healthy_food(player,healthy_food) : { action-fluent , bool , default=false } ;
+collect-player-unhealthy_food(player,unhealthy_food) : { action-fluent , bool , default=false } ;
+assemble_meal-player-area(player,area) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+is_collected_healthy_food'(?healthy_food) = if (exists_{?player:player} [ collect-player-unhealthy_food(?player, ?healthy_food) & ~is_collected_healthy_food(?healthy_food) & exists_{?x:xpos} [player-x(?player, ?x) & unhealthy_food-x(?healthy_food, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & unhealthy_food-y(?healthy_food, ?y)] ] )  then true
+ else is_collected_healthy_food(?healthy_food)
+;
+
+is_collected_unhealthy_food'(?unhealthy_food) = if (exists_{?player:player} [ collect-player-unhealthy_food(?player, ?unhealthy_food) & ~is_collected_unhealthy_food(?unhealthy_food) & exists_{?x:xpos} [player-x(?player, ?x) & unhealthy_food-x(?unhealthy_food, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & unhealthy_food-y(?unhealthy_food, ?y)] ] )  then true
+ else is_collected_unhealthy_food(?unhealthy_food)
+;
+
+meals_assembled' = if (exists_{?player:player, ?area:area} [ assemble_meal-player-area(?player, ?area) & forall_{?healthy_food:healthy_food} [is_collected_healthy_food(?healthy_food)] & exists_{?x:xpos} [player-x(?player, ?x) & area-x(?area, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & area-y(?area, ?y)] & ~is_meal_prepared_area(?area) & meals_assembled < 3 ] )  then meals_assembled + 1
+ else meals_assembled
+;
+
+is_meal_prepared_area'(?area) = if (exists_{?player:player} [ assemble_meal-player-area(?player, ?area) & forall_{?healthy_food:healthy_food} [is_collected_healthy_food(?healthy_food)] & exists_{?x:xpos} [player-x(?player, ?x) & area-x(?area, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & area-y(?area, ?y)] & ~is_meal_prepared_area(?area) & meals_assembled < 3 ] )  then true
+ else is_meal_prepared_area(?area)
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = meals_assembled;
+
+// max_reward = 3.0
+
+termination{
+meals_assembled == 3;
+};
+}

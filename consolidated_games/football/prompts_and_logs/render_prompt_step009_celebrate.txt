@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R0):
+'An agile midfielder in a team jersey, poised with a ball, exuding precision and creativity on the field.' performs 'score'.
+
+1. Add a celebration effect at (C3, R0): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Match won!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

@@ -1,0 +1,140 @@
+topic: Reduce Reuse Recycle
+objective: Players must sort recyclable items and complete community projects to transform
+  the city into an eco_friendly environment.
+environment_description: A cityscape shifts from pollution to green. Features include
+  separated recycle bins, community gardens, and renewable energy installations.
+domain:
+- name: eli
+  image_prompt: A young environmentalist in green attire, raising awareness about
+    recycling within the community.
+- name: plastic_bottle
+  image_prompt: A transparent recyclable plastic bottle, ready to be sorted into recycling
+    bins.
+- name: glass_jar
+  image_prompt: A clear glass jar with intricate engravings, designed for recycling.
+- name: metal_can
+  image_prompt: A shining metal can with a recyclable emblem, prepared for sorting.
+- name: recycle_bin_plastic
+  image_prompt: A blue bin labeled for plastic recyclables, neatly placed in the city.
+- name: recycle_bin_glass
+  image_prompt: A green bin designated for glass items, located near eco_friendly
+    installations.
+- name: recycle_bin_metal
+  image_prompt: A silver bin marked for metal recyclables, encouraging proper waste
+    management.
+classes:
+- class_name: player
+  list_of_objects:
+  - eli
+- class_name: recycle_item
+  list_of_objects:
+  - plastic_bottle
+  - glass_jar
+  - metal_can
+- class_name: recycle_bin
+  list_of_objects:
+  - recycle_bin_plastic
+  - recycle_bin_glass
+  - recycle_bin_metal
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: recycle_item
+  isMovable: false
+- class_name: recycle_bin
+  isMovable: false
+state_variables:
+- name: is_sorted(recycle_item)
+  type: bool
+- name: items_sorted
+  type: integer
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Sort(player, recycle_item, recycle_bin)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: Sort(?player, ?recycle_item, ?recycle_bin)
+  preconditions:
+  - NOT is_sorted(?recycle_item)
+  - ?player.x == ?recycle_item.x
+  - ?player.y == ?recycle_item.y
+  - ?recycle_item.x == ?recycle_bin.x
+  - ?recycle_item.y == ?recycle_bin.y
+  effects:
+  - is_sorted(recycle_item) = true
+  - items_sorted = items_sorted + 1
+  side_effects:
+  - MoveImage(?recycle_item, ?recycle_item.x, ?recycle_item.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Item sorted into the correct bin!')
+  - ShowText(items_sorted == 3, 'All items sorted successfully!')
+goal: items_sorted == 3
+reward: items_sorted
+max_reward: 3
+grid_size:
+  x_size: 3
+  y_size: 3
+initial_state_objects:
+- domain_object: eli
+  x: '1'
+  y: '1'
+- domain_object: plastic_bottle
+  x: '1'
+  y: '2'
+- domain_object: glass_jar
+  x: '2'
+  y: '2'
+- domain_object: metal_can
+  x: '3'
+  y: '2'
+- domain_object: recycle_bin_plastic
+  x: '1'
+  y: '3'
+- domain_object: recycle_bin_glass
+  x: '2'
+  y: '3'
+- domain_object: recycle_bin_metal
+  x: '3'
+  y: '3'
+initial_state_variables:
+- name: is_sorted(plastic_bottle)
+  value: false
+- name: is_sorted(glass_jar)
+  value: false
+- name: is_sorted(metal_can)
+  value: false
+- name: items_sorted
+  value: 0

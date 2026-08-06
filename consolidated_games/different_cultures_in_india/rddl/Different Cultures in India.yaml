@@ -1,0 +1,136 @@
+topic: Different Cultures in India
+objective: Complete cultural challenges across various Indian states to create a harmonious
+  tapestry.
+environment_description: A vivid representation of India's diverse cultural landscapes,
+  showcasing vibrant markets, serene temples, and colorful festivals, with varied
+  topography reflecting regional identities.
+domain:
+- name: cultural_explorer
+  image_prompt: A traveler in traditional attire, ready to explore, learn, and solve
+    cultural challenges across different Indian states.
+- name: cultural_symbol_1
+  image_prompt: An intricately crafted symbol representing the rich heritage of northern
+    India.
+- name: cultural_symbol_2
+  image_prompt: A vibrant textile symbolizing the colorful festivals of western India.
+- name: cultural_symbol_3
+  image_prompt: A traditional instrument bringing alive the musical heritage of southern
+    India.
+- name: harmony_tapestry
+  image_prompt: A large tapestry that blends all collected symbols, representing the
+    unity and diversity of Indian culture.
+classes:
+- class_name: explorer
+  list_of_objects:
+  - cultural_explorer
+- class_name: cultural_symbol
+  list_of_objects:
+  - cultural_symbol_1
+  - cultural_symbol_2
+  - cultural_symbol_3
+- class_name: tapestry
+  list_of_objects:
+  - harmony_tapestry
+state_of_objects:
+- class_name: explorer
+  isMovable: true
+- class_name: cultural_symbol
+  isMovable: false
+- class_name: tapestry
+  isMovable: false
+state_variables:
+- name: is_collected(cultural_symbol)
+  type: bool
+- name: symbols_collected
+  type: integer
+actions:
+- name: MoveUp(explorer)
+- name: MoveDown(explorer)
+- name: MoveLeft(explorer)
+- name: MoveRight(explorer)
+- name: CollectSymbol(explorer, cultural_symbol)
+- name: CompleteTapestry(explorer, tapestry)
+transitions:
+- action: MoveUp(?explorer)
+  preconditions:
+  - isMovable(?explorer)
+  - ?explorer.y > 1
+  effects:
+  - ?explorer.y = ?explorer.y - 1
+  side_effects:
+  - MoveImage(?explorer, ?explorer.x, ?explorer.y + 1, ?explorer.x, ?explorer.y)
+- action: MoveDown(?explorer)
+  preconditions:
+  - isMovable(?explorer)
+  - ?explorer.y < grid_size.y
+  effects:
+  - ?explorer.y = ?explorer.y + 1
+  side_effects:
+  - MoveImage(?explorer, ?explorer.x, ?explorer.y - 1, ?explorer.x, ?explorer.y)
+- action: MoveLeft(?explorer)
+  preconditions:
+  - isMovable(?explorer)
+  - ?explorer.x > 1
+  effects:
+  - ?explorer.x = ?explorer.x - 1
+  side_effects:
+  - MoveImage(?explorer, ?explorer.x + 1, ?explorer.y, ?explorer.x, ?explorer.y)
+- action: MoveRight(?explorer)
+  preconditions:
+  - isMovable(?explorer)
+  - ?explorer.x < grid_size.x
+  effects:
+  - ?explorer.x = ?explorer.x + 1
+  side_effects:
+  - MoveImage(?explorer, ?explorer.x - 1, ?explorer.y, ?explorer.x, ?explorer.y)
+- action: CollectSymbol(?explorer, ?cultural_symbol)
+  preconditions:
+  - NOT is_collected(?cultural_symbol)
+  - ?explorer.x == ?cultural_symbol.x
+  - ?explorer.y == ?cultural_symbol.y
+  - symbols_collected < 3
+  effects:
+  - is_collected(?cultural_symbol) = true
+  - symbols_collected = symbols_collected + 1
+  side_effects:
+  - MoveImage(?cultural_symbol, ?cultural_symbol.x, ?cultural_symbol.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Symbol collected!')
+- action: CompleteTapestry(?explorer, ?tapestry)
+  preconditions:
+  - symbols_collected == 3
+  - ?explorer.x == ?tapestry.x
+  - ?explorer.y == ?tapestry.y
+  effects: []
+  side_effects:
+  - ShowText(true, 'Cultural tapestry completed!')
+goal: symbols_collected == 3
+reward: symbols_collected * 3
+max_reward: 9
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: cultural_explorer
+  x: '1'
+  y: '1'
+- domain_object: cultural_symbol_1
+  x: '2'
+  y: '2'
+- domain_object: cultural_symbol_2
+  x: '3'
+  y: '3'
+- domain_object: cultural_symbol_3
+  x: '4'
+  y: '4'
+- domain_object: harmony_tapestry
+  x: '5'
+  y: '5'
+initial_state_variables:
+- name: is_collected(cultural_symbol_1)
+  value: false
+- name: is_collected(cultural_symbol_2)
+  value: false
+- name: is_collected(cultural_symbol_3)
+  value: false
+- name: symbols_collected
+  value: 0

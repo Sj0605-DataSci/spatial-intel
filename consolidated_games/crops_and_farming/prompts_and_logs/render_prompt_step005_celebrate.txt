@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R2):
+'A determined young woman in sturdy boots and overalls, navigating a field with practical tools.' performs 'optimize resources' with 'A middle_aged man with rolled_up sleeves, standing next to a water barrel.'.
+
+1. Add a celebration effect at (C1, R2): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Resources optimized through cooperation!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

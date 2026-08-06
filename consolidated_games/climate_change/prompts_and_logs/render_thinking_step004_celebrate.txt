@@ -1,0 +1,7 @@
+**Adding Visual Effects**
+
+I'm working on adding visual effects to a specific cell in the image. I have to find the correct cell location first. Once located, I'll add a celebration effect, including a flash, stars, confetti, and a glow around a character. Finally, I'll incorporate a speech bubble with specific text, making sure to keep all other elements of the original image untouched.
+
+**Assessing Adherence to Prompts**
+
+I have compared the generated result against the user's detailed instructions and confirmed the successful implementation of the celebration effect and text bubble at the specified coordinates. I am pleased with how accurately the negative constraints were followed.

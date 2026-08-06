@@ -1,0 +1,7 @@
+CELEBRATE at cell (C2, R2):
+'A determined young scientist with short, spiky hair and reflective glasses, wearing a utility belt with tools and a renewable energy monitor.' performs 'place resource' with 'A melting ice cap depicted with reduced ice cover and polar animals affected by the changes.'.
+
+1. Add a celebration effect at (C2, R2): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Resource successfully placed!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

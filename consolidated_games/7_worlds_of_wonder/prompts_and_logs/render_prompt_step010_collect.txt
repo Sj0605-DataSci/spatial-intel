@@ -1,0 +1,7 @@
+COLLECT at cell (C2, R2):
+'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' collect 'An ancient inscribed scroll containing lost wisdom, hidden in a forgotten corner.'.
+
+1. Show 'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' with a sparkle/glow reaching toward 'An ancient inscribed scroll containing lost wisdom, hidden in a forgotten corner.'.
+2. ERASE 'An ancient inscribed scroll containing lost wisdom, hidden in a forgotten corner.' from (C2, R2) — fill with background texture. It must be completely gone.
+3. 'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' stays at (C2, R2).
+4. Nothing else changes.

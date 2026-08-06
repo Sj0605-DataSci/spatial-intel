@@ -1,0 +1,46 @@
+**Game Summary:**
+
+**Title:** Eid Harmony
+
+**Outline:**  
+Eid Harmony is an immersive, grid-based puzzle/hidden object game centered around an Eid celebration. The game emphasizes family unity, gratitude, prayer, charity, and emotional bonding. Players engage in meaningful challenges to strengthen family ties, express gratitude, and prepare for Eid festivities.
+
+**Characters:**
+
+1. **Ayaan:** The wise elder leading prayers and guiding reconciliation.
+2. **Amira:** The caring organizer of charity events and distributor of new clothes.
+3. **Layla:** The creative planner in charge of feast preparation and gift arrangements.
+4. **Zara:** The empathetic mediator mending relationships through forgiveness and gratitude.
+5. **Family Members:** Provide interactive challenges conveying gratitude, unity, and joy.
+
+**State Variables:**
+
+1. **Gratitude Points:** Accumulate through kindness tasks and sharing moments.
+2. **Family Unity Meter:** Increase by resolving disputes, participating in prayers, and communal activities.
+3. **Charity Events Completed:** Tracks completed charitable acts.
+4. **Feast Preparedness Level:** Progress with meal arrangement tasks.
+5. **Reconciliation Tasks:** Lists resolved conflicts promoting forgiveness.
+6. **Hidden Objects Found:** Catalogs discovered symbolic items enhancing narrative depth.
+7. **New Clothes Distributed:** Measures the distribution of festive attire.
+
+**Rules:**
+
+1. **Navigate with Clicks:** Move characters by clicking to engage with tasks.
+2. **Interactive Forgiveness Tasks:** Strengthen bonds and unlock stories of forgiveness to increase unity.
+3. **Prayer and Reflection Challenges:** Participate in prayers for insight and community-building, boosting the Unity Meter.
+4. **Gratitude and Gifting Tasks:** Perform acts of kindness and share new clothes to earn Gratitude Points.
+5. **Feast Puzzle:** Correctly arrange food to progress Feast Preparedness.
+6. **Hidden Item Search:** Discover objects that add emotional layers to the story.
+7. **Victory Condition:** Maximize all state variables to experience a harmonious family celebration, encapsulating the full essence of Eid.
+
+**Image Prompt Description:**
+
+- **Characters:**
+  - **Ayaan:** An elder with a peaceful aura, wearing traditional Eid attire, leading prayers and invoking wisdom.
+  - **Amira:** A lively girl in colorful, festive apparel with new clothes and charity items.
+  - **Layla:** A focused young woman amidst a beautifully arranged feast table and gift parcels.
+  - **Zara:** A kind-hearted figure with a compassionate expression, mediating forgiveness.
+  - **Family Members:** Diverse in appearance, showcasing joy, warmth, and unity.
+
+- **Environment:**
+  - **Family Home:** Richly decorated with Eid motifs, featuring areas for communal dinners, prayer space, and gift exchange, fostering a welcoming, celebratory atmosphere.

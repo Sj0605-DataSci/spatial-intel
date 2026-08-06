@@ -1,0 +1,169 @@
+STATIC ANALYSIS FAILED: The game has goal reachability issues that will cause infinite MCTS loops.
+
+Issues found:
+- UNREACHABLE GOAL: 'animals_rescued' starts at 0, goal requires 2 (needs +2), but maximum achievable increment is +1. Boolean guards limit each action to firing once. Fix: remove global boolean guards and use precondition 'animals_rescued < 2' to cap the counter, OR add 2 distinct boolean-guarded objects/actions that each increment by 1.
+- UNREACHABLE GOAL: 'habitat_restored' starts at 0, goal requires 3 (needs +3), but maximum achievable increment is +1. Boolean guards limit each action to firing once. Fix: remove global boolean guards and use precondition 'habitat_restored < 3' to cap the counter, OR add 3 distinct boolean-guarded objects/actions that each increment by 1.
+
+Current game YAML:
+topic: Wildlife
+objective: Players rescue endangered animals and restore ecosystems by solving puzzles
+  and engaging with local communities.
+environment_description: Diverse ecosystems including rainforests, savannahs, and
+  oceans, with unique flora and fauna illustrating biodiversity challenges.
+domain:
+- name: Alex
+  image_prompt: A young wildlife conservationist wearing practical outdoor gear with
+    a notebook and binoculars, showing a determined expression.
+- name: elephant_calf
+  image_prompt: A curious young elephant with large, expressive eyes, exuding friendliness.
+- name: tiger
+  image_prompt: A majestic tiger in a natural setting, emphasizing its beauty and
+    vulnerability.
+- name: panda
+  image_prompt: A gentle panda nestled among bamboo, representing conservation targets.
+- name: rainforest
+  image_prompt: Lush rainforest setting filled with diverse plants and animals, illustrating
+    the ecosystem's richness.
+- name: savannah
+  image_prompt: Sprawling savannah with grasses and trees, highlighting the habitat
+    of unique wildlife.
+- name: ocean
+  image_prompt: Vibrant ocean scene with coral reefs, fish, and sea turtles, showcasing
+    marine biodiversity.
+classes:
+- class_name: conservationist
+  list_of_objects:
+  - Alex
+- class_name: animal_companion
+  list_of_objects:
+  - elephant_calf
+- class_name: endangered_animal
+  list_of_objects:
+  - tiger
+  - panda
+- class_name: ecosystem
+  list_of_objects:
+  - rainforest
+  - savannah
+  - ocean
+state_of_objects:
+- class_name: conservationist
+  isMovable: true
+- class_name: animal_companion
+  isMovable: false
+- class_name: endangered_animal
+  isMovable: false
+- class_name: ecosystem
+  isMovable: false
+state_variables:
+- name: animals_rescued
+  type: integer
+- name: habitat_restored
+  type: integer
+- name: is_rescued
+  type: boolean
+- name: is_restored
+  type: boolean
+actions:
+- name: Rescue(conservationist, endangered_animal)
+- name: Restore(conservationist, ecosystem)
+transitions:
+- action: Rescue(?conservationist, ?endangered_animal)
+  preconditions:
+  - animals_rescued < 2
+  - ?conservationist.x == ?endangered_animal.x
+  - ?conservationist.y == ?endangered_animal.y
+  - NOT is_rescued
+  effects:
+  - animals_rescued = animals_rescued + 1
+  - is_rescued = true
+  side_effects:
+  - ShowText(true, 'Animal rescued successfully!')
+- action: Restore(?conservationist, ?ecosystem)
+  preconditions:
+  - habitat_restored < 3
+  - ?conservationist.x == ?ecosystem.x
+  - ?conservationist.y == ?ecosystem.y
+  - NOT is_restored
+  effects:
+  - habitat_restored = habitat_restored + 1
+  - is_restored = true
+  side_effects:
+  - ShowText(true, 'Ecosystem restored!')
+goal: animals_rescued == 2 AND habitat_restored == 3
+reward: animals_rescued + habitat_restored * 2
+max_reward: 8
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: Alex
+  x: '1'
+  y: '1'
+- domain_object: elephant_calf
+  x: '2'
+  y: '2'
+- domain_object: tiger
+  x: '3'
+  y: '3'
+- domain_object: panda
+  x: '4'
+  y: '4'
+- domain_object: rainforest
+  x: '2'
+  y: '4'
+- domain_object: savannah
+  x: '3'
+  y: '2'
+- domain_object: ocean
+  x: '4'
+  y: '3'
+initial_state_variables:
+- name: animals_rescued
+  value: 0
+- name: habitat_restored
+  value: 0
+- name: is_rescued
+  value: false
+- name: is_restored
+  value: false
+
+
+Fix the game by addressing each issue above. Common fixes:
+1. UNREACHABLE: Remove global boolean guards and use counter preconditions (e.g., 'counter < target_value') instead. The precondition alone stops the counter at the goal value.
+2. OVERSHOOT: Change the precondition upper bound to exactly match the goal value (e.g., if goal is 'score == 10', precondition must be 'score < 10').
+3. If you need boolean guards for per-object tracking, ensure the number of objects in the class equals the number of increments needed.
+
+Output ONLY the corrected JSON.
+Some common mistakes are 
+            1. ensure you use the class name correctly throughout the game. for eg: if the classname is "Box", then dont use "Boxes" or similiar. 
+            2. do not use domain names in preconditions, actions, goal or reward. for eg:
+                goal: numberPatientsTreated == 3  &  isTreated(patient1, pills1)  &  isTreated(patient2, bandage1)  &  isTreated(patient3, syringe1);
+                here patient1 is a domain object and should not be used in goal. use only class names, for eg patient in above example.
+                precondition: NOT artifacts_collected(?explorer_avatar)
+                here explorer_avatar is a domain object and should not be used in precondition. use only class names, for eg explorer in above example.
+            3. do not use class names in preconditions that are not defined in action arguments.
+                for eg: action = Match(class1, class2)
+                                precondition: NOT isTreated(class3)
+                                effect: isTreated(class3) = true 
+                                here class3 is not defined in action arguments, so should not be used in precondition.
+                        one possible fix is to add a new state variable numTreatedclass3
+                                precondition : true
+                                effect : numTreatedclass3 = numTreatedclass3 + 1
+                        or another fix is to remove this transition and replace with a correct one.
+            4. Give me output in JSON format only. Do not add any extra text or explanation outside the JSON.
+            5. CRITICAL: The goal and reward MUST use ONLY integer state variables (e.g., total_points == 5, number_items_collected == 3).
+               NEVER use boolean predicates with arguments in the goal or reward (e.g., is_at_landmark(Player, Landmark) is WRONG).
+               If you need to track something like "player reached a landmark", create an integer counter variable (e.g., landmarks_visited)
+               and increment it in the transition effect, then use that integer in the goal (e.g., landmarks_visited == 1).
+            6. Only the player/avatar class should have isMovable=true. All other classes MUST be isMovable=false.
+            7. max_reward must be a single integer value, not an expression.
+            8. side_effects must be a list of strings like "ShowText(true, 'text')", NOT dictionaries.
+            9. CRITICAL: Only ONE class should have isMovable=true (the player/avatar). All other classes must be isMovable=false.
+            10. CRITICAL: Every action that increments a counter MUST have a boolean guard (NOT is_done(?obj)) and set the guard (is_done(?obj) = true) in its effects. Without guards, counters overshoot == goals making the game unsolvable.
+            11. CRITICAL: Transition action arguments MUST use exact class names. If the action is defined as PerformTask(festival_participants, festival_items), the transition MUST say action: PerformTask(?festival_participants, ?festival_items). Using shortened names like ?participant or ?item will cause RDDL compilation errors.
+            12. The movable class must have exactly 1 instance (the player avatar). Multiple movable instances cause action space explosion and unsolvable games.
+            13. Do NOT use domain object names (like family_member_1, bonfire) in preconditions. Use class-typed variables instead.
+            14. COUNTER REACHABILITY: If counter starts at S and goal requires counter == T, the game must allow exactly (T-S) increments. Do NOT use a single global boolean guard on a counter needing multiple increments. Use precondition 'counter < T' instead, OR use per-object boolean guards where the class has exactly (T-S) objects.
+            15. OVERSHOOT PREVENTION: Precondition upper bound must exactly match goal value. If goal is 'score == 10', precondition must be 'score < 10', NOT 'score < 15'.
+        

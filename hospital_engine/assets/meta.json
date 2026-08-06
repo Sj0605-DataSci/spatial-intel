@@ -1,0 +1,28 @@
+{
+  "topic": "Hospital Heroes",
+  "mode": "full",
+  "num_states": 2640,
+  "num_transitions": 8520,
+  "num_actions_in_vocab": 9,
+  "grid": [
+    4,
+    4
+  ],
+  "engine_report": {
+    "topic": "Hospital Heroes",
+    "grid": [
+      4,
+      4
+    ],
+    "num_actions_defined": 3,
+    "reachable_states": 2640,
+    "upper_bound_states": 256,
+    "total_transitions": 8520,
+    "avg_branching": 3.227,
+    "max_branching": 5,
+    "num_goal_states": 720,
+    "optimal_route_len": 10,
+    "max_reward": 8,
+    "truncated": false
+  }
+}

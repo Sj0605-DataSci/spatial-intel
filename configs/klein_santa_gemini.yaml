@@ -1,0 +1,60 @@
+# ai-toolkit config — FLUX.2-klein EDIT LoRA for the triangle-move task.
+# Per the official BFL FLUX.2-klein LoRA blog (huggingface.co/blog/black-forest-labs/flux-2-klein-lora):
+#   - train target = FLUX.2-klein-base-4B (cached locally)
+#   - EDIT lora: control_path points at the reference (input) images
+#   - network 128/64/64/32, lr 1e-4, flowmatch, peak ~1000-1750 steps
+#
+# Run:  cd ai-toolkit && python run.py <path-to-this-file>
+---
+job: extension
+config:
+  name: klein_santa_gemini
+  process:
+    - type: sd_trainer
+      training_folder: /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/runs/aitoolkit_out
+      device: cuda:0
+      performance_log_every: 50      # terminal perf stats
+      logging:                       # wandb OFF (ai-toolkit only does wandb/TB; we
+        use_wandb: false             # track via sample images + autoloop_eval.py)
+      network:
+        type: lora
+        linear: 64          # network dim (the "128/64/64/32" family from the blog)
+        linear_alpha: 64
+      save:
+        dtype: bf16
+        save_every: 50     # checkpoint by eye; edit loras peak ~1000-1750
+        max_step_saves_to_keep: 8
+      datasets:
+        - folder_path:  /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/santa_gemini/target
+          control_path: /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/santa_gemini/reference
+          caption_ext: txt
+          caption_dropout_rate: 0.0    # keep the coordinate captions — they ARE the signal
+          resolution: [512]
+      train:
+        batch_size: 1
+        steps: 1000
+        gradient_accumulation_steps: 4
+        train_unet: true
+        train_text_encoder: false
+        gradient_checkpointing: true
+        noise_scheduler: flowmatch
+        optimizer: adamw8bit
+        lr: 1e-4
+        dtype: bf16
+      model:
+        name_or_path: black-forest-labs/FLUX.2-klein-base-4B
+        arch: flux2_klein_4b
+        quantize: false
+      sample:
+        sampler: flowmatch
+        sample_every: 50
+        width: 512
+        height: 512
+        prompts:
+          - "Christmas game grid, top-down. Move the red Santa 'S' badge one cell down, from cell (1,2) to cell (1,3). Keep every house, present, tree and snow pile exactly the same. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/santa_gemini/heldout/before_0.png"
+          - "Christmas game grid, top-down. Move the red Santa 'S' badge one cell left, from cell (1,3) to cell (1,3). Keep every house, present, tree and snow pile exactly the same. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/santa_gemini/heldout/before_1.png"
+          - "Christmas game grid, top-down. Move the red Santa 'S' badge one cell right, from cell (1,1) to cell (2,1). Keep every house, present, tree and snow pile exactly the same. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/santa_gemini/heldout/before_2.png"
+        neg: ""
+        seed: 42
+        guidance_scale: 4.0
+        sample_steps: 20     # base model wants ~20 steps, not the distilled 4

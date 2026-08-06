@@ -1,0 +1,284 @@
+{
+  "game": "children_s_park",
+  "session_id": "gemini_plays_children_s_park_1777113162",
+  "movable_chars": [
+    "joyful_ava"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 12,
+  "goal": "park_completeness == 5 AND friendship_levels == 5 AND adventure_meter == 5",
+  "won": false,
+  "final_scoreboard": {
+    "park_completeness": 4,
+    "friendship_levels": 0,
+    "parent_satisfaction": 0,
+    "adventure_meter": 0
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "joyful_ava",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 0,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "joyful_ava",
+      "action": "down",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 0,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "joyful_ava",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:place equipment"
+      ],
+      "scoreboard": {
+        "park_completeness": 1,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "joyful_ava",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 1,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "joyful_ava",
+      "action": "up",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 1,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "joyful_ava",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:place equipment"
+      ],
+      "scoreboard": {
+        "park_completeness": 2,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "joyful_ava",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 2,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 8,
+      "character": "joyful_ava",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 2,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 9,
+      "character": "joyful_ava",
+      "action": "up",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:place equipment"
+      ],
+      "scoreboard": {
+        "park_completeness": 3,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 10,
+      "character": "joyful_ava",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 3,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 11,
+      "character": "joyful_ava",
+      "action": "up",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "park_completeness": 3,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    },
+    {
+      "step": 12,
+      "character": "joyful_ava",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:place equipment"
+      ],
+      "scoreboard": {
+        "park_completeness": 4,
+        "friendship_levels": 0,
+        "parent_satisfaction": 0,
+        "adventure_meter": 0
+      }
+    }
+  ]
+}

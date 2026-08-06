@@ -1,0 +1,112 @@
+domain Water_conservation{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   collectible_item : object ;
+   policy_card : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+collectible_item-x(collectible_item,xpos) : { non-fluent , bool , default=false } ;
+collectible_item-y(collectible_item,ypos) : { non-fluent , bool , default=false } ;
+policy_card-x(policy_card,xpos) : { non-fluent , bool , default=false } ;
+policy_card-y(policy_card,ypos) : { non-fluent , bool , default=false } ;
+is_collected_rain_barrel : { state-fluent , bool , default=false } ;
+is_collected_efficient_faucet : { state-fluent , bool , default=false } ;
+is_collected_native_plants : { state-fluent , bool , default=false } ;
+is_used_policy_card_1 : { state-fluent , bool , default=false } ;
+is_used_policy_card_2 : { state-fluent , bool , default=false } ;
+items_collected : { state-fluent , int , default=0 } ;
+cards_used : { state-fluent , int , default=0 } ;
+collect-player-collectible_item(player,collectible_item) : { action-fluent , bool , default=false } ;
+use_policy-player-policy_card(player,policy_card) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+is_collected_rain_barrel' = is_collected_rain_barrel
+;
+
+is_collected_efficient_faucet' = is_collected_efficient_faucet
+;
+
+is_collected_native_plants' = is_collected_native_plants
+;
+
+is_used_policy_card_1' = is_used_policy_card_1
+;
+
+is_used_policy_card_2' = is_used_policy_card_2
+;
+
+items_collected' = if (exists_{?player:player, ?collectible_item:collectible_item} [ collect-player-collectible_item(?player, ?collectible_item) & exists_{?x:xpos} [player-x(player, ?x) & collectible_item-x(?collectible_item, ?x)] & exists_{?y:ypos} [player-y(player, ?y) & collectible_item-y(?collectible_item, ?y)] & items_collected < 3 & ~is_collected_?_collectible_item ] )  then items_collected + 1
+ else items_collected
+;
+
+cards_used' = if (exists_{?player:player, ?policy_card:policy_card} [ use_policy-player-policy_card(?player, ?policy_card) & items_collected == 3 & exists_{?x:xpos} [player-x(player, ?x) & policy_card-x(?policy_card, ?x)] & exists_{?y:ypos} [player-y(player, ?y) & policy_card-y(?policy_card, ?y)] & cards_used < 2 & ~is_used_?_policy_card ] )  then cards_used + 1
+ else cards_used
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = items_collected + 2 * cards_used;
+
+// max_reward = 7.0
+
+termination{
+items_collected == 3  &  cards_used == 2;
+};
+}

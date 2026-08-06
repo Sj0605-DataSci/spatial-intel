@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'player' (looks like: A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.)
+  FROM cell (C2, R2)  [pixels x≈408–612, y≈408–612]
+  TO   cell (C1, R2)  [pixels x≈204–408, y≈408–612]
+
+1. ERASE 'player' from (C2, R2) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'player' once at (C1, R2).
+3. Nothing else changes.

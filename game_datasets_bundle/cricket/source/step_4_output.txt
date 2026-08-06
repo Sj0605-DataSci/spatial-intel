@@ -1,0 +1,50 @@
+**Game Summary:**
+
+**Outline:**  
+"Cricket Battle Grid" provides a strategic and immersive cricket experience on a grid. Players engage in high-stakes matches by deftly navigating the complexities of cricket, focusing on memory, sequence-solving, and real-time decision-making under pressure.
+
+**Characters:**
+- **Captain Strategist:** Commands the team, adapting strategies dynamically.
+- **Ace Batsman:** Balances precision hitting with strategic risk-taking.
+- **Spin Wizard:** Challenges opponents with nuanced deliveries.
+- **Field Master:** Expert at intercepting and preventing runs.
+- **Rookie Player:** Displays growth, adapting quickly to match demands.
+
+**State Variables:**
+- **Runs Required:** Target runs needed for victory.
+- **Wickets in Hand:** Number of available batsmen.
+- **Overs Remaining:** Limited time frames for achievement.
+- **Player Morale:** Performance-influencing factor.
+- **Field Arrangement:** Adjusted for strategic advantage.
+- **Player Stamina:** Energy management affects effectiveness.
+- **Partnership Score:** Key to collaborative success.
+
+**Rules:**
+- Achieve 'Runs Required' within set 'Overs Remaining'.
+- Optimize strategies based on 'Wickets in Hand' and game progression.
+- Change 'Field Arrangement' for defensive/offensive adjustments.
+- Manage 'Player Stamina' to maintain skill levels.
+- Improve 'Partnership Score' by sustaining effective batting pairs.
+- Enhance player impact with direct engagements in iconic moments, like hitting sixes and making dramatic catches, to simulate real match excitement.
+
+**Image Prompt Description:**
+
+**Characters:**
+
+1. **Captain Strategist**  
+   Depicted in a commanding pose, scanning the field with focused determination. Wears a tactical-looking outfit, embodying leadership and strategic vision.
+
+2. **Ace Batsman**  
+   Mid-swing, capturing the motion of hitting a six with a powerful stance. Radiates confidence, wearing a sleek team uniform.
+
+3. **Spin Wizard**  
+   Executing a precise spin delivery, poised with a calculating gaze. Distinctive attire with elements highlighting agility.
+
+4. **Field Master**  
+   Shown making a diving catch, underscoring agility and skill. Clad in a streamlined uniform to denote quick reflexes.
+
+5. **Rookie Player**  
+   Depicted in a dynamic pose, reflecting enthusiasm and potential. Uniform is slightly oversized, symbolizing growth.
+
+**Environment:**
+A vibrant cricket field with grid lines for strategic play. Includes boundary ropes, a visible scoreboard, and animated spectators to emphasize immersive match atmosphere. Fielders and batters dynamically adjust positions, enhancing interactive and iconic cricket experiences.

@@ -1,0 +1,9 @@
+Grid: 4 cols × 4 rows. Each cell ≈256px.
+
+MOVE: 'player_admin' (looks like: A determined hospital administrator, managing resources and coordinating medical teams in a busy hospital setting.)
+  FROM cell (C0, R0)  [pixels x≈0–256, y≈0–256]
+  TO   cell (C1, R0)  [pixels x≈256–512, y≈0–256]
+
+1. ERASE 'player_admin' from (C0, R0) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'player_admin' once at (C1, R0).
+3. Nothing else changes.

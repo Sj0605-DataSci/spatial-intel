@@ -1,0 +1,2 @@
+right
+Move right to get closer to the native_plants item, which is at (3,3).

@@ -1,0 +1,15 @@
+Rules:
+
+1. **Rescue Mission:** Each endangered animal requires solving specific puzzles to be rescued, increasing "Animals Rescued."
+
+2. **Ecosystem Restoration:** Completing habitat puzzles boosts "Habitat Restored," unlocking new regions and more complex challenges.
+
+3. **Conservation Actions:** Gathering hidden items and completing tasks earns "Conservation Points," influencing the storyline.
+
+4. **Companion Utilization:** Use animal companions' abilities strategically to find hidden objects or bypass obstacles, altering "Companion Skills."
+
+5. **Community Engagement:** Interact with villagers to gain insights or solve puzzles, enhancing "Community Support" and available resources.
+
+6. **Ecosystem Health:** Actions impact "Environmental Health," affecting puzzle difficulty and narrative paths.
+
+End Goal: Rescuing all animals and fully restoring habitats unlocks a final narrative celebrating conservation efforts and ecosystem revival.

@@ -1,0 +1,2 @@
+right
+Alex is currently at (1,2). Moving right to (2,2) will allow Alex to interact with the ice_cap, which is likely a mission related to ecosystem health.

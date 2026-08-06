@@ -1,0 +1,250 @@
+{
+  "game": "hospital",
+  "session_id": "gemini_plays_hospital_1777124353",
+  "movable_chars": [
+    "player_admin"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 4,
+    "rows": 4
+  },
+  "steps": 10,
+  "goal": "total_score == 8",
+  "won": true,
+  "final_scoreboard": {
+    "patient_treated": 3,
+    "staff_energy": 4,
+    "resource_stock": 1,
+    "total_score": 8
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "player_admin",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "patient_treated": 0,
+        "staff_energy": 0,
+        "resource_stock": 0,
+        "total_score": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "player_admin",
+      "action": "down",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:patient_1"
+      ],
+      "scoreboard": {
+        "patient_treated": 1,
+        "staff_energy": 0,
+        "resource_stock": 0,
+        "total_score": 1
+      }
+    },
+    {
+      "step": 3,
+      "character": "player_admin",
+      "action": "down",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:doctor"
+      ],
+      "scoreboard": {
+        "patient_treated": 1,
+        "staff_energy": 1,
+        "resource_stock": 0,
+        "total_score": 2
+      }
+    },
+    {
+      "step": 4,
+      "character": "player_admin",
+      "action": "up",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:patient_1"
+      ],
+      "scoreboard": {
+        "patient_treated": 2,
+        "staff_energy": 1,
+        "resource_stock": 0,
+        "total_score": 3
+      }
+    },
+    {
+      "step": 5,
+      "character": "player_admin",
+      "action": "down",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:doctor"
+      ],
+      "scoreboard": {
+        "patient_treated": 2,
+        "staff_energy": 2,
+        "resource_stock": 0,
+        "total_score": 4
+      }
+    },
+    {
+      "step": 6,
+      "character": "player_admin",
+      "action": "up",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:patient_1"
+      ],
+      "scoreboard": {
+        "patient_treated": 3,
+        "staff_energy": 2,
+        "resource_stock": 0,
+        "total_score": 5
+      }
+    },
+    {
+      "step": 7,
+      "character": "player_admin",
+      "action": "down",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:doctor"
+      ],
+      "scoreboard": {
+        "patient_treated": 3,
+        "staff_energy": 3,
+        "resource_stock": 0,
+        "total_score": 6
+      }
+    },
+    {
+      "step": 8,
+      "character": "player_admin",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:nurse"
+      ],
+      "scoreboard": {
+        "patient_treated": 3,
+        "staff_energy": 4,
+        "resource_stock": 0,
+        "total_score": 7
+      }
+    },
+    {
+      "step": 9,
+      "character": "player_admin",
+      "action": "right",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "patient_treated": 3,
+        "staff_energy": 4,
+        "resource_stock": 0,
+        "total_score": 7
+      }
+    },
+    {
+      "step": 10,
+      "character": "player_admin",
+      "action": "down",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        3,
+        3
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:supply_room"
+      ],
+      "scoreboard": {
+        "patient_treated": 3,
+        "staff_energy": 4,
+        "resource_stock": 1,
+        "total_score": 8
+      }
+    }
+  ]
+}

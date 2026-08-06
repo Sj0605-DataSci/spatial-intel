@@ -1,0 +1,218 @@
+{
+  "grid": {
+    "n": 8,
+    "object_size": 2,
+    "cell_px": 64,
+    "img_w": 564,
+    "img_h": 564
+  },
+  "n_samples": 12,
+  "seed": 0,
+  "center_start": true,
+  "samples": [
+    {
+      "idx": 0,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "down_right",
+      "steps": 2,
+      "target_topleft": [
+        5,
+        5
+      ],
+      "instruction": "Move the red triangle to the bottom-right by 2 cells, keeping it aligned to the grid.",
+      "direction_id": 6
+    },
+    {
+      "idx": 1,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up_right",
+      "steps": 1,
+      "target_topleft": [
+        4,
+        2
+      ],
+      "instruction": "Move the red triangle to the top-right by 1 cell, keeping it aligned to the grid.",
+      "direction_id": 4
+    },
+    {
+      "idx": 2,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up",
+      "steps": 1,
+      "target_topleft": [
+        3,
+        2
+      ],
+      "instruction": "Move the red triangle up by 1 cell, keeping it aligned to the grid.",
+      "direction_id": 2
+    },
+    {
+      "idx": 3,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "right",
+      "steps": 1,
+      "target_topleft": [
+        4,
+        3
+      ],
+      "instruction": "Move the red triangle to the right by 1 cell, keeping it aligned to the grid.",
+      "direction_id": 0
+    },
+    {
+      "idx": 4,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "left",
+      "steps": 3,
+      "target_topleft": [
+        0,
+        3
+      ],
+      "instruction": "Move the red triangle to the left by 3 cells, keeping it aligned to the grid.",
+      "direction_id": 1
+    },
+    {
+      "idx": 5,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up_left",
+      "steps": 3,
+      "target_topleft": [
+        0,
+        0
+      ],
+      "instruction": "Move the red triangle to the top-left by 3 cells, keeping it aligned to the grid.",
+      "direction_id": 5
+    },
+    {
+      "idx": 6,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up_right",
+      "steps": 2,
+      "target_topleft": [
+        5,
+        1
+      ],
+      "instruction": "Move the red triangle to the top-right by 2 cells, keeping it aligned to the grid.",
+      "direction_id": 4
+    },
+    {
+      "idx": 7,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "down_left",
+      "steps": 3,
+      "target_topleft": [
+        0,
+        6
+      ],
+      "instruction": "Move the red triangle to the bottom-left by 3 cells, keeping it aligned to the grid.",
+      "direction_id": 7
+    },
+    {
+      "idx": 8,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up_left",
+      "steps": 2,
+      "target_topleft": [
+        1,
+        1
+      ],
+      "instruction": "Move the red triangle to the top-left by 2 cells, keeping it aligned to the grid.",
+      "direction_id": 5
+    },
+    {
+      "idx": 9,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up_right",
+      "steps": 3,
+      "target_topleft": [
+        6,
+        0
+      ],
+      "instruction": "Move the red triangle to the top-right by 3 cells, keeping it aligned to the grid.",
+      "direction_id": 4
+    },
+    {
+      "idx": 10,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up",
+      "steps": 3,
+      "target_topleft": [
+        3,
+        0
+      ],
+      "instruction": "Move the red triangle up by 3 cells, keeping it aligned to the grid.",
+      "direction_id": 2
+    },
+    {
+      "idx": 11,
+      "grid_n": 8,
+      "object_size": 2,
+      "start_topleft": [
+        3,
+        3
+      ],
+      "direction": "up_left",
+      "steps": 1,
+      "target_topleft": [
+        2,
+        2
+      ],
+      "instruction": "Move the red triangle to the top-left by 1 cell, keeping it aligned to the grid.",
+      "direction_id": 5
+    }
+  ]
+}

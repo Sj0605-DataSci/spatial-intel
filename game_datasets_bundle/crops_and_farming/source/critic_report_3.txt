@@ -1,0 +1,22 @@
+SCORE: 10
+
+ISSUES: 
+
+(None)
+
+EXPECTED_BEHAVIOR:
+
+- max_reward is a single integer reflecting the maximum achievable reward.
+- Only the main player class has isMovable = true.
+- Transition arguments utilize class names with a ? prefix.
+- Side effects are correctly formatted as strings.
+- The grid size is appropriately sized for the number of objects.
+- Variable types and initial values are consistent.
+- All objects are placed within grid bounds.
+- Goal and reward use only integer variables.
+- Each counter-modifying action is protected by boolean guards and aligns with goal achievability.
+
+ACTUAL_BEHAVIOR:
+
+- The game structure and logic precisely follow semantic and structural rules.
+

@@ -1,0 +1,2 @@
+left
+The player is currently on the urban_zone (2,2). To interact with another zone, the player needs to move. Moving left to (1,2) is a step towards the coastal_zone (1,1).

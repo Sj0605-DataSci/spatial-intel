@@ -1,0 +1,50 @@
+**Game Summary:**
+
+**Title:** Green Guardians: City Revival
+
+**Overview:** Players are tasked with transforming a polluted city into an eco-friendly community. Combining decoration, shape-fitting, and strategic decision-making, the game revolves around the themes of reduce, reuse, and recycle. Players sort recyclables, complete community projects, and interact with local characters, enhancing their understanding of environmental conservation.
+
+**Characters:**
+
+1. **Eli, the Eco-Warrior:** Guides players with strategic advice and motivation.
+2. **Mr. Green, the Shopkeeper:** Faces real-world waste management challenges, seeking efficiency.
+3. **Ms. Meadows, the Teacher:** Delivers insights on sustainability and eco-friendly practices.
+4. **Tara, the Gardener:** Facilitates greening initiatives with upcycling tips.
+5. **Mayor Bright:** Sets recycling goals and emphasizes sustainable leadership.
+6. **Junkbots:** Assist with energy-efficient recycling and cleanup tasks.
+
+**State Variables:**
+
+1. **Recyclables Sorted:** Tracks correctly sorted items.
+2. **Community Projects Completed:** Measures upcycled installations.
+3. **Character Satisfaction:** Reflects happiness and motivation levels.
+4. **Progress Meter:** Indicates city revival and transformation status.
+5. **Eco-Credits:** Earned for upgrading tools, engaging in renewable energy initiatives, and purchasing resources.
+6. **Knowledge Points:** Gained from quizzes for unlocking sustainable technologies.
+7. **Junkbot Efficiency:** Monitors task efficiency and reduces energy usage.
+
+**Rules:**
+
+1. Correctly sort recyclables to enhance "Recyclables Sorted" and earn rewards.
+2. Use sorted materials to complete "Community Projects," unlocking character interactions and bonuses.
+3. Increase "Character Satisfaction" by fulfilling requests, unlocking strategic benefits.
+4. Spend "Eco-Credits" on renewable energy projects and eco-upgrades.
+5. Answer quizzes for "Knowledge Points," which unlock green technologies.
+6. Maintain "Junkbot Efficiency" to optimize tasks and minimize energy consumption.
+7. Achieve full "Progress Meter" through strategic decisions, transforming the city and achieving an eco-friendly victory.
+
+**Enhanced Mechanics:**
+
+- **Energy Management:** Introduces mechanics related to solar and wind energy deployment.
+- **Pollution Reduction Challenges:** Engage players in initiatives to lower pollution levels, earning bonus points and enhancing the city's visual transformation.
+
+**Image Prompt Description:**
+
+- **Eli, the Eco-Warrior:** Energetic and resourceful, with eco-themed gadgets and attire that highlight his leadership in sustainability.
+- **Mr. Green, the Shopkeeper:** Represents urban commerce adapting to green practices, with his shop showcasing energy-efficient lighting and waste reduction technologies.
+- **Ms. Meadows, the Teacher:** Stands in an eco-laboratory, surrounded by green tech, illustrating the educational drive for sustainability.
+- **Tara, the Gardener:** Shows innovation in urban farming, with upcycled structures and renewable watering systems.
+- **Mayor Bright:** Depicts a visionary leader promoting community-driven solar panel installations and sustainable urban planning.
+- **Junkbots:** Feature renewable energy adapters and recycling enhancements, manifesting the theme of eco-efficiency.
+
+- **Environment:** Illustrates a dynamic shift from pollution to green urban spaces, featuring solar panels on rooftops, community gardens, and depollution efforts, visually representing the city's sustainable evolution.

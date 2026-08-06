@@ -1,0 +1,2 @@
+down
+Collect eid_artifact_3, which is directly below player_ayaan.

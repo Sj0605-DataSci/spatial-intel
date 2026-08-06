@@ -1,0 +1,2 @@
+right
+Moving right to (2,2) brings me closer to the gupta_artifact at (2,3).

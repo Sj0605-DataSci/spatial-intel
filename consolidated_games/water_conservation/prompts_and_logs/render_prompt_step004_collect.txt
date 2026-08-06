@@ -1,0 +1,7 @@
+COLLECT at cell (C2, R2):
+'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' collect 'A modern faucet with a sensor to minimize water use.'.
+
+1. Show 'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' with a sparkle/glow reaching toward 'A modern faucet with a sensor to minimize water use.'.
+2. ERASE 'A modern faucet with a sensor to minimize water use.' from (C2, R2) — fill with background texture. It must be completely gone.
+3. 'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' stays at (C2, R2).
+4. Nothing else changes.

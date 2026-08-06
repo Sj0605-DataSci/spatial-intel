@@ -1,0 +1,2 @@
+up
+Move 'player_ayaan' up to get closer to eid_artifact_2.

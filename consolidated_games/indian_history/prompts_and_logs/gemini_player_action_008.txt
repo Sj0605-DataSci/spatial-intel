@@ -1,0 +1,2 @@
+up
+Collect the gandhi_artifact, which is one step up from the player's current position.

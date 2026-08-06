@@ -1,0 +1,2 @@
+down
+To pick up the plastic bottle, I need to move down to (0,1).

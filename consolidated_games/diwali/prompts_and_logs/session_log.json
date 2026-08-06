@@ -1,0 +1,177 @@
+{
+  "game": "diwali",
+  "session_id": "gemini_plays_diwali_1777123097",
+  "movable_chars": [
+    "arjun"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 7,
+  "goal": "tasks_completed == 3",
+  "won": true,
+  "final_scoreboard": {
+    "tasks_completed": 3,
+    "is_diya_placed": 0,
+    "is_rangoli_placed": 0,
+    "is_meal_ready": 0
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "arjun",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "tasks_completed": 0,
+        "is_diya_placed": 0,
+        "is_rangoli_placed": 0,
+        "is_meal_ready": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "arjun",
+      "action": "down",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "tasks_completed": 0,
+        "is_diya_placed": 0,
+        "is_rangoli_placed": 0,
+        "is_meal_ready": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "arjun",
+      "action": "down",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:diyas_1"
+      ],
+      "scoreboard": {
+        "tasks_completed": 1,
+        "is_diya_placed": 0,
+        "is_rangoli_placed": 0,
+        "is_meal_ready": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "arjun",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "tasks_completed": 1,
+        "is_diya_placed": 0,
+        "is_rangoli_placed": 0,
+        "is_meal_ready": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "arjun",
+      "action": "left",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:diyas_1"
+      ],
+      "scoreboard": {
+        "tasks_completed": 2,
+        "is_diya_placed": 0,
+        "is_rangoli_placed": 0,
+        "is_meal_ready": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "arjun",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "tasks_completed": 2,
+        "is_diya_placed": 0,
+        "is_rangoli_placed": 0,
+        "is_meal_ready": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "arjun",
+      "action": "left",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:diyas_1"
+      ],
+      "scoreboard": {
+        "tasks_completed": 3,
+        "is_diya_placed": 0,
+        "is_rangoli_placed": 0,
+        "is_meal_ready": 0
+      }
+    }
+  ]
+}

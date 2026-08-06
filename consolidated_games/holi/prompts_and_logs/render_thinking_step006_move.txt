@@ -1,0 +1,7 @@
+**Relocating the Sprite**
+
+I've identified 'riya' at (C1, R2). My focus is now on erasing her from that cell, matching the background, and placing her in (C1, R1). I plan to preserve all other elements of the image exactly as they are. The relocation requires a straightforward exchange.
+
+**Assessing Sprite Placement**
+
+I've confirmed the requested sprite, named 'riya', has been correctly repositioned. Its original location is empty and filled with the correct background. All other elements from the initial image are maintained as intended. The new image is ready for the user.

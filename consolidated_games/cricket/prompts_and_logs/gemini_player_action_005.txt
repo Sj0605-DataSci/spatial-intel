@@ -1,0 +1,2 @@
+up
+Move up to get closer to the spin_wizard and other players in row 0, which might trigger a strategy or run collection.

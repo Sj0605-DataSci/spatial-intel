@@ -1,0 +1,2 @@
+up
+Moving up will bring Commander Vega closer to alien_civilization_2 at (2,0), which is one of the two alliances needed to complete the mission.

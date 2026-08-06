@@ -1,0 +1,58 @@
+instance Football_Strategy { 
+
+	 domain = Football_Strategy;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5, x6 };
+		 ypos : { y1, y2, y3, y4, y5, y6 };
+		 avatar : { playmaker };
+		 team_member : { coach, striker, defender };
+		 opponent : { rival };
+		 game_official : { referee };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-LEFT(x6, x5);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-RIGHT(x5, x6);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-UP(y6, y5);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 ADJACENT-DOWN(y5, y6);
+		 team_member-x(coach, x3);
+		 team_member-y(coach, y3);
+		 team_member-x(striker, x5);
+		 team_member-y(striker, y5);
+		 team_member-x(defender, x2);
+		 team_member-y(defender, y2);
+		 opponent-x(rival, x4);
+		 opponent-y(rival, y4);
+		 game_official-x(referee, x6);
+		 game_official-y(referee, y6);
+	 };
+
+	 init-state {
+		 avatar-x(playmaker, x1);
+		 avatar-y(playmaker, y1);
+		 successful_passes = 0;
+		 goals_scored = 0;
+		 rival_moves_countered = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

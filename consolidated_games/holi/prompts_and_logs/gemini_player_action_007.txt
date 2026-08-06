@@ -1,0 +1,2 @@
+down
+Riya is currently on 'obstacle_1' at (1,1). Moving down to (1,2) will place Riya on the same cell as 'elder_mehta', which is likely the intended interaction to resolve this specific obstacle, given its description.

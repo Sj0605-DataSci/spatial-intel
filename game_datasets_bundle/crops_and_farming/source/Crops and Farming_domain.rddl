@@ -1,0 +1,119 @@
+domain Crops_and_Farming{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   farmer : object ;
+   wisdom_givers : object ;
+   neighbors : object ;
+   ecologist : object ;
+   mentor : object ;
+   weather : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-farmer(farmer) : { action-fluent , bool , default=false } ;
+move-right-farmer(farmer) : { action-fluent , bool , default=false } ;
+move-up-farmer(farmer) : { action-fluent , bool , default=false } ;
+move-down-farmer(farmer) : { action-fluent , bool , default=false } ;
+has-moved-farmer(farmer) : { state-fluent , bool , default=false } ;
+farmer-x(farmer,xpos) : { state-fluent , bool , default=false } ;
+farmer-y(farmer,ypos) : { state-fluent , bool , default=false } ;
+wisdom_givers-x(wisdom_givers,xpos) : { non-fluent , bool , default=false } ;
+wisdom_givers-y(wisdom_givers,ypos) : { non-fluent , bool , default=false } ;
+neighbors-x(neighbors,xpos) : { non-fluent , bool , default=false } ;
+neighbors-y(neighbors,ypos) : { non-fluent , bool , default=false } ;
+ecologist-x(ecologist,xpos) : { non-fluent , bool , default=false } ;
+ecologist-y(ecologist,ypos) : { non-fluent , bool , default=false } ;
+mentor-x(mentor,xpos) : { non-fluent , bool , default=false } ;
+mentor-y(mentor,ypos) : { non-fluent , bool , default=false } ;
+weather-x(weather,xpos) : { non-fluent , bool , default=false } ;
+weather-y(weather,ypos) : { non-fluent , bool , default=false } ;
+soil_health : { state-fluent , int , default=0 } ;
+irrigation_levels : { state-fluent , int , default=0 } ;
+community_cooperation : { state-fluent , int , default=0 } ;
+sustainability_score : { state-fluent , int , default=0 } ;
+resource_management_done : { state-fluent , bool , default=false } ;
+optimize_resources-farmer-neighbors(farmer,neighbors) : { action-fluent , bool , default=false } ;
+gain_wisdom-farmer-wisdom_givers(farmer,wisdom_givers) : { action-fluent , bool , default=false } ;
+implement_ecopractices-farmer-ecologist(farmer,ecologist) : { action-fluent , bool , default=false } ;
+consult_weather-farmer-weather(farmer,weather) : { action-fluent , bool , default=false } ;
+receive_guidance-farmer-mentor(farmer,mentor) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+farmer-x'(?farmer,?xpos) = if (move-left-farmer( ?farmer)  & farmer-x( ?farmer, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-farmer( ?farmer)  & exists_{?x2:xpos}[farmer-x(?farmer, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-farmer( ?farmer)  & ~exists_{?x2:xpos}[farmer-x(?farmer, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-farmer( ?farmer)  & farmer-x( ?farmer, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-farmer( ?farmer)  & exists_{?x2:xpos}[farmer-x(?farmer, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-farmer( ?farmer)  & ~exists_{?x2:xpos}[farmer-x(?farmer, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else farmer-x(?farmer, ?xpos)
+;
+
+farmer-y'(?farmer,?ypos) = if (move-up-farmer( ?farmer)  & farmer-y( ?farmer, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-farmer( ?farmer)  & exists_{?y2:ypos}[farmer-y(?farmer, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-farmer( ?farmer)  & ~exists_{?y2:ypos}[farmer-y(?farmer, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-farmer( ?farmer)  & farmer-y( ?farmer, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-farmer( ?farmer)  & exists_{?y2:ypos}[farmer-y(?farmer, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-farmer( ?farmer)  & ~exists_{?y2:ypos}[farmer-y(?farmer, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else farmer-y(?farmer, ?ypos)
+;
+
+has-moved-farmer'(?farmer) = move-left-farmer(?farmer) | move-right-farmer(?farmer) | move-up-farmer(?farmer) | move-down-farmer(?farmer)
+;
+
+soil_health' = if (exists_{?farmer:farmer, ?wisdom_givers:wisdom_givers} [ gain_wisdom-farmer-wisdom_givers(?farmer, ?wisdom_givers) & soil_health < 10 & exists_{?x:xpos} [farmer-x(?farmer, ?x) & wisdom_givers-x(?wisdom_givers, ?x)] & exists_{?y:ypos} [farmer-y(?farmer, ?y) & wisdom_givers-y(?wisdom_givers, ?y)] ] )  then soil_health + 2
+ else soil_health
+;
+
+irrigation_levels' = if (exists_{?farmer:farmer, ?weather:weather} [ consult_weather-farmer-weather(?farmer, ?weather) & irrigation_levels < 10 & exists_{?x:xpos} [farmer-x(?farmer, ?x) & weather-x(?weather, ?x)] & exists_{?y:ypos} [farmer-y(?farmer, ?y) & weather-y(?weather, ?y)] ] )  then irrigation_levels + 2
+ else irrigation_levels
+;
+
+community_cooperation' = if (exists_{?farmer:farmer, ?neighbors:neighbors} [ optimize_resources-farmer-neighbors(?farmer, ?neighbors) & community_cooperation < 10 & exists_{?x:xpos} [farmer-x(?farmer, ?x) & neighbors-x(?neighbors, ?x)] & exists_{?y:ypos} [farmer-y(?farmer, ?y) & neighbors-y(?neighbors, ?y)] ] )  then community_cooperation + 2
+ else community_cooperation
+;
+
+sustainability_score' = if (exists_{?farmer:farmer, ?ecologist:ecologist} [ implement_ecopractices-farmer-ecologist(?farmer, ?ecologist) & sustainability_score < 10 & exists_{?x:xpos} [farmer-x(?farmer, ?x) & ecologist-x(?ecologist, ?x)] & exists_{?y:ypos} [farmer-y(?farmer, ?y) & ecologist-y(?ecologist, ?y)] ] )  then sustainability_score + 2
+ else sustainability_score
+;
+
+resource_management_done' = if (exists_{?farmer:farmer, ?mentor:mentor} [ receive_guidance-farmer-mentor(?farmer, ?mentor) & exists_{?x:xpos} [farmer-x(?farmer, ?x) & mentor-x(?mentor, ?x)] & exists_{?y:ypos} [farmer-y(?farmer, ?y) & mentor-y(?mentor, ?y)] & soil_health == 10 & irrigation_levels == 10 & community_cooperation == 10 & sustainability_score == 10 ] )  then true
+ else resource_management_done
+;
+
+};
+
+action-preconditions {
+forall_{?farmer:farmer}[
+            move-left-farmer(?farmer) => exists_{?x1:xpos, ?x2:xpos}[farmer-x(?farmer, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?farmer:farmer}[
+            move-right-farmer(?farmer) => exists_{?x1:xpos, ?x2:xpos}[farmer-x(?farmer, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?farmer:farmer}[
+            move-up-farmer(?farmer) => exists_{?y1:ypos, ?y2:ypos}[farmer-y(?farmer, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?farmer:farmer}[
+            move-down-farmer(?farmer) => exists_{?y1:ypos, ?y2:ypos}[farmer-y(?farmer, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = soil_health + irrigation_levels + community_cooperation + sustainability_score;
+
+// max_reward = 40.0
+
+termination{
+soil_health == 10  &  irrigation_levels == 10  &  community_cooperation == 10  &  sustainability_score == 10;
+};
+}

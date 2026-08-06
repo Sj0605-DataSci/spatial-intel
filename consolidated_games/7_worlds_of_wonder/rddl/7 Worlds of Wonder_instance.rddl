@@ -1,0 +1,54 @@
+instance 7_Worlds_of_Wonder { 
+
+	 domain = 7_Worlds_of_Wonder;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { player };
+		 artifact : { artifact_1, artifact_2, artifact_3 };
+		 puzzle : { puzzle_1, puzzle_2 };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 artifact-x(artifact_1, x2);
+		 artifact-y(artifact_1, y2);
+		 artifact-x(artifact_2, x3);
+		 artifact-y(artifact_2, y3);
+		 artifact-x(artifact_3, x4);
+		 artifact-y(artifact_3, y1);
+		 puzzle-x(puzzle_1, x2);
+		 puzzle-y(puzzle_1, y4);
+		 puzzle-x(puzzle_2, x4);
+		 puzzle-y(puzzle_2, y4);
+	 };
+
+	 init-state {
+		 player-x(player, x1);
+		 player-y(player, y1);
+		 artifacts_collected = 0;
+		 puzzles_solved = 0;
+		 ~is_collected_artifact;
+		 ~is_solved_puzzle;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

@@ -1,0 +1,26 @@
+{
+    "coverage": -1,
+    "agency": -1,
+    "completion": -1,
+    "game_depth": -1,
+    "story_alignment_score": {
+        "overview": "The game revolves around navigating a cricket field, collecting runs, and executing strategies to outplay opponents, capturing the essence of a cricket match.",
+        "score": 8,
+        "reasoning": "The story effectively incorporates cricket elements such as strategy and competition, earning 3 points for theme presence. Consistency is maintained throughout, adding 2 points. The depth of exploration is strong with strategic dilemmas, earning 2 points. Emotional impact is moderate, adding 1 point."
+    },
+    "mechanical_alignment_score": {
+        "coreMechanics": "The game mechanics involve moving across a cricket grid and executing strategies, directly reflecting cricket themes.",
+        "score": 9,
+        "reasoning": "Core mechanics directly reinforce the cricket theme, earning 3 points. Integration with the story is seamless, adding 3 points. There is a variety of mechanics supporting the theme, earning 2 points. Player impact is significant, adding 1 point."
+    },
+    "character_alignment_score": {
+        "characters": "Characters like the captain, batsman, and bowler are central to the cricket theme, each playing a role in strategy and execution.",
+        "score": 7,
+        "reasoning": "Character motivations align with cricket goals, earning 3 points. Character arcs are present but not deeply explored, adding 2 points. Relationships reflect teamwork and competition, earning 1 point. Characters are prominent, adding 1 point."
+    },
+    "overall_theme_score": {
+        "overallThemeCohesion": "The game cohesively integrates cricket elements across story, mechanics, and characters, providing an immersive cricket experience.",
+        "score": 8,
+        "summary": "The game successfully captures the essence of cricket through its story, mechanics, and characters, offering a cohesive thematic experience."
+    }
+}

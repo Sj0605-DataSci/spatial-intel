@@ -1,0 +1,2 @@
+down
+Moving down to (0,1) is the first step towards reaching the Ashoka artifact at (1,2), which is the closest artifact.

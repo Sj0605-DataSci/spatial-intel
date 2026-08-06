@@ -1,0 +1,2 @@
+right
+Moving right will take Mr. Teacher to (1,0), which is one step closer to AnnaStudent at (1,1).

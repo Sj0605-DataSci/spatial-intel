@@ -1,0 +1,2 @@
+right
+Moving right to the forest_region at (1,1) will allow Alex to interact with this ecosystem, which is currently suffering from deforestation, and potentially improve ecosystem health after placing a resource.

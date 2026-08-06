@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'arjun' (looks like: A cheerful young boy in a vibrant kurta, dynamically interacting with his environment, showcasing diyas and vibrant decor, set against a bustling festival backdrop.)
+  FROM cell (C1, R1)  [pixels x≈204–408, y≈204–408]
+  TO   cell (C1, R2)  [pixels x≈204–408, y≈408–612]
+
+1. ERASE 'arjun' from (C1, R1) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'arjun' once at (C1, R2).
+3. Nothing else changes.

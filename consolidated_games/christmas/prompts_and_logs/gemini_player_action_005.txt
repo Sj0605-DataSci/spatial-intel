@@ -1,0 +1,2 @@
+down
+Moving Santa down one step towards family_home_1 at (3,3).

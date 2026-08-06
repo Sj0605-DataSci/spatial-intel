@@ -1,0 +1,2 @@
+down
+Sam just participated in an event with EventManagerAlex. Moving down to (0,2) will allow Sam to interact with EventManagerAlex again, potentially counting as another event participation or advancing the current event.

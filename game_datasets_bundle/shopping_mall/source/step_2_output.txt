@@ -1,0 +1,15 @@
+Game States:
+
+1. **Shopping List Completion**: Tracks items collected by Sam. Progress impacts player advancement and determines success in various story arcs.
+
+2. **Event Participation**: Logs participation and outcomes in themed events, influencing player rewards and unlocking new interactions with characters like Alex.
+
+3. **Security Challenges**: Monitors completion of security mini-missions. Success enhances relationship with Officer Terry and offers security-related perks.
+
+4. **Cook-off Victories**: Records winning dishes in Chef Maria's competitions. Each victory unlocks new recipes and culinary interactions.
+
+5. **Reputation Score**: Represents Sam’s social standing among fellow shoppers and mall staff. High scores unlock exclusive offers and camaraderie benefits.
+
+6. **Budget**: Keeps track of Sam's monetary resources, influencing shopping decisions and strategic game choices.
+
+7. **Time**: Chronicles the in-game day cycle, affecting store openings, event timings, and dynamic environment changes within the mall.

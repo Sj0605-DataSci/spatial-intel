@@ -1,0 +1,2 @@
+right
+The urban_zone at (2,2) is polluted ("oil spill") and needs to be cleaned. Moving right will take the player to this zone. The coastal_zone at (1,1) appears to already be cleaned.

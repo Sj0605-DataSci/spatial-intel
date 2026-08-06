@@ -1,0 +1,2 @@
+up
+Moving up to interact with helpful_chloe will allow joyful_ava to gather suggestions for park improvements, contributing to the 'park_completeness' objective.

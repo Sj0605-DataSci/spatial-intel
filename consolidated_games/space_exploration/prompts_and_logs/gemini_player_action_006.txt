@@ -1,0 +1,2 @@
+up
+Move up to interact with alien_civilization_2 and form an alliance.

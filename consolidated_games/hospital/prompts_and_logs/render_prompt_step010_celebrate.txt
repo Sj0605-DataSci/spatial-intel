@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R3):
+'A determined hospital administrator, managing resources and coordinating medical teams in a busy hospital setting.' performs 'restock resources' with 'A well_stocked supply room with various medical supplies and equipment, essential for hospital operations.'.
+
+1. Add a celebration effect at (C3, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'All resources are fully stocked!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

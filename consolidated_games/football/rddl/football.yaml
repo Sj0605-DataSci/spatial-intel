@@ -1,0 +1,151 @@
+topic: Football Strategy
+objective: Navigate the football field tactically with your team, score goals, and
+  counter rival moves to win the match.
+environment_description: A detailed football stadium grid featuring a dynamic crowd,
+  goalposts at each end, and designated zones for strategy execution amidst an exhilarating
+  atmosphere.
+domain:
+- name: coach
+  image_prompt: A seasoned tactical expert with a clipboard and team cap, leading
+    the team's strategy.
+- name: playmaker
+  image_prompt: An agile midfielder in a team jersey, poised with a ball, exuding
+    precision and creativity on the field.
+- name: striker
+  image_prompt: An athletic forward gearing up for a decisive goal strike, embodying
+    focus and determination.
+- name: defender
+  image_prompt: A strong defender in action, ready to stop opposing advances, highlighting
+    resilience and alertness.
+- name: rival
+  image_prompt: An opponent with a competitive demeanor, dressed in contrast to our
+    team, representing the competition.
+- name: referee
+  image_prompt: A vigilant referee maintaining control and fairness of the game, with
+    a whistle in hand.
+classes:
+- class_name: avatar
+  list_of_objects:
+  - playmaker
+- class_name: team_member
+  list_of_objects:
+  - coach
+  - striker
+  - defender
+- class_name: opponent
+  list_of_objects:
+  - rival
+- class_name: game_official
+  list_of_objects:
+  - referee
+state_of_objects:
+- class_name: avatar
+  isMovable: true
+- class_name: team_member
+  isMovable: false
+- class_name: opponent
+  isMovable: false
+- class_name: game_official
+  isMovable: false
+state_variables:
+- name: successful_passes
+  type: integer
+- name: goals_scored
+  type: integer
+- name: rival_moves_countered
+  type: integer
+actions:
+- name: MoveUp(avatar)
+- name: MoveDown(avatar)
+- name: MoveLeft(avatar)
+- name: MoveRight(avatar)
+- name: Pass(avatar, team_member)
+- name: Score(avatar)
+- name: Counter(opponent)
+transitions:
+- action: MoveUp(?avatar)
+  preconditions:
+  - ?avatar.y < 6
+  effects:
+  - ?avatar.y = ?avatar.y + 1
+  side_effects:
+  - MoveImage(?avatar, ?avatar.x, ?avatar.y - 1, ?avatar.x, ?avatar.y)
+- action: MoveDown(?avatar)
+  preconditions:
+  - ?avatar.y > 1
+  effects:
+  - ?avatar.y = ?avatar.y - 1
+  side_effects:
+  - MoveImage(?avatar, ?avatar.x, ?avatar.y + 1, ?avatar.x, ?avatar.y)
+- action: MoveLeft(?avatar)
+  preconditions:
+  - ?avatar.x > 1
+  effects:
+  - ?avatar.x = ?avatar.x - 1
+  side_effects:
+  - MoveImage(?avatar, ?avatar.x + 1, ?avatar.y, ?avatar.x, ?avatar.y)
+- action: MoveRight(?avatar)
+  preconditions:
+  - ?avatar.x < 6
+  effects:
+  - ?avatar.x = ?avatar.x + 1
+  side_effects:
+  - MoveImage(?avatar, ?avatar.x - 1, ?avatar.y, ?avatar.x, ?avatar.y)
+- action: Pass(?avatar, ?team_member)
+  preconditions:
+  - successful_passes < 5
+  - ?avatar.x == ?team_member.x
+  - ?avatar.y == ?team_member.y
+  effects:
+  - successful_passes = successful_passes + 1
+  side_effects:
+  - ShowText(true, 'Pass completed!')
+- action: Score(?avatar)
+  preconditions:
+  - successful_passes == 5
+  - goals_scored < 3
+  effects:
+  - goals_scored = goals_scored + 1
+  side_effects:
+  - ShowText(true, 'Goal scored!')
+  - ShowText(goals_scored == 3, 'Match won!')
+- action: Counter(?opponent)
+  preconditions:
+  - rival_moves_countered < 3
+  - goals_scored < 3
+  effects:
+  - rival_moves_countered = rival_moves_countered + 1
+  side_effects:
+  - ShowText(true, 'Rival move countered!')
+goal: goals_scored == 3
+reward: goals_scored * 2 + rival_moves_countered
+max_reward: 7
+grid_size:
+  x_size: 6
+  y_size: 6
+initial_state_objects:
+- domain_object: playmaker
+  x: '1'
+  y: '1'
+- domain_object: coach
+  x: '3'
+  y: '3'
+- domain_object: striker
+  x: '5'
+  y: '5'
+- domain_object: defender
+  x: '2'
+  y: '2'
+- domain_object: rival
+  x: '4'
+  y: '4'
+- domain_object: referee
+  x: '6'
+  y: '6'
+initial_state_variables:
+- name: successful_passes
+  value: 0
+- name: goals_scored
+  value: 0
+- name: rival_moves_countered
+  value: 0

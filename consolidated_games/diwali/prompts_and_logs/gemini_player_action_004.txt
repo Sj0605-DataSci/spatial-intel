@@ -1,0 +1,2 @@
+right
+Arjun is currently on the diyas, so that task is considered complete. The next closest task is to prepare the meals at (2,3). Moving right to (2,2) is the first step towards reaching the meals.

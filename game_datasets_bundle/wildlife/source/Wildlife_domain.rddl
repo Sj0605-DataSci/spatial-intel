@@ -1,0 +1,126 @@
+domain Wildlife{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   conservationist : object ;
+   animal_companion : object ;
+   endangered_animal : object ;
+   ecosystem : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+move-right-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+move-up-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+move-down-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+has-moved-conservationist(conservationist) : { state-fluent , bool , default=false } ;
+conservationist-x(conservationist,xpos) : { state-fluent , bool , default=false } ;
+conservationist-y(conservationist,ypos) : { state-fluent , bool , default=false } ;
+animal_companion-x(animal_companion,xpos) : { non-fluent , bool , default=false } ;
+animal_companion-y(animal_companion,ypos) : { non-fluent , bool , default=false } ;
+endangered_animal-x(endangered_animal,xpos) : { non-fluent , bool , default=false } ;
+endangered_animal-y(endangered_animal,ypos) : { non-fluent , bool , default=false } ;
+ecosystem-x(ecosystem,xpos) : { non-fluent , bool , default=false } ;
+ecosystem-y(ecosystem,ypos) : { non-fluent , bool , default=false } ;
+animals_rescued : { state-fluent , int , default=0 } ;
+habitat_restored : { state-fluent , int , default=0 } ;
+is_rescued_tiger : { state-fluent , bool , default=false } ;
+is_rescued_panda : { state-fluent , bool , default=false } ;
+is_restored_rainforest : { state-fluent , bool , default=false } ;
+is_restored_savannah : { state-fluent , bool , default=false } ;
+is_restored_ocean : { state-fluent , bool , default=false } ;
+rescue_tiger-conservationist-endangered_animal(conservationist,endangered_animal) : { action-fluent , bool , default=false } ;
+rescue_panda-conservationist-endangered_animal(conservationist,endangered_animal) : { action-fluent , bool , default=false } ;
+restore_rainforest-conservationist-ecosystem(conservationist,ecosystem) : { action-fluent , bool , default=false } ;
+restore_savannah-conservationist-ecosystem(conservationist,ecosystem) : { action-fluent , bool , default=false } ;
+restore_ocean-conservationist-ecosystem(conservationist,ecosystem) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+conservationist-x'(?conservationist,?xpos) = if (move-left-conservationist( ?conservationist)  & conservationist-x( ?conservationist, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-conservationist( ?conservationist)  & exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-conservationist( ?conservationist)  & ~exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-conservationist( ?conservationist)  & conservationist-x( ?conservationist, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-conservationist( ?conservationist)  & exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-conservationist( ?conservationist)  & ~exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else conservationist-x(?conservationist, ?xpos)
+;
+
+conservationist-y'(?conservationist,?ypos) = if (move-up-conservationist( ?conservationist)  & conservationist-y( ?conservationist, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-conservationist( ?conservationist)  & exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-conservationist( ?conservationist)  & ~exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-conservationist( ?conservationist)  & conservationist-y( ?conservationist, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-conservationist( ?conservationist)  & exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-conservationist( ?conservationist)  & ~exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else conservationist-y(?conservationist, ?ypos)
+;
+
+has-moved-conservationist'(?conservationist) = move-left-conservationist(?conservationist) | move-right-conservationist(?conservationist) | move-up-conservationist(?conservationist) | move-down-conservationist(?conservationist)
+;
+
+animals_rescued' = if (exists_{?conservationist:conservationist, ?endangered_animal:endangered_animal} [ rescue_tiger-conservationist-endangered_animal(?conservationist, ?endangered_animal) & animals_rescued < 2 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & endangered_animal-x(?endangered_animal, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & endangered_animal-y(?endangered_animal, ?y)] & ?endangered_animal == tiger & ~is_rescued_tiger ] )  then animals_rescued + 1
+ else if (exists_{?conservationist:conservationist, ?endangered_animal:endangered_animal} [ rescue_panda-conservationist-endangered_animal(?conservationist, ?endangered_animal) & animals_rescued < 2 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & endangered_animal-x(?endangered_animal, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & endangered_animal-y(?endangered_animal, ?y)] & ?endangered_animal == panda & ~is_rescued_panda ] )  then animals_rescued + 1
+ else animals_rescued
+;
+
+habitat_restored' = if (exists_{?conservationist:conservationist, ?ecosystem:ecosystem} [ restore_rainforest-conservationist-ecosystem(?conservationist, ?ecosystem) & habitat_restored < 3 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & ecosystem-x(?ecosystem, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & ecosystem-y(?ecosystem, ?y)] & ?ecosystem == rainforest & ~is_restored_rainforest ] )  then habitat_restored + 1
+ else if (exists_{?conservationist:conservationist, ?ecosystem:ecosystem} [ restore_savannah-conservationist-ecosystem(?conservationist, ?ecosystem) & habitat_restored < 3 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & ecosystem-x(?ecosystem, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & ecosystem-y(?ecosystem, ?y)] & ?ecosystem == savannah & ~is_restored_savannah ] )  then habitat_restored + 1
+ else if (exists_{?conservationist:conservationist, ?ecosystem:ecosystem} [ restore_ocean-conservationist-ecosystem(?conservationist, ?ecosystem) & habitat_restored < 3 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & ecosystem-x(?ecosystem, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & ecosystem-y(?ecosystem, ?y)] & ?ecosystem == ocean & ~is_restored_ocean ] )  then habitat_restored + 1
+ else habitat_restored
+;
+
+is_rescued_tiger' = if (exists_{?conservationist:conservationist, ?endangered_animal:endangered_animal} [ rescue_tiger-conservationist-endangered_animal(?conservationist, ?endangered_animal) & animals_rescued < 2 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & endangered_animal-x(?endangered_animal, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & endangered_animal-y(?endangered_animal, ?y)] & ?endangered_animal == tiger & ~is_rescued_tiger ] )  then true
+ else is_rescued_tiger
+;
+
+is_rescued_panda' = if (exists_{?conservationist:conservationist, ?endangered_animal:endangered_animal} [ rescue_panda-conservationist-endangered_animal(?conservationist, ?endangered_animal) & animals_rescued < 2 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & endangered_animal-x(?endangered_animal, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & endangered_animal-y(?endangered_animal, ?y)] & ?endangered_animal == panda & ~is_rescued_panda ] )  then true
+ else is_rescued_panda
+;
+
+is_restored_rainforest' = if (exists_{?conservationist:conservationist, ?ecosystem:ecosystem} [ restore_rainforest-conservationist-ecosystem(?conservationist, ?ecosystem) & habitat_restored < 3 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & ecosystem-x(?ecosystem, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & ecosystem-y(?ecosystem, ?y)] & ?ecosystem == rainforest & ~is_restored_rainforest ] )  then true
+ else is_restored_rainforest
+;
+
+is_restored_savannah' = if (exists_{?conservationist:conservationist, ?ecosystem:ecosystem} [ restore_savannah-conservationist-ecosystem(?conservationist, ?ecosystem) & habitat_restored < 3 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & ecosystem-x(?ecosystem, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & ecosystem-y(?ecosystem, ?y)] & ?ecosystem == savannah & ~is_restored_savannah ] )  then true
+ else is_restored_savannah
+;
+
+is_restored_ocean' = if (exists_{?conservationist:conservationist, ?ecosystem:ecosystem} [ restore_ocean-conservationist-ecosystem(?conservationist, ?ecosystem) & habitat_restored < 3 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & ecosystem-x(?ecosystem, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & ecosystem-y(?ecosystem, ?y)] & ?ecosystem == ocean & ~is_restored_ocean ] )  then true
+ else is_restored_ocean
+;
+
+};
+
+action-preconditions {
+forall_{?conservationist:conservationist}[
+            move-left-conservationist(?conservationist) => exists_{?x1:xpos, ?x2:xpos}[conservationist-x(?conservationist, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?conservationist:conservationist}[
+            move-right-conservationist(?conservationist) => exists_{?x1:xpos, ?x2:xpos}[conservationist-x(?conservationist, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?conservationist:conservationist}[
+            move-up-conservationist(?conservationist) => exists_{?y1:ypos, ?y2:ypos}[conservationist-y(?conservationist, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?conservationist:conservationist}[
+            move-down-conservationist(?conservationist) => exists_{?y1:ypos, ?y2:ypos}[conservationist-y(?conservationist, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = animals_rescued + habitat_restored * 2;
+
+// max_reward = 8.0
+
+termination{
+animals_rescued == 2  &  habitat_restored == 3;
+};
+}

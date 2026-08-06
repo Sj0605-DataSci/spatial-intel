@@ -1,0 +1,2022 @@
+{
+  "train": [
+    {
+      "id": 0,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0000.png",
+      "target_img": "train/tgt_0000.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 1,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0001.png",
+      "target_img": "train/tgt_0001.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 2,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0002.png",
+      "target_img": "train/tgt_0002.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 3,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0003.png",
+      "target_img": "train/tgt_0003.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 4,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0004.png",
+      "target_img": "train/tgt_0004.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 5,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0005.png",
+      "target_img": "train/tgt_0005.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 6,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0006.png",
+      "target_img": "train/tgt_0006.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 7,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0007.png",
+      "target_img": "train/tgt_0007.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 8,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0008.png",
+      "target_img": "train/tgt_0008.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 9,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0009.png",
+      "target_img": "train/tgt_0009.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 10,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0010.png",
+      "target_img": "train/tgt_0010.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 11,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0011.png",
+      "target_img": "train/tgt_0011.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 12,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0012.png",
+      "target_img": "train/tgt_0012.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 13,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0013.png",
+      "target_img": "train/tgt_0013.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 14,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0014.png",
+      "target_img": "train/tgt_0014.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 15,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0015.png",
+      "target_img": "train/tgt_0015.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 16,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0016.png",
+      "target_img": "train/tgt_0016.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 17,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0017.png",
+      "target_img": "train/tgt_0017.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 18,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0018.png",
+      "target_img": "train/tgt_0018.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 19,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0019.png",
+      "target_img": "train/tgt_0019.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 20,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0020.png",
+      "target_img": "train/tgt_0020.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 21,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0021.png",
+      "target_img": "train/tgt_0021.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 22,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0022.png",
+      "target_img": "train/tgt_0022.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 23,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0023.png",
+      "target_img": "train/tgt_0023.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 24,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0024.png",
+      "target_img": "train/tgt_0024.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 25,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0025.png",
+      "target_img": "train/tgt_0025.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 26,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0026.png",
+      "target_img": "train/tgt_0026.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 27,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0027.png",
+      "target_img": "train/tgt_0027.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 28,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0028.png",
+      "target_img": "train/tgt_0028.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 29,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0029.png",
+      "target_img": "train/tgt_0029.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 30,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0030.png",
+      "target_img": "train/tgt_0030.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 31,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0031.png",
+      "target_img": "train/tgt_0031.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 32,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0032.png",
+      "target_img": "train/tgt_0032.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 33,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0033.png",
+      "target_img": "train/tgt_0033.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 34,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0034.png",
+      "target_img": "train/tgt_0034.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 35,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0035.png",
+      "target_img": "train/tgt_0035.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 36,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0036.png",
+      "target_img": "train/tgt_0036.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 37,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0037.png",
+      "target_img": "train/tgt_0037.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 38,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0038.png",
+      "target_img": "train/tgt_0038.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 39,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0039.png",
+      "target_img": "train/tgt_0039.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 40,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0040.png",
+      "target_img": "train/tgt_0040.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 41,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0041.png",
+      "target_img": "train/tgt_0041.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 42,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0042.png",
+      "target_img": "train/tgt_0042.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 43,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0043.png",
+      "target_img": "train/tgt_0043.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 44,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0044.png",
+      "target_img": "train/tgt_0044.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 45,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0045.png",
+      "target_img": "train/tgt_0045.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 46,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0046.png",
+      "target_img": "train/tgt_0046.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 47,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0047.png",
+      "target_img": "train/tgt_0047.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 48,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0048.png",
+      "target_img": "train/tgt_0048.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 49,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0049.png",
+      "target_img": "train/tgt_0049.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 50,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0050.png",
+      "target_img": "train/tgt_0050.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 51,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0051.png",
+      "target_img": "train/tgt_0051.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 52,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0052.png",
+      "target_img": "train/tgt_0052.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 53,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0053.png",
+      "target_img": "train/tgt_0053.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 54,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0054.png",
+      "target_img": "train/tgt_0054.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 55,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0055.png",
+      "target_img": "train/tgt_0055.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 56,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0056.png",
+      "target_img": "train/tgt_0056.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 57,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0057.png",
+      "target_img": "train/tgt_0057.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 58,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0058.png",
+      "target_img": "train/tgt_0058.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 59,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0059.png",
+      "target_img": "train/tgt_0059.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 60,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0060.png",
+      "target_img": "train/tgt_0060.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 61,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0061.png",
+      "target_img": "train/tgt_0061.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 62,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0062.png",
+      "target_img": "train/tgt_0062.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 63,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0063.png",
+      "target_img": "train/tgt_0063.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 64,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0064.png",
+      "target_img": "train/tgt_0064.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 65,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0065.png",
+      "target_img": "train/tgt_0065.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 66,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0066.png",
+      "target_img": "train/tgt_0066.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 67,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0067.png",
+      "target_img": "train/tgt_0067.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 68,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0068.png",
+      "target_img": "train/tgt_0068.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 69,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0069.png",
+      "target_img": "train/tgt_0069.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 70,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0070.png",
+      "target_img": "train/tgt_0070.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 71,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0071.png",
+      "target_img": "train/tgt_0071.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 72,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0072.png",
+      "target_img": "train/tgt_0072.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 73,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0073.png",
+      "target_img": "train/tgt_0073.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 74,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0074.png",
+      "target_img": "train/tgt_0074.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 75,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0075.png",
+      "target_img": "train/tgt_0075.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 76,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0076.png",
+      "target_img": "train/tgt_0076.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 77,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0077.png",
+      "target_img": "train/tgt_0077.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 78,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0078.png",
+      "target_img": "train/tgt_0078.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 79,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0079.png",
+      "target_img": "train/tgt_0079.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 80,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0080.png",
+      "target_img": "train/tgt_0080.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 81,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0081.png",
+      "target_img": "train/tgt_0081.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 82,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0082.png",
+      "target_img": "train/tgt_0082.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 83,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0083.png",
+      "target_img": "train/tgt_0083.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 84,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0084.png",
+      "target_img": "train/tgt_0084.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 85,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0085.png",
+      "target_img": "train/tgt_0085.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 86,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0086.png",
+      "target_img": "train/tgt_0086.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 87,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0087.png",
+      "target_img": "train/tgt_0087.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 88,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0088.png",
+      "target_img": "train/tgt_0088.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 89,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0089.png",
+      "target_img": "train/tgt_0089.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 90,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0090.png",
+      "target_img": "train/tgt_0090.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 91,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0091.png",
+      "target_img": "train/tgt_0091.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 92,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0092.png",
+      "target_img": "train/tgt_0092.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 93,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0093.png",
+      "target_img": "train/tgt_0093.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 94,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0094.png",
+      "target_img": "train/tgt_0094.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 95,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0095.png",
+      "target_img": "train/tgt_0095.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 96,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0096.png",
+      "target_img": "train/tgt_0096.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 97,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0097.png",
+      "target_img": "train/tgt_0097.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 98,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0098.png",
+      "target_img": "train/tgt_0098.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 99,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0099.png",
+      "target_img": "train/tgt_0099.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 100,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0100.png",
+      "target_img": "train/tgt_0100.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 101,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0101.png",
+      "target_img": "train/tgt_0101.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 102,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0102.png",
+      "target_img": "train/tgt_0102.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 103,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0103.png",
+      "target_img": "train/tgt_0103.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 104,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0104.png",
+      "target_img": "train/tgt_0104.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 105,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0105.png",
+      "target_img": "train/tgt_0105.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 106,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0106.png",
+      "target_img": "train/tgt_0106.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 107,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0107.png",
+      "target_img": "train/tgt_0107.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 108,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0108.png",
+      "target_img": "train/tgt_0108.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 109,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0109.png",
+      "target_img": "train/tgt_0109.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 110,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0110.png",
+      "target_img": "train/tgt_0110.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 111,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0111.png",
+      "target_img": "train/tgt_0111.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 112,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0112.png",
+      "target_img": "train/tgt_0112.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 113,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0113.png",
+      "target_img": "train/tgt_0113.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 114,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0114.png",
+      "target_img": "train/tgt_0114.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 115,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0115.png",
+      "target_img": "train/tgt_0115.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 116,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0116.png",
+      "target_img": "train/tgt_0116.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 117,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0117.png",
+      "target_img": "train/tgt_0117.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 118,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0118.png",
+      "target_img": "train/tgt_0118.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 119,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0119.png",
+      "target_img": "train/tgt_0119.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    }
+  ],
+  "test": [
+    {
+      "id": 0,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        2,
+        1
+      ],
+      "direction": "right",
+      "input": "train/inp_0000.png",
+      "target_img": "train/tgt_0000.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it right to cell (2,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 1,
+      "start": [
+        1,
+        1
+      ],
+      "target": [
+        1,
+        2
+      ],
+      "direction": "down",
+      "input": "train/inp_0001.png",
+      "target_img": "train/tgt_0001.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,1). Move it down to cell (1,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 2,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        2,
+        2
+      ],
+      "direction": "right",
+      "input": "train/inp_0002.png",
+      "target_img": "train/tgt_0002.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it right to cell (2,2). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 3,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "direction": "up",
+      "input": "train/inp_0003.png",
+      "target_img": "train/tgt_0003.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it up to cell (1,1). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 4,
+      "start": [
+        1,
+        2
+      ],
+      "target": [
+        1,
+        3
+      ],
+      "direction": "down",
+      "input": "train/inp_0004.png",
+      "target_img": "train/tgt_0004.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,2). Move it down to cell (1,3). Keep houses, presents, trees, snow unchanged."
+    },
+    {
+      "id": 5,
+      "start": [
+        1,
+        3
+      ],
+      "target": [
+        2,
+        3
+      ],
+      "direction": "right",
+      "input": "train/inp_0005.png",
+      "target_img": "train/tgt_0005.png",
+      "prompt_coords": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged.",
+      "prompt_nl": "Christmas game grid. Santa's red S badge is at cell (1,3). Move it right to cell (2,3). Keep houses, presents, trees, snow unchanged."
+    }
+  ]
+}

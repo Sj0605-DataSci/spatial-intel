@@ -1,0 +1,43 @@
+**Game Summary: Wildlife Rescue Odyssey**
+
+**Outline:**  
+Embark on a mission to rescue endangered animals and restore ecosystems. Solve puzzles, find hidden objects, and engage with local communities to advance conservation efforts. The game explores themes of biodiversity and nature's interconnectedness.
+
+**Characters:**
+
+1. **Conservationist Alex:** Main character guiding players through missions.
+2. **Orphaned Animal Guardians:** Companions like an elephant calf and otter helping in gameplay.
+3. **Endangered Animals:** Species like tigers and pandas that players aim to rescue.
+4. **Local Villagers:** Provide insights and assistance, representing community involvement.
+
+**State Variables:**
+
+1. **Animals Rescued:** Number of species saved, influencing game progress.
+2. **Habitat Restored:** Progress in ecosystem rebuilding.
+3. **Conservation Points:** Earned through puzzle completion, impacting story.
+4. **Companion Skills:** Abilities of animal companions in gameplay.
+5. **Community Support:** Level of villagers' involvement affecting resources.
+6. **Environmental Health:** Status of ecosystems, affecting game difficulty.
+
+**Rules:**
+
+1. Solve puzzles to rescue endangered animals and increase "Animals Rescued."
+2. Complete habitat restoration puzzles to boost "Habitat Restored."
+3. Earn "Conservation Points" through actions and tasks.
+4. Use animal companions to enhance exploration, impacting "Companion Skills."
+5. Engage with villagers for insights and support, raising "Community Support."
+6. Impact "Environmental Health" through in-game actions.
+
+End Goal: Fully restore habitats and rescue all endangered animals to unlock a narrative celebrating successful conservation.
+
+**Image Prompt Description:**
+
+**Conservationist Alex:** A young, dedicated character wearing practical outdoor gear with a research notebook and binoculars, guiding players through lush environments. Their face shows a determined expression, reflective of their passion for conservation.
+
+**Orphaned Animal Guardians:** Visualize a playful young elephant calf with large, expressive eyes, and a curious otter holding a tool. Both animals exude friendliness and eagerness to assist in the adventure.
+
+**Endangered Animals:** Illustrations of majestic tigers, gentle pandas, and serene turtles in their natural settings. Each animal should look realistic, emphasizing their unique beauty and vulnerability.
+
+**Local Villagers:** A diverse group engaged in activities like planting trees or monitoring wildlife. Their attire reflects the cultural richness of various regions represented in the game.
+
+**Environment:** Lush rainforests, sprawling savannahs, and vibrant ocean scenes filled with diverse flora and fauna. The settings should evoke a sense of wonder and urgency to protect these habitats.

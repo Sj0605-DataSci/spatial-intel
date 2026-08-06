@@ -1,0 +1,14 @@
+Characters:
+
+1. **Arjun** - The main character, a young family member eager to prepare for Diwali celebrations. He navigates the grid, completing tasks with a sense of joy and enthusiasm.
+
+2. **Grandmother Meera** - A wise and gentle guide, providing Arjun with traditional recipes and gifting tips. Her warmth ties family generations together.
+
+3. **Uncle Ravi** - The joyful organizer of community events, who provides encouragement and shares stories of past Diwali celebrations, fostering a sense of community and tradition.
+
+4. **Cousin Anya** - Playfully helps with decorating tasks, introducing elements of fun and creativity as she inspires new rangoli patterns.
+
+5. **Neighbors** - Represent the broader community, each offering a task or story related to their festive traditions, enhancing the sense of unity and diversity.
+
+Environment:
+Set in a vibrant neighborhood during Diwali, featuring homes adorned with diyas, colorful rangoli, bustling kitchens, and a communal area for celebrations. The setting enriches the emotional and cultural ambiance of the game.

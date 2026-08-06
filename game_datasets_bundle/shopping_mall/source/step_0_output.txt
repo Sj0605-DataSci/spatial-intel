@@ -1,0 +1,8 @@
+Game Title: Mall Adventure
+
+Overview:  
+Immerse yourself in an engaging shopping mall journey, filled with lively characters and personal stories.  
+- **Collection**: Fulfill unique shopping lists, attend flash sales, explore food courts, and solve dilemmas like choosing the perfect gift for a friend's party.  
+- **Sorting**: Organize bags in the trunk of your car before catching an important event appointment, carefully balancing time and space.  
+- **Interactivity**: Develop rapport with security guards who offer helpful clues, navigate crowds by following shortcuts, and connect with fellow shoppers to unlock personal stories or challenges.  
+Objective: Relate to heartwarming tales while completing tasks, enhancing emotional investment through meaningful character interactions and thoughtful decisions.

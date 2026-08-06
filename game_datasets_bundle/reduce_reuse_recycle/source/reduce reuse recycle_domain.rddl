@@ -1,0 +1,91 @@
+domain Reduce_Reuse_Recycle{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   recycle_item : object ;
+   recycle_bin : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+recycle_item-x(recycle_item,xpos) : { non-fluent , bool , default=false } ;
+recycle_item-y(recycle_item,ypos) : { non-fluent , bool , default=false } ;
+recycle_bin-x(recycle_bin,xpos) : { non-fluent , bool , default=false } ;
+recycle_bin-y(recycle_bin,ypos) : { non-fluent , bool , default=false } ;
+is_sorted_recycle_item(recycle_item) : { state-fluent , bool , default=false } ;
+items_sorted : { state-fluent , int , default=0 } ;
+sort-player-recycle_item-recycle_bin(player,recycle_item,recycle_bin) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+is_sorted_recycle_item'(?recycle_item) = if (exists_{?player:player, ?recycle_bin:recycle_bin} [ sort-player-recycle_item-recycle_bin(?player, ?recycle_item, ?recycle_bin) & ~is_sorted_recycle_item(?recycle_item) & exists_{?x:xpos} [player-x(?player, ?x) & recycle_item-x(?recycle_item, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & recycle_item-y(?recycle_item, ?y)] & exists_{?x:xpos} [recycle_item-x(?recycle_item, ?x) & recycle_bin-x(?recycle_bin, ?x)] & exists_{?y:ypos} [recycle_item-y(?recycle_item, ?y) & recycle_bin-y(?recycle_bin, ?y)] & items_sorted < 3 ] )  then true
+ else is_sorted_recycle_item(?recycle_item)
+;
+
+items_sorted' = if (exists_{?player:player, ?recycle_item:recycle_item, ?recycle_bin:recycle_bin} [ sort-player-recycle_item-recycle_bin(?player, ?recycle_item, ?recycle_bin) & ~is_sorted_recycle_item(?recycle_item) & exists_{?x:xpos} [player-x(?player, ?x) & recycle_item-x(?recycle_item, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & recycle_item-y(?recycle_item, ?y)] & exists_{?x:xpos} [recycle_item-x(?recycle_item, ?x) & recycle_bin-x(?recycle_bin, ?x)] & exists_{?y:ypos} [recycle_item-y(?recycle_item, ?y) & recycle_bin-y(?recycle_bin, ?y)] & items_sorted < 3 ] )  then items_sorted + 1
+ else items_sorted
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = items_sorted;
+
+// max_reward = 3.0
+
+termination{
+items_sorted == 3;
+};
+}

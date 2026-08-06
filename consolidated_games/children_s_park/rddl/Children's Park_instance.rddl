@@ -1,0 +1,54 @@
+instance Childrens_Park { 
+
+	 domain = Childrens_Park;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { joyful_ava };
+		 companion : { buddy_ben, parents };
+		 children : { playful_pals, inquisitive_emma, helpful_chloe };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 companion-x(buddy_ben, x2);
+		 companion-y(buddy_ben, y2);
+		 companion-x(parents, x3);
+		 companion-y(parents, y3);
+		 children-x(playful_pals, x4);
+		 children-y(playful_pals, y4);
+		 children-x(inquisitive_emma, x5);
+		 children-y(inquisitive_emma, y5);
+		 children-x(helpful_chloe, x3);
+		 children-y(helpful_chloe, y2);
+	 };
+
+	 init-state {
+		 player-x(joyful_ava, x1);
+		 player-y(joyful_ava, y1);
+		 park_completeness = 0;
+		 friendship_levels = 0;
+		 parent_satisfaction = 0;
+		 adventure_meter = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

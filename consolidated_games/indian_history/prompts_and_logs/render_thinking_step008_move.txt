@@ -1,0 +1,7 @@
+**Defining the Move**
+
+I've specified the actions needed to move the 'player' sprite. I've pinpointed its current position and the desired destination cell. The steps are clearly defined: erase the sprite from its current location, and then redraw it at the new coordinates, while preserving all other elements of the scene.
+
+**Verifying Sprite Placement**
+
+I've confirmed the player sprite's accurate relocation. The operation achieved the user's intended sprite movement. I verified that only the relevant cell contents were altered. The player and its identifying information now appear in the target location, with the source location now restored to its original background.

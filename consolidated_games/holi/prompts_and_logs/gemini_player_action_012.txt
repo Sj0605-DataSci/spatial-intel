@@ -1,0 +1,2 @@
+up
+Riya needs to move up to reach obstacle_1 at (1,1) and resolve it.

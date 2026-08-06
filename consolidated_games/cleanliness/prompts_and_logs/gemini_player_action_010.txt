@@ -1,0 +1,2 @@
+up
+Move towards the polluted cell at (3,1).

@@ -1,0 +1,26 @@
+{
+    "coverage": -1,
+    "agency": -1,
+    "completion": -1,
+    "game_depth": -1,
+    "story_alignment_score": {
+        "overview": "The story revolves around managing a hospital, focusing on patient care, resource management, and staff coordination to ensure optimal operations.",
+        "score": 9,
+        "reasoning": "The story effectively incorporates theme elements such as patient care, resource management, and staff coordination, earning 3 points for presence. Consistency is maintained throughout, earning 2 points. The depth of exploration is strong, with meaningful dilemmas and conflicts, earning 3 points. The emotional impact is significant, evoking themes of care and urgency, earning 1 point."
+    },
+    "mechanical_alignment_score": {
+        "coreMechanics": "The core mechanics involve treating patients, restocking resources, and coordinating staff, directly reflecting the hospital theme.",
+        "score": 9,
+        "reasoning": "Core mechanics directly reinforce the theme, earning 3 points. They are well-integrated with the story, earning 3 points. There is a variety of mechanics supporting the theme, earning 2 points. Player impact is meaningful, allowing players to experience the theme, earning 1 point."
+    },
+    "character_alignment_score": {
+        "characters": "Characters include a hospital administrator, patients, doctors, and nurses, all central to the hospital theme.",
+        "score": 8,
+        "reasoning": "Character motivations align with the theme, earning 3 points. Character arcs are present but could be deeper, earning 2 points. Relationships reflect cooperation and care, earning 2 points. Characters are prominent and convey the theme, earning 1 point."
+    },
+    "overall_theme_score": {
+        "overallThemeCohesion": "The game cohesively integrates hospital operations, patient care, and resource management, creating a unified theme.",
+        "score": 9,
+        "summary": "The game excels in aligning its story, mechanics, and characters with the hospital theme, providing a cohesive and immersive experience."
+    }
+}

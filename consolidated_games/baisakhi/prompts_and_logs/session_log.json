@@ -1,0 +1,220 @@
+{
+  "game": "baisakhi",
+  "session_id": "gemini_plays_baisakhi_1777122263",
+  "movable_chars": [
+    "player"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 10,
+  "goal": "items_collected == 3 AND rituals_completed == 1",
+  "won": true,
+  "final_scoreboard": {
+    "items_collected": 3,
+    "rituals_completed": 1
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "player",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_collected": 0,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "player",
+      "action": "down",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:wheat_bundle"
+      ],
+      "scoreboard": {
+        "items_collected": 1,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "player",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_collected": 1,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "player",
+      "action": "right",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        3,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:phulkari_scarf"
+      ],
+      "scoreboard": {
+        "items_collected": 2,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "player",
+      "action": "left",
+      "from": [
+        3,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_collected": 2,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "player",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:dhol"
+      ],
+      "scoreboard": {
+        "items_collected": 3,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "player",
+      "action": "right",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_collected": 3,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 8,
+      "character": "player",
+      "action": "right",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        4,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_collected": 3,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 9,
+      "character": "player",
+      "action": "down",
+      "from": [
+        4,
+        2
+      ],
+      "to": [
+        4,
+        3
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_collected": 3,
+        "rituals_completed": 0
+      }
+    },
+    {
+      "step": 10,
+      "character": "player",
+      "action": "down",
+      "from": [
+        4,
+        3
+      ],
+      "to": [
+        4,
+        4
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:prayer_space"
+      ],
+      "scoreboard": {
+        "items_collected": 3,
+        "rituals_completed": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+right
+Arjun is currently on the diyas. The next step is to place them at the community area (4,4). Moving right to (2,2) is a step towards the community area.

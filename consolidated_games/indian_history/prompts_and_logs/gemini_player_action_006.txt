@@ -1,0 +1,2 @@
+right
+The player is at (2,3) and the gandhi_artifact is at (3,1). Moving right to (3,3) is the first step towards collecting the gandhi_artifact.

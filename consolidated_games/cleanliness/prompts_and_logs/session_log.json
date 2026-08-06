@@ -1,0 +1,239 @@
+{
+  "game": "cleanliness",
+  "session_id": "gemini_plays_cleanliness_1777113803",
+  "movable_chars": [
+    "eco_elara"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 12,
+  "goal": "pollution_level == 0",
+  "won": false,
+  "final_scoreboard": {
+    "pollution_level": 4
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "eco_elara",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 5
+      }
+    },
+    {
+      "step": 2,
+      "character": "eco_elara",
+      "action": "down",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 5
+      }
+    },
+    {
+      "step": 3,
+      "character": "eco_elara",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 5
+      }
+    },
+    {
+      "step": 4,
+      "character": "eco_elara",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:grime_gremlin"
+      ],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 5,
+      "character": "eco_elara",
+      "action": "right",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 6,
+      "character": "eco_elara",
+      "action": "right",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        4,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 7,
+      "character": "eco_elara",
+      "action": "left",
+      "from": [
+        4,
+        2
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 8,
+      "character": "eco_elara",
+      "action": "right",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        4,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 9,
+      "character": "eco_elara",
+      "action": "left",
+      "from": [
+        4,
+        2
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 10,
+      "character": "eco_elara",
+      "action": "up",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        3,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 11,
+      "character": "eco_elara",
+      "action": "down",
+      "from": [
+        3,
+        1
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    },
+    {
+      "step": 12,
+      "character": "eco_elara",
+      "action": "left",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "pollution_level": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+up
+Riya is currently on the same cell as Elder Mehta. To progress, Riya should move towards the obstacle to resolve it. Moving 'up' will place Riya on the same cell as obstacle_1.

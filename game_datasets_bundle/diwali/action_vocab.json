@@ -1,0 +1,37 @@
+{
+  "0": {
+    "base": "MoveUp",
+    "target": null,
+    "control": "W"
+  },
+  "1": {
+    "base": "MoveDown",
+    "target": null,
+    "control": "S"
+  },
+  "2": {
+    "base": "MoveLeft",
+    "target": null,
+    "control": "A"
+  },
+  "3": {
+    "base": "MoveRight",
+    "target": null,
+    "control": "D"
+  },
+  "4": {
+    "base": "CompleteTask",
+    "target": "diyas_1",
+    "control": "Space"
+  },
+  "5": {
+    "base": "CompleteTask",
+    "target": "rangoli_patterns",
+    "control": "Space"
+  },
+  "6": {
+    "base": "CompleteTask",
+    "target": "meals",
+    "control": "Space"
+  }
+}

@@ -1,0 +1,2 @@
+left
+Alex needs to collect the protein bar, which is a healthy food item, to contribute to a balanced meal. Moving left from (2,2) to (1,2) is the first step towards reaching the protein bar at (1,3).

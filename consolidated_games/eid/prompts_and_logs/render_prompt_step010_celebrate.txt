@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R3):
+'A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.' performs 'prepare feast' with 'A grand dining table set with a variety of traditional Eid foods, ready for the family feast.'.
+
+1. Add a celebration effect at (C3, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Feast prepared! Celebration complete!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

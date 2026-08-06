@@ -1,0 +1,2 @@
+right
+The player is currently on the urban_zone at (2,2). The next closest polluted zone to interact with is the rural_zone at (3,3). Moving right to (3,2) is the first step towards reaching it.

@@ -1,0 +1,82 @@
+instance Santas_Gift_Journey { 
+
+	 domain = Santas_Gift_Journey;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5, x6, x7, x8 };
+		 ypos : { y1, y2, y3, y4, y5, y6, y7, y8 };
+		 santa_class : { santa };
+		 present : { present1, present2, present3, present4 };
+		 house : { house_a, house_b, house_c, house_d };
+		 stable : { reinder_stable };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-LEFT(x6, x5);
+		 ADJACENT-LEFT(x7, x6);
+		 ADJACENT-LEFT(x8, x7);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-RIGHT(x5, x6);
+		 ADJACENT-RIGHT(x6, x7);
+		 ADJACENT-RIGHT(x7, x8);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-UP(y6, y5);
+		 ADJACENT-UP(y7, y6);
+		 ADJACENT-UP(y8, y7);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 ADJACENT-DOWN(y5, y6);
+		 ADJACENT-DOWN(y6, y7);
+		 ADJACENT-DOWN(y7, y8);
+		 present-x(present1, x3);
+		 present-y(present1, y2);
+		 present-x(present2, x4);
+		 present-y(present2, y3);
+		 present-x(present3, x5);
+		 present-y(present3, y4);
+		 present-x(present4, x6);
+		 present-y(present4, y5);
+		 house-x(house_a, x2);
+		 house-y(house_a, y6);
+		 house-x(house_b, x4);
+		 house-y(house_b, y6);
+		 house-x(house_c, x6);
+		 house-y(house_c, y6);
+		 house-x(house_d, x8);
+		 house-y(house_d, y6);
+		 stable-x(reinder_stable, x1);
+		 stable-y(reinder_stable, y8);
+	 };
+
+	 init-state {
+		 santa_class-x(santa, x1);
+		 santa_class-y(santa, y1);
+		 carrying_present_id = 0;
+		 ~is_collected(present1);
+		 ~is_collected(present2);
+		 ~is_collected(present3);
+		 ~is_collected(present4);
+		 ~is_delivered(house_a);
+		 ~is_delivered(house_b);
+		 ~is_delivered(house_c);
+		 ~is_delivered(house_d);
+		 delivery_count = 0;
+		 ~stable_visited;
+	 };
+
+max-nondef-actions = 1;
+horizon = 25;
+discount = 0.7 ;
+}

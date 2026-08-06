@@ -1,0 +1,39 @@
+# Model weights - DO NOT COMMIT
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+!**/requirements*.txt
+
+# Build & cache
+__pycache__/
+*.pyc
+*.egg-info/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs (optional - comment out if you want these)
+*.log
+mlflow.db
+
+# Optimizer states
+**/optimizer.pt
+**/optimizer.pth
+
+# Training runs - keep locally, exclude from git
+runs/

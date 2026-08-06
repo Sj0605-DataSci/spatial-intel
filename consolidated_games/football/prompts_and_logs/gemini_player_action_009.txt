@@ -1,0 +1,2 @@
+up
+The game indicates "Match won!", which suggests the objective has been met. However, if a move is still required, moving 'up' to (3,0) would place the playmaker directly in front of the goal, which is the most advantageous position for attempting a shot.

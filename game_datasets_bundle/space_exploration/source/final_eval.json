@@ -1,0 +1,26 @@
+{
+    "coverage": -1,
+    "agency": -1,
+    "completion": -1,
+    "game_depth": -1,
+    "story_alignment_score": {
+        "overview": "The story revolves around navigating a spacecraft through a cosmic landscape, collecting artifacts, and forming alliances with alien civilizations.",
+        "score": 9,
+        "reasoning": "The story strongly incorporates theme elements such as exploration, discovery, and forming alliances with alien civilizations. The presence of theme elements is explicit, and they are consistently integrated throughout the story. The depth of exploration is significant as the plot involves meaningful interactions with alien species and artifact collection. The emotional impact is high as players experience the thrill of space exploration and the unknown."
+    },
+    "mechanical_alignment_score": {
+        "coreMechanics": "The core mechanics involve navigating the spacecraft, collecting artifacts, and forming alliances, which directly reflect the theme of space exploration.",
+        "score": 8,
+        "reasoning": "The mechanics directly reinforce the theme by focusing on exploration and interaction with alien civilizations. They are well-integrated with the story and theme, providing variety through different actions like moving, collecting, and forming alliances. The player impact is significant as these mechanics allow players to experience the theme meaningfully."
+    },
+    "character_alignment_score": {
+        "characters": "Commander Vega and the alien civilizations are central to the theme, with motivations and arcs that align with exploration and forming alliances.",
+        "score": 8,
+        "reasoning": "Character motivations align with the theme as they focus on exploration and forming alliances. Character arcs evolve through interactions with alien civilizations, reinforcing the theme. Relationships reflect cooperation and discovery, and characters are prominent enough to convey the theme effectively."
+    },
+    "overall_theme_score": {
+        "overallThemeCohesion": "The game cohesively integrates space exploration elements across story, mechanics, and characters.",
+        "score": 8.5,
+        "summary": "The game effectively aligns with the theme of space exploration through its story, mechanics, and characters, providing a cohesive and immersive experience."
+    }
+}

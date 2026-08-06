@@ -1,0 +1,2 @@
+right
+Moving right advances the playmaker towards the center of the field, positioning them better to initiate an attack or pass to teammates further up the pitch.

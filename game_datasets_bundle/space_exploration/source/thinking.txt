@@ -1,0 +1,113 @@
+Thread id is 1
+
+--- STEP 0 FINAL OUTPUT ---
+Title: Celestial Journey
+
+Overview: Players guide a team of astronauts on a groundbreaking space exploration mission. Navigate a spacecraft on a grid through asteroid belts and cosmic anomalies, using navigation mechanics to chart new territories. Collect alien artifacts and trade resources across galaxies, fostering interstellar alliances. Encounter alien civilizations and engage in diplomatic quests, unraveling universal mysteries.
+
+Emphasize astronaut experiences—deal with isolation, make critical decisions, and celebrate the awe of discovery. Face emotional stakes like saving endangered planets or prioritizing crew welfare over mission goals. Feel the wonder of the universe through each personal triumph and challenge.
+
+
+--- STEP 1 FINAL OUTPUT ---
+Characters:
+
+1. Commander Vega – The experienced leader guiding the exploration mission. Makes critical decisions, balancing mission objectives and crew welfare.
+
+2. Navigator Orion – Skilled in charting courses through dangerous territories. Provides strategic insights and routes for safe passage.
+
+3. Engineer Lyra – Keeps the spacecraft operational, solving technical challenges. Ensures vital systems are maintained during anomalies.
+
+4. Scientist Nova – Specializes in alien artefact analysis and cosmic phenomena. Drives research, uncovering universal mysteries and fostering cultural exchanges.
+
+5. Diplomat Solara – Manages interactions with alien civilizations. Builds alliances, handling cross-cultural negotiations and establishing trust.
+
+6. Alien Allies – Unique species encountered, each offering distinct resources or quests. Facilitate trade or pose challenges, enriching the narrative.
+
+Environment: The game unfolds amidst dynamic cosmic settings, including vibrant galaxies, mysterious wormholes, and thriving alien worlds, each representing the vastness and wonder of space.
+
+
+--- STEP 2 FINAL OUTPUT ---
+Game States:
+
+1. Mission Progress: Measures objectives completed, including artefact collection and alliances formed. Reflects exploration success.
+
+2. Crew Morale: Represents the emotional state of the team; affected by decisions and events. Critical for maintaining team efficiency.
+
+3. Resource Inventory: Tracks collected resources and artefacts. Essential for trade and research activities.
+
+4. Spacecraft Integrity: Indicates health of the ship, influenced by obstacles encountered. Requires management by Engineer Lyra.
+
+5. Alien Relations: Gauges diplomatic success and trust levels with each civilization. Managed by Diplomat Solara.
+
+6. Cosmic Discoveries: Chronicles new cosmic phenomena uncovered by Scientist Nova, advancing storyline and gameplay.
+
+
+--- STEP 3 FINAL OUTPUT ---
+Rules:
+
+1. Objective Completion: Complete missions to increase Mission Progress. Requires resource collection and alliance formation.
+
+2. Navigation and Obstacles: Use Navigator Orion's skills to move the spacecraft. Avoid collisions to maintain Spacecraft Integrity.
+
+3. Resource Management: Collect resources to enhance Resource Inventory. Use for trade and scientific study.
+
+4. Crew Morale: Make balanced decisions to maintain high Crew Morale. High morale boosts efficiency and success rates.
+
+5. Diplomatic Engagements: Successful interactions with aliens improve Alien Relations. Solara’s diplomacy influences trade options and alliances.
+
+6. Discovery Logging: Uncover new phenomena to update Cosmic Discoveries. These drive narrative progression and new mission availability.
+
+End Goal: Advance civilization through exploration milestones, achieving a breakthrough that concludes the game.
+
+
+--- STEP 4 FINAL OUTPUT ---
+Summary:
+
+**Game Outline:** Celestial Journey is a strategic, grid-based space exploration game. Players command a spacecraft, discovering cosmic wonders, managing resources, navigating treacherous terrains, and building relations with alien species to achieve mission milestones.
+
+**Characters:**
+
+1. **Commander Vega:** Provides leadership and decision-making, crucial for morale and mission strategy.
+2. **Navigator Orion:** Essential for route planning and safe navigation through cosmic threats.
+3. **Engineer Lyra:** Maintains ship functionality, crucial for surviving space hazards.
+4. **Scientist Nova:** Conducts research on collected artefacts and new phenomena.
+5. **Diplomat Solara:** Negotiates trade and alliances with alien species.
+
+**Game States:**
+
+1. **Mission Progress:** Reflects objective completion.
+2. **Crew Morale:** Influences team efficiency and decision impact.
+3. **Resource Inventory:** Vital for trade and research.
+4. **Spacecraft Integrity:** Ensures ship’s survival through challenges.
+5. **Alien Relations:** Dictates diplomatic and trade success.
+6. **Cosmic Discoveries:** Advances narrative through exploration feats.
+
+**Rules:**
+
+1. Navigate to complete objectives and earn mission progress.
+2. Avoid obstacles to maintain spacecraft integrity.
+3. Collect resources for upgrades and research developments.
+4. Balance decisions to sustain high crew morale.
+5. Foster alien relations for alliances and access to resources.
+6. Discover phenomena to unlock new missions and storylines.
+
+**Additional Mechanics:**
+
+1. **Zero Gravity Maneuvers:** Simulate space conditions for added realism.
+2. **Spacewalks:** Engage players in external repairs and resource collection with a first-person view, enhancing immersion.
+3. **Anomalies Exploration:** Encounter unpredictable events, instilling the wonder and fear of space.
+
+**Image Prompt Description:**
+
+- **Commander Vega:** A confident leader in a high-tech, durable space suit with mission patches and an authoritative presence, ready to face the unknown.
+
+- **Navigator Orion:** A meticulous guide, wearing a suit with built-in holographic displays and navigation tools, focusing on distant cosmic paths.
+
+- **Engineer Lyra:** A hands-on problem solver, in a utility suit equipped with visible gadgets and a toolkit, embodying the resilience needed for spacecraft maintenance.
+
+- **Scientist Nova:** An eager researcher clad in a lab-enhanced suit with scanning devices and a digital notepad, immersed in the wonders of cosmic discovery.
+
+- **Diplomat Solara:** A composed, friendly negotiator, dressed in a formal yet futuristic ensemble featuring cultural symbols, exuding warmth among alien species.
+
+- **Environment:** A dynamic cosmic landscape—a bustling galaxy filled with nebulas, shimmering meteors, and distant stars, hinting at countless enigmas and adventures. The spacecraft is envisioned as a cutting-edge vessel, moving purposefully through this mesmerizing expanse, embodying humanity's quest for exploration.
+

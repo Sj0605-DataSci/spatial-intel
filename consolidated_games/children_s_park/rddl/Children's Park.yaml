@@ -1,0 +1,113 @@
+topic: Childrens Park
+objective: Players design a children's park by arranging equipment and ensuring safety,
+  creativity, and community interaction.
+environment_description: A vibrant park setting with colorful playground equipment
+  and various interactive play areas. Family groups engaging in activities like ball
+  games and kite flying foster community spirit.
+domain:
+- name: joyful_ava
+  image_prompt: A lively child with curly hair and bright overalls, holding a playground
+    blueprint with enthusiasm.
+- name: buddy_ben
+  image_prompt: A thoughtful boy in a safety vest with glasses and a whistle, overseeing
+    park safety.
+- name: parents
+  image_prompt: A diverse group of adults providing feedback, with expressions of
+    contentment or mild concern.
+- name: playful_pals
+  image_prompt: A diverse group of children joyfully interacting with swings and slides.
+- name: inquisitive_emma
+  image_prompt: A curious girl with pigtails, examining play equipment with a magnifying
+    glass.
+- name: helpful_chloe
+  image_prompt: A nurturing figure, suggesting improvements, representing empathy
+    and guidance.
+classes:
+- class_name: player
+  list_of_objects:
+  - joyful_ava
+- class_name: companion
+  list_of_objects:
+  - buddy_ben
+  - parents
+- class_name: children
+  list_of_objects:
+  - playful_pals
+  - inquisitive_emma
+  - helpful_chloe
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: companion
+  isMovable: false
+- class_name: children
+  isMovable: false
+state_variables:
+- name: park_completeness
+  type: integer
+- name: friendship_levels
+  type: integer
+- name: parent_satisfaction
+  type: integer
+- name: adventure_meter
+  type: integer
+actions:
+- name: PlaceEquipment(player)
+- name: AssessSafety(companion)
+- name: EnhanceCreativity(children)
+transitions:
+- action: PlaceEquipment(?player)
+  preconditions:
+  - park_completeness < 5
+  effects:
+  - park_completeness = park_completeness + 1
+  side_effects:
+  - ShowText(true, 'Equipment placed!')
+- action: AssessSafety(?companion)
+  preconditions:
+  - friendship_levels < 5
+  effects:
+  - friendship_levels = friendship_levels + 1
+  side_effects:
+  - ShowText(true, 'Safety assessed successfully!')
+- action: EnhanceCreativity(?children)
+  preconditions:
+  - adventure_meter < 5
+  effects:
+  - adventure_meter = adventure_meter + 1
+  side_effects:
+  - ShowText(true, 'Creativity enhanced!')
+goal: park_completeness == 5 AND friendship_levels == 5 AND adventure_meter == 5
+reward: park_completeness + friendship_levels + adventure_meter
+max_reward: 15
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: joyful_ava
+  x: '1'
+  y: '1'
+- domain_object: buddy_ben
+  x: '2'
+  y: '2'
+- domain_object: parents
+  x: '3'
+  y: '3'
+- domain_object: playful_pals
+  x: '4'
+  y: '4'
+- domain_object: inquisitive_emma
+  x: '5'
+  y: '5'
+- domain_object: helpful_chloe
+  x: '3'
+  y: '2'
+initial_state_variables:
+- name: park_completeness
+  value: 0
+- name: friendship_levels
+  value: 0
+- name: parent_satisfaction
+  value: 0
+- name: adventure_meter
+  value: 0

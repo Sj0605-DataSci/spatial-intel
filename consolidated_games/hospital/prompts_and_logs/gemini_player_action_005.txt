@@ -1,0 +1,2 @@
+down
+The message "All patients have been cared for!" suggests that direct interaction with patients is not the immediate next step. Moving down to (1,2) will place the player_admin next to the doctor, which could be a step towards coordinating staff or preparing for future tasks, especially since "All staff are full of energy and ready to assist!".

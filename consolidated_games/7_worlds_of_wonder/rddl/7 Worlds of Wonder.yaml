@@ -1,0 +1,148 @@
+topic: 7 Worlds of Wonder
+objective: Explore and restore the 7 Wonders by solving puzzles and making impactful
+  decisions.
+environment_description: Detailed, immersive landscapes capturing the awe of each
+  wonder's architecture; vibrant, living scenes of ancient life and subtle modern
+  elements, emphasizing the narrative between preservation and progress.
+domain:
+- name: player
+  image_prompt: A wise and adventurous figure in explorer's garb, equipped with historical
+    maps and a journal, ready to discover and restore the wonders.
+- name: artifact_1
+  image_prompt: A piece of intricately carved stone that holds a small piece of a
+    wonder's history, lying among ruins.
+- name: artifact_2
+  image_prompt: An ancient inscribed scroll containing lost wisdom, hidden in a forgotten
+    corner.
+- name: artifact_3
+  image_prompt: A golden relic shimmering with ancient significance, buried under
+    layers of history.
+- name: puzzle_1
+  image_prompt: A complex mosaic puzzle that, when completed, reveals a part of the
+    wonder's grandeur.
+- name: puzzle_2
+  image_prompt: A wooden ancient lock that needs to be solved to reveal secrets of
+    the wonder.
+classes:
+- class_name: player
+  list_of_objects:
+  - player
+- class_name: artifact
+  list_of_objects:
+  - artifact_1
+  - artifact_2
+  - artifact_3
+- class_name: puzzle
+  list_of_objects:
+  - puzzle_1
+  - puzzle_2
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: artifact
+  isMovable: false
+- class_name: puzzle
+  isMovable: false
+state_variables:
+- name: artifacts_collected
+  type: integer
+- name: puzzles_solved
+  type: integer
+- name: is_collected_artifact
+  type: bool
+- name: is_solved_puzzle
+  type: bool
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Collect(player, artifact)
+- name: Solve(player, puzzle)
+transitions:
+- action: MoveUp(player)
+  preconditions:
+  - player.y < grid_size.y
+  effects:
+  - player.y = player.y + 1
+  side_effects:
+  - MoveImage(player, player.x, player.y - 1, player.x, player.y)
+- action: MoveDown(player)
+  preconditions:
+  - player.y > 1
+  effects:
+  - player.y = player.y - 1
+  side_effects:
+  - MoveImage(player, player.x, player.y + 1, player.x, player.y)
+- action: MoveLeft(player)
+  preconditions:
+  - player.x > 1
+  effects:
+  - player.x = player.x - 1
+  side_effects:
+  - MoveImage(player, player.x + 1, player.y, player.x, player.y)
+- action: MoveRight(player)
+  preconditions:
+  - player.x < grid_size.x
+  effects:
+  - player.x = player.x + 1
+  side_effects:
+  - MoveImage(player, player.x - 1, player.y, player.x, player.y)
+- action: Collect(player, artifact)
+  preconditions:
+  - NOT is_collected_artifact
+  - player.x == ?artifact.x
+  - player.y == ?artifact.y
+  - artifacts_collected < 3
+  effects:
+  - artifacts_collected = artifacts_collected + 1
+  - is_collected_artifact = true
+  side_effects:
+  - MoveImage(?artifact, ?artifact.x, ?artifact.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Artifact collected!')
+- action: Solve(player, puzzle)
+  preconditions:
+  - NOT is_solved_puzzle
+  - player.x == ?puzzle.x
+  - player.y == ?puzzle.y
+  - puzzles_solved < 2
+  effects:
+  - puzzles_solved = puzzles_solved + 1
+  - is_solved_puzzle = true
+  side_effects:
+  - ShowText(true, 'Puzzle solved!')
+  - ShowText(puzzles_solved == 2, 'All puzzles are solved! The wonder is restored!')
+goal: artifacts_collected == 3 AND puzzles_solved == 2
+reward: artifacts_collected + puzzles_solved * 2
+max_reward: 10
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: player
+  x: 1
+  y: 1
+- domain_object: artifact_1
+  x: 2
+  y: 2
+- domain_object: artifact_2
+  x: 3
+  y: 3
+- domain_object: artifact_3
+  x: 4
+  y: 1
+- domain_object: puzzle_1
+  x: 2
+  y: 4
+- domain_object: puzzle_2
+  x: 4
+  y: 4
+initial_state_variables:
+- name: artifacts_collected
+  value: 0
+- name: puzzles_solved
+  value: 0
+- name: is_collected_artifact
+  value: false
+- name: is_solved_puzzle
+  value: false

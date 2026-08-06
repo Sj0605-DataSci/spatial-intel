@@ -1,0 +1,13 @@
+SCORE: 9
+
+ISSUES:
+
+- Missing spatial preconditions for actions, allowing illogical interactions.
+
+EXPECTED_BEHAVIOR:
+
+- Interaction actions like TreatPatient should require the player and patient to be at the same coordinates to execute correctly.
+
+ACTUAL_BEHAVIOR:
+
+- Actions can be executed without considering the spatial alignment between the player and other objects, potentially causing illogical interactions.

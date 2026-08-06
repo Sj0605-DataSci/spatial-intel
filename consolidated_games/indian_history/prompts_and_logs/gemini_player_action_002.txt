@@ -1,0 +1,2 @@
+right
+Moving right will bring the player closer to the Ashoka artifact at (1,2).

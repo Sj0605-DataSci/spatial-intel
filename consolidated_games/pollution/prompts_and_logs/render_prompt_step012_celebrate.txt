@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R3):
+'A dedicated environmentalist in casual attire, equipped with tools and charts, ready to tackle pollution.' performs 'clean' with 'Farmlands with barren soil and scattered debris, a site needing soil health revival.'.
+
+1. Add a celebration effect at (C3, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Zone cleaned! Pollution level reduced.'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

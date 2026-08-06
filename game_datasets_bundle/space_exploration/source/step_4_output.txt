@@ -1,0 +1,49 @@
+Summary:
+
+**Game Outline:** Celestial Journey is a strategic, grid-based space exploration game. Players command a spacecraft, discovering cosmic wonders, managing resources, navigating treacherous terrains, and building relations with alien species to achieve mission milestones.
+
+**Characters:**
+
+1. **Commander Vega:** Provides leadership and decision-making, crucial for morale and mission strategy.
+2. **Navigator Orion:** Essential for route planning and safe navigation through cosmic threats.
+3. **Engineer Lyra:** Maintains ship functionality, crucial for surviving space hazards.
+4. **Scientist Nova:** Conducts research on collected artefacts and new phenomena.
+5. **Diplomat Solara:** Negotiates trade and alliances with alien species.
+
+**Game States:**
+
+1. **Mission Progress:** Reflects objective completion.
+2. **Crew Morale:** Influences team efficiency and decision impact.
+3. **Resource Inventory:** Vital for trade and research.
+4. **Spacecraft Integrity:** Ensures ship’s survival through challenges.
+5. **Alien Relations:** Dictates diplomatic and trade success.
+6. **Cosmic Discoveries:** Advances narrative through exploration feats.
+
+**Rules:**
+
+1. Navigate to complete objectives and earn mission progress.
+2. Avoid obstacles to maintain spacecraft integrity.
+3. Collect resources for upgrades and research developments.
+4. Balance decisions to sustain high crew morale.
+5. Foster alien relations for alliances and access to resources.
+6. Discover phenomena to unlock new missions and storylines.
+
+**Additional Mechanics:**
+
+1. **Zero Gravity Maneuvers:** Simulate space conditions for added realism.
+2. **Spacewalks:** Engage players in external repairs and resource collection with a first-person view, enhancing immersion.
+3. **Anomalies Exploration:** Encounter unpredictable events, instilling the wonder and fear of space.
+
+**Image Prompt Description:**
+
+- **Commander Vega:** A confident leader in a high-tech, durable space suit with mission patches and an authoritative presence, ready to face the unknown.
+
+- **Navigator Orion:** A meticulous guide, wearing a suit with built-in holographic displays and navigation tools, focusing on distant cosmic paths.
+
+- **Engineer Lyra:** A hands-on problem solver, in a utility suit equipped with visible gadgets and a toolkit, embodying the resilience needed for spacecraft maintenance.
+
+- **Scientist Nova:** An eager researcher clad in a lab-enhanced suit with scanning devices and a digital notepad, immersed in the wonders of cosmic discovery.
+
+- **Diplomat Solara:** A composed, friendly negotiator, dressed in a formal yet futuristic ensemble featuring cultural symbols, exuding warmth among alien species.
+
+- **Environment:** A dynamic cosmic landscape—a bustling galaxy filled with nebulas, shimmering meteors, and distant stars, hinting at countless enigmas and adventures. The spacecraft is envisioned as a cutting-edge vessel, moving purposefully through this mesmerizing expanse, embodying humanity's quest for exploration.

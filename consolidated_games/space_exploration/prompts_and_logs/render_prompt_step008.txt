@@ -1,0 +1,9 @@
+Grid: 4 cols × 4 rows. Each cell ≈256px.
+
+MOVE: 'commander_vega' (looks like: A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.)
+  FROM cell (C3, R0)  [pixels x≈768–1024, y≈0–256]
+  TO   cell (C2, R0)  [pixels x≈512–768, y≈0–256]
+
+1. ERASE 'commander_vega' from (C3, R0) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'commander_vega' once at (C2, R0).
+3. Nothing else changes.

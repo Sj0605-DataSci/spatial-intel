@@ -1,0 +1,205 @@
+{
+  "game": "wildlife",
+  "session_id": "gemini_plays_wildlife_1777121867",
+  "movable_chars": [
+    "Alex"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 7,
+  "goal": "animals_rescued == 2 AND habitat_restored == 3",
+  "won": true,
+  "final_scoreboard": {
+    "animals_rescued": 2,
+    "habitat_restored": 3,
+    "is_rescued_tiger": 0,
+    "is_rescued_panda": 0,
+    "is_restored_rainforest": 0,
+    "is_restored_savannah": 0,
+    "is_restored_ocean": 0
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "Alex",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "animals_rescued": 0,
+        "habitat_restored": 0,
+        "is_rescued_tiger": 0,
+        "is_rescued_panda": 0,
+        "is_restored_rainforest": 0,
+        "is_restored_savannah": 0,
+        "is_restored_ocean": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "Alex",
+      "action": "down",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "animals_rescued": 0,
+        "habitat_restored": 0,
+        "is_rescued_tiger": 0,
+        "is_rescued_panda": 0,
+        "is_restored_rainforest": 0,
+        "is_restored_savannah": 0,
+        "is_restored_ocean": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "Alex",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:savannah"
+      ],
+      "scoreboard": {
+        "animals_rescued": 0,
+        "habitat_restored": 1,
+        "is_rescued_tiger": 0,
+        "is_rescued_panda": 0,
+        "is_restored_rainforest": 0,
+        "is_restored_savannah": 0,
+        "is_restored_ocean": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "Alex",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:tiger"
+      ],
+      "scoreboard": {
+        "animals_rescued": 1,
+        "habitat_restored": 1,
+        "is_rescued_tiger": 0,
+        "is_rescued_panda": 0,
+        "is_restored_rainforest": 0,
+        "is_restored_savannah": 0,
+        "is_restored_ocean": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "Alex",
+      "action": "up",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:savannah"
+      ],
+      "scoreboard": {
+        "animals_rescued": 1,
+        "habitat_restored": 2,
+        "is_rescued_tiger": 0,
+        "is_rescued_panda": 0,
+        "is_restored_rainforest": 0,
+        "is_restored_savannah": 0,
+        "is_restored_ocean": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "Alex",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:tiger"
+      ],
+      "scoreboard": {
+        "animals_rescued": 2,
+        "habitat_restored": 2,
+        "is_rescued_tiger": 0,
+        "is_rescued_panda": 0,
+        "is_restored_rainforest": 0,
+        "is_restored_savannah": 0,
+        "is_restored_ocean": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "Alex",
+      "action": "up",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:savannah"
+      ],
+      "scoreboard": {
+        "animals_rescued": 2,
+        "habitat_restored": 3,
+        "is_rescued_tiger": 0,
+        "is_rescued_panda": 0,
+        "is_restored_rainforest": 0,
+        "is_restored_savannah": 0,
+        "is_restored_ocean": 0
+      }
+    }
+  ]
+}

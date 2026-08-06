@@ -1,0 +1,2 @@
+down
+The player has collected all waste items and now needs to deposit them in the correct bins. The bins are located in row 2, and the player is currently in row 1. Moving down will bring the player closer to the bins.

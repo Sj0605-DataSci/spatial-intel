@@ -1,0 +1,2 @@
+down
+Alex is currently on the savannah habitat, which should count towards habitat restoration. Moving down to (2,2) will allow Alex to rescue the tiger, which is one of the target animals for the goal.

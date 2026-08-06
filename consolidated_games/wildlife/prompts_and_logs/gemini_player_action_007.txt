@@ -1,0 +1,4 @@
+up
+Alex is currently at (2,2). The tiger has been rescued and the rainforest restored.
+To progress towards the goal of 2 animals rescued and 3 habitats restored, Alex needs to interact with more objects.
+Moving 'up' to (2,1) will allow Alex to interact with the 'savannah' habitat, which is one of the remaining habitats to restore. This is a single step move.

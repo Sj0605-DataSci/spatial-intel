@@ -1,0 +1,49 @@
+instance Pollution { 
+
+	 domain = Pollution;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4 };
+		 ypos : { y1, y2, y3, y4 };
+		 player : { player };
+		 zone : { coastal_zone, urban_zone, rural_zone };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 zone-x(coastal_zone, x2);
+		 zone-y(coastal_zone, y2);
+		 zone-x(urban_zone, x3);
+		 zone-y(urban_zone, y3);
+		 zone-x(rural_zone, x4);
+		 zone-y(rural_zone, y4);
+	 };
+
+	 init-state {
+		 player-x(player, x1);
+		 player-y(player, y1);
+		 pollution_level_zone(coastal_zone) = 3;
+		 pollution_level_zone(urban_zone) = 3;
+		 pollution_level_zone(rural_zone) = 3;
+		 satisfaction = 0;
+		 zones_restored = 0;
+		 ~is_cleaned_zone(coastal_zone);
+		 ~is_cleaned_zone(urban_zone);
+		 ~is_cleaned_zone(rural_zone);
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

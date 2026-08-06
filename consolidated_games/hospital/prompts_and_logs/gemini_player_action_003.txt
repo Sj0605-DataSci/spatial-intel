@@ -1,0 +1,2 @@
+down
+All patients have been cared for, so the next logical step is to coordinate with staff, and the doctor is directly below the player.

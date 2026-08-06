@@ -1,0 +1,2 @@
+left
+Moving left to interact with the solar array at (0,2) to place a renewable resource, which should contribute to ecosystem health.

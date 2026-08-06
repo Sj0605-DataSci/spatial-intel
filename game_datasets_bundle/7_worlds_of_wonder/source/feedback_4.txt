@@ -1,0 +1,227 @@
+Error occurred while evaluating the game in RDDL format. Traceback: Traceback (most recent call last):
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\eval.py", line 268, in _run_fitness
+    evaluator = FitnessFunction(
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\fitness\fitness_function.py", line 38, in __init__
+    self.env = pyRDDLGym.make(domain, instance)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\registration.py", line 44, in make
+    env = base_class(domain=domain, instance=instance, **env_kwargs)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\env.py", line 81, in __init__
+    rddl = parser.parse(domain)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\parser\parser.py", line 1092, in parse
+    return self._parser.parse(input=input, lexer=self.lexer)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\ply\yacc.py", line 333, in parse
+    return self.parseopt_notrack(input, lexer, debug, tracking, tokenfunc)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\ply\yacc.py", line 1201, in parseopt_notrack
+    tok = call_errorfunc(self.errorfunc, errtoken, self)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\ply\yacc.py", line 192, in call_errorfunc
+    r = errorfunc(token)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\parser\parser.py", line 1080, in p_error
+    raise RDDLParseError(exception_str)
+pyRDDLGym.core.debug.exception.RDDLParseError: Syntax error on line 0:
+...
+ >> [4mdomain 7_Worlds_of_Wonder{[0m
+   requirements = {
+           concurrent,
+           reward-deterministic
+       };
+...
+Error message: Syntax error on line 0:
+...
+ >> [4mdomain 7_Worlds_of_Wonder{[0m
+   requirements = {
+           concurrent,
+           reward-deterministic
+       };
+...RDDL domain and instance files which threw the error: domain 7_Worlds_of_Wonder{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   artifact : object ;
+   puzzle : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+artifact-x(artifact,xpos) : { non-fluent , bool , default=false } ;
+artifact-y(artifact,ypos) : { non-fluent , bool , default=false } ;
+puzzle-x(puzzle,xpos) : { non-fluent , bool , default=false } ;
+puzzle-y(puzzle,ypos) : { non-fluent , bool , default=false } ;
+artifacts_collected : { state-fluent , int , default=0 } ;
+puzzles_solved : { state-fluent , int , default=0 } ;
+is_collected_artifact_artifact(artifact) : { state-fluent , bool , default=false } ;
+is_solved_puzzle_puzzle(puzzle) : { state-fluent , bool , default=false } ;
+collect-player-artifact(player,artifact) : { action-fluent , bool , default=false } ;
+solve-player-puzzle(player,puzzle) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+artifacts_collected' = if (exists_{?player:player, ?artifact:artifact} [ collect-player-artifact(?player, ?artifact) & ~is_collected_artifact_artifact(?artifact) & exists_{?x:xpos} [player-x(player, ?x) & artifact-x(?artifact, ?x)] & exists_{?y:ypos} [player-y(player, ?y) & artifact-y(?artifact, ?y)] & artifacts_collected < 3 ] )  then artifacts_collected + 1
+ else artifacts_collected
+;
+
+puzzles_solved' = if (exists_{?player:player, ?puzzle:puzzle} [ solve-player-puzzle(?player, ?puzzle) & ~is_solved_puzzle_puzzle(?puzzle) & exists_{?x:xpos} [player-x(player, ?x) & puzzle-x(?puzzle, ?x)] & exists_{?y:ypos} [player-y(player, ?y) & puzzle-y(?puzzle, ?y)] & puzzles_solved < 2 ] )  then puzzles_solved + 1
+ else puzzles_solved
+;
+
+is_collected_artifact_artifact'(?artifact) = if (exists_{?player:player} [ collect-player-artifact(?player, ?artifact) & ~is_collected_artifact_artifact(?artifact) & exists_{?x:xpos} [player-x(player, ?x) & artifact-x(?artifact, ?x)] & exists_{?y:ypos} [player-y(player, ?y) & artifact-y(?artifact, ?y)] & artifacts_collected < 3 ] )  then true
+ else is_collected_artifact_artifact(?artifact)
+;
+
+is_solved_puzzle_puzzle'(?puzzle) = if (exists_{?player:player} [ solve-player-puzzle(?player, ?puzzle) & ~is_solved_puzzle_puzzle(?puzzle) & exists_{?x:xpos} [player-x(player, ?x) & puzzle-x(?puzzle, ?x)] & exists_{?y:ypos} [player-y(player, ?y) & puzzle-y(?puzzle, ?y)] & puzzles_solved < 2 ] )  then true
+ else is_solved_puzzle_puzzle(?puzzle)
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = artifacts_collected + puzzles_solved * 2;
+
+// max_reward = 10.0
+
+termination{
+artifacts_collected == 3  &  puzzles_solved == 2;
+};
+}
+
+====================
+instance 7_Worlds_of_Wonder { 
+
+	 domain = 7_Worlds_of_Wonder;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { player };
+		 artifact : { artifact_1, artifact_2, artifact_3 };
+		 puzzle : { puzzle_1, puzzle_2 };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 artifact-x(artifact_1, x2);
+		 artifact-y(artifact_1, y2);
+		 artifact-x(artifact_2, x3);
+		 artifact-y(artifact_2, y3);
+		 artifact-x(artifact_3, x4);
+		 artifact-y(artifact_3, y1);
+		 puzzle-x(puzzle_1, x2);
+		 puzzle-y(puzzle_1, y4);
+		 puzzle-x(puzzle_2, x4);
+		 puzzle-y(puzzle_2, y4);
+	 };
+
+	 init-state {
+		 player-x(player, x1);
+		 player-y(player, y1);
+		 artifacts_collected = 0;
+		 puzzles_solved = 0;
+		 ~is_collected_artifact_artifact(artifact_1);
+		 ~is_collected_artifact_artifact(artifact_2);
+		 ~is_collected_artifact_artifact(artifact_3);
+		 ~is_solved_puzzle_puzzle(puzzle_1);
+		 ~is_solved_puzzle_puzzle(puzzle_2);
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}
+try to think of approaches to fix the error and output the correct game. make sure to follow the json schema mentioned earlier.Some common mistakes are 
+            1. ensure you use the class name correctly throughout the game. for eg: if the classname is "Box", then dont use "Boxes" or similiar. 
+            2. do not use domain names in preconditions, actions, goal or reward. for eg:
+                goal: numberPatientsTreated == 3  &  isTreated(patient1, pills1)  &  isTreated(patient2, bandage1)  &  isTreated(patient3, syringe1);
+                here patient1 is a domain object and should not be used in goal. use only class names, for eg patient in above example.
+                precondition: NOT artifacts_collected(?explorer_avatar)
+                here explorer_avatar is a domain object and should not be used in precondition. use only class names, for eg explorer in above example.
+            3. do not use class names in preconditions that are not defined in action arguments.
+                for eg: action = Match(class1, class2)
+                                precondition: NOT isTreated(class3)
+                                effect: isTreated(class3) = true 
+                                here class3 is not defined in action arguments, so should not be used in precondition.
+                        one possible fix is to add a new state variable numTreatedclass3
+                                precondition : true
+                                effect : numTreatedclass3 = numTreatedclass3 + 1
+                        or another fix is to remove this transition and replace with a correct one.
+            4. Give me output in JSON format only. Do not add any extra text or explanation outside the JSON.
+            5. CRITICAL: The goal and reward MUST use ONLY integer state variables (e.g., total_points == 5, number_items_collected == 3).
+               NEVER use boolean predicates with arguments in the goal or reward (e.g., is_at_landmark(Player, Landmark) is WRONG).
+               If you need to track something like "player reached a landmark", create an integer counter variable (e.g., landmarks_visited)
+               and increment it in the transition effect, then use that integer in the goal (e.g., landmarks_visited == 1).
+            6. Only the player/avatar class should have isMovable=true. All other classes MUST be isMovable=false.
+            7. max_reward must be a single integer value, not an expression.
+            8. side_effects must be a list of strings like "ShowText(true, 'text')", NOT dictionaries.
+            9. CRITICAL: Only ONE class should have isMovable=true (the player/avatar). All other classes must be isMovable=false.
+            10. CRITICAL: Every action that increments a counter MUST have a boolean guard (NOT is_done(?obj)) and set the guard (is_done(?obj) = true) in its effects. Without guards, counters overshoot == goals making the game unsolvable.
+            11. CRITICAL: Transition action arguments MUST use exact class names. If the action is defined as PerformTask(festival_participants, festival_items), the transition MUST say action: PerformTask(?festival_participants, ?festival_items). Using shortened names like ?participant or ?item will cause RDDL compilation errors.
+            12. The movable class must have exactly 1 instance (the player avatar). Multiple movable instances cause action space explosion and unsolvable games.
+            13. Do NOT use domain object names (like family_member_1, bonfire) in preconditions. Use class-typed variables instead.
+            14. COUNTER REACHABILITY: If counter starts at S and goal requires counter == T, the game must allow exactly (T-S) increments. Do NOT use a single global boolean guard on a counter needing multiple increments. Use precondition 'counter < T' instead, OR use per-object boolean guards where the class has exactly (T-S) objects.
+            15. OVERSHOOT PREVENTION: Precondition upper bound must exactly match goal value. If goal is 'score == 10', precondition must be 'score < 10', NOT 'score < 15'.
+        try to pinpoint the mistake in game and then fix it

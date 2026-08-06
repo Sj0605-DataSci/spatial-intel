@@ -1,0 +1,2 @@
+left
+The player has collected all waste items (plastic, organic, metal). The player is currently on the landfill bin (2,2). None of the collected items go into the landfill bin. The next logical step is to move towards the compost bin (1,2) or the recycling bin (0,2) to deposit the collected waste. Moving left from (2,2) to (1,2) will put the player on the compost bin, allowing for the organic waste to be sorted.

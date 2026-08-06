@@ -1,0 +1,2 @@
+up
+Sam just participated in an event with EventManagerAlex. To continue progressing, Sam should now interact with other characters to potentially find items or participate in more events. ChefMaria is nearby at (2,1). Moving up to (1,1) will bring Sam closer to ChefMaria and SecurityGuard.

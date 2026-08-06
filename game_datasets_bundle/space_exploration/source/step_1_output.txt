@@ -1,0 +1,15 @@
+Characters:
+
+1. Commander Vega – The experienced leader guiding the exploration mission. Makes critical decisions, balancing mission objectives and crew welfare.
+
+2. Navigator Orion – Skilled in charting courses through dangerous territories. Provides strategic insights and routes for safe passage.
+
+3. Engineer Lyra – Keeps the spacecraft operational, solving technical challenges. Ensures vital systems are maintained during anomalies.
+
+4. Scientist Nova – Specializes in alien artefact analysis and cosmic phenomena. Drives research, uncovering universal mysteries and fostering cultural exchanges.
+
+5. Diplomat Solara – Manages interactions with alien civilizations. Builds alliances, handling cross-cultural negotiations and establishing trust.
+
+6. Alien Allies – Unique species encountered, each offering distinct resources or quests. Facilitate trade or pose challenges, enriching the narrative.
+
+Environment: The game unfolds amidst dynamic cosmic settings, including vibrant galaxies, mysterious wormholes, and thriving alien worlds, each representing the vastness and wonder of space.

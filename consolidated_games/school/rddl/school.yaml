@@ -1,0 +1,118 @@
+topic: School Management
+objective: Mr. Thompson must optimize classroom layouts and facilitate student interactions
+  to enhance school performance.
+environment_description: A vibrant school with interactive classrooms, libraries,
+  sports areas, and common spaces. The environment is friendly and conducive to learning
+  and exploring.
+domain:
+- name: MrTeacher
+  image_prompt: A caring teacher in a button_up shirt with a tie, carrying a clipboard,
+    and surrounded by engaged students.
+- name: AnnaStudent
+  image_prompt: A shy girl with glasses and a school uniform, eagerly participating
+    in club activities.
+- name: SamStudent
+  image_prompt: A spirited boy in a sports uniform, actively engaging in field exercises.
+- name: SchoolClassroom
+  image_prompt: A well_organized classroom with desks, chairs, and educational posters
+    on the walls.
+- name: SchoolLibrary
+  image_prompt: A quiet space filled with bookshelves, study tables, and cozy reading
+    corners.
+classes:
+- class_name: TeacherAvatar
+  list_of_objects:
+  - MrTeacher
+- class_name: Student
+  list_of_objects:
+  - AnnaStudent
+  - SamStudent
+- class_name: SchoolArea
+  list_of_objects:
+  - SchoolClassroom
+  - SchoolLibrary
+state_of_objects:
+- class_name: TeacherAvatar
+  isMovable: true
+- class_name: Student
+  isMovable: false
+- class_name: SchoolArea
+  isMovable: false
+state_variables:
+- name: student_interactions
+  type: integer
+- name: class_layouts_optimized
+  type: integer
+- name: interacted_with_Anna
+  type: boolean
+- name: interacted_with_Sam
+  type: boolean
+- name: optimized_Classroom
+  type: boolean
+- name: optimized_Library
+  type: boolean
+actions:
+- name: InteractWith(Student)
+- name: OptimizeLayout(SchoolArea)
+transitions:
+- action: InteractWith(?Student)
+  preconditions:
+  - ?Student.x == MrTeacher.x
+  - ?Student.y == MrTeacher.y
+  - student_interactions < 2
+  - NOT (interacted_with_Anna AND ?Student == AnnaStudent)
+  - NOT (interacted_with_Sam AND ?Student == SamStudent)
+  effects:
+  - student_interactions = student_interactions + 1
+  - interacted_with_Anna = (interacted_with_Anna OR ?Student == AnnaStudent)
+  - interacted_with_Sam = (interacted_with_Sam OR ?Student == SamStudent)
+  side_effects:
+  - ShowText(true, 'Student interaction successful!')
+- action: OptimizeLayout(?SchoolArea)
+  preconditions:
+  - ?SchoolArea.x == MrTeacher.x
+  - ?SchoolArea.y == MrTeacher.y
+  - class_layouts_optimized < 2
+  - NOT (optimized_Classroom AND ?SchoolArea == SchoolClassroom)
+  - NOT (optimized_Library AND ?SchoolArea == SchoolLibrary)
+  effects:
+  - class_layouts_optimized = class_layouts_optimized + 1
+  - optimized_Classroom = (optimized_Classroom OR ?SchoolArea == SchoolClassroom)
+  - optimized_Library = (optimized_Library OR ?SchoolArea == SchoolLibrary)
+  side_effects:
+  - ShowText(true, 'Layout optimization successful!')
+goal: student_interactions == 2 AND class_layouts_optimized == 2
+reward: student_interactions + class_layouts_optimized * 2
+max_reward: 8
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: MrTeacher
+  x: '1'
+  y: '1'
+- domain_object: AnnaStudent
+  x: '2'
+  y: '2'
+- domain_object: SamStudent
+  x: '3'
+  y: '3'
+- domain_object: SchoolClassroom
+  x: '4'
+  y: '2'
+- domain_object: SchoolLibrary
+  x: '3'
+  y: '4'
+initial_state_variables:
+- name: student_interactions
+  value: 0
+- name: class_layouts_optimized
+  value: 0
+- name: interacted_with_Anna
+  value: false
+- name: interacted_with_Sam
+  value: false
+- name: optimized_Classroom
+  value: false
+- name: optimized_Library
+  value: false

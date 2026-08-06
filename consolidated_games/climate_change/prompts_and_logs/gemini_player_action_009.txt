@@ -1,0 +1,2 @@
+right
+Alex is currently on a solar array. Moving right will bring Alex closer to other regions like the forest region, ice cap, and eventually the community center, which is needed to increase community support.

@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R2):
+'A determined hospital administrator, managing resources and coordinating medical teams in a busy hospital setting.' performs 'coordinate staff' with 'An experienced surgeon in professional attire, attending to emergency cases in an operating room.'.
+
+1. Add a celebration effect at (C1, R2): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'All staff are full of energy!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

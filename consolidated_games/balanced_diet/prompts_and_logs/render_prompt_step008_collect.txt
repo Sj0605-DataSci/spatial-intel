@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R3):
+'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' collect 'A small bar with a colorful wrapper, packed with proteins and essential nutrients.'.
+
+1. Show 'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' with a sparkle/glow reaching toward 'A small bar with a colorful wrapper, packed with proteins and essential nutrients.'.
+2. ERASE 'A small bar with a colorful wrapper, packed with proteins and essential nutrients.' from (C1, R3) — fill with background texture. It must be completely gone.
+3. 'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' stays at (C1, R3).
+4. Nothing else changes.

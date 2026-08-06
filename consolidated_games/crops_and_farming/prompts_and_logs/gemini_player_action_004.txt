@@ -1,0 +1,2 @@
+left
+Moving left to (1,1) is the first step towards reaching Neighbor Ben at (1,2) to foster community cooperation.

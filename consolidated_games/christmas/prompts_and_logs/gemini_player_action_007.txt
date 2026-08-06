@@ -1,0 +1,2 @@
+right
+Moving right from (3,3) to (4,3) brings Santa closer to family_home_2 at (4,4).

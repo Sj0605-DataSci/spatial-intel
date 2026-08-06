@@ -1,0 +1,15 @@
+**Characters for Hospital Heroes:**
+
+1. **Dr. Samantha Lee:** A dedicated surgeon specializing in emergency cases. Her role is crucial for life-saving operations and boosts success rates in critical missions.
+
+2. **Nurse Javier Torres:** An empathetic nurse who manages patient care with efficiency and compassion. He ensures timely delivery of treatments and comfort to anxious patients.
+
+3. **Patient Lydia Bennett:** A young girl facing a serious illness. Her recovery journey introduces emotional engagement and urgency in acquiring specialized care.
+
+4. **Janitor Malik:** A vital support character. He maintains cleanliness, preventing infection outbreaks, and provides insight into the hospital’s daily challenges.
+
+5. **Resource Manager Ellen:** Coordinates supply chain management. She helps balance resources during scarcity, creating strategic depth and moral dilemmas.
+
+6. **Resident Dr. Arun Patel:** A passionate but inexperienced doctor whose growth provides narrative depth and relatable challenges in medical practice.
+
+**Environment:** The hospital grid features realistic wards, dynamic patient interactions, and staff collaboration, setting the stage for engaging gameplay and emotional storytelling.

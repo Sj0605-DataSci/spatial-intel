@@ -1,0 +1,7 @@
+CELEBRATE at cell (C2, R0):
+'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' performs 'form alliance' with 'A peaceful alien society known for their wisdom and intricate cosmic symbols.'.
+
+1. Add a celebration effect at (C2, R0): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Alliance formed!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

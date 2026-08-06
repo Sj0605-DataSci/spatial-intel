@@ -1,0 +1,2 @@
+left
+Moving left to (2,2) will take Eco Elara to a cultivated field with a tractor, which might contain pollutants or tools related to cleaning.

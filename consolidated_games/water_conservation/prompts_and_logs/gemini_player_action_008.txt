@@ -1,0 +1,2 @@
+left
+The player needs to collect policy card 1, which is to the left at (1,3).

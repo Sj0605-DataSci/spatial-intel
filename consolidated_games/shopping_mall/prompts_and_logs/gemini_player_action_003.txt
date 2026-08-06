@@ -1,0 +1,2 @@
+right
+Sam has just participated in an event with EventManagerAlex. Moving right will take Sam to (1,2) to collect the ShoppingList.

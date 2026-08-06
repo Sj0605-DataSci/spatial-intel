@@ -1,0 +1,2 @@
+left
+Sam just participated in an event. To participate in more events and reach the goal of 3 events, Sam should move towards EventManagerAlex at (0,2). Moving left to (0,1) is the first step.

@@ -1,0 +1,2 @@
+left
+Move towards the urban_zone at (2,2) to clean it next, as it is closer than the coastal_zone.

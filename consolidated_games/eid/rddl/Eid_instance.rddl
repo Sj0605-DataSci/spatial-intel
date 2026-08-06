@@ -1,0 +1,53 @@
+instance Eid { 
+
+	 domain = Eid;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { player_ayaan };
+		 eid_artifact : { eid_artifact_1, eid_artifact_2, eid_artifact_3 };
+		 feast : { festive_feast };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 eid_artifact-x(eid_artifact_1, x2);
+		 eid_artifact-y(eid_artifact_1, y3);
+		 eid_artifact-x(eid_artifact_2, x4);
+		 eid_artifact-y(eid_artifact_2, y2);
+		 eid_artifact-x(eid_artifact_3, x3);
+		 eid_artifact-y(eid_artifact_3, y4);
+		 feast-x(festive_feast, x4);
+		 feast-y(festive_feast, y4);
+	 };
+
+	 init-state {
+		 player-x(player_ayaan, x1);
+		 player-y(player_ayaan, y1);
+		 ~is_collected_eid_artifact(eid_artifact_1);
+		 ~is_collected_eid_artifact(eid_artifact_2);
+		 ~is_collected_eid_artifact(eid_artifact_3);
+		 artifacts_collected = 0;
+		 feast_preparation_progress = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

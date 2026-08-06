@@ -1,0 +1,7 @@
+**Defining Sprite Movement**
+
+I've defined the key steps for moving 'commander\_vega'. I have the source (C2, R1) and the destination (C2, R0) defined. The process will involve erasing the sprite from the source location, filling that cell with the existing background texture, and then placing the sprite at the destination location, (C2, R0). The rest of the scene remains untouched.
+
+**Verifying Command Execution**
+
+I've confirmed the 'commander_vega' sprite was relocated as directed, from (C2, R1) to (C2, R0). The original position is now filled correctly, with a background matching the new location, and no other changes were introduced to the environment. The execution aligns with the intended move command.

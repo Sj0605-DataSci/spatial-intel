@@ -1,0 +1,44 @@
+**Game Summary:**
+
+**Title:** Guardians of the 7 Wonders
+
+**Outline:**  
+Immerse yourself in the exploration of the 7 Wonders, interacting with their historical, cultural, and architectural grandeur. Engage in strategic puzzles, artifact discovery, and moral choices that profoundly impact the narrative and highlight the emotional and global significance of these wonders.
+
+**Characters:**
+
+1. **The Curator:** Sage guide providing historical context and emotional depth through stories.
+2. **The Architect Spirits:** Ethereal mentors offering puzzles that explore engineering marvels.
+3. **Cultural Guardians:** Protectors sharing intimate cultural narratives and emotional journeys.
+4. **Preservation Advocate:** Passionate force presenting moral dilemmas around conservation.
+5. **Modern Developer:** Provocative figure influencing decisions with modernization challenges.
+6. **Artifacts:** Core to storytelling, revealing deep cultural histories.
+
+**State Variables:**
+
+1. **Wonder Restoration Progress:** Measures puzzle and narrative advancement.
+2. **Cultural Insight Level:** Tracks depth of cultural and historical engagement.
+3. **Preservation vs. Development Balance:** Influences wonder outcomes based on decisions.
+4. **Artifact Discovery Count:** Tally of discovered relics enhancing narrative.
+5. **Emotional Connection Scale:** Reflects player engagement with moral and emotional stories.
+6. **Time Anomalies Solved:** Timeliness of solving historical conflicts.
+
+**Rules:**
+
+1. Solve puzzles to enhance Wonder Restoration and experience architectural grandeur.
+2. Discover artifacts, elevating Cultural Insight and unlocking emotional narratives.
+3. Make decisive choices impacting Preservation vs. Development and future of wonders.
+4. Engage with dilemmas to boost Emotional Connection, influencing narrative depth and endings.
+5. Explore engineering marvels through interactive elements, deepening immersion and emotional resonance.
+
+**Image Prompt Description:**
+
+- **The Curator:** A venerable figure, garbed in flowing robes, surrounded by ancient scrolls, standing amidst the stunning ruins of a wonder.
+- **The Architect Spirits:** Ethereal figures, luminous and draped in ancient garb, portraying historical engineering insight, hovering near majestic ruins.
+- **Cultural Guardians:** Diverse, traditionally dressed figures, each with an emblematic relic, embodying the deep cultural connections of the wonder.
+- **Preservation Advocate:** Concerned, animated, dressed in protective gear, passionately gesturing towards a preserved wonder.
+- **Modern Developer:** Polished in attire, holding futuristic blueprints, contemplatively overlooking a partially modernized site.
+- **Artifacts:** Richly detailed historical objects, such as ancient pottery or scrolls, conveying deep cultural narratives.
+
+**Environment:**  
+Detailed, immersive landscapes capturing the awe of each wonder’s architecture; rich textures depicting vibrant ancient daily life. Modern elements subtly encroach, emphasizing narrative conflicts between preservation and progress—elements designed to evoke wonder and emotional engagement.

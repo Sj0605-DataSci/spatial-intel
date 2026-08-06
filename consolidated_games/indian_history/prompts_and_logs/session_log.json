@@ -1,0 +1,265 @@
+{
+  "game": "indian_history",
+  "session_id": "gemini_plays_indian_history_1777118966",
+  "movable_chars": [
+    "player"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 12,
+  "goal": "artifacts_collected == 4 AND historical_decisions == 1",
+  "won": false,
+  "final_scoreboard": {
+    "artifacts_collected": 4,
+    "historical_decisions": 4
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "player",
+      "action": "down",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 0,
+        "historical_decisions": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "player",
+      "action": "right",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 0,
+        "historical_decisions": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "player",
+      "action": "down",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:ashoka_artifact",
+        "celebrate:make decision"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "historical_decisions": 1
+      }
+    },
+    {
+      "step": 4,
+      "character": "player",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "historical_decisions": 1
+      }
+    },
+    {
+      "step": 5,
+      "character": "player",
+      "action": "down",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        3
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:gupta_artifact"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "historical_decisions": 1
+      }
+    },
+    {
+      "step": 6,
+      "character": "player",
+      "action": "right",
+      "from": [
+        2,
+        3
+      ],
+      "to": [
+        3,
+        3
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:make decision"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "historical_decisions": 2
+      }
+    },
+    {
+      "step": 7,
+      "character": "player",
+      "action": "up",
+      "from": [
+        3,
+        3
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "historical_decisions": 2
+      }
+    },
+    {
+      "step": 8,
+      "character": "player",
+      "action": "up",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        3,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:gandhi_artifact"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 3,
+        "historical_decisions": 2
+      }
+    },
+    {
+      "step": 9,
+      "character": "player",
+      "action": "right",
+      "from": [
+        3,
+        1
+      ],
+      "to": [
+        4,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:make decision"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 3,
+        "historical_decisions": 3
+      }
+    },
+    {
+      "step": 10,
+      "character": "player",
+      "action": "down",
+      "from": [
+        4,
+        1
+      ],
+      "to": [
+        4,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:mughal_artifact"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 4,
+        "historical_decisions": 3
+      }
+    },
+    {
+      "step": 11,
+      "character": "player",
+      "action": "left",
+      "from": [
+        4,
+        2
+      ],
+      "to": [
+        3,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 4,
+        "historical_decisions": 3
+      }
+    },
+    {
+      "step": 12,
+      "character": "player",
+      "action": "right",
+      "from": [
+        3,
+        2
+      ],
+      "to": [
+        4,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:make decision"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 4,
+        "historical_decisions": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Grid: 3 cols × 3 rows. Each cell ≈341px.
+
+MOVE: 'eli' (looks like: A young environmentalist in green attire, raising awareness about recycling within the community.)
+  FROM cell (C0, R1)  [pixels x≈0–341, y≈341–682]
+  TO   cell (C0, R2)  [pixels x≈0–341, y≈682–1023]
+
+1. ERASE 'eli' from (C0, R1) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'eli' once at (C0, R2).
+3. Nothing else changes.

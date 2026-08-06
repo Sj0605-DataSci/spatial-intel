@@ -1,0 +1,211 @@
+Error occurred while evaluating the game in RDDL format. Traceback: Traceback (most recent call last):
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\eval.py", line 268, in _run_fitness
+    evaluator = FitnessFunction(
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\fitness\fitness_function.py", line 38, in __init__
+    self.env = pyRDDLGym.make(domain, instance)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\registration.py", line 44, in make
+    env = base_class(domain=domain, instance=instance, **env_kwargs)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\env.py", line 84, in __init__
+    self.model = RDDLLiftedModel(rddl)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\model.py", line 713, in __init__
+    self._extract_states()
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\model.py", line 901, in _extract_states
+    raise RDDLUndefinedVariableError(
+pyRDDLGym.core.debug.exception.RDDLUndefinedVariableError: Variable <is_rescued_endangered_animal_endangered_animal> referenced in init-state block is not a valid state-fluent.
+Error message: Variable <is_rescued_endangered_animal_endangered_animal> referenced in init-state block is not a valid state-fluent.RDDL domain and instance files which threw the error: domain Wildlife{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   conservationist : object ;
+   animal_companion : object ;
+   endangered_animal : object ;
+   ecosystem : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+move-right-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+move-up-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+move-down-conservationist(conservationist) : { action-fluent , bool , default=false } ;
+has-moved-conservationist(conservationist) : { state-fluent , bool , default=false } ;
+conservationist-x(conservationist,xpos) : { state-fluent , bool , default=false } ;
+conservationist-y(conservationist,ypos) : { state-fluent , bool , default=false } ;
+animal_companion-x(animal_companion,xpos) : { non-fluent , bool , default=false } ;
+animal_companion-y(animal_companion,ypos) : { non-fluent , bool , default=false } ;
+endangered_animal-x(endangered_animal,xpos) : { non-fluent , bool , default=false } ;
+endangered_animal-y(endangered_animal,ypos) : { non-fluent , bool , default=false } ;
+ecosystem-x(ecosystem,xpos) : { non-fluent , bool , default=false } ;
+ecosystem-y(ecosystem,ypos) : { non-fluent , bool , default=false } ;
+animals_rescued : { state-fluent , int , default=0 } ;
+habitat_restored : { state-fluent , int , default=0 } ;
+is_rescued_endangered_animal : { state-fluent , bool , default=false } ;
+is_restored_ecosystem : { state-fluent , bool , default=false } ;
+rescue-conservationist-endangered_animal(conservationist,endangered_animal) : { action-fluent , bool , default=false } ;
+restore-conservationist-ecosystem(conservationist,ecosystem) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+conservationist-x'(?conservationist,?xpos) = if (move-left-conservationist( ?conservationist)  & conservationist-x( ?conservationist, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-conservationist( ?conservationist)  & exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-conservationist( ?conservationist)  & ~exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-conservationist( ?conservationist)  & conservationist-x( ?conservationist, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-conservationist( ?conservationist)  & exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-conservationist( ?conservationist)  & ~exists_{?x2:xpos}[conservationist-x(?conservationist, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else conservationist-x(?conservationist, ?xpos)
+;
+
+conservationist-y'(?conservationist,?ypos) = if (move-up-conservationist( ?conservationist)  & conservationist-y( ?conservationist, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-conservationist( ?conservationist)  & exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-conservationist( ?conservationist)  & ~exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-conservationist( ?conservationist)  & conservationist-y( ?conservationist, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-conservationist( ?conservationist)  & exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-conservationist( ?conservationist)  & ~exists_{?y2:ypos}[conservationist-y(?conservationist, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else conservationist-y(?conservationist, ?ypos)
+;
+
+has-moved-conservationist'(?conservationist) = move-left-conservationist(?conservationist) | move-right-conservationist(?conservationist) | move-up-conservationist(?conservationist) | move-down-conservationist(?conservationist)
+;
+
+animals_rescued' = if (exists_{?conservationist:conservationist, ?endangered_animal:endangered_animal} [ rescue-conservationist-endangered_animal(?conservationist, ?endangered_animal) & animals_rescued < 2 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & endangered_animal-x(?endangered_animal, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & endangered_animal-y(?endangered_animal, ?y)] & ~is_rescued_endangered_animal_endangered_animal(?endangered_animal) ] )  then animals_rescued + 1
+ else animals_rescued
+;
+
+habitat_restored' = if (exists_{?conservationist:conservationist, ?ecosystem:ecosystem} [ restore-conservationist-ecosystem(?conservationist, ?ecosystem) & habitat_restored < 3 & exists_{?x:xpos} [conservationist-x(?conservationist, ?x) & ecosystem-x(?ecosystem, ?x)] & exists_{?y:ypos} [conservationist-y(?conservationist, ?y) & ecosystem-y(?ecosystem, ?y)] & ~is_restored_ecosystem_ecosystem(?ecosystem) ] )  then habitat_restored + 1
+ else habitat_restored
+;
+
+is_rescued_endangered_animal' = is_rescued_endangered_animal
+;
+
+is_restored_ecosystem' = is_restored_ecosystem
+;
+
+};
+
+action-preconditions {
+forall_{?conservationist:conservationist}[
+            move-left-conservationist(?conservationist) => exists_{?x1:xpos, ?x2:xpos}[conservationist-x(?conservationist, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?conservationist:conservationist}[
+            move-right-conservationist(?conservationist) => exists_{?x1:xpos, ?x2:xpos}[conservationist-x(?conservationist, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?conservationist:conservationist}[
+            move-up-conservationist(?conservationist) => exists_{?y1:ypos, ?y2:ypos}[conservationist-y(?conservationist, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?conservationist:conservationist}[
+            move-down-conservationist(?conservationist) => exists_{?y1:ypos, ?y2:ypos}[conservationist-y(?conservationist, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = animals_rescued + habitat_restored * 2;
+
+// max_reward = 8.0
+
+termination{
+animals_rescued == 2  &  habitat_restored == 3;
+};
+}
+
+====================
+instance Wildlife { 
+
+	 domain = Wildlife;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 conservationist : { alex };
+		 animal_companion : { elephant_calf };
+		 endangered_animal : { tiger, panda };
+		 ecosystem : { rainforest, savannah, ocean };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 animal_companion-x(elephant_calf, x2);
+		 animal_companion-y(elephant_calf, y2);
+		 endangered_animal-x(tiger, x3);
+		 endangered_animal-y(tiger, y3);
+		 endangered_animal-x(panda, x4);
+		 endangered_animal-y(panda, y4);
+		 ecosystem-x(rainforest, x2);
+		 ecosystem-y(rainforest, y4);
+		 ecosystem-x(savannah, x3);
+		 ecosystem-y(savannah, y2);
+		 ecosystem-x(ocean, x4);
+		 ecosystem-y(ocean, y3);
+	 };
+
+	 init-state {
+		 conservationist-x(alex, x1);
+		 conservationist-y(alex, y1);
+		 animals_rescued = 0;
+		 habitat_restored = 0;
+		 ~is_rescued_endangered_animal_endangered_animal(tiger);
+		 ~is_rescued_endangered_animal_endangered_animal(panda);
+		 ~is_restored_ecosystem_ecosystem(rainforest);
+		 ~is_restored_ecosystem_ecosystem(savannah);
+		 ~is_restored_ecosystem_ecosystem(ocean);
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}
+try to think of approaches to fix the error and output the correct game. make sure to follow the json schema mentioned earlier.Some common mistakes are 
+            1. ensure you use the class name correctly throughout the game. for eg: if the classname is "Box", then dont use "Boxes" or similiar. 
+            2. do not use domain names in preconditions, actions, goal or reward. for eg:
+                goal: numberPatientsTreated == 3  &  isTreated(patient1, pills1)  &  isTreated(patient2, bandage1)  &  isTreated(patient3, syringe1);
+                here patient1 is a domain object and should not be used in goal. use only class names, for eg patient in above example.
+                precondition: NOT artifacts_collected(?explorer_avatar)
+                here explorer_avatar is a domain object and should not be used in precondition. use only class names, for eg explorer in above example.
+            3. do not use class names in preconditions that are not defined in action arguments.
+                for eg: action = Match(class1, class2)
+                                precondition: NOT isTreated(class3)
+                                effect: isTreated(class3) = true 
+                                here class3 is not defined in action arguments, so should not be used in precondition.
+                        one possible fix is to add a new state variable numTreatedclass3
+                                precondition : true
+                                effect : numTreatedclass3 = numTreatedclass3 + 1
+                        or another fix is to remove this transition and replace with a correct one.
+            4. Give me output in JSON format only. Do not add any extra text or explanation outside the JSON.
+            5. CRITICAL: The goal and reward MUST use ONLY integer state variables (e.g., total_points == 5, number_items_collected == 3).
+               NEVER use boolean predicates with arguments in the goal or reward (e.g., is_at_landmark(Player, Landmark) is WRONG).
+               If you need to track something like "player reached a landmark", create an integer counter variable (e.g., landmarks_visited)
+               and increment it in the transition effect, then use that integer in the goal (e.g., landmarks_visited == 1).
+            6. Only the player/avatar class should have isMovable=true. All other classes MUST be isMovable=false.
+            7. max_reward must be a single integer value, not an expression.
+            8. side_effects must be a list of strings like "ShowText(true, 'text')", NOT dictionaries.
+            9. CRITICAL: Only ONE class should have isMovable=true (the player/avatar). All other classes must be isMovable=false.
+            10. CRITICAL: Every action that increments a counter MUST have a boolean guard (NOT is_done(?obj)) and set the guard (is_done(?obj) = true) in its effects. Without guards, counters overshoot == goals making the game unsolvable.
+            11. CRITICAL: Transition action arguments MUST use exact class names. If the action is defined as PerformTask(festival_participants, festival_items), the transition MUST say action: PerformTask(?festival_participants, ?festival_items). Using shortened names like ?participant or ?item will cause RDDL compilation errors.
+            12. The movable class must have exactly 1 instance (the player avatar). Multiple movable instances cause action space explosion and unsolvable games.
+            13. Do NOT use domain object names (like family_member_1, bonfire) in preconditions. Use class-typed variables instead.
+            14. COUNTER REACHABILITY: If counter starts at S and goal requires counter == T, the game must allow exactly (T-S) increments. Do NOT use a single global boolean guard on a counter needing multiple increments. Use precondition 'counter < T' instead, OR use per-object boolean guards where the class has exactly (T-S) objects.
+            15. OVERSHOOT PREVENTION: Precondition upper bound must exactly match goal value. If goal is 'score == 10', precondition must be 'score < 10', NOT 'score < 15'.
+        try to pinpoint the mistake in game and then fix it

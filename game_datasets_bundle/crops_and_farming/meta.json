@@ -1,0 +1,28 @@
+{
+  "topic": "Crops and Farming",
+  "mode": "sampled",
+  "num_states": 1499,
+  "num_transitions": 3135,
+  "num_actions_in_vocab": 9,
+  "grid": [
+    6,
+    6
+  ],
+  "engine_report": {
+    "topic": "Crops and Farming",
+    "grid": [
+      6,
+      6
+    ],
+    "num_actions_defined": 5,
+    "reachable_states": 20003,
+    "upper_bound_states": 1152,
+    "total_transitions": 58318,
+    "avg_branching": 3.576,
+    "max_branching": 5,
+    "num_goal_states": 0,
+    "optimal_route_len": null,
+    "max_reward": 40,
+    "truncated": true
+  }
+}

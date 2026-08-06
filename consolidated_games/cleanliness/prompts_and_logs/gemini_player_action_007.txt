@@ -1,0 +1,2 @@
+left
+Moving left to (3,2) to explore the dark, barren patch which might indicate pollution.

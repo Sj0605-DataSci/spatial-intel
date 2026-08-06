@@ -1,0 +1,2 @@
+right
+The phulkari_scarf is at (3,1), one step to the right of the player's current position (2,1). Moving right will collect this item.

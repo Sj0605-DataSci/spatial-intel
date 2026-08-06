@@ -1,0 +1,64 @@
+# ai-toolkit config — FLUX.2-klein EDIT LoRA for the triangle-move task.
+# Per the official BFL FLUX.2-klein LoRA blog (huggingface.co/blog/black-forest-labs/flux-2-klein-lora):
+#   - train target = FLUX.2-klein-base-4B (cached locally)
+#   - EDIT lora: control_path points at the reference (input) images
+#   - network 128/64/64/32, lr 1e-4, flowmatch, peak ~1000-1750 steps
+#
+# Run:  cd ai-toolkit && python run.py <path-to-this-file>
+---
+job: extension
+config:
+  name: klein_edit_triangle_move
+  process:
+    - type: sd_trainer
+      training_folder: /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/runs/aitoolkit_out
+      device: cuda:0
+      performance_log_every: 50      # terminal perf stats
+      logging:                       # W&B logging (ai-toolkit reads this)
+        use_wandb: true
+        project_name: klein-edit-triangle
+        run_name: klein_edit_coords
+      network:
+        type: lora
+        linear: 64          # network dim (the "128/64/64/32" family from the blog)
+        linear_alpha: 64
+      save:
+        dtype: bf16
+        save_every: 250     # checkpoint by eye; edit loras peak ~1000-1750
+        max_step_saves_to_keep: 8
+      datasets:
+        - folder_path:  /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/aitoolkit/target
+          control_path: /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/aitoolkit/reference
+          caption_ext: txt
+          caption_dropout_rate: 0.0    # keep the coordinate captions — they ARE the signal
+          resolution: [512]
+      train:
+        batch_size: 1
+        steps: 1
+        gradient_accumulation_steps: 4
+        train_unet: true
+        train_text_encoder: false
+        gradient_checkpointing: true
+        noise_scheduler: flowmatch
+        optimizer: adamw8bit
+        lr: 1e-4
+        dtype: bf16
+      model:
+        name_or_path: black-forest-labs/FLUX.2-klein-base-4B
+        arch: flux2_klein_4b
+        quantize: false
+      sample:
+        sampler: flowmatch
+        sample_every: 250
+        width: 512
+        height: 512
+        prompts:
+          - "Grid image. A red triangle is currently at cell (5,2). Move it to cell (1,6). One red triangle, snapped to that cell. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/aitoolkit/reference/0000.png"
+          - "Grid image. A red triangle is currently at cell (6,6). Move it to cell (0,6). One red triangle, snapped to that cell. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/aitoolkit/reference/0001.png"
+          - "Grid image. A red triangle is currently at cell (4,0). Move it to cell (4,5). One red triangle, snapped to that cell. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/aitoolkit/reference/0002.png"
+          - "Grid image. A red triangle is currently at cell (4,0). Move it to cell (5,0). One red triangle, snapped to that cell. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/aitoolkit/reference/0003.png"
+          - "Grid image. A red triangle is currently at cell (2,6). Move it to cell (0,6). One red triangle, snapped to that cell. --ctrl_img /home/sanyam-0605/Desktop/sanyam_projects/spatial-intel/data/aitoolkit/reference/0004.png"
+        neg: ""
+        seed: 42
+        guidance_scale: 4.0
+        sample_steps: 20     # base model wants ~20 steps, not the distilled 4

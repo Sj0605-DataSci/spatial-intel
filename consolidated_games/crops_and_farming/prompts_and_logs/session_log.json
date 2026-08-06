@@ -1,0 +1,299 @@
+{
+  "game": "crops_and_farming",
+  "session_id": "gemini_plays_crops_and_farming_1777115371",
+  "movable_chars": [
+    "farmer_ella"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 6,
+    "rows": 6
+  },
+  "steps": 12,
+  "goal": "soil_health == 10 AND irrigation_levels == 10 AND community_cooperation == 10 AND sustainability_score == 10",
+  "won": false,
+  "final_scoreboard": {
+    "soil_health": 4,
+    "irrigation_levels": 2,
+    "community_cooperation": 10,
+    "sustainability_score": 2,
+    "resource_management_done": 0
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "farmer_ella",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "soil_health": 2,
+        "irrigation_levels": 2,
+        "community_cooperation": 2,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "farmer_ella",
+      "action": "right",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        2,
+        0
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:grandpa_sam"
+      ],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 2,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "farmer_ella",
+      "action": "down",
+      "from": [
+        2,
+        0
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 2,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "farmer_ella",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 2,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "farmer_ella",
+      "action": "down",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:neighbor_ben"
+      ],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 4,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "farmer_ella",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 4,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "farmer_ella",
+      "action": "left",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:neighbor_ben"
+      ],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 6,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 8,
+      "character": "farmer_ella",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 6,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 9,
+      "character": "farmer_ella",
+      "action": "left",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:neighbor_ben"
+      ],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 8,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 10,
+      "character": "farmer_ella",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 8,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 11,
+      "character": "farmer_ella",
+      "action": "left",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:neighbor_ben"
+      ],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 10,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    },
+    {
+      "step": 12,
+      "character": "farmer_ella",
+      "action": "right",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "soil_health": 4,
+        "irrigation_levels": 2,
+        "community_cooperation": 10,
+        "sustainability_score": 2,
+        "resource_management_done": 0
+      }
+    }
+  ]
+}

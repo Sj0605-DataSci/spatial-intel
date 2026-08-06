@@ -1,0 +1,225 @@
+{
+  "game": "reduce_reuse_recycle",
+  "session_id": "gemini_plays_reduce_reuse_recycle_1777124934",
+  "movable_chars": [
+    "eli"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 3,
+    "rows": 3
+  },
+  "steps": 11,
+  "goal": "items_sorted == 3",
+  "won": true,
+  "final_scoreboard": {
+    "items_sorted": 3
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "eli",
+      "action": "down",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:plastic_bottle"
+      ],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 2,
+      "character": "eli",
+      "action": "down",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        0,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 3,
+      "character": "eli",
+      "action": "up",
+      "from": [
+        0,
+        2
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 4,
+      "character": "eli",
+      "action": "down",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        0,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 5,
+      "character": "eli",
+      "action": "up",
+      "from": [
+        0,
+        2
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 6,
+      "character": "eli",
+      "action": "down",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        0,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 7,
+      "character": "eli",
+      "action": "right",
+      "from": [
+        0,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 8,
+      "character": "eli",
+      "action": "left",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        0,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 9,
+      "character": "eli",
+      "action": "right",
+      "from": [
+        0,
+        2
+      ],
+      "to": [
+        1,
+        2
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "items_sorted": 1
+      }
+    },
+    {
+      "step": 10,
+      "character": "eli",
+      "action": "up",
+      "from": [
+        1,
+        2
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:glass_jar"
+      ],
+      "scoreboard": {
+        "items_sorted": 2
+      }
+    },
+    {
+      "step": 11,
+      "character": "eli",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:metal_can"
+      ],
+      "scoreboard": {
+        "items_sorted": 3
+      }
+    }
+  ]
+}

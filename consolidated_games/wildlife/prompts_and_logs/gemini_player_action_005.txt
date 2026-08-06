@@ -1,0 +1,2 @@
+up
+Alex is currently at (2,2) and has just rescued the tiger. The rainforest has also just been restored. To progress towards the goal of 2 animals rescued and 3 habitats restored, Alex should move to restore another habitat. The savannah habitat is located at (2,1), which is one step up from Alex's current position. Moving there will restore the savannah.

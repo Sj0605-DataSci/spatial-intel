@@ -1,0 +1,138 @@
+topic: Indian History
+objective: Navigate through key periods of Indian history, collect artifacts, interact
+  with historical figures, and shape historical outcomes.
+environment_description: A grid representing pivotal moments in Indian history, transitioning
+  from the Mauryan Empire to India's Independence, visually reflecting different historical
+  epochs.
+domain:
+- name: player
+  image_prompt: A young, inquisitive archaeologist exploring the depths of Indian
+    history, equipped with a notepad and map.
+- name: ashoka_artifact
+  image_prompt: An ancient edict inscribed on stone, showcasing Ashoka's transformation
+    to peace.
+- name: gandhi_artifact
+  image_prompt: A spinning wheel symbolizing Gandhi's nonviolent resistance.
+- name: gupta_artifact
+  image_prompt: A manuscript containing mathematical advancements from the Gupta Empire.
+- name: mughal_artifact
+  image_prompt: A miniature painting depicting Mughal cultural richness.
+classes:
+- class_name: player
+  list_of_objects:
+  - player
+- class_name: artifact
+  list_of_objects:
+  - ashoka_artifact
+  - gandhi_artifact
+  - gupta_artifact
+  - mughal_artifact
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: artifact
+  isMovable: false
+state_variables:
+- name: is_collected(artifact)
+  type: bool
+- name: artifacts_collected
+  type: integer
+- name: historical_decisions
+  type: integer
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: CollectArtifact(player, artifact)
+- name: MakeDecision(player)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: CollectArtifact(?player, ?artifact)
+  preconditions:
+  - NOT is_collected(?artifact)
+  - ?player.x == ?artifact.x
+  - ?player.y == ?artifact.y
+  - artifacts_collected < 4
+  effects:
+  - is_collected(?artifact) = true
+  - artifacts_collected = artifacts_collected + 1
+  side_effects:
+  - MoveImage(?artifact, ?artifact.x, ?artifact.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Artifact collected!')
+  - ShowText(artifacts_collected == 4, 'All artifacts collected! Make decisions.')
+- action: MakeDecision(?player)
+  preconditions:
+  - artifacts_collected == 4
+  - historical_decisions < 1
+  effects:
+  - historical_decisions = historical_decisions + 1
+  side_effects:
+  - ShowText(true, 'Historical decision made!')
+  - ShowText(historical_decisions == 1, 'You've shaped history successfully!')
+goal: artifacts_collected == 4 AND historical_decisions == 1
+reward: artifacts_collected + historical_decisions * 2
+max_reward: 6
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: player
+  x: '1'
+  y: '1'
+- domain_object: ashoka_artifact
+  x: '2'
+  y: '3'
+- domain_object: gandhi_artifact
+  x: '4'
+  y: '2'
+- domain_object: gupta_artifact
+  x: '3'
+  y: '4'
+- domain_object: mughal_artifact
+  x: '5'
+  y: '3'
+initial_state_variables:
+- name: is_collected(ashoka_artifact)
+  value: false
+- name: is_collected(gandhi_artifact)
+  value: false
+- name: is_collected(gupta_artifact)
+  value: false
+- name: is_collected(mughal_artifact)
+  value: false
+- name: artifacts_collected
+  value: 0
+- name: historical_decisions
+  value: 0

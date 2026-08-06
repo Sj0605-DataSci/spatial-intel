@@ -1,0 +1,2 @@
+right
+Alex should move right to get closer to the balanced_meal_area to deliver the collected healthy food items.

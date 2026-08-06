@@ -1,0 +1,15 @@
+State Variables:
+
+1. **Recyclables Sorted**: Tracks materials correctly placed in bins. Drives progression and unlocks new areas of the city.
+
+2. **Community Projects Completed**: Measures upcycled installations done by players, impacting environmental transformation and unlocking character narratives.
+
+3. **Character Satisfaction**: Reflects happiness levels of characters (e.g., Mr. Green, Ms. Meadows) as players meet recycling challenges, influencing story outcomes.
+
+4. **Progress Meter**: Indicates overall city revival progress. Affects player morale and visual changes in the environment.
+
+5. **Eco-Credits**: Earned by completing tasks, used to purchase seeds, tools, and unlock special events with Tara and Eli.
+
+6. **Knowledge Points**: Gained from Ms. Meadows' quizzes, used to unlock educational tips and resources within the game.
+
+7. **Junkbot Efficiency**: Monitors the effectiveness of Junkbots in assisting tasks, directly affecting how quickly players can complete sorting and upcycling activities.

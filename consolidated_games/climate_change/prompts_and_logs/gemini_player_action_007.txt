@@ -1,0 +1,2 @@
+down
+Alex is currently at (1,1). Moving down to (1,2) brings Alex closer to two solar array locations ((0,2) and (1,3)) and also on a path towards the ice cap and community center.

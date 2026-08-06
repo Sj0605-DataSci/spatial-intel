@@ -1,0 +1,58 @@
+instance Holi_Festival_Harmony { 
+
+	 domain = Holi_Festival_Harmony;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { riya };
+		 festival_participants : { aarav, elder_mehta, meera, jai };
+		 obstacle : { obstacle_1 };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 festival_participants-x(aarav, x3);
+		 festival_participants-y(aarav, y2);
+		 festival_participants-x(elder_mehta, x2);
+		 festival_participants-y(elder_mehta, y3);
+		 festival_participants-x(meera, x4);
+		 festival_participants-y(meera, y4);
+		 festival_participants-x(jai, x5);
+		 festival_participants-y(jai, y3);
+		 obstacle-x(obstacle_1, x2);
+		 obstacle-y(obstacle_1, y2);
+	 };
+
+	 init-state {
+		 player-x(riya, x1);
+		 player-y(riya, y1);
+		 harmony_level = 0;
+		 conflicts_resolved = 0;
+		 festival_zones_activated = 0;
+		 ~is_obstacle_resolved_obstacle(obstacle_1);
+		 ~is_zone_activated_festival_participants(aarav);
+		 ~is_zone_activated_festival_participants(elder_mehta);
+		 ~is_zone_activated_festival_participants(meera);
+		 ~is_zone_activated_festival_participants(jai);
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

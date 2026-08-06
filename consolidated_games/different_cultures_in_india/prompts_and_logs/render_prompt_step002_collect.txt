@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R1):
+'A traveler in traditional attire, ready to explore, learn, and solve cultural challenges across different Indian states.' collect symbol 'An intricately crafted symbol representing the rich heritage of northern India.'.
+
+1. Show 'A traveler in traditional attire, ready to explore, learn, and solve cultural challenges across different Indian states.' with a sparkle/glow reaching toward 'An intricately crafted symbol representing the rich heritage of northern India.'.
+2. ERASE 'An intricately crafted symbol representing the rich heritage of northern India.' from (C1, R1) — fill with background texture. It must be completely gone.
+3. 'A traveler in traditional attire, ready to explore, learn, and solve cultural challenges across different Indian states.' stays at (C1, R1).
+4. Nothing else changes.

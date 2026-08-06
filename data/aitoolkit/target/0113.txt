@@ -1,0 +1,1 @@
+Grid image. A red triangle is currently at cell (5,0). Move it to cell (5,5). One red triangle, snapped to that cell.

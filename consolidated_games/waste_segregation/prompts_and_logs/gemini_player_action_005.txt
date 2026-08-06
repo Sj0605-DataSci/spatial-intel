@@ -1,0 +1,2 @@
+up
+The player needs to move up to collect the metal waste, which is currently at (3,0).

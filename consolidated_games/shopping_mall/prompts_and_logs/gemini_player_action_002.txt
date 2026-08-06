@@ -1,0 +1,2 @@
+down
+Sam needs to participate in events and collect items. Moving down to (0,2) will allow Sam to interact with EventManagerAlex and participate in an event.

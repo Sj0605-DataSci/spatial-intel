@@ -1,0 +1,2 @@
+up
+The "Match won!" message indicates the game has concluded, and the objective (goals_scored == 3) has been met. Therefore, there is no next move required.

@@ -1,0 +1,2 @@
+down
+Riya is currently on the same cell as obstacle_1. Moving down to (1,2) will place Riya on Elder Mehta's cell, which is likely an interaction point to resolve a conflict or progress the story, while also moving away from the obstacle, potentially resolving it by leaving its space.

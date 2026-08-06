@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R0):
+'An eager environmentalist equipped with a sorting guide, ready to organize waste in the neighborhood.' collect 'A scattered pile of plastic bottles and containers, waiting to be recycled.'.
+
+1. Show 'An eager environmentalist equipped with a sorting guide, ready to organize waste in the neighborhood.' with a sparkle/glow reaching toward 'A scattered pile of plastic bottles and containers, waiting to be recycled.'.
+2. ERASE 'A scattered pile of plastic bottles and containers, waiting to be recycled.' from (C1, R0) — fill with background texture. It must be completely gone.
+3. 'An eager environmentalist equipped with a sorting guide, ready to organize waste in the neighborhood.' stays at (C1, R0).
+4. Nothing else changes.

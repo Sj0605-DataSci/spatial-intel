@@ -1,0 +1,25 @@
+**Rules:**
+
+1. **Run Chase**  
+   Players must achieve 'Runs Required' before 'Overs Remaining' count reaches zero for victory.
+
+2. **Batting Strategy**  
+   Ace Batsman decides risk level: higher risks can decrease 'Runs Required' faster, but increase chances of losing 'Wickets in Hand'.
+
+3. **Field Setup**  
+   Modify 'Field Arrangement' to reduce opponent scoring or intercept runs. Strategic positioning boosts 'Player Morale'.
+
+4. **Bowling Plan**  
+   Spin Wizard alters bowling style to manipulate 'Player Morale' and 'Partnership Score' of opponents.
+
+5. **Stamina Management**  
+   Monitor 'Player Stamina'; exhaustion prompts substitution or position change for optimal performance.
+
+6. **Morale Impact**  
+   Success increases 'Player Morale', enhancing skills; low morale hinders performance, especially for the Rookie.
+
+7. **Partnership Building**  
+   Enhance 'Partnership Score' by sustaining batting pairs to increase run potential and morale.
+
+**End Game:**  
+Achieve the target score with 'Wickets in Hand' before 'Overs Remaining' runs out. Celebrate victory with thematic highlights.

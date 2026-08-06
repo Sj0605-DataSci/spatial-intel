@@ -1,0 +1,2 @@
+down
+Move to the rural_zone at (3,3) to begin restoring it.

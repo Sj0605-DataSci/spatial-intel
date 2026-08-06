@@ -1,0 +1,2 @@
+up
+To collect the glass_jar, I need to move up to its location at (1,1).

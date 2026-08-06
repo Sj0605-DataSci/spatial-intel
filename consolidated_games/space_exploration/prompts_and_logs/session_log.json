@@ -1,0 +1,184 @@
+{
+  "game": "space_exploration",
+  "session_id": "gemini_plays_space_exploration_1777120216",
+  "movable_chars": [
+    "commander_vega"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 4,
+    "rows": 4
+  },
+  "steps": 8,
+  "goal": "artifacts_collected == 3 AND alliances_formed == 2",
+  "won": true,
+  "final_scoreboard": {
+    "artifacts_collected": 3,
+    "alliances_formed": 2
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "commander_vega",
+      "action": "down",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        0,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 0,
+        "alliances_formed": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "commander_vega",
+      "action": "right",
+      "from": [
+        0,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:artifact_1"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "alliances_formed": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "commander_vega",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 1,
+        "alliances_formed": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "commander_vega",
+      "action": "down",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        2
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:artifact_2"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "alliances_formed": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "commander_vega",
+      "action": "up",
+      "from": [
+        2,
+        2
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "alliances_formed": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "commander_vega",
+      "action": "up",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        0
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:alien_civilization_2"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 2,
+        "alliances_formed": 1
+      }
+    },
+    {
+      "step": 7,
+      "character": "commander_vega",
+      "action": "right",
+      "from": [
+        2,
+        0
+      ],
+      "to": [
+        3,
+        0
+      ],
+      "blocked": false,
+      "collected": [
+        "remove:artifact_3"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 3,
+        "alliances_formed": 1
+      }
+    },
+    {
+      "step": 8,
+      "character": "commander_vega",
+      "action": "left",
+      "from": [
+        3,
+        0
+      ],
+      "to": [
+        2,
+        0
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:alien_civilization_2"
+      ],
+      "scoreboard": {
+        "artifacts_collected": 3,
+        "alliances_formed": 2
+      }
+    }
+  ]
+}

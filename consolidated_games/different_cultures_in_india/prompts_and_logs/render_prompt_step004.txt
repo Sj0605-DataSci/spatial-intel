@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'cultural_explorer' (looks like: A traveler in traditional attire, ready to explore, learn, and solve cultural challenges across different Indian states.)
+  FROM cell (C2, R1)  [pixels x≈408–612, y≈204–408]
+  TO   cell (C2, R2)  [pixels x≈408–612, y≈408–612]
+
+1. ERASE 'cultural_explorer' from (C2, R1) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'cultural_explorer' once at (C2, R2).
+3. Nothing else changes.

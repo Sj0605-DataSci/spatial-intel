@@ -1,0 +1,2 @@
+right
+Move right to get closer to eid_artifact_2, which is at (3,1).

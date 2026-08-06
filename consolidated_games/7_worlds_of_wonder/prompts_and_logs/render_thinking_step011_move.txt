@@ -1,0 +1,7 @@
+**Relocating the Player**
+
+I'm focused on the precise mechanics of moving the player sprite. The plan is to clear the original cell, (C2, R2), replacing it with the background texture. Then, the sprite, along with the selection ring and name tag, is to be drawn precisely at the new cell, (C1, R2). The aim is to preserve the rest of the image during this relocation.
+
+**Assessing Spatial Accuracy**
+
+I have evaluated the sprite's movement, specifically its initial and final positions. The deletion of the sprite from the initial cell was successfully executed, with no corruption of the background. I confirmed no other elements were altered in the new image. The change fulfills all criteria from the user's input.

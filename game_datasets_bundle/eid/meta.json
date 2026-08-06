@@ -1,0 +1,28 @@
+{
+  "topic": "Eid",
+  "mode": "full",
+  "num_states": 400,
+  "num_transitions": 1312,
+  "num_actions_in_vocab": 8,
+  "grid": [
+    5,
+    5
+  ],
+  "engine_report": {
+    "topic": "Eid",
+    "grid": [
+      5,
+      5
+    ],
+    "num_actions_defined": 6,
+    "reachable_states": 400,
+    "upper_bound_states": 800,
+    "total_transitions": 1312,
+    "avg_branching": 3.28,
+    "max_branching": 5,
+    "num_goal_states": 25,
+    "optimal_route_len": 12,
+    "max_reward": 6,
+    "truncated": false
+  }
+}

@@ -1,0 +1,7 @@
+CELEBRATE at cell (C2, R0):
+'A determined young woman in sturdy boots and overalls, navigating a field with practical tools.' performs 'gain wisdom' with 'An old man with a warm smile beside a barn, leaning on a walking stick.'.
+
+1. Add a celebration effect at (C2, R0): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Wisdom gained from Grandpa Sam!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

@@ -1,0 +1,2 @@
+left
+Arjun needs to collect the diyas, which are located at (1,2), one step to his left.

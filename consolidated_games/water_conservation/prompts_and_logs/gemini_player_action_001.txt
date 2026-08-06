@@ -1,0 +1,2 @@
+right
+The rain barrel is to the right and down from the player's current position. Moving right will bring the player closer to it.

@@ -1,0 +1,9 @@
+Grid: 4 cols × 4 rows. Each cell ≈256px.
+
+MOVE: 'player' (looks like: A dedicated environmentalist in casual attire, equipped with tools and charts, ready to tackle pollution.)
+  FROM cell (C3, R3)  [pixels x≈768–1024, y≈768–1024]
+  TO   cell (C3, R2)  [pixels x≈768–1024, y≈512–768]
+
+1. ERASE 'player' from (C3, R3) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'player' once at (C3, R2).
+3. Nothing else changes.

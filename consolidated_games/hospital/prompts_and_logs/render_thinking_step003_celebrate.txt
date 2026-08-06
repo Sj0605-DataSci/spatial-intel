@@ -1,0 +1,7 @@
+**Refining Image Edits**
+
+I'm now focusing on refining the edit of the target cell. I've pinpointed the cell and am working to amplify the celebration effect. Specifically, I'm adding larger stars, more confetti, and a brighter flash to build upon the existing glow. I also need to position a floating text bubble above the cell, ensuring its style matches the other bubble in the image. The bubble's text will need to read, "All staff are full of energy!". Finally, all other image elements must be preserved.
+
+**Assessing Alignment with Request**
+
+I've just finished a comparison. The text bubble specified by the user is present with the correct message. Also, I observed that the celebrations visual effects were also enhanced without any unintended changes. Based on this comparison, the output appears to adhere to the given instructions.

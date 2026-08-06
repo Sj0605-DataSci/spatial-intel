@@ -1,0 +1,210 @@
+{
+    "topic": "Cricket",
+    "objective": "Navigate the cricket grid, collect runs, and outplay your opponent by executing match_winning strategies.",
+    "environment_description": "A vibrant cricket field divided into strategic grid cells. It features lush green grass, marked boundaries, and dynamic player movements, surrounded by an animated crowd.",
+    "domain": [
+        {
+            "name": "captain_strategist",
+            "image_prompt": "A determined cricket captain in a team uniform, holding a clipboard with match strategies."
+        },
+        {
+            "name": "ace_batsman",
+            "image_prompt": "A powerful batsman mid_swing, wearing a brightly colored team jersey and helmet."
+        },
+        {
+            "name": "spin_wizard",
+            "image_prompt": "A skilled bowler with focused eyes, delivering a spin ball in a distinct uniform."
+        },
+        {
+            "name": "field_master",
+            "image_prompt": "An agile fielder in action, diving for a catch, wearing a streamlined uniform."
+        },
+        {
+            "name": "rookie_player",
+            "image_prompt": "A young cricket player displaying enthusiasm and potential in an oversized uniform."
+        },
+        {
+            "name": "cricket_field",
+            "image_prompt": "A cricket field with grid lines, boundary ropes, a scoreboard, and a cheering crowd."
+        }
+    ],
+    "classes": [
+        {
+            "class_name": "player",
+            "list_of_objects": [
+                "captain_strategist"
+            ]
+        },
+        {
+            "class_name": "batsman",
+            "list_of_objects": [
+                "ace_batsman"
+            ]
+        },
+        {
+            "class_name": "bowler",
+            "list_of_objects": [
+                "spin_wizard"
+            ]
+        },
+        {
+            "class_name": "fielder",
+            "list_of_objects": [
+                "field_master"
+            ]
+        },
+        {
+            "class_name": "rookie",
+            "list_of_objects": [
+                "rookie_player"
+            ]
+        },
+        {
+            "class_name": "field",
+            "list_of_objects": [
+                "cricket_field"
+            ]
+        }
+    ],
+    "state_of_objects": [
+        {
+            "class_name": "player",
+            "isMovable": true
+        },
+        {
+            "class_name": "batsman",
+            "isMovable": false
+        },
+        {
+            "class_name": "bowler",
+            "isMovable": false
+        },
+        {
+            "class_name": "fielder",
+            "isMovable": false
+        },
+        {
+            "class_name": "rookie",
+            "isMovable": false
+        },
+        {
+            "class_name": "field",
+            "isMovable": false
+        }
+    ],
+    "state_variables": [
+        {
+            "name": "runs_scored",
+            "type": "integer"
+        },
+        {
+            "name": "wickets_remaining",
+            "type": "integer"
+        },
+        {
+            "name": "overs_remaining",
+            "type": "integer"
+        },
+        {
+            "name": "strategy_executed_count",
+            "type": "integer"
+        }
+    ],
+    "actions": [
+        {
+            "name": "MoveTo(field)"
+        },
+        {
+            "name": "ExecuteStrategy(player, batsman, bowler, fielder, rookie)"
+        }
+    ],
+    "transitions": [
+        {
+            "action": "MoveTo(?field)",
+            "preconditions": [
+                "isMovable(?player)"
+            ],
+            "effects": [],
+            "side_effects": [
+                "MoveImage(?player, ?player.x, ?player.y, ?field.x, ?field.y)",
+                "ShowText(true, 'Player moved to a new field position.')"
+            ]
+        },
+        {
+            "action": "ExecuteStrategy(?player, ?batsman, ?bowler, ?fielder, ?rookie)",
+            "preconditions": [
+                "wickets_remaining > 0",
+                "overs_remaining > 0",
+                "strategy_executed_count < 10"
+            ],
+            "effects": [
+                "runs_scored = runs_scored + 1",
+                "wickets_remaining = wickets_remaining - 1",
+                "overs_remaining = overs_remaining - 1",
+                "strategy_executed_count = strategy_executed_count + 1"
+            ],
+            "side_effects": [
+                "ShowText(runs_scored < 9, 'Great play! Execute the next strategy.')",
+                "ShowText(runs_scored == 10, 'Congratulations! Your team wins the match!')"
+            ],
+            "probability": 0.95
+        }
+    ],
+    "goal": "runs_scored == 10",
+    "reward": "runs_scored",
+    "max_reward": 10,
+    "grid_size": {
+        "x_size": 5,
+        "y_size": 5
+    },
+    "initial_state_objects": [
+        {
+            "domain_object": "captain_strategist",
+            "x": "1",
+            "y": "1"
+        },
+        {
+            "domain_object": "ace_batsman",
+            "x": "2",
+            "y": "1"
+        },
+        {
+            "domain_object": "spin_wizard",
+            "x": "3",
+            "y": "1"
+        },
+        {
+            "domain_object": "field_master",
+            "x": "4",
+            "y": "1"
+        },
+        {
+            "domain_object": "rookie_player",
+            "x": "5",
+            "y": "1"
+        },
+        {
+            "domain_object": "cricket_field",
+            "x": "3",
+            "y": "3"
+        }
+    ],
+    "initial_state_variables": [
+        {
+            "name": "runs_scored",
+            "value": 0
+        },
+        {
+            "name": "wickets_remaining",
+            "value": 10
+        },
+        {
+            "name": "overs_remaining",
+            "value": 5
+        },
+        {
+            "name": "strategy_executed_count",
+            "value": 0
+        }
+    ]
+}

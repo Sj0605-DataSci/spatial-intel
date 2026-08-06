@@ -1,0 +1,2 @@
+down
+Collect the protein_bar to add another healthy food item to the inventory.

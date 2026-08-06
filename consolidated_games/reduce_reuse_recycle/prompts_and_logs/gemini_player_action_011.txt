@@ -1,0 +1,2 @@
+right
+Eli needs to move right to collect the metal can.

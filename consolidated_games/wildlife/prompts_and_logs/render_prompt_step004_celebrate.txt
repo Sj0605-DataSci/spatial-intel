@@ -1,0 +1,7 @@
+CELEBRATE at cell (C2, R2):
+'A young wildlife conservationist wearing practical outdoor gear with a notebook and binoculars, showing a determined expression.' performs 'rescue tiger' with 'A majestic tiger in a natural setting, emphasizing its beauty and vulnerability.'.
+
+1. Add a celebration effect at (C2, R2): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Tiger rescued successfully!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

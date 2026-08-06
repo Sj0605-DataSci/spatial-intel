@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R1):
+'A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.' collect 'A vibrantly embroidered scarf, integral to the festival's cultural attire and decorations.'.
+
+1. Show 'A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.' with a sparkle/glow reaching toward 'A vibrantly embroidered scarf, integral to the festival's cultural attire and decorations.'.
+2. ERASE 'A vibrantly embroidered scarf, integral to the festival's cultural attire and decorations.' from (C3, R1) — fill with background texture. It must be completely gone.
+3. 'A villager dressed in traditional Punjabi attire, enthusiastic and spirited, ready to lead community efforts.' stays at (C3, R1).
+4. Nothing else changes.

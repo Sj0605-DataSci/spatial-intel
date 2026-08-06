@@ -1,0 +1,14 @@
+Game States:
+
+1. **Tasks Completed**: Tracks the number of festive tasks (diyas lit, meals prepared, gifts wrapped) Arjun completes. Progress unlocks family/community interactions.
+
+2. **Joy Level**: Measures the happiness and cheer spread through successful tasks, influenced by characters' interactions, encouraging player engagement.
+
+3. **Traditions Fulfilled**: Tracks adherence to traditional practices guided by Grandmother Meera and Uncle Ravi, affecting the depth of community blessings received.
+
+4. **Creativity Meter**: Reflects decorative creativity, influenced by Anya's inspiration. Higher creativity unlocks special rangoli designs and boosts Joy Level.
+
+5. **Community Connection**: Gauges interactions with neighbors and involvement in community events, enhancing the sense of unity and triggering celebratory animations.
+
+Game Completion:
+Achieved when all tasks and interactions reach their peak, culminating in a grand Diwali reunion and an emotional family/community celebration scene.

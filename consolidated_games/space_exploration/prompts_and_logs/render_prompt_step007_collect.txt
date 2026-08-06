@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R0):
+'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' collect 'A crystalline structure pulsating with energy, suspended in a celestial void.'.
+
+1. Show 'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' with a sparkle/glow reaching toward 'A crystalline structure pulsating with energy, suspended in a celestial void.'.
+2. ERASE 'A crystalline structure pulsating with energy, suspended in a celestial void.' from (C3, R0) — fill with background texture. It must be completely gone.
+3. 'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' stays at (C3, R0).
+4. Nothing else changes.

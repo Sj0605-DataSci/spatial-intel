@@ -1,0 +1,62 @@
+{
+  "0": {
+    "base": "MoveUp",
+    "target": null,
+    "control": "W"
+  },
+  "1": {
+    "base": "MoveDown",
+    "target": null,
+    "control": "S"
+  },
+  "2": {
+    "base": "MoveLeft",
+    "target": null,
+    "control": "A"
+  },
+  "3": {
+    "base": "MoveRight",
+    "target": null,
+    "control": "D"
+  },
+  "4": {
+    "base": "CollectItem",
+    "target": "ShoppingList",
+    "control": "Space"
+  },
+  "5": {
+    "base": "EngageEvent",
+    "target": "SecurityGuard",
+    "control": "Space"
+  },
+  "6": {
+    "base": "EngageEvent",
+    "target": "ChefMaria",
+    "control": "Space"
+  },
+  "7": {
+    "base": "EngageEvent",
+    "target": "EventManagerAlex",
+    "control": "Space"
+  },
+  "8": {
+    "base": "Interact",
+    "target": "ShoppersGroup",
+    "control": "Space"
+  },
+  "9": {
+    "base": "NavigateEscalator",
+    "target": "SecurityGuard",
+    "control": "Space"
+  },
+  "10": {
+    "base": "NavigateEscalator",
+    "target": "ChefMaria",
+    "control": "Space"
+  },
+  "11": {
+    "base": "NavigateEscalator",
+    "target": "EventManagerAlex",
+    "control": "Space"
+  }
+}

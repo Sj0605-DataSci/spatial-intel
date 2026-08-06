@@ -1,0 +1,13 @@
+# Extra deps for spatial-intel, installed INTO 3dgit/.venv.
+# torch/torchvision (cu130) + numpy + pillow are already present in that venv.
+
+# core (needed to generate data + run the env with scripted agents)
+gymnasium>=0.29
+
+# FLUX.2-klein-4B agent (heavy; only needed for --agent flux)
+# diffusers must be the git build that ships Flux2KleinPipeline:
+#   pip install "git+https://github.com/huggingface/diffusers.git"
+transformers>=4.46
+accelerate>=1.0
+safetensors>=0.4
+sentencepiece>=0.2

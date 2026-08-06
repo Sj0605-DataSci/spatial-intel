@@ -1,0 +1,63 @@
+instance Shopping_Mall_Adventure { 
+
+	 domain = Shopping_Mall_Adventure;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5, x6, x7 };
+		 ypos : { y1, y2, y3, y4, y5, y6, y7 };
+		 player : { sam };
+		 mall_staff : { security_guard, chef_maria, event_manager_alex };
+		 mall_shoppers : { shoppers_group };
+		 mall_objectives : { shopping_list };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-LEFT(x6, x5);
+		 ADJACENT-LEFT(x7, x6);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-RIGHT(x5, x6);
+		 ADJACENT-RIGHT(x6, x7);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-UP(y6, y5);
+		 ADJACENT-UP(y7, y6);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 ADJACENT-DOWN(y5, y6);
+		 ADJACENT-DOWN(y6, y7);
+		 mall_staff-x(security_guard, x2);
+		 mall_staff-y(security_guard, y1);
+		 mall_staff-x(chef_maria, x3);
+		 mall_staff-y(chef_maria, y2);
+		 mall_staff-x(event_manager_alex, x1);
+		 mall_staff-y(event_manager_alex, y3);
+		 mall_shoppers-x(shoppers_group, x4);
+		 mall_shoppers-y(shoppers_group, y2);
+		 mall_objectives-x(shopping_list, x2);
+		 mall_objectives-y(shopping_list, y3);
+	 };
+
+	 init-state {
+		 player-x(sam, x1);
+		 player-y(sam, y1);
+		 items_collected = 0;
+		 events_participated = 0;
+		 reputation_score = 0;
+		 ~list_completed;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

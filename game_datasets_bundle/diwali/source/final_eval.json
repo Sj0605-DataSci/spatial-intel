@@ -1,0 +1,26 @@
+{
+    "coverage": -1,
+    "agency": -1,
+    "completion": -1,
+    "game_depth": -1,
+    "story_alignment_score": {
+        "overview": "Arjun completes festive tasks to light up the neighborhood for Diwali.",
+        "score": 9,
+        "reasoning": "The story prominently features Diwali elements such as diyas, rangoli, and meals, earning 3 points for theme presence. These elements are consistently integrated, earning 2 points for consistency. The plot meaningfully explores the theme through tasks, earning 3 points for depth. The emotional impact is strong as players experience the joy of Diwali, earning 1 point."
+    },
+    "mechanical_alignment_score": {
+        "coreMechanics": "Players complete tasks like placing diyas and rangoli to progress, directly reflecting the Diwali theme.",
+        "score": 8,
+        "reasoning": "Core mechanics like task completion directly reinforce the theme, earning 3 points. Mechanics are consistent with the story, earning 3 points for integration. There is some variety in tasks, earning 1 point. Mechanics allow players to experience the theme meaningfully, earning 1 point."
+    },
+    "character_alignment_score": {
+        "characters": "Arjun's goal to complete festive tasks aligns with the Diwali theme.",
+        "score": 8,
+        "reasoning": "Arjun's motivations align with the theme, earning 3 points. His character arc reinforces the theme as he completes tasks, earning 2 points. Relationships with the community are implied, earning 1 point. Arjun is prominent enough to convey the theme, earning 2 points."
+    },
+    "overall_theme_score": {
+        "overallThemeCohesion": "The game effectively integrates Diwali elements through story, mechanics, and characters.",
+        "score": 8.5,
+        "summary": "The game successfully captures the essence of Diwali through its cohesive integration of theme elements across story, mechanics, and characters."
+    }
+}

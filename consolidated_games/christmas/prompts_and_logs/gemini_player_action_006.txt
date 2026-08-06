@@ -1,0 +1,2 @@
+down
+Move Santa down to reach family_home_1 at (3,3) and deliver a present.

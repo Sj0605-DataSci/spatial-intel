@@ -1,0 +1,2 @@
+right
+Alex needs to move to the balanced_meal_area to prepare a meal, and it is one step to the right.

@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R3):
+'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' collect 'A collection of drought_tolerant plants with vibrant green leaves.'.
+
+1. Show 'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' with a sparkle/glow reaching toward 'A collection of drought_tolerant plants with vibrant green leaves.'.
+2. ERASE 'A collection of drought_tolerant plants with vibrant green leaves.' from (C3, R3) — fill with background texture. It must be completely gone.
+3. 'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' stays at (C3, R3).
+4. Nothing else changes.

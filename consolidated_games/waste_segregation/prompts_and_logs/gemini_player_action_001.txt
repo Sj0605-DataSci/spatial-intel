@@ -1,0 +1,2 @@
+Right
+The player needs to collect the plastic waste, which is to the right at (1,0).

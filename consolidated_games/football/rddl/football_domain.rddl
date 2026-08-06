@@ -1,0 +1,101 @@
+domain Football_Strategy{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   avatar : object ;
+   team_member : object ;
+   opponent : object ;
+   game_official : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-avatar(avatar) : { action-fluent , bool , default=false } ;
+move-right-avatar(avatar) : { action-fluent , bool , default=false } ;
+move-up-avatar(avatar) : { action-fluent , bool , default=false } ;
+move-down-avatar(avatar) : { action-fluent , bool , default=false } ;
+has-moved-avatar(avatar) : { state-fluent , bool , default=false } ;
+avatar-x(avatar,xpos) : { state-fluent , bool , default=false } ;
+avatar-y(avatar,ypos) : { state-fluent , bool , default=false } ;
+team_member-x(team_member,xpos) : { non-fluent , bool , default=false } ;
+team_member-y(team_member,ypos) : { non-fluent , bool , default=false } ;
+opponent-x(opponent,xpos) : { non-fluent , bool , default=false } ;
+opponent-y(opponent,ypos) : { non-fluent , bool , default=false } ;
+game_official-x(game_official,xpos) : { non-fluent , bool , default=false } ;
+game_official-y(game_official,ypos) : { non-fluent , bool , default=false } ;
+successful_passes : { state-fluent , int , default=0 } ;
+goals_scored : { state-fluent , int , default=0 } ;
+rival_moves_countered : { state-fluent , int , default=0 } ;
+pass-avatar-team_member(avatar,team_member) : { action-fluent , bool , default=false } ;
+score-avatar(avatar) : { action-fluent , bool , default=false } ;
+counter-opponent(opponent) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+avatar-x'(?avatar,?xpos) = if (move-left-avatar( ?avatar)  & avatar-x( ?avatar, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-avatar( ?avatar)  & exists_{?x2:xpos}[avatar-x(?avatar, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-avatar( ?avatar)  & ~exists_{?x2:xpos}[avatar-x(?avatar, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-avatar( ?avatar)  & avatar-x( ?avatar, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-avatar( ?avatar)  & exists_{?x2:xpos}[avatar-x(?avatar, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-avatar( ?avatar)  & ~exists_{?x2:xpos}[avatar-x(?avatar, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else avatar-x(?avatar, ?xpos)
+;
+
+avatar-y'(?avatar,?ypos) = if (move-up-avatar( ?avatar)  & avatar-y( ?avatar, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-avatar( ?avatar)  & exists_{?y2:ypos}[avatar-y(?avatar, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-avatar( ?avatar)  & ~exists_{?y2:ypos}[avatar-y(?avatar, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-avatar( ?avatar)  & avatar-y( ?avatar, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-avatar( ?avatar)  & exists_{?y2:ypos}[avatar-y(?avatar, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-avatar( ?avatar)  & ~exists_{?y2:ypos}[avatar-y(?avatar, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else avatar-y(?avatar, ?ypos)
+;
+
+has-moved-avatar'(?avatar) = move-left-avatar(?avatar) | move-right-avatar(?avatar) | move-up-avatar(?avatar) | move-down-avatar(?avatar)
+;
+
+successful_passes' = if (exists_{?avatar:avatar, ?team_member:team_member} [ pass-avatar-team_member(?avatar, ?team_member) & successful_passes < 5 & exists_{?x:xpos} [avatar-x(?avatar, ?x) & team_member-x(?team_member, ?x)] & exists_{?y:ypos} [avatar-y(?avatar, ?y) & team_member-y(?team_member, ?y)] ] )  then successful_passes + 1
+ else successful_passes
+;
+
+goals_scored' = if (exists_{?avatar:avatar} [ score-avatar(?avatar) & successful_passes == 5 & goals_scored < 3 ] )  then goals_scored + 1
+ else goals_scored
+;
+
+rival_moves_countered' = if (exists_{?opponent:opponent} [ counter-opponent(?opponent) & rival_moves_countered < 3 & goals_scored < 3 ] )  then rival_moves_countered + 1
+ else rival_moves_countered
+;
+
+};
+
+action-preconditions {
+forall_{?avatar:avatar}[
+            move-left-avatar(?avatar) => exists_{?x1:xpos, ?x2:xpos}[avatar-x(?avatar, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?avatar:avatar}[
+            move-right-avatar(?avatar) => exists_{?x1:xpos, ?x2:xpos}[avatar-x(?avatar, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?avatar:avatar}[
+            move-up-avatar(?avatar) => exists_{?y1:ypos, ?y2:ypos}[avatar-y(?avatar, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?avatar:avatar}[
+            move-down-avatar(?avatar) => exists_{?y1:ypos, ?y2:ypos}[avatar-y(?avatar, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = goals_scored * 2 + rival_moves_countered;
+
+// max_reward = 7.0
+
+termination{
+goals_scored == 3;
+};
+}

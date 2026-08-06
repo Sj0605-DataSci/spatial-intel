@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R1):
+'A young environmentalist in green attire, raising awareness about recycling within the community.' sort 'A clear glass jar with intricate engravings, designed for recycling.'.
+
+1. Show 'A young environmentalist in green attire, raising awareness about recycling within the community.' with a sparkle/glow reaching toward 'A clear glass jar with intricate engravings, designed for recycling.'.
+2. ERASE 'A clear glass jar with intricate engravings, designed for recycling.' from (C1, R1) — fill with background texture. It must be completely gone.
+3. 'A young environmentalist in green attire, raising awareness about recycling within the community.' stays at (C1, R1).
+4. Nothing else changes.

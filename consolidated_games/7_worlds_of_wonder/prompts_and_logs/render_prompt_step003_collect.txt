@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R0):
+'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' collect 'A golden relic shimmering with ancient significance, buried under layers of history.'.
+
+1. Show 'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' with a sparkle/glow reaching toward 'A golden relic shimmering with ancient significance, buried under layers of history.'.
+2. ERASE 'A golden relic shimmering with ancient significance, buried under layers of history.' from (C3, R0) — fill with background texture. It must be completely gone.
+3. 'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' stays at (C3, R0).
+4. Nothing else changes.

@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R1):
+'A warm, cheerful figure dressed in a traditional red suit with a fluffy white beard, joyfully carrying a sack of gifts.' performs 'interact' with 'A small, energetic character with pointy ears and a colorful outfit, playfully grinning and ready to create diversions for Santa.'.
+
+1. Add a celebration effect at (C1, R1): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Tricky elf encountered!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

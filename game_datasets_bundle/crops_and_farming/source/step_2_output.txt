@@ -1,0 +1,17 @@
+State Variables for "Heartland Harvest":
+
+1. Crop Arrangement: Tracks the tile placement on the grid, impacting farm productivity and puzzle completion.
+
+2. Soil Health: Monitors fertility levels, influencing crop yield and requiring strategic decisions by Farmer Ella.
+
+3. Irrigation Levels: Reflects water resources, affecting crop growth and representing Ben’s water scarcity challenges.
+
+4. Seasonal Cycle: Changes with time, altering gameplay dynamics and requiring planning for upcoming weather forecasts.
+
+5. Wisdom Points: Earned by gleaning insights from Grandpa Sam, unlocking tips and enhancing farm management skills.
+
+6. Sustainability Score: Measures eco-practices promoted by Emma, affecting overall farm efficiency and environmental impact.
+
+7. Community Cooperation: Represents interactions with neighbors, boosting resource sharing and collaboration, emphasizing community strength.
+
+8. Hidden Object Tracker: Monitors discovered items with Mentor Bird’s guidance, aiding strategic progress and unlocking new opportunities.

@@ -1,0 +1,28 @@
+{
+  "topic": "Wildlife",
+  "mode": "sampled",
+  "num_states": 2970,
+  "num_transitions": 5330,
+  "num_actions_in_vocab": 17,
+  "grid": [
+    5,
+    5
+  ],
+  "engine_report": {
+    "topic": "Wildlife",
+    "grid": [
+      5,
+      5
+    ],
+    "num_actions_defined": 5,
+    "reachable_states": 20002,
+    "upper_bound_states": 26214400,
+    "total_transitions": 48765,
+    "avg_branching": 3.806,
+    "max_branching": 7,
+    "num_goal_states": 957,
+    "optimal_route_len": 9,
+    "max_reward": 8,
+    "truncated": true
+  }
+}

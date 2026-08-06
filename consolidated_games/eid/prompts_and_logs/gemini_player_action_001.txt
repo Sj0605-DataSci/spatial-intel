@@ -1,0 +1,2 @@
+down
+Move Ayaan towards the first artifact at (1,2). Moving down to (0,1) is a step in that direction.

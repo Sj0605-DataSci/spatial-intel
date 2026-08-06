@@ -1,0 +1,30 @@
+SCORE: 10
+
+ISSUES:
+
+- None
+
+EXPECTED_BEHAVIOR:
+
+- max_reward is correct and a single integer value.
+- Only the player class is movable.
+- All action arguments correctly use class names.
+- Transition arguments correctly use the ? prefix.
+- Side effects are formatted as strings.
+- Grid size is appropriate for object count.
+- All state variables are used consistently in terms of type.
+- The goal and reward use only integer variables.
+- All actions that modify counters have boolean guards.
+- Goal can be achieved without overshooting.
+
+ACTUAL_BEHAVIOR:
+
+- max_reward is set to 3, aligned with the reward function's maximum.
+- Player class is the only one with isMovable set to true.
+- Action and transition arguments align with class names and are prefixed correctly.
+- Side effects are strings showing correct actions.
+- Grid size appropriately fits the number of objects.
+- All variables in initial states and conditions maintain type integrity.
+- Goals and rewards rely on integer counters, matching structural rules.
+- Boolean guards are effectively used on counter-modifying actions.
+- The game meets its goal without overshooting, making it solvable.

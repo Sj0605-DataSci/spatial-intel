@@ -1,0 +1,48 @@
+instance Reduce_Reuse_Recycle { 
+
+	 domain = Reduce_Reuse_Recycle;
+
+	 objects {
+		 xpos : { x1, x2, x3 };
+		 ypos : { y1, y2, y3 };
+		 player : { eli };
+		 recycle_item : { plastic_bottle, glass_jar, metal_can };
+		 recycle_bin : { recycle_bin_plastic, recycle_bin_glass, recycle_bin_metal };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 recycle_item-x(plastic_bottle, x1);
+		 recycle_item-y(plastic_bottle, y2);
+		 recycle_item-x(glass_jar, x2);
+		 recycle_item-y(glass_jar, y2);
+		 recycle_item-x(metal_can, x3);
+		 recycle_item-y(metal_can, y2);
+		 recycle_bin-x(recycle_bin_plastic, x1);
+		 recycle_bin-y(recycle_bin_plastic, y3);
+		 recycle_bin-x(recycle_bin_glass, x2);
+		 recycle_bin-y(recycle_bin_glass, y3);
+		 recycle_bin-x(recycle_bin_metal, x3);
+		 recycle_bin-y(recycle_bin_metal, y3);
+	 };
+
+	 init-state {
+		 player-x(eli, x1);
+		 player-y(eli, y1);
+		 ~is_sorted_recycle_item(plastic_bottle);
+		 ~is_sorted_recycle_item(glass_jar);
+		 ~is_sorted_recycle_item(metal_can);
+		 items_sorted = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

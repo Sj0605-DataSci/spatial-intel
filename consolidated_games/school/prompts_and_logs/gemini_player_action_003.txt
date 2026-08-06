@@ -1,0 +1,2 @@
+Right
+Mr. Teacher is currently on the same cell as Anna, so that interaction is complete. Moving right will bring Mr. Teacher closer to Sam (at 2,2) and the School Classroom (at 3,1).

@@ -1,0 +1,100 @@
+topic: Cleanliness
+objective: Restore purity by cleaning grid cells using diverse tools to eliminate
+  pollution entirely.
+environment_description: A dynamic environment with urban, rural, and industrial zones
+  on a grid. The setting transitions from polluted to clean as players progress, showcasing
+  vibrant landscapes once areas are purified.
+domain:
+- name: eco_elara
+  image_prompt: A vibrant environmentalist with adaptable gear, using integrated tools
+    for multiple cleaning actions like spray, vacuum, and mop.
+- name: grime_gremlin
+  image_prompt: Mischievous pollutants, depicted as small, amorphous blobs with dark
+    hues and blotchy textures.
+classes:
+- class_name: player
+  list_of_objects:
+  - eco_elara
+- class_name: pollutants
+  list_of_objects:
+  - grime_gremlin
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: pollutants
+  isMovable: false
+state_variables:
+- name: is_cleaned(pollutants)
+  type: bool
+- name: pollution_level
+  type: integer
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Clean(player, pollutants)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: Clean(?player, ?pollutants)
+  preconditions:
+  - pollution_level > 0
+  - ?player.x == ?pollutants.x
+  - ?player.y == ?pollutants.y
+  - NOT is_cleaned(?pollutants)
+  effects:
+  - is_cleaned(?pollutants) = true
+  - pollution_level = pollution_level - 1
+  side_effects:
+  - MoveImage(?pollutants, ?pollutants.x, ?pollutants.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Area cleaned successfully!')
+  - ShowText(pollution_level == 0, 'All areas cleared of pollution!')
+goal: pollution_level == 0
+reward: 5 - pollution_level
+max_reward: 5
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: eco_elara
+  x: '1'
+  y: '1'
+- domain_object: grime_gremlin
+  x: '3'
+  y: '3'
+initial_state_variables:
+- name: is_cleaned(grime_gremlin)
+  value: false
+- name: pollution_level
+  value: 5

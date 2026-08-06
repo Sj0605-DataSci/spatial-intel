@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'alex' (looks like: A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.)
+  FROM cell (C2, R3)  [pixels x≈408–612, y≈612–816]
+  TO   cell (C3, R3)  [pixels x≈612–816, y≈612–816]
+
+1. ERASE 'alex' from (C2, R3) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'alex' once at (C3, R3).
+3. Nothing else changes.

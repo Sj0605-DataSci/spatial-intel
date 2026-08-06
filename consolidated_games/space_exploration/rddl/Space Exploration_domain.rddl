@@ -1,0 +1,102 @@
+domain Space_Exploration{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   commander : object ;
+   artifact : object ;
+   alien_civilization : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-commander(commander) : { action-fluent , bool , default=false } ;
+move-right-commander(commander) : { action-fluent , bool , default=false } ;
+move-up-commander(commander) : { action-fluent , bool , default=false } ;
+move-down-commander(commander) : { action-fluent , bool , default=false } ;
+has-moved-commander(commander) : { state-fluent , bool , default=false } ;
+commander-x(commander,xpos) : { state-fluent , bool , default=false } ;
+commander-y(commander,ypos) : { state-fluent , bool , default=false } ;
+artifact-x(artifact,xpos) : { non-fluent , bool , default=false } ;
+artifact-y(artifact,ypos) : { non-fluent , bool , default=false } ;
+alien_civilization-x(alien_civilization,xpos) : { non-fluent , bool , default=false } ;
+alien_civilization-y(alien_civilization,ypos) : { non-fluent , bool , default=false } ;
+is_collected_artifact(artifact) : { state-fluent , bool , default=false } ;
+is_alliance_formed_alien_civilization(alien_civilization) : { state-fluent , bool , default=false } ;
+artifacts_collected : { state-fluent , int , default=0 } ;
+alliances_formed : { state-fluent , int , default=0 } ;
+collect-commander-artifact(commander,artifact) : { action-fluent , bool , default=false } ;
+form_alliance-commander-alien_civilization(commander,alien_civilization) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+commander-x'(?commander,?xpos) = if (move-left-commander( ?commander)  & commander-x( ?commander, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-commander( ?commander)  & exists_{?x2:xpos}[commander-x(?commander, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-commander( ?commander)  & ~exists_{?x2:xpos}[commander-x(?commander, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-commander( ?commander)  & commander-x( ?commander, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-commander( ?commander)  & exists_{?x2:xpos}[commander-x(?commander, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-commander( ?commander)  & ~exists_{?x2:xpos}[commander-x(?commander, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else commander-x(?commander, ?xpos)
+;
+
+commander-y'(?commander,?ypos) = if (move-up-commander( ?commander)  & commander-y( ?commander, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-commander( ?commander)  & exists_{?y2:ypos}[commander-y(?commander, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-commander( ?commander)  & ~exists_{?y2:ypos}[commander-y(?commander, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-commander( ?commander)  & commander-y( ?commander, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-commander( ?commander)  & exists_{?y2:ypos}[commander-y(?commander, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-commander( ?commander)  & ~exists_{?y2:ypos}[commander-y(?commander, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else commander-y(?commander, ?ypos)
+;
+
+has-moved-commander'(?commander) = move-left-commander(?commander) | move-right-commander(?commander) | move-up-commander(?commander) | move-down-commander(?commander)
+;
+
+is_collected_artifact'(?artifact) = if (exists_{?commander:commander} [ collect-commander-artifact(?commander, ?artifact) & ~is_collected_artifact(?artifact) & exists_{?x:xpos} [commander-x(?commander, ?x) & artifact-x(?artifact, ?x)] & exists_{?y:ypos} [commander-y(?commander, ?y) & artifact-y(?artifact, ?y)] & artifacts_collected < 3 ] )  then true
+ else is_collected_artifact(?artifact)
+;
+
+is_alliance_formed_alien_civilization'(?alien_civilization) = if (exists_{?commander:commander} [ form_alliance-commander-alien_civilization(?commander, ?alien_civilization) & ~is_alliance_formed_alien_civilization(?alien_civilization) & exists_{?x:xpos} [commander-x(?commander, ?x) & alien_civilization-x(?alien_civilization, ?x)] & exists_{?y:ypos} [commander-y(?commander, ?y) & alien_civilization-y(?alien_civilization, ?y)] & alliances_formed < 2 ] )  then true
+ else is_alliance_formed_alien_civilization(?alien_civilization)
+;
+
+artifacts_collected' = if (exists_{?commander:commander, ?artifact:artifact} [ collect-commander-artifact(?commander, ?artifact) & ~is_collected_artifact(?artifact) & exists_{?x:xpos} [commander-x(?commander, ?x) & artifact-x(?artifact, ?x)] & exists_{?y:ypos} [commander-y(?commander, ?y) & artifact-y(?artifact, ?y)] & artifacts_collected < 3 ] )  then artifacts_collected + 1
+ else artifacts_collected
+;
+
+alliances_formed' = if (exists_{?commander:commander, ?alien_civilization:alien_civilization} [ form_alliance-commander-alien_civilization(?commander, ?alien_civilization) & ~is_alliance_formed_alien_civilization(?alien_civilization) & exists_{?x:xpos} [commander-x(?commander, ?x) & alien_civilization-x(?alien_civilization, ?x)] & exists_{?y:ypos} [commander-y(?commander, ?y) & alien_civilization-y(?alien_civilization, ?y)] & alliances_formed < 2 ] )  then alliances_formed + 1
+ else alliances_formed
+;
+
+};
+
+action-preconditions {
+forall_{?commander:commander}[
+            move-left-commander(?commander) => exists_{?x1:xpos, ?x2:xpos}[commander-x(?commander, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?commander:commander}[
+            move-right-commander(?commander) => exists_{?x1:xpos, ?x2:xpos}[commander-x(?commander, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?commander:commander}[
+            move-up-commander(?commander) => exists_{?y1:ypos, ?y2:ypos}[commander-y(?commander, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?commander:commander}[
+            move-down-commander(?commander) => exists_{?y1:ypos, ?y2:ypos}[commander-y(?commander, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = artifacts_collected + 2 * alliances_formed;
+
+// max_reward = 7.0
+
+termination{
+artifacts_collected == 3  &  alliances_formed == 2;
+};
+}

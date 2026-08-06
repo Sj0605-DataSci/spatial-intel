@@ -1,0 +1,2 @@
+right
+Mr. Thompson is currently interacting with Anna. To achieve the goal of 2 student interactions, he needs to move towards SamStudent at (2,2). Moving right from (1,1) to (2,1) is the first step in that direction.

@@ -1,0 +1,2 @@
+down
+Move down to reach the recycle_bin_plastic at (0, 2) and sort the collected plastic_bottle.

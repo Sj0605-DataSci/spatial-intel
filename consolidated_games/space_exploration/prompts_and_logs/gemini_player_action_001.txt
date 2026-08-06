@@ -1,0 +1,2 @@
+down
+Commander Vega is at (0,0). Moving down will take him to (0,1), which is closer to alien_civilization_1 at (0,2) and artifact_1 at (1,1). This move keeps options open for both alliances and artifacts.

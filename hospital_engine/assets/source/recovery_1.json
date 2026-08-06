@@ -1,0 +1,216 @@
+{
+    "topic": "Hospital Heroes",
+    "objective": "The player must manage the hospital by prioritizing patient care, efficiently using resources, and coordinating staff activities to ensure optimal hospital operations.",
+    "environment_description": "A dynamic hospital setting featuring busy wards, emergency rooms, a supply storeroom, and areas for doctors and nurses. The environment evokes the fast_paced and critical nature of hospital operations, immersing players in healthcare management.",
+    "domain": [
+        {
+            "name": "player_admin",
+            "image_prompt": "A determined hospital administrator, managing resources and coordinating medical teams in a busy hospital setting."
+        },
+        {
+            "name": "patient_1",
+            "image_prompt": "A fatigued elderly patient requiring immediate care in a hospital ward."
+        },
+        {
+            "name": "patient_2",
+            "image_prompt": "A child with a mild fever, awaiting medical attention in a vibrant pediatric ward."
+        },
+        {
+            "name": "doctor",
+            "image_prompt": "An experienced surgeon in professional attire, attending to emergency cases in an operating room."
+        },
+        {
+            "name": "nurse",
+            "image_prompt": "A compassionate nurse managing patient care with a warm smile in lively hospital wards."
+        },
+        {
+            "name": "supply_room",
+            "image_prompt": "A well_stocked supply room with various medical supplies and equipment, essential for hospital operations."
+        }
+    ],
+    "classes": [
+        {
+            "class_name": "player",
+            "list_of_objects": [
+                "player_admin"
+            ]
+        },
+        {
+            "class_name": "patient",
+            "list_of_objects": [
+                "patient_1",
+                "patient_2"
+            ]
+        },
+        {
+            "class_name": "staff",
+            "list_of_objects": [
+                "doctor",
+                "nurse"
+            ]
+        },
+        {
+            "class_name": "resources",
+            "list_of_objects": [
+                "supply_room"
+            ]
+        }
+    ],
+    "state_of_objects": [
+        {
+            "class_name": "player",
+            "isMovable": true
+        },
+        {
+            "class_name": "patient",
+            "isMovable": false
+        },
+        {
+            "class_name": "staff",
+            "isMovable": false
+        },
+        {
+            "class_name": "resources",
+            "isMovable": false
+        }
+    ],
+    "state_variables": [
+        {
+            "name": "patient_treated",
+            "type": "integer"
+        },
+        {
+            "name": "staff_energy",
+            "type": "integer"
+        },
+        {
+            "name": "resource_stock",
+            "type": "integer"
+        },
+        {
+            "name": "total_score",
+            "type": "integer"
+        }
+    ],
+    "actions": [
+        {
+            "name": "TreatPatient(player, patient)"
+        },
+        {
+            "name": "RestockResources(player, resources)"
+        },
+        {
+            "name": "CoordinateStaff(player, staff)"
+        }
+    ],
+    "transitions": [
+        {
+            "action": "TreatPatient(?player, ?patient)",
+            "preconditions": [
+                "?player.x == ?patient.x",
+                "?player.y == ?patient.y",
+                "patient_treated < 2",
+                "total_score < 8"
+            ],
+            "effects": [
+                "patient_treated = patient_treated + 1",
+                "total_score = total_score + 1"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Patient treated successfully!')",
+                "ShowText(patient_treated == 2, 'All patients have been cared for!')"
+            ]
+        },
+        {
+            "action": "RestockResources(?player, ?resources)",
+            "preconditions": [
+                "?player.x == ?resources.x",
+                "?player.y == ?resources.y",
+                "resource_stock < 5",
+                "total_score < 8"
+            ],
+            "effects": [
+                "resource_stock = resource_stock + 1",
+                "total_score = total_score + 1"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Resources restocked!')",
+                "ShowText(resource_stock == 5, 'All resources are fully stocked!')"
+            ]
+        },
+        {
+            "action": "CoordinateStaff(?player, ?staff)",
+            "preconditions": [
+                "?player.x == ?staff.x",
+                "?player.y == ?staff.y",
+                "staff_energy < 3",
+                "total_score < 8"
+            ],
+            "effects": [
+                "staff_energy = staff_energy + 1",
+                "total_score = total_score + 1"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Staff energy replenished!')",
+                "ShowText(staff_energy == 3, 'All staff are full of energy!')"
+            ]
+        }
+    ],
+    "goal": "total_score == 8",
+    "reward": "total_score",
+    "max_reward": 8,
+    "grid_size": {
+        "x_size": 4,
+        "y_size": 4
+    },
+    "initial_state_objects": [
+        {
+            "domain_object": "player_admin",
+            "x": "1",
+            "y": "1"
+        },
+        {
+            "domain_object": "patient_1",
+            "x": "2",
+            "y": "2"
+        },
+        {
+            "domain_object": "patient_2",
+            "x": "3",
+            "y": "2"
+        },
+        {
+            "domain_object": "doctor",
+            "x": "2",
+            "y": "3"
+        },
+        {
+            "domain_object": "nurse",
+            "x": "3",
+            "y": "3"
+        },
+        {
+            "domain_object": "supply_room",
+            "x": "4",
+            "y": "4"
+        }
+    ],
+    "initial_state_variables": [
+        {
+            "name": "patient_treated",
+            "value": 0
+        },
+        {
+            "name": "staff_energy",
+            "value": 0
+        },
+        {
+            "name": "resource_stock",
+            "value": 0
+        },
+        {
+            "name": "total_score",
+            "value": 0
+        }
+    ]
+}

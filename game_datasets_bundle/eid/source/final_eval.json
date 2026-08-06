@@ -1,0 +1,26 @@
+{
+    "coverage": -1,
+    "agency": -1,
+    "completion": -1,
+    "game_depth": -1,
+    "story_alignment_score": {
+        "overview": "The story revolves around guiding family members to collect Eid artifacts and prepare a festive feast, embodying the spirit of Eid.",
+        "score": 9,
+        "reasoning": "The story includes key theme elements such as family gatherings, feasting, and celebration, earning 3 points for presence. These elements are consistently integrated, earning 2 points for consistency. The plot meaningfully explores the theme through the collection of artifacts and feast preparation, earning 3 points for depth. The emotional impact is strong as it evokes the joy and togetherness of Eid, earning 1 point."
+    },
+    "mechanical_alignment_score": {
+        "coreMechanics": "Players collect artifacts and prepare a feast, directly reflecting the theme of Eid celebrations.",
+        "score": 8,
+        "reasoning": "Core mechanics like collecting artifacts and preparing a feast directly reinforce the theme, earning 3 points. The mechanics are consistent with the story and theme, earning 3 points for integration. There is some variety in mechanics, such as movement and collection, earning 1 point. The mechanics allow players to experience the theme meaningfully, earning 1 point."
+    },
+    "character_alignment_score": {
+        "characters": "Characters like Ayaan, the wise elder, and the Eid artifacts symbolize the theme of Eid through their roles and significance.",
+        "score": 8,
+        "reasoning": "Character motivations align with the theme as they aim to celebrate Eid, earning 3 points. While character arcs are not deeply explored, relationships reflect cooperation and celebration, earning 2 points. Characters are prominent enough to convey the theme, earning 2 points."
+    },
+    "overall_theme_score": {
+        "overallThemeCohesion": "The game effectively integrates the theme of Eid through its story, mechanics, and characters.",
+        "score": 8.5,
+        "summary": "The game successfully captures the essence of Eid through its cohesive integration of story, mechanics, and characters, providing a meaningful and engaging experience."
+    }
+}

@@ -1,0 +1,7 @@
+**Implementing Visual Effects**
+
+I'm focusing on adding a celebration effect to a target cell. The aim is to draw pixel-art confetti, stars, and a flash effect directly over the sprite. A speech bubble containing specific text will also be added above the same sprite. The existing sprites, grid lines, and labels must remain unchanged, which is the current priority.
+
+**Verifying Precise Compliance**
+
+I've confirmed complete adherence to the provided instructions. The generated content includes all requested elements—celebration effects and the specified text. Most importantly, I verified that no sprites were altered from their initial positions and the original image's integrity has been preserved. The image matches the prompt precisely, and I've marked it for approval.

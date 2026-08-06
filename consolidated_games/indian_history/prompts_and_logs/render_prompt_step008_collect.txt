@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R1):
+'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' collect artifact 'A spinning wheel symbolizing Gandhi's nonviolent resistance.'.
+
+1. Show 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' with a sparkle/glow reaching toward 'A spinning wheel symbolizing Gandhi's nonviolent resistance.'.
+2. ERASE 'A spinning wheel symbolizing Gandhi's nonviolent resistance.' from (C3, R1) — fill with background texture. It must be completely gone.
+3. 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' stays at (C3, R1).
+4. Nothing else changes.

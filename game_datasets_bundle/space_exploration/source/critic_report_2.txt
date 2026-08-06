@@ -1,0 +1,16 @@
+SCORE: 4
+
+ISSUES:
+
+- Boolean predicates used in goal and reward.
+- Missing boolean guard on counter-modifying actions.
+
+EXPECTED_BEHAVIOR:
+
+- Goal and reward should use integer counters, not boolean predicates.
+- Counter-modifying actions should have boolean guards to limit their execution.
+
+ACTUAL_BEHAVIOR:
+
+- The goal and reward rely on boolean predicates such as is_collected, violating RDDL constraints.
+- Actions like Collect and FormAlliance can be repeated without boolean guards, allowing infinite execution.

@@ -1,0 +1,7 @@
+COLLECT at cell (C2, R0):
+'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' collect 'A bright, cheerful apple character, symbolizing healthy choices and vitality.'.
+
+1. Show 'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' with a sparkle/glow reaching toward 'A bright, cheerful apple character, symbolizing healthy choices and vitality.'.
+2. ERASE 'A bright, cheerful apple character, symbolizing healthy choices and vitality.' from (C2, R0) — fill with background texture. It must be completely gone.
+3. 'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' stays at (C2, R0).
+4. Nothing else changes.

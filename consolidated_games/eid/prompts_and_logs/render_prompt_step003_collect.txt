@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R2):
+'A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.' collect 'A beautifully decorated crescent moon, symbolizing Eid, hidden among decorations.'.
+
+1. Show 'A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.' with a sparkle/glow reaching toward 'A beautifully decorated crescent moon, symbolizing Eid, hidden among decorations.'.
+2. ERASE 'A beautifully decorated crescent moon, symbolizing Eid, hidden among decorations.' from (C1, R2) — fill with background texture. It must be completely gone.
+3. 'A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.' stays at (C1, R2).
+4. Nothing else changes.

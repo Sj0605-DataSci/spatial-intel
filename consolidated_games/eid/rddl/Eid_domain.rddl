@@ -1,0 +1,97 @@
+domain Eid{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   eid_artifact : object ;
+   feast : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+eid_artifact-x(eid_artifact,xpos) : { non-fluent , bool , default=false } ;
+eid_artifact-y(eid_artifact,ypos) : { non-fluent , bool , default=false } ;
+feast-x(feast,xpos) : { non-fluent , bool , default=false } ;
+feast-y(feast,ypos) : { non-fluent , bool , default=false } ;
+is_collected_eid_artifact(eid_artifact) : { state-fluent , bool , default=false } ;
+artifacts_collected : { state-fluent , int , default=0 } ;
+feast_preparation_progress : { state-fluent , int , default=0 } ;
+collect-player-eid_artifact(player,eid_artifact) : { action-fluent , bool , default=false } ;
+prepare_feast-player-feast(player,feast) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+is_collected_eid_artifact'(?eid_artifact) = if (exists_{?player:player} [ collect-player-eid_artifact(?player, ?eid_artifact) & ~is_collected_eid_artifact(?eid_artifact) & exists_{?x:xpos} [player-x(?player, ?x) & eid_artifact-x(?eid_artifact, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & eid_artifact-y(?eid_artifact, ?y)] & artifacts_collected < 3 ] )  then true
+ else is_collected_eid_artifact(?eid_artifact)
+;
+
+artifacts_collected' = if (exists_{?player:player, ?eid_artifact:eid_artifact} [ collect-player-eid_artifact(?player, ?eid_artifact) & ~is_collected_eid_artifact(?eid_artifact) & exists_{?x:xpos} [player-x(?player, ?x) & eid_artifact-x(?eid_artifact, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & eid_artifact-y(?eid_artifact, ?y)] & artifacts_collected < 3 ] )  then artifacts_collected + 1
+ else artifacts_collected
+;
+
+feast_preparation_progress' = if (exists_{?player:player, ?feast:feast} [ prepare_feast-player-feast(?player, ?feast) & artifacts_collected == 3 & feast_preparation_progress < 1 & exists_{?x:xpos} [player-x(?player, ?x) & feast-x(?feast, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & feast-y(?feast, ?y)] ] )  then feast_preparation_progress + 1
+ else feast_preparation_progress
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = artifacts_collected + feast_preparation_progress * 3;
+
+// max_reward = 6.0
+
+termination{
+artifacts_collected == 3  &  feast_preparation_progress == 1;
+};
+}

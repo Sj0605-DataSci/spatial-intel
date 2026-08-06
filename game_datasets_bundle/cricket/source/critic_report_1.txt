@@ -1,0 +1,25 @@
+SCORE: 4
+
+ISSUES:
+
+- Boolean guard missing on counter-modifying actions.
+- Probability not specified or below 0.95 for transitions.
+- Spatial preconditions for interactions are absent.
+- Side effects format incorrect; should use MoveImage and ShowText properly.
+- Goal uses ">=" but counter can overshoot without guards.
+
+EXPECTED_BEHAVIOR:
+
+- Counter-modifying actions should have boolean guards to prevent infinite increment.
+- Side effects should match actions, using MoveImage and ShowText correctly.
+- Spatial preconditions must require co-location for interactions.
+- Probabilities in transitions should be >= 0.95.
+- The goal should use an "==" with counter limits.
+
+ACTUAL_BEHAVIOR:
+
+- Actions increment counters without boolean preconditions or effects.
+- Transitions lack probability or use unclear probabilities.
+- Side effects improperly list MoveImage and ShowText without specific object tracking.
+- Interactions lack spatial preconditions.
+- Goal uses ">=", allowing counters to exceed target without resolution.

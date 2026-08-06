@@ -1,0 +1,229 @@
+Error occurred while evaluating the game in RDDL format. Traceback: Traceback (most recent call last):
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\eval.py", line 268, in _run_fitness
+    evaluator = FitnessFunction(
+  File "C:\Users\AKSHAT SINGHAL\OneDrive\Desktop\Semester VIII\COD494\prompt_exp\prompt_exp\fitness\fitness_function.py", line 38, in __init__
+    self.env = pyRDDLGym.make(domain, instance)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\registration.py", line 44, in make
+    env = base_class(domain=domain, instance=instance, **env_kwargs)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\env.py", line 104, in __init__
+    self.sampler = backend(self.model,
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\simulator.py", line 47, in __init__
+    self._compile()
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\simulator.py", line 149, in _compile
+    self.traced = tracer.trace()
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 172, in trace
+    self._trace(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 236, in _trace
+    self._trace_control(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 680, in _trace_control
+    self._trace_if(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 688, in _trace_if
+    self._trace(pred, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 232, in _trace
+    self._trace_aggregation(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 654, in _trace_aggregation
+    self._trace(arg, new_objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 230, in _trace
+    self._trace_logical(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 574, in _trace_logical
+    self._trace(arg, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 232, in _trace
+    self._trace_aggregation(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 654, in _trace_aggregation
+    self._trace(arg, new_objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 230, in _trace
+    self._trace_logical(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 574, in _trace_logical
+    self._trace(arg, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 232, in _trace
+    self._trace_aggregation(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 654, in _trace_aggregation
+    self._trace(arg, new_objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 230, in _trace
+    self._trace_logical(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 574, in _trace_logical
+    self._trace(arg, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 232, in _trace
+    self._trace_aggregation(expr, objects, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 638, in _trace_aggregation
+    self._check_iteration_variables(objects, iter_objects, expr, out)
+  File "C:\Users\AKSHAT\anaconda3\envs\myenv\lib\site-packages\pyRDDLGym\core\compiler\tracer.py", line 627, in _check_iteration_variables
+    raise RDDLRepeatedVariableError(
+pyRDDLGym.core.debug.exception.RDDLRepeatedVariableError: Iteration variable <?x> is already defined in outer scope.
+>> ( exists_{?x: xpos} [ ( recycle_item-x(?recycle_item, ?x) & recycle_bin-x(?recycle_bin, ?x) ) & ( exists_{?y: ypos} [ ( recycle_item-y(?recycle_item, ?y) & recycle_bin-y(?recycle_bin, ?y) ) & ( items_sorted < 3 ) ] ) ] )
+Please check expression for CPF is_sorted_recycle_item'.
+Error message: Iteration variable <?x> is already defined in outer scope.
+>> ( exists_{?x: xpos} [ ( recycle_item-x(?recycle_item, ?x) & recycle_bin-x(?recycle_bin, ?x) ) & ( exists_{?y: ypos} [ ( recycle_item-y(?recycle_item, ?y) & recycle_bin-y(?recycle_bin, ?y) ) & ( items_sorted < 3 ) ] ) ] )
+Please check expression for CPF is_sorted_recycle_item'.RDDL domain and instance files which threw the error: domain Reduce_Reuse_Recycle{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   movable_player : object ;
+   recycle_item : object ;
+   recycle_bin : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-movable_player(movable_player) : { action-fluent , bool , default=false } ;
+move-right-movable_player(movable_player) : { action-fluent , bool , default=false } ;
+move-up-movable_player(movable_player) : { action-fluent , bool , default=false } ;
+move-down-movable_player(movable_player) : { action-fluent , bool , default=false } ;
+has-moved-movable_player(movable_player) : { state-fluent , bool , default=false } ;
+movable_player-x(movable_player,xpos) : { state-fluent , bool , default=false } ;
+movable_player-y(movable_player,ypos) : { state-fluent , bool , default=false } ;
+recycle_item-x(recycle_item,xpos) : { non-fluent , bool , default=false } ;
+recycle_item-y(recycle_item,ypos) : { non-fluent , bool , default=false } ;
+recycle_bin-x(recycle_bin,xpos) : { non-fluent , bool , default=false } ;
+recycle_bin-y(recycle_bin,ypos) : { non-fluent , bool , default=false } ;
+is_sorted_recycle_item(recycle_item) : { state-fluent , bool , default=false } ;
+items_sorted : { state-fluent , int , default=0 } ;
+sort-movable_player-recycle_item-recycle_bin(movable_player,recycle_item,recycle_bin) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+movable_player-x'(?movable_player,?xpos) = if (move-left-movable_player( ?movable_player)  & movable_player-x( ?movable_player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-movable_player( ?movable_player)  & exists_{?x2:xpos}[movable_player-x(?movable_player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-movable_player( ?movable_player)  & ~exists_{?x2:xpos}[movable_player-x(?movable_player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-movable_player( ?movable_player)  & movable_player-x( ?movable_player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-movable_player( ?movable_player)  & exists_{?x2:xpos}[movable_player-x(?movable_player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-movable_player( ?movable_player)  & ~exists_{?x2:xpos}[movable_player-x(?movable_player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else movable_player-x(?movable_player, ?xpos)
+;
+
+movable_player-y'(?movable_player,?ypos) = if (move-up-movable_player( ?movable_player)  & movable_player-y( ?movable_player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-movable_player( ?movable_player)  & exists_{?y2:ypos}[movable_player-y(?movable_player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-movable_player( ?movable_player)  & ~exists_{?y2:ypos}[movable_player-y(?movable_player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-movable_player( ?movable_player)  & movable_player-y( ?movable_player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-movable_player( ?movable_player)  & exists_{?y2:ypos}[movable_player-y(?movable_player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-movable_player( ?movable_player)  & ~exists_{?y2:ypos}[movable_player-y(?movable_player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else movable_player-y(?movable_player, ?ypos)
+;
+
+has-moved-movable_player'(?movable_player) = move-left-movable_player(?movable_player) | move-right-movable_player(?movable_player) | move-up-movable_player(?movable_player) | move-down-movable_player(?movable_player)
+;
+
+is_sorted_recycle_item'(?recycle_item) = if (exists_{?movable_player:movable_player, ?recycle_bin:recycle_bin} [ sort-movable_player-recycle_item-recycle_bin(?movable_player, ?recycle_item, ?recycle_bin) & ~is_sorted_recycle_item(?recycle_item) & exists_{?x:xpos} [movable_player-x(?movable_player, ?x) & recycle_item-x(?recycle_item, ?x)] & exists_{?y:ypos} [movable_player-y(?movable_player, ?y) & recycle_item-y(?recycle_item, ?y)] & exists_{?x:xpos} [recycle_item-x(?recycle_item, ?x) & recycle_bin-x(?recycle_bin, ?x)] & exists_{?y:ypos} [recycle_item-y(?recycle_item, ?y) & recycle_bin-y(?recycle_bin, ?y)] & items_sorted < 3 ] )  then true
+ else is_sorted_recycle_item(?recycle_item)
+;
+
+items_sorted' = if (exists_{?movable_player:movable_player, ?recycle_item:recycle_item, ?recycle_bin:recycle_bin} [ sort-movable_player-recycle_item-recycle_bin(?movable_player, ?recycle_item, ?recycle_bin) & ~is_sorted_recycle_item(?recycle_item) & exists_{?x:xpos} [movable_player-x(?movable_player, ?x) & recycle_item-x(?recycle_item, ?x)] & exists_{?y:ypos} [movable_player-y(?movable_player, ?y) & recycle_item-y(?recycle_item, ?y)] & exists_{?x:xpos} [recycle_item-x(?recycle_item, ?x) & recycle_bin-x(?recycle_bin, ?x)] & exists_{?y:ypos} [recycle_item-y(?recycle_item, ?y) & recycle_bin-y(?recycle_bin, ?y)] & items_sorted < 3 ] )  then items_sorted + 1
+ else items_sorted
+;
+
+};
+
+action-preconditions {
+forall_{?movable_player:movable_player}[
+            move-left-movable_player(?movable_player) => exists_{?x1:xpos, ?x2:xpos}[movable_player-x(?movable_player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?movable_player:movable_player}[
+            move-right-movable_player(?movable_player) => exists_{?x1:xpos, ?x2:xpos}[movable_player-x(?movable_player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?movable_player:movable_player}[
+            move-up-movable_player(?movable_player) => exists_{?y1:ypos, ?y2:ypos}[movable_player-y(?movable_player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?movable_player:movable_player}[
+            move-down-movable_player(?movable_player) => exists_{?y1:ypos, ?y2:ypos}[movable_player-y(?movable_player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = items_sorted;
+
+// max_reward = 3.0
+
+termination{
+items_sorted == 3;
+};
+}
+
+====================
+instance Reduce_Reuse_Recycle { 
+
+	 domain = Reduce_Reuse_Recycle;
+
+	 objects {
+		 xpos : { x1, x2, x3 };
+		 ypos : { y1, y2, y3 };
+		 movable_player : { player_avatar };
+		 recycle_item : { plastic_bottle1, glass_jar1, metal_can1 };
+		 recycle_bin : { recycle_bin_plastic1, recycle_bin_glass1, recycle_bin_metal1 };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 recycle_item-x(plastic_bottle1, x1);
+		 recycle_item-y(plastic_bottle1, y2);
+		 recycle_item-x(glass_jar1, x2);
+		 recycle_item-y(glass_jar1, y2);
+		 recycle_item-x(metal_can1, x3);
+		 recycle_item-y(metal_can1, y2);
+		 recycle_bin-x(recycle_bin_plastic1, x1);
+		 recycle_bin-y(recycle_bin_plastic1, y3);
+		 recycle_bin-x(recycle_bin_glass1, x2);
+		 recycle_bin-y(recycle_bin_glass1, y3);
+		 recycle_bin-x(recycle_bin_metal1, x3);
+		 recycle_bin-y(recycle_bin_metal1, y3);
+	 };
+
+	 init-state {
+		 movable_player-x(player_avatar, x1);
+		 movable_player-y(player_avatar, y1);
+		 ~is_sorted_recycle_item(plastic_bottle1);
+		 ~is_sorted_recycle_item(glass_jar1);
+		 ~is_sorted_recycle_item(metal_can1);
+		 items_sorted = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}
+try to think of approaches to fix the error and output the correct game. make sure to follow the json schema mentioned earlier.Some common mistakes are 
+            1. ensure you use the class name correctly throughout the game. for eg: if the classname is "Box", then dont use "Boxes" or similiar. 
+            2. do not use domain names in preconditions, actions, goal or reward. for eg:
+                goal: numberPatientsTreated == 3  &  isTreated(patient1, pills1)  &  isTreated(patient2, bandage1)  &  isTreated(patient3, syringe1);
+                here patient1 is a domain object and should not be used in goal. use only class names, for eg patient in above example.
+                precondition: NOT artifacts_collected(?explorer_avatar)
+                here explorer_avatar is a domain object and should not be used in precondition. use only class names, for eg explorer in above example.
+            3. do not use class names in preconditions that are not defined in action arguments.
+                for eg: action = Match(class1, class2)
+                                precondition: NOT isTreated(class3)
+                                effect: isTreated(class3) = true 
+                                here class3 is not defined in action arguments, so should not be used in precondition.
+                        one possible fix is to add a new state variable numTreatedclass3
+                                precondition : true
+                                effect : numTreatedclass3 = numTreatedclass3 + 1
+                        or another fix is to remove this transition and replace with a correct one.
+            4. Give me output in JSON format only. Do not add any extra text or explanation outside the JSON.
+            5. CRITICAL: The goal and reward MUST use ONLY integer state variables (e.g., total_points == 5, number_items_collected == 3).
+               NEVER use boolean predicates with arguments in the goal or reward (e.g., is_at_landmark(Player, Landmark) is WRONG).
+               If you need to track something like "player reached a landmark", create an integer counter variable (e.g., landmarks_visited)
+               and increment it in the transition effect, then use that integer in the goal (e.g., landmarks_visited == 1).
+            6. Only the player/avatar class should have isMovable=true. All other classes MUST be isMovable=false.
+            7. max_reward must be a single integer value, not an expression.
+            8. side_effects must be a list of strings like "ShowText(true, 'text')", NOT dictionaries.
+            9. CRITICAL: Only ONE class should have isMovable=true (the player/avatar). All other classes must be isMovable=false.
+            10. CRITICAL: Every action that increments a counter MUST have a boolean guard (NOT is_done(?obj)) and set the guard (is_done(?obj) = true) in its effects. Without guards, counters overshoot == goals making the game unsolvable.
+            11. CRITICAL: Transition action arguments MUST use exact class names. If the action is defined as PerformTask(festival_participants, festival_items), the transition MUST say action: PerformTask(?festival_participants, ?festival_items). Using shortened names like ?participant or ?item will cause RDDL compilation errors.
+            12. The movable class must have exactly 1 instance (the player avatar). Multiple movable instances cause action space explosion and unsolvable games.
+            13. Do NOT use domain object names (like family_member_1, bonfire) in preconditions. Use class-typed variables instead.
+            14. COUNTER REACHABILITY: If counter starts at S and goal requires counter == T, the game must allow exactly (T-S) increments. Do NOT use a single global boolean guard on a counter needing multiple increments. Use precondition 'counter < T' instead, OR use per-object boolean guards where the class has exactly (T-S) objects.
+            15. OVERSHOOT PREVENTION: Precondition upper bound must exactly match goal value. If goal is 'score == 10', precondition must be 'score < 10', NOT 'score < 15'.
+        try to pinpoint the mistake in game and then fix it

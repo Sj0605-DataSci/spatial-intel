@@ -1,0 +1,9 @@
+Grid: 7 cols × 7 rows. Each cell ≈146px.
+
+MOVE: 'Sam' (looks like: A stylish young adult equipped with a shopping cart and a list, ready to tackle mall challenges with enthusiasm.)
+  FROM cell (C1, R2)  [pixels x≈146–292, y≈292–438]
+  TO   cell (C1, R1)  [pixels x≈146–292, y≈146–292]
+
+1. ERASE 'Sam' from (C1, R2) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'Sam' once at (C1, R1).
+3. Nothing else changes.

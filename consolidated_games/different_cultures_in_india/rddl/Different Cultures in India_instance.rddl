@@ -1,0 +1,52 @@
+instance Different_Cultures_in_India { 
+
+	 domain = Different_Cultures_in_India;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 explorer : { cultural_explorer };
+		 cultural_symbol : { cultural_symbol_1, cultural_symbol_2, cultural_symbol_3 };
+		 tapestry : { harmony_tapestry };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 cultural_symbol-x(cultural_symbol_1, x2);
+		 cultural_symbol-y(cultural_symbol_1, y2);
+		 cultural_symbol-x(cultural_symbol_2, x3);
+		 cultural_symbol-y(cultural_symbol_2, y3);
+		 cultural_symbol-x(cultural_symbol_3, x4);
+		 cultural_symbol-y(cultural_symbol_3, y4);
+		 tapestry-x(harmony_tapestry, x5);
+		 tapestry-y(harmony_tapestry, y5);
+	 };
+
+	 init-state {
+		 explorer-x(cultural_explorer, x1);
+		 explorer-y(cultural_explorer, y1);
+		 ~is_collected_cultural_symbol(cultural_symbol_1);
+		 ~is_collected_cultural_symbol(cultural_symbol_2);
+		 ~is_collected_cultural_symbol(cultural_symbol_3);
+		 symbols_collected = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

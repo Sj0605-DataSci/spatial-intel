@@ -1,0 +1,2 @@
+left
+Move left to interact with EventManagerAlex and participate in another event.

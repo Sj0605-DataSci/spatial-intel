@@ -1,0 +1,2 @@
+up
+Moving up will bring me closer to the spin_wizard, which is a player I can interact with to potentially score runs or execute a strategy.

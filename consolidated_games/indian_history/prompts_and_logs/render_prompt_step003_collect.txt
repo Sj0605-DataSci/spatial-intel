@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R2):
+'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' collect artifact 'An ancient edict inscribed on stone, showcasing Ashoka's transformation to peace.'.
+
+1. Show 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' with a sparkle/glow reaching toward 'An ancient edict inscribed on stone, showcasing Ashoka's transformation to peace.'.
+2. ERASE 'An ancient edict inscribed on stone, showcasing Ashoka's transformation to peace.' from (C1, R2) — fill with background texture. It must be completely gone.
+3. 'A young, inquisitive archaeologist exploring the depths of Indian history, equipped with a notepad and map.' stays at (C1, R2).
+4. Nothing else changes.

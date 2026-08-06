@@ -1,0 +1,59 @@
+instance Christmas { 
+
+	 domain = Christmas;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { santa };
+		 obstacle : { elf_1 };
+		 guide : { frosty_the_snowman };
+		 target : { family_home_1, family_home_2 };
+		 helper : { reindeer };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 obstacle-x(elf_1, x2);
+		 obstacle-y(elf_1, y2);
+		 guide-x(frosty_the_snowman, x3);
+		 guide-y(frosty_the_snowman, y3);
+		 target-x(family_home_1, x4);
+		 target-y(family_home_1, y4);
+		 target-x(family_home_2, x5);
+		 target-y(family_home_2, y5);
+		 helper-x(reindeer, x3);
+		 helper-y(reindeer, y4);
+	 };
+
+	 init-state {
+		 player-x(santa, x1);
+		 player-y(santa, y1);
+		 gifts_delivered = 0;
+		 elf_encounters = 0;
+		 hints_used = 0;
+		 ~is_delivered_target(family_home_1);
+		 ~is_delivered_target(family_home_2);
+		 ~is_interacted_obstacle(elf_1);
+		 ~is_hint_used_guide(frosty_the_snowman);
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

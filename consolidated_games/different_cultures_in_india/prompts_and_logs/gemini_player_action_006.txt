@@ -1,0 +1,2 @@
+down
+The cultural explorer needs to move down to collect cultural symbol 3, which is located directly below the current position.

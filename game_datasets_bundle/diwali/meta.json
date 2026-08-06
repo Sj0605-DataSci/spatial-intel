@@ -1,0 +1,28 @@
+{
+  "topic": "Diwali Celebration",
+  "mode": "full",
+  "num_states": 100,
+  "num_transitions": 327,
+  "num_actions_in_vocab": 7,
+  "grid": [
+    5,
+    5
+  ],
+  "engine_report": {
+    "topic": "Diwali Celebration",
+    "grid": [
+      5,
+      5
+    ],
+    "num_actions_defined": 7,
+    "reachable_states": 100,
+    "upper_bound_states": 400,
+    "total_transitions": 327,
+    "avg_branching": 3.27,
+    "max_branching": 5,
+    "num_goal_states": 25,
+    "optimal_route_len": 7,
+    "max_reward": 3,
+    "truncated": false
+  }
+}

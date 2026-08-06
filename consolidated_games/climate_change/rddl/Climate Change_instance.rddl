@@ -1,0 +1,52 @@
+instance Climate_Change { 
+
+	 domain = Climate_Change;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { alex };
+		 environment : { forest_region, ice_cap };
+		 resource : { solar_array };
+		 community : { community_center };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 environment-x(forest_region, x2);
+		 environment-y(forest_region, y2);
+		 environment-x(ice_cap, x3);
+		 environment-y(ice_cap, y3);
+		 resource-x(solar_array, x1);
+		 resource-y(solar_array, y3);
+		 community-x(community_center, x4);
+		 community-y(community_center, y4);
+	 };
+
+	 init-state {
+		 player-x(alex, x1);
+		 player-y(alex, y1);
+		 ecosystem_health = 0;
+		 community_support = 0;
+		 resources_placed = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

@@ -1,0 +1,28 @@
+{
+  "topic": "7 Worlds of Wonder",
+  "mode": "full",
+  "num_states": 800,
+  "num_transitions": 2640,
+  "num_actions_in_vocab": 9,
+  "grid": [
+    5,
+    5
+  ],
+  "engine_report": {
+    "topic": "7 Worlds of Wonder",
+    "grid": [
+      5,
+      5
+    ],
+    "num_actions_defined": 6,
+    "reachable_states": 800,
+    "upper_bound_states": 12800,
+    "total_transitions": 2640,
+    "avg_branching": 3.3,
+    "max_branching": 5,
+    "num_goal_states": 25,
+    "optimal_route_len": 16,
+    "max_reward": 10,
+    "truncated": false
+  }
+}

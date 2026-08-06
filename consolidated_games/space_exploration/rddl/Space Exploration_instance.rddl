@@ -1,0 +1,53 @@
+instance Space_Exploration { 
+
+	 domain = Space_Exploration;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4 };
+		 ypos : { y1, y2, y3, y4 };
+		 commander : { commander_vega };
+		 artifact : { artifact_1, artifact_2, artifact_3 };
+		 alien_civilization : { alien_civilization_1, alien_civilization_2 };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 artifact-x(artifact_1, x2);
+		 artifact-y(artifact_1, y2);
+		 artifact-x(artifact_2, x3);
+		 artifact-y(artifact_2, y3);
+		 artifact-x(artifact_3, x4);
+		 artifact-y(artifact_3, y1);
+		 alien_civilization-x(alien_civilization_1, x1);
+		 alien_civilization-y(alien_civilization_1, y3);
+		 alien_civilization-x(alien_civilization_2, x3);
+		 alien_civilization-y(alien_civilization_2, y1);
+	 };
+
+	 init-state {
+		 commander-x(commander_vega, x1);
+		 commander-y(commander_vega, y1);
+		 ~is_collected_artifact(artifact_1);
+		 ~is_collected_artifact(artifact_2);
+		 ~is_collected_artifact(artifact_3);
+		 ~is_alliance_formed_alien_civilization(alien_civilization_1);
+		 ~is_alliance_formed_alien_civilization(alien_civilization_2);
+		 artifacts_collected = 0;
+		 alliances_formed = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

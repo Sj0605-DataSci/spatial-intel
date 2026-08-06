@@ -1,0 +1,60 @@
+instance Wildlife { 
+
+	 domain = Wildlife;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 conservationist : { alex };
+		 animal_companion : { elephant_calf };
+		 endangered_animal : { tiger, panda };
+		 ecosystem : { rainforest, savannah, ocean };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 animal_companion-x(elephant_calf, x2);
+		 animal_companion-y(elephant_calf, y2);
+		 endangered_animal-x(tiger, x3);
+		 endangered_animal-y(tiger, y3);
+		 endangered_animal-x(panda, x4);
+		 endangered_animal-y(panda, y4);
+		 ecosystem-x(rainforest, x2);
+		 ecosystem-y(rainforest, y4);
+		 ecosystem-x(savannah, x3);
+		 ecosystem-y(savannah, y2);
+		 ecosystem-x(ocean, x4);
+		 ecosystem-y(ocean, y3);
+	 };
+
+	 init-state {
+		 conservationist-x(alex, x1);
+		 conservationist-y(alex, y1);
+		 animals_rescued = 0;
+		 habitat_restored = 0;
+		 ~is_rescued_tiger;
+		 ~is_rescued_panda;
+		 ~is_restored_rainforest;
+		 ~is_restored_savannah;
+		 ~is_restored_ocean;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

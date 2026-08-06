@@ -1,0 +1,2 @@
+down
+Move down to cell (3,2) to clean the visible dark, polluted patch of ground.

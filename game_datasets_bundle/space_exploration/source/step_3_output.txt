@@ -1,0 +1,15 @@
+Rules:
+
+1. Objective Completion: Complete missions to increase Mission Progress. Requires resource collection and alliance formation.
+
+2. Navigation and Obstacles: Use Navigator Orion's skills to move the spacecraft. Avoid collisions to maintain Spacecraft Integrity.
+
+3. Resource Management: Collect resources to enhance Resource Inventory. Use for trade and scientific study.
+
+4. Crew Morale: Make balanced decisions to maintain high Crew Morale. High morale boosts efficiency and success rates.
+
+5. Diplomatic Engagements: Successful interactions with aliens improve Alien Relations. Solara’s diplomacy influences trade options and alliances.
+
+6. Discovery Logging: Uncover new phenomena to update Cosmic Discoveries. These drive narrative progression and new mission availability.
+
+End Goal: Advance civilization through exploration milestones, achieving a breakthrough that concludes the game.

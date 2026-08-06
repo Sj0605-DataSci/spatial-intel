@@ -1,0 +1,2 @@
+left
+Move left to interact with alien_civilization_2 and form an alliance, as it is at (2,0) and I am at (3,0). This will bring me closer to the goal of forming 2 alliances.

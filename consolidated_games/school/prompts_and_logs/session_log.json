@@ -1,0 +1,302 @@
+{
+  "game": "school",
+  "session_id": "gemini_plays_school_1777125393",
+  "movable_chars": [
+    "MrTeacher"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 5,
+    "rows": 5
+  },
+  "steps": 12,
+  "goal": "student_interactions == 2 AND class_layouts_optimized == 2",
+  "won": false,
+  "final_scoreboard": {
+    "student_interactions": 0,
+    "class_layouts_optimized": 0,
+    "interacted_with_Anna": 0,
+    "interacted_with_Sam": 0,
+    "optimized_Classroom": 0,
+    "optimized_Library": 0
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "MrTeacher",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "MrTeacher",
+      "action": "down",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "MrTeacher",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "MrTeacher",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "MrTeacher",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "MrTeacher",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "MrTeacher",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 8,
+      "character": "MrTeacher",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 9,
+      "character": "MrTeacher",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 10,
+      "character": "MrTeacher",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 11,
+      "character": "MrTeacher",
+      "action": "right",
+      "from": [
+        1,
+        1
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    },
+    {
+      "step": 12,
+      "character": "MrTeacher",
+      "action": "left",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        1,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "student_interactions": 0,
+        "class_layouts_optimized": 0,
+        "interacted_with_Anna": 0,
+        "interacted_with_Sam": 0,
+        "optimized_Classroom": 0,
+        "optimized_Library": 0
+      }
+    }
+  ]
+}

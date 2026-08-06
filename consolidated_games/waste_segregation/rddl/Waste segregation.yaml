@@ -1,0 +1,222 @@
+topic: Waste segregation
+objective: The player must sort and deposit all types of waste correctly in the appropriate
+  recycling, composting, or landfill bins to clean up the neighborhood.
+environment_description: An urban neighborhood grid with sorting zones for recycling,
+  composting, and landfill surrounded by residential buildings and community spaces,
+  capturing the essence of environmental care and civic responsibility.
+domain:
+- name: player
+  image_prompt: An eager environmentalist equipped with a sorting guide, ready to
+    organize waste in the neighborhood.
+- name: plastic_waste
+  image_prompt: A scattered pile of plastic bottles and containers, waiting to be
+    recycled.
+- name: organic_waste
+  image_prompt: A heap of biodegradable waste consisting of vegetable peels and food
+    scraps.
+- name: metal_waste
+  image_prompt: An assortment of aluminum cans and rusted tins waiting for proper
+    disposal.
+- name: recycling_bin
+  image_prompt: A blue recycling bin designated for plastic and metal waste.
+- name: compost_bin
+  image_prompt: A green composter designed to convert organic waste into rich soil.
+- name: landfill_bin
+  image_prompt: A gray bin reserved for non_recyclable waste and metal residues.
+classes:
+- class_name: player
+  list_of_objects:
+  - player
+- class_name: plastic
+  list_of_objects:
+  - plastic_waste
+- class_name: organic
+  list_of_objects:
+  - organic_waste
+- class_name: metal
+  list_of_objects:
+  - metal_waste
+- class_name: receptacle
+  list_of_objects:
+  - recycling_bin
+  - compost_bin
+  - landfill_bin
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: plastic
+  isMovable: false
+- class_name: organic
+  isMovable: false
+- class_name: metal
+  isMovable: false
+- class_name: receptacle
+  isMovable: false
+state_variables:
+- name: is_collected(plastic)
+  type: bool
+- name: is_collected(organic)
+  type: bool
+- name: is_collected(metal)
+  type: bool
+- name: is_sorted(plastic, receptacle)
+  type: bool
+- name: is_sorted(organic, receptacle)
+  type: bool
+- name: is_sorted(metal, receptacle)
+  type: bool
+- name: number_sorted
+  type: integer
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Collect(player, plastic)
+- name: Collect(player, organic)
+- name: Collect(player, metal)
+- name: Deposit(player, plastic, receptacle)
+- name: Deposit(player, organic, receptacle)
+- name: Deposit(player, metal, receptacle)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: Collect(?player, ?plastic)
+  preconditions:
+  - NOT is_collected(?plastic)
+  - ?player.x == ?plastic.x
+  - ?player.y == ?plastic.y
+  effects:
+  - is_collected(?plastic) = true
+  side_effects:
+  - MoveImage(?plastic, ?plastic.x, ?plastic.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Plastic waste collected!')
+- action: Collect(?player, ?organic)
+  preconditions:
+  - NOT is_collected(?organic)
+  - ?player.x == ?organic.x
+  - ?player.y == ?organic.y
+  effects:
+  - is_collected(?organic) = true
+  side_effects:
+  - MoveImage(?organic, ?organic.x, ?organic.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Organic waste collected!')
+- action: Collect(?player, ?metal)
+  preconditions:
+  - NOT is_collected(?metal)
+  - ?player.x == ?metal.x
+  - ?player.y == ?metal.y
+  effects:
+  - is_collected(?metal) = true
+  side_effects:
+  - MoveImage(?metal, ?metal.x, ?metal.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Metal waste collected!')
+- action: Deposit(?player, ?plastic, ?receptacle)
+  preconditions:
+  - is_collected(?plastic)
+  - NOT is_sorted(?plastic, ?receptacle)
+  - number_sorted < 3
+  - ?player.x == ?receptacle.x
+  - ?player.y == ?receptacle.y
+  effects:
+  - is_sorted(?plastic, ?receptacle) = true
+  - number_sorted = number_sorted + 1
+  side_effects:
+  - ShowText(true, 'Plastic waste sorted!')
+- action: Deposit(?player, ?organic, ?receptacle)
+  preconditions:
+  - is_collected(?organic)
+  - NOT is_sorted(?organic, ?receptacle)
+  - number_sorted < 3
+  - ?player.x == ?receptacle.x
+  - ?player.y == ?receptacle.y
+  effects:
+  - is_sorted(?organic, ?receptacle) = true
+  - number_sorted = number_sorted + 1
+  side_effects:
+  - ShowText(true, 'Organic waste sorted!')
+- action: Deposit(?player, ?metal, ?receptacle)
+  preconditions:
+  - is_collected(?metal)
+  - NOT is_sorted(?metal, ?receptacle)
+  - number_sorted < 3
+  - ?player.x == ?receptacle.x
+  - ?player.y == ?receptacle.y
+  effects:
+  - is_sorted(?metal, ?receptacle) = true
+  - number_sorted = number_sorted + 1
+  side_effects:
+  - ShowText(true, 'Metal waste sorted!')
+goal: number_sorted == 3
+reward: number_sorted
+max_reward: 3
+grid_size:
+  x_size: 5
+  y_size: 4
+initial_state_objects:
+- domain_object: player
+  x: '1'
+  y: '1'
+- domain_object: plastic_waste
+  x: '2'
+  y: '1'
+- domain_object: organic_waste
+  x: '3'
+  y: '2'
+- domain_object: metal_waste
+  x: '4'
+  y: '1'
+- domain_object: recycling_bin
+  x: '1'
+  y: '3'
+- domain_object: compost_bin
+  x: '2'
+  y: '3'
+- domain_object: landfill_bin
+  x: '3'
+  y: '3'
+initial_state_variables:
+- name: is_collected(plastic)
+  value: false
+- name: is_collected(organic)
+  value: false
+- name: is_collected(metal)
+  value: false
+- name: is_sorted(plastic, recycling_bin)
+  value: false
+- name: is_sorted(organic, compost_bin)
+  value: false
+- name: is_sorted(metal, landfill_bin)
+  value: false
+- name: number_sorted
+  value: 0

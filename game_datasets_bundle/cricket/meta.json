@@ -1,0 +1,28 @@
+{
+  "topic": "Cricket",
+  "mode": "full",
+  "num_states": 275,
+  "num_transitions": 1130,
+  "num_actions_in_vocab": 5,
+  "grid": [
+    5,
+    5
+  ],
+  "engine_report": {
+    "topic": "Cricket",
+    "grid": [
+      5,
+      5
+    ],
+    "num_actions_defined": 2,
+    "reachable_states": 275,
+    "upper_bound_states": 400,
+    "total_transitions": 1130,
+    "avg_branching": 4.109,
+    "max_branching": 5,
+    "num_goal_states": 25,
+    "optimal_route_len": 10,
+    "max_reward": 10,
+    "truncated": false
+  }
+}

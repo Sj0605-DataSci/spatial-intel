@@ -1,0 +1,2 @@
+down
+Riya needs to move down to (1,1) to interact with and resolve obstacle_1, as she is a conflict resolver.

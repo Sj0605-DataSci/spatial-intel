@@ -1,0 +1,21 @@
+**Rules:**
+
+1. **Puzzle Completion:**  
+   Solve puzzles to increase Wonder Restoration Progress, unlocking narratives with Architect Spirits' insights.
+
+2. **Artifact Discovery:**  
+   Find artifacts to boost Cultural Insight Level and Artifact Discovery Count, revealing historical stories from Cultural Guardians.
+
+3. **Decision Making:**  
+   Make choices affecting Preservation vs. Development Balance, influencing the narrative guided by Preservation Advocate and Modern Developer.
+
+4. **Emotional Engagement:**  
+   Engage with dilemmas to raise Emotional Connection Scale, affecting dialogue depth with the Curator and narrative progression.
+
+5. **Puzzle Timeliness:**  
+   Solve Time Anomalies promptly to maintain steady Wonder Restoration Progress, unlocking further narratives.
+
+6. **Win Condition:**  
+   Fully restore all wonders by maximizing Wonder Restoration Progress and Cultural Insight Level. Celebrate the wonders' preserved legacies.
+
+These rules integrate gameplay mechanics with the narrative depth, making player actions meaningful in exploring the heritage and conservation challenges of the wonders.

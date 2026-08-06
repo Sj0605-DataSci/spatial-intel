@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R3):
+'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' performs 'assemble meal' with 'A designated area with plates illustrating a balanced diet, ready to receive delivered foods.'.
+
+1. Add a celebration effect at (C3, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'All meals assembled, great job!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

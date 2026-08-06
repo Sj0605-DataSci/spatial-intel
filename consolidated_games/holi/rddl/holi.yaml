@@ -1,0 +1,129 @@
+topic: Holi Festival Harmony
+objective: Guide characters to deliver symbolic Holi items, resolve conflicts, and
+  create vibrant festival zones to celebrate community, joy, and renewal.
+environment_description: A bustling village setting adorned for Holi, with colorful
+  powders lining the streets, vibrant festival zones, and characters interacting in
+  joyous celebration. Huts are embellished with festive garlands, and stages are set
+  for communal activities, embodying the theme of unity and renewal.
+domain:
+- name: riya
+  image_prompt: A young woman with a gentle demeanor, wearing a colorful saree with
+    intricate patterns, holding a tray of vibrant powders, emphasizing her role in
+    conflict resolution.
+- name: aarav
+  image_prompt: A cheerful boy in traditional kurta pajamas, holding a playful assortment
+    of water balloons, reflecting his exuberant spirit.
+- name: elder_mehta
+  image_prompt: An elderly man with a wise expression, dressed in a simple dhoti and
+    shawl, offering guidance with an authoritative yet kind presence.
+- name: meera
+  image_prompt: A dynamic young woman adorned in a bright lehenga, captured mid_dance,
+    showcasing her role in uniting the community through celebration.
+- name: jai
+  image_prompt: A resourceful artisan with a creative spark, depicted with tools and
+    vibrant threads, illustrating his role in crafting connections.
+- name: obstacle_1
+  image_prompt: A wooden barrier symbolizing misunderstandings and disagreements,
+    requiring navigation to progress.
+classes:
+- class_name: player
+  list_of_objects:
+  - riya
+- class_name: festival_participants
+  list_of_objects:
+  - aarav
+  - elder_mehta
+  - meera
+  - jai
+- class_name: obstacle
+  list_of_objects:
+  - obstacle_1
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: festival_participants
+  isMovable: false
+- class_name: obstacle
+  isMovable: false
+state_variables:
+- name: harmony_level
+  type: integer
+- name: conflicts_resolved
+  type: integer
+- name: festival_zones_activated
+  type: integer
+- name: is_obstacle_resolved(obstacle)
+  type: boolean
+- name: is_zone_activated(festival_participants)
+  type: boolean
+actions:
+- name: ResolveConflict(?player, ?obstacle)
+- name: ActivateZone(?player, ?festival_participants)
+transitions:
+- action: ResolveConflict(?player, ?obstacle)
+  preconditions:
+  - ?player.x == ?obstacle.x
+  - ?player.y == ?obstacle.y
+  - conflicts_resolved < 3
+  - NOT is_obstacle_resolved(?obstacle)
+  effects:
+  - conflicts_resolved = conflicts_resolved + 1
+  - harmony_level = harmony_level + 10
+  - is_obstacle_resolved(?obstacle) = true
+  side_effects:
+  - ShowText(true, 'Conflict resolved, harmony increased!')
+- action: ActivateZone(?player, ?festival_participants)
+  preconditions:
+  - conflicts_resolved == 3
+  - festival_zones_activated < 2
+  - ?player.x == ?festival_participants.x
+  - ?player.y == ?festival_participants.y
+  - NOT is_zone_activated(?festival_participants)
+  effects:
+  - festival_zones_activated = festival_zones_activated + 1
+  - harmony_level = harmony_level + 20
+  - is_zone_activated(?festival_participants) = true
+  side_effects:
+  - ShowText(true, 'Festival zone activated!')
+goal: festival_zones_activated == 2
+reward: harmony_level
+max_reward: 60
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: riya
+  x: '1'
+  y: '1'
+- domain_object: aarav
+  x: '3'
+  y: '2'
+- domain_object: elder_mehta
+  x: '2'
+  y: '3'
+- domain_object: meera
+  x: '4'
+  y: '4'
+- domain_object: jai
+  x: '5'
+  y: '3'
+- domain_object: obstacle_1
+  x: '2'
+  y: '2'
+initial_state_variables:
+- name: harmony_level
+  value: 0
+- name: conflicts_resolved
+  value: 0
+- name: festival_zones_activated
+  value: 0
+- name: is_obstacle_resolved(obstacle_1)
+  value: false
+- name: is_zone_activated(aarav)
+  value: false
+- name: is_zone_activated(elder_mehta)
+  value: false
+- name: is_zone_activated(meera)
+  value: false
+- name: is_zone_activated(jai)
+  value: false

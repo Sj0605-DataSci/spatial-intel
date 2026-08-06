@@ -1,0 +1,7 @@
+**Refining Image Editing**
+
+I'm now focused on the editing steps to visualize the environmentalist's action. I've broken down the process. I have a plan to apply a visual effect to show the interaction between the character and the plastic. After that, the plastic waste is to be erased. Finally, the background where the waste was will be restored seamlessly to maintain the scene.
+
+**Finalizing Interpretation of Prompt**
+
+I've determined the image generated precisely satisfies the user's initial instructions, by comparing the model output to the initial request. No modifications are needed, so the process is complete. I'm finalizing the result now.

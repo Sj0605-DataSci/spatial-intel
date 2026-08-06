@@ -1,0 +1,13 @@
+**State Variables for Eid Harmony:**
+
+1. **Gratitude Points**: Accumulate through completing acts of kindness and solving gratitude-based puzzles. High points unlock new challenges.
+
+2. **Family Unity Meter**: Measures progress in mending relationships. Increase by finding hidden messages and resolving conflicts.
+
+3. **Charity Events Completed**: Tracks the number of successful charity tasks organized by Amira. Completion enhances community bonds.
+
+4. **Feast Preparedness Level**: Indicates progress in arranging the family feast. Fully prepared signifies completion of sharing challenges.
+
+5. **Reconciliation Tasks**: Lists resolved issues between characters, contributing to the overall family harmony and game narrative progression. 
+
+6. **Hidden Objects Found**: Tracks discovered items like letters and symbolic objects, revealing deeper emotional layers and advancing the story.

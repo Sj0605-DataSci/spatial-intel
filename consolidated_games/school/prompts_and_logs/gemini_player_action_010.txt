@@ -1,0 +1,2 @@
+left
+Move left to interact with AnnaStudent at (1,1) and increment student_interactions.

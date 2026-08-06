@@ -1,0 +1,168 @@
+Generate a game scene image that follows this YAML.
+YAML:
+```yaml
+topic: Christmas
+objective: Help Santa collect and deliver specific presents to their matching houses
+  on Christmas Eve by navigating through a snowy neighborhood grid.
+environment_description: A charming winter neighborhood on Christmas Eve, with snow-covered
+  houses adorned with holiday decorations. The grid layout represents the neighborhood
+  streets, with houses marked by twinkling lights, Christmas trees creating natural
+  pathways, and strategically placed snow piles adding to the festive atmosphere.
+domain:
+- name: Santa
+  image_prompt: A friendly Santa character symbol 'S' in bright red with white outline,
+    fitting within a single grid cell
+- name: Present1
+  image_prompt: A gift box marked 'P1' wrapped in red and gold paper
+- name: Present2
+  image_prompt: A gift box marked 'P2' wrapped in green and silver paper
+- name: Present3
+  image_prompt: A gift box marked 'P3' wrapped in blue and white paper
+- name: Present4
+  image_prompt: A gift box marked 'P4' wrapped in purple and gold paper
+- name: HouseA
+  image_prompt: A cozy house marked 'A' decorated with Christmas lights, occupying
+    2x2 grid cells
+- name: HouseB
+  image_prompt: A charming house marked 'B' with a wreath on the door, occupying 2x2
+    grid cells
+- name: HouseC
+  image_prompt: A festive house marked 'C' with snow-covered roof, occupying 2x2 grid
+    cells
+- name: HouseD
+  image_prompt: A welcoming house marked 'D' with decorated windows, occupying 2x2
+    grid cells
+- name: ReinderStable
+  image_prompt: A cozy stable marked 'R' for reindeer rest, occupying 2x2 grid cells
+classes:
+- class_name: SantaClass
+  list_of_objects:
+  - Santa
+- class_name: Present
+  list_of_objects:
+  - Present1
+  - Present2
+  - Present3
+  - Present4
+- class_name: House
+  list_of_objects:
+  - HouseA
+  - HouseB
+  - HouseC
+  - HouseD
+- class_name: Stable
+  list_of_objects:
+  - ReinderStable
+state_of_objects:
+- class_name: SantaClass
+  isMovable: true
+- class_name: Present
+  isMovable: false
+- class_name: House
+  isMovable: false
+- class_name: Stable
+  isMovable: false
+state_variables:
+- name: carrying_present_id
+  type: integer
+- name: isCollected(Present)
+  type: bool
+- name: isDelivered(House)
+  type: bool
+- name: delivery_count
+  type: integer
+- name: stable_visited
+  type: bool
+actions:
+- name: Match(SantaClass, Present)
+- name: Match(SantaClass, House)
+- name: Match(SantaClass, Stable)
+transitions:
+- action: Match(SantaClass, Present)
+  preconditions:
+  - NOT isCollected(?Present)
+  - carrying_present_id == 0
+  effects:
+  - isCollected(Present) = true
+  - carrying_present_id = 1
+  side_effects:
+  - ShowText(true, "Santa picked up a present!")
+- action: Match(SantaClass, House)
+  preconditions:
+  - carrying_present_id > 0
+  - NOT isDelivered(?House)
+  effects:
+  - isDelivered(House) = true
+  - carrying_present_id = 0
+  - delivery_count = delivery_count + 1
+  side_effects:
+  - ShowText(true, "Present delivered successfully!")
+- action: Match(SantaClass, Stable)
+  preconditions:
+  - NOT stable_visited
+  effects:
+  - stable_visited = true
+  side_effects:
+  - ShowText(true, "Taking a short rest at the stable!")
+goal: delivery_count == 4
+max_reward: 5
+reward: delivery_count + stable_visited
+grid_size:
+  x_size: 8
+  y_size: 8
+initial_state_objects:
+- domain_object: Santa
+  x: x1
+  y: y1
+- domain_object: Present1
+  x: x3
+  y: y2
+- domain_object: Present2
+  x: x4
+  y: y3
+- domain_object: Present3
+  x: x5
+  y: y4
+- domain_object: Present4
+  x: x6
+  y: y5
+- domain_object: HouseA
+  x: x2
+  y: y6
+- domain_object: HouseB
+  x: x4
+  y: y6
+- domain_object: HouseC
+  x: x6
+  y: y6
+- domain_object: HouseD
+  x: x8
+  y: y6
+- domain_object: ReinderStable
+  x: x1
+  y: y8
+initial_state_variables:
+- name: carrying_present_id
+  value: 0
+- name: isCollected(Present1)
+  value: false
+- name: isCollected(Present2)
+  value: false
+- name: isCollected(Present3)
+  value: false
+- name: isCollected(Present4)
+  value: false
+- name: isDelivered(HouseA)
+  value: false
+- name: isDelivered(HouseB)
+  value: false
+- name: isDelivered(HouseC)
+  value: false
+- name: isDelivered(HouseD)
+  value: false
+- name: delivery_count
+  value: 0
+- name: stable_visited
+  value: false
+
+```

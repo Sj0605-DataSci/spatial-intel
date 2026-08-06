@@ -1,0 +1,120 @@
+domain Christmas{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   obstacle : object ;
+   guide : object ;
+   target : object ;
+   helper : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+obstacle-x(obstacle,xpos) : { non-fluent , bool , default=false } ;
+obstacle-y(obstacle,ypos) : { non-fluent , bool , default=false } ;
+guide-x(guide,xpos) : { non-fluent , bool , default=false } ;
+guide-y(guide,ypos) : { non-fluent , bool , default=false } ;
+target-x(target,xpos) : { non-fluent , bool , default=false } ;
+target-y(target,ypos) : { non-fluent , bool , default=false } ;
+helper-x(helper,xpos) : { non-fluent , bool , default=false } ;
+helper-y(helper,ypos) : { non-fluent , bool , default=false } ;
+gifts_delivered : { state-fluent , int , default=0 } ;
+elf_encounters : { state-fluent , int , default=0 } ;
+hints_used : { state-fluent , int , default=0 } ;
+is_delivered_target(target) : { state-fluent , bool , default=false } ;
+is_interacted_obstacle(obstacle) : { state-fluent , bool , default=false } ;
+is_hint_used_guide(guide) : { state-fluent , bool , default=false } ;
+deliver-player-target(player,target) : { action-fluent , bool , default=false } ;
+interact-player-obstacle(player,obstacle) : { action-fluent , bool , default=false } ;
+use_hint-player-guide(player,guide) : { action-fluent , bool , default=false } ;
+shortcut-player-helper(player,helper) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+gifts_delivered' = if (exists_{?player:player, ?target:target} [ deliver-player-target(?player, ?target) & exists_{?x:xpos} [player-x(?player, ?x) & target-x(?target, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & target-y(?target, ?y)] & ~is_delivered_target(?target) & gifts_delivered < 2 ] )  then gifts_delivered + 1
+ else gifts_delivered
+;
+
+elf_encounters' = if (exists_{?player:player, ?obstacle:obstacle} [ interact-player-obstacle(?player, ?obstacle) & exists_{?x:xpos} [player-x(?player, ?x) & obstacle-x(?obstacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & obstacle-y(?obstacle, ?y)] & ~is_interacted_obstacle(?obstacle) ] )  then elf_encounters + 1
+ else elf_encounters
+;
+
+hints_used' = if (exists_{?player:player, ?guide:guide} [ use_hint-player-guide(?player, ?guide) & exists_{?x:xpos} [player-x(?player, ?x) & guide-x(?guide, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & guide-y(?guide, ?y)] & ~is_hint_used_guide(?guide) ] )  then hints_used + 1
+ else hints_used
+;
+
+is_delivered_target'(?target) = if (exists_{?player:player} [ deliver-player-target(?player, ?target) & exists_{?x:xpos} [player-x(?player, ?x) & target-x(?target, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & target-y(?target, ?y)] & ~is_delivered_target(?target) & gifts_delivered < 2 ] )  then true
+ else is_delivered_target(?target)
+;
+
+is_interacted_obstacle'(?obstacle) = if (exists_{?player:player} [ interact-player-obstacle(?player, ?obstacle) & exists_{?x:xpos} [player-x(?player, ?x) & obstacle-x(?obstacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & obstacle-y(?obstacle, ?y)] & ~is_interacted_obstacle(?obstacle) ] )  then true
+ else is_interacted_obstacle(?obstacle)
+;
+
+is_hint_used_guide'(?guide) = if (exists_{?player:player} [ use_hint-player-guide(?player, ?guide) & exists_{?x:xpos} [player-x(?player, ?x) & guide-x(?guide, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & guide-y(?guide, ?y)] & ~is_hint_used_guide(?guide) ] )  then true
+ else is_hint_used_guide(?guide)
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = gifts_delivered;
+
+// max_reward = 2.0
+
+termination{
+gifts_delivered == 2;
+};
+}

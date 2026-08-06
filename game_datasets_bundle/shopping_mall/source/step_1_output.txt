@@ -1,0 +1,13 @@
+Characters:
+
+1. **Sam the Shopper**: Embodies the player’s journey, evolving from novice to savvy shopper through collecting achievements and handling shopping dilemmas creatively within the mall.
+
+2. **Mall Security Officer Terry**: Offers guidance and aids in crisis management, developing a mentor-like role by occasionally challenging Sam with security-themed mini-missions.
+
+3. **Chef Maria**: Hosts culinary competitions in the food court, evolving into a friendly rival who challenges Sam to cook-offs, deepening the player's culinary exploration.
+
+4. **Event Manager Alex**: Coordinates themed shopping competitions, encouraging Sam to participate in events that promote friendly rivalry with other shoppers.
+
+5. **Fellow Shoppers**: Each features a personal arc, offering collaborative or competitive interactions with Sam, enriching the social narrative and reflecting real-life mall dynamics.
+
+Environment: A vibrant, evolving mall setting rich with interactive elements like limited-time sales, festive events, and thematic displays, reinforcing the dynamic and evolving world where character relationships deepen.

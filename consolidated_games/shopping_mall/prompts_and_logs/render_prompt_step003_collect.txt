@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R2):
+'A stylish young adult equipped with a shopping cart and a list, ready to tackle mall challenges with enthusiasm.' collect item 'A checklist of specific items, including electronics and fashion accessories, essential for completing the mall journey.'.
+
+1. Show 'A stylish young adult equipped with a shopping cart and a list, ready to tackle mall challenges with enthusiasm.' with a sparkle/glow reaching toward 'A checklist of specific items, including electronics and fashion accessories, essential for completing the mall journey.'.
+2. ERASE 'A checklist of specific items, including electronics and fashion accessories, essential for completing the mall journey.' from (C1, R2) — fill with background texture. It must be completely gone.
+3. 'A stylish young adult equipped with a shopping cart and a list, ready to tackle mall challenges with enthusiasm.' stays at (C1, R2).
+4. Nothing else changes.

@@ -1,0 +1,14 @@
+Rules:
+
+1. **Task Completion**: Arjun completes tasks by following sequences. Each completed task increases "Tasks Completed" and advances to the next family/community interaction.
+
+2. **Joy Increase**: Successful task sequences boost the "Joy Level." Higher joy levels unlock celebratory scenes and special interactions.
+
+3. **Traditional Accuracy**: Completing tasks as per Grandmother Meera's and Uncle Ravi's guidance increases "Traditions Fulfilled." Higher adherence unlocks blessings and cultural rewards.
+
+4. **Creative Adds**: Collaborate with Anya on decor tasks. Higher "Creativity Meter" grants access to unique designs and enhances the "Joy Level."
+
+5. **Community Bonds**: Engaging neighbors in grid tasks raises "Community Connection." Full connection initiates a community gathering event.
+
+End Goal:
+All state variables reaching completion triggers a grand family and community festival, displaying a message of unity and festive success.

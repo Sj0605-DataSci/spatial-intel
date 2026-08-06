@@ -1,0 +1,9 @@
+Grid: 5 cols × 5 rows. Each cell ≈204px.
+
+MOVE: 'player_ayaan' (looks like: A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers.)
+  FROM cell (C1, R1)  [pixels x≈204–408, y≈204–408]
+  TO   cell (C1, R2)  [pixels x≈204–408, y≈408–612]
+
+1. ERASE 'player_ayaan' from (C1, R1) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'player_ayaan' once at (C1, R2).
+3. Nothing else changes.

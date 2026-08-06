@@ -1,0 +1,156 @@
+topic: Baisakhi Celebration
+objective: The player must collect cultural items, coordinate dances, prepare the
+  feast, and craft artifacts to unite the community for a successful Baisakhi celebration.
+environment_description: A vibrant Punjabi village alive with Baisakhi festivities.
+  Fields ripe with wheat, a bustling Gurdwara, colorful dance areas, and lively feast
+  zones. The atmosphere brims with unity, joy, and prosperity, capturing the essence
+  of the festival.
+domain:
+- name: player
+  image_prompt: A villager dressed in traditional Punjabi attire, enthusiastic and
+    spirited, ready to lead community efforts.
+- name: wheat_bundle
+  image_prompt: A bundle of golden wheat symbolizing the harvest, key for Baisakhi
+    preparations.
+- name: dhol
+  image_prompt: A traditional drum central to Baisakhi dances, needing repairs and
+    ready to energize celebrations.
+- name: phulkari_scarf
+  image_prompt: A vibrantly embroidered scarf, integral to the festival's cultural
+    attire and decorations.
+- name: prayer_space
+  image_prompt: A peaceful area within the Gurdwara, inviting blessings and spiritual
+    unity.
+classes:
+- class_name: player
+  list_of_objects:
+  - player
+- class_name: festival_item
+  list_of_objects:
+  - wheat_bundle
+  - dhol
+  - phulkari_scarf
+- class_name: gurdwara
+  list_of_objects:
+  - prayer_space
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: festival_item
+  isMovable: false
+- class_name: gurdwara
+  isMovable: false
+state_variables:
+- name: is_collected(festival_item)
+  type: bool
+- name: items_collected
+  type: integer
+- name: rituals_completed
+  type: integer
+- name: collection_done(festival_item)
+  type: bool
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Collect(player, festival_item)
+- name: Pray(player, gurdwara)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: Collect(?player, ?festival_item)
+  preconditions:
+  - NOT is_collected(?festival_item)
+  - ?player.x == ?festival_item.x
+  - ?player.y == ?festival_item.y
+  - items_collected < 3
+  effects:
+  - is_collected(festival_item) = true
+  - collection_done(festival_item) = true
+  - items_collected = items_collected + 1
+  side_effects:
+  - MoveImage(?festival_item, ?festival_item.x, ?festival_item.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Item collected!')
+  - ShowText(items_collected == 3, 'All festival items collected!')
+- action: Pray(?player, ?gurdwara)
+  preconditions:
+  - items_collected == 3
+  - ?player.x == ?gurdwara.x
+  - ?player.y == ?gurdwara.y
+  - rituals_completed < 1
+  effects:
+  - rituals_completed = rituals_completed + 1
+  side_effects:
+  - ShowText(true, 'Prayer completed!')
+  - ShowText(rituals_completed == 1, 'All rituals completed! Baisakhi celebration
+    is successful!')
+goal: items_collected == 3 AND rituals_completed == 1
+reward: items_collected + 3 * rituals_completed
+max_reward: 6
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: player
+  x: '1'
+  y: '1'
+- domain_object: wheat_bundle
+  x: '2'
+  y: '2'
+- domain_object: dhol
+  x: '3'
+  y: '3'
+- domain_object: phulkari_scarf
+  x: '4'
+  y: '2'
+- domain_object: prayer_space
+  x: '5'
+  y: '5'
+initial_state_variables:
+- name: is_collected(wheat_bundle)
+  value: false
+- name: is_collected(dhol)
+  value: false
+- name: is_collected(phulkari_scarf)
+  value: false
+- name: collection_done(wheat_bundle)
+  value: false
+- name: collection_done(dhol)
+  value: false
+- name: collection_done(phulkari_scarf)
+  value: false
+- name: items_collected
+  value: 0
+- name: rituals_completed
+  value: 0

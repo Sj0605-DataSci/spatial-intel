@@ -1,0 +1,2 @@
+Right
+Mr. Teacher is currently on the same cell as AnnaStudent. Moving right to (2,1) will allow Mr. Teacher to then move towards SamStudent (2,2) and SchoolLibrary (2,3) or SchoolClassroom (3,1) in an efficient manner, assuming the interaction with Anna is processed upon being on the same cell.

@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R3):
+'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' performs 'use policy' with 'A card representing a local government water conservation initiative.'.
+
+1. Add a celebration effect at (C1, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Policy card used to enhance community resilience!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

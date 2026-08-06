@@ -1,0 +1,2 @@
+right
+To interact with Buddy Ben and increase friendship levels, I need to move right to (1,0) and then down to (1,1).

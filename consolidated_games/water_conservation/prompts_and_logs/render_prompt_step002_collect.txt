@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R1):
+'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' collect 'A sturdy rain barrel designed to collect and store rainwater.'.
+
+1. Show 'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' with a sparkle/glow reaching toward 'A sturdy rain barrel designed to collect and store rainwater.'.
+2. ERASE 'A sturdy rain barrel designed to collect and store rainwater.' from (C1, R1) — fill with background texture. It must be completely gone.
+3. 'A dedicated community leader in a simple outfit, ready to organize and implement water conservation.' stays at (C1, R1).
+4. Nothing else changes.

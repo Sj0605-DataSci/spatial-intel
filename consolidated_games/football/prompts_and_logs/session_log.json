@@ -1,0 +1,209 @@
+{
+  "game": "football",
+  "session_id": "gemini_plays_football_1777123472",
+  "movable_chars": [
+    "playmaker"
+  ],
+  "player_model": "gemini-2.5-flash",
+  "renderer_model": "gemini-3-pro-image-preview",
+  "grid": {
+    "cols": 6,
+    "rows": 6
+  },
+  "steps": 9,
+  "goal": "goals_scored == 3",
+  "won": true,
+  "final_scoreboard": {
+    "successful_passes": 0,
+    "goals_scored": 3,
+    "rival_moves_countered": 0
+  },
+  "moves": [
+    {
+      "step": 1,
+      "character": "playmaker",
+      "action": "right",
+      "from": [
+        0,
+        0
+      ],
+      "to": [
+        1,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 0,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 2,
+      "character": "playmaker",
+      "action": "right",
+      "from": [
+        1,
+        0
+      ],
+      "to": [
+        2,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 0,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 3,
+      "character": "playmaker",
+      "action": "down",
+      "from": [
+        2,
+        0
+      ],
+      "to": [
+        2,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:score"
+      ],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 1,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 4,
+      "character": "playmaker",
+      "action": "up",
+      "from": [
+        2,
+        1
+      ],
+      "to": [
+        2,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 1,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 5,
+      "character": "playmaker",
+      "action": "right",
+      "from": [
+        2,
+        0
+      ],
+      "to": [
+        3,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 1,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 6,
+      "character": "playmaker",
+      "action": "down",
+      "from": [
+        3,
+        0
+      ],
+      "to": [
+        3,
+        1
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:score"
+      ],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 2,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 7,
+      "character": "playmaker",
+      "action": "up",
+      "from": [
+        3,
+        1
+      ],
+      "to": [
+        3,
+        0
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 2,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 8,
+      "character": "playmaker",
+      "action": "down",
+      "from": [
+        3,
+        0
+      ],
+      "to": [
+        3,
+        1
+      ],
+      "blocked": false,
+      "collected": [],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 2,
+        "rival_moves_countered": 0
+      }
+    },
+    {
+      "step": 9,
+      "character": "playmaker",
+      "action": "up",
+      "from": [
+        3,
+        1
+      ],
+      "to": [
+        3,
+        0
+      ],
+      "blocked": false,
+      "collected": [
+        "celebrate:score"
+      ],
+      "scoreboard": {
+        "successful_passes": 0,
+        "goals_scored": 3,
+        "rival_moves_countered": 0
+      }
+    }
+  ]
+}

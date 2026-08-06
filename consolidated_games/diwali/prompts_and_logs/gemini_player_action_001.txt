@@ -1,0 +1,2 @@
+right
+Moving right to (1,0) to get closer to the diyas at (1,2).

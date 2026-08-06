@@ -1,0 +1,2 @@
+right
+The player needs to move right to get closer to the mughal_artifact at (4,2).

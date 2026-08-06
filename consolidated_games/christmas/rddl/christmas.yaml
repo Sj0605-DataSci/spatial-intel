@@ -1,0 +1,186 @@
+topic: Christmas
+objective: Help Santa deliver all the presents to the correct family homes by solving
+  memory and sequence puzzles.
+environment_description: A picturesque snowy village at night, illuminated by streetlights
+  and glowing windows. Gently falling snow creates a serene holiday atmosphere, capturing
+  the essence of a cozy and welcoming Christmas Eve setting.
+domain:
+- name: santa
+  image_prompt: A warm, cheerful figure dressed in a traditional red suit with a fluffy
+    white beard, joyfully carrying a sack of gifts.
+- name: elf_1
+  image_prompt: A small, energetic character with pointy ears and a colorful outfit,
+    playfully grinning and ready to create diversions for Santa.
+- name: frosty_the_snowman
+  image_prompt: A friendly snowman with a carrot nose, coal eyes, a scarf, and a warm
+    smile, offering guidance to Santa.
+- name: family_home_1
+  image_prompt: A cozy home with a wreath on the door, awaiting Santa's visit.
+- name: family_home_2
+  image_prompt: A brightly decorated house, festively lit, eager for Christmas gifts.
+- name: reindeer
+  image_prompt: An elegant reindeer with shimmering antlers, ready to assist Santa
+    with magical shortcuts.
+classes:
+- class_name: player
+  list_of_objects:
+  - santa
+- class_name: obstacle
+  list_of_objects:
+  - elf_1
+- class_name: guide
+  list_of_objects:
+  - frosty_the_snowman
+- class_name: target
+  list_of_objects:
+  - family_home_1
+  - family_home_2
+- class_name: helper
+  list_of_objects:
+  - reindeer
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: obstacle
+  isMovable: false
+- class_name: guide
+  isMovable: false
+- class_name: target
+  isMovable: false
+- class_name: helper
+  isMovable: false
+state_variables:
+- name: gifts_delivered
+  type: integer
+- name: elf_encounters
+  type: integer
+- name: hints_used
+  type: integer
+- name: is_delivered(target)
+  type: bool
+- name: is_interacted(obstacle)
+  type: bool
+- name: is_hint_used(guide)
+  type: bool
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Deliver(player, target)
+- name: Interact(player, obstacle)
+- name: UseHint(player, guide)
+- name: Shortcut(player, helper)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: Deliver(?player, ?target)
+  preconditions:
+  - ?player.x == ?target.x
+  - ?player.y == ?target.y
+  - NOT is_delivered(?target)
+  - gifts_delivered < 2
+  effects:
+  - gifts_delivered = gifts_delivered + 1
+  - is_delivered(?target) = true
+  side_effects:
+  - ShowText(true, 'Gift delivered successfully!')
+  - MoveImage(?target, ?target.x, ?target.y, HIDDEN, HIDDEN)
+- action: Interact(?player, ?obstacle)
+  preconditions:
+  - ?player.x == ?obstacle.x
+  - ?player.y == ?obstacle.y
+  - NOT is_interacted(?obstacle)
+  effects:
+  - elf_encounters = elf_encounters + 1
+  - is_interacted(?obstacle) = true
+  side_effects:
+  - ShowText(true, 'Tricky elf encountered!')
+- action: UseHint(?player, ?guide)
+  preconditions:
+  - ?player.x == ?guide.x
+  - ?player.y == ?guide.y
+  - NOT is_hint_used(?guide)
+  effects:
+  - hints_used = hints_used + 1
+  - is_hint_used(?guide) = true
+  side_effects:
+  - ShowText(true, 'Hint used from Frosty!')
+- action: Shortcut(?player, ?helper)
+  preconditions:
+  - ?player.x == ?helper.x
+  - ?player.y == ?helper.y
+  - elf_encounters >= 1
+  effects: []
+  side_effects:
+  - ShowText(true, 'Shortcut taken with reindeer assistance!')
+goal: gifts_delivered == 2
+reward: gifts_delivered
+max_reward: 2
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: santa
+  x: '1'
+  y: '1'
+- domain_object: elf_1
+  x: '2'
+  y: '2'
+- domain_object: frosty_the_snowman
+  x: '3'
+  y: '3'
+- domain_object: family_home_1
+  x: '4'
+  y: '4'
+- domain_object: family_home_2
+  x: '5'
+  y: '5'
+- domain_object: reindeer
+  x: '3'
+  y: '4'
+initial_state_variables:
+- name: gifts_delivered
+  value: 0
+- name: elf_encounters
+  value: 0
+- name: hints_used
+  value: 0
+- name: is_delivered(family_home_1)
+  value: false
+- name: is_delivered(family_home_2)
+  value: false
+- name: is_interacted(elf_1)
+  value: false
+- name: is_hint_used(frosty_the_snowman)
+  value: false

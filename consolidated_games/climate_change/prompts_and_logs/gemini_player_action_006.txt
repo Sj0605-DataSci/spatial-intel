@@ -1,0 +1,2 @@
+left
+Alex is currently at (2,1). Moving 'left' will take Alex to (1,1), which is the location of the 'forest_region'. Interacting with the forest region is a direct step towards restoring global ecosystems and increasing 'ecosystem_health'.

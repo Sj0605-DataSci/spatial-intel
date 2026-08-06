@@ -1,0 +1,2 @@
+down
+The wheat bundle is directly below the player at (1,1), so moving down will collect it.

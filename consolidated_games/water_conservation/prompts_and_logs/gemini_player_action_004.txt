@@ -1,0 +1,2 @@
+down
+The player is at (2,1) and the efficient faucet is at (2,2). Moving down will collect the efficient faucet, progressing towards the goal of collecting 3 items.

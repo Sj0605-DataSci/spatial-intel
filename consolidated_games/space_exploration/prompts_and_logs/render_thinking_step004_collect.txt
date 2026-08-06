@@ -1,0 +1,7 @@
+**Analyzing Action Parameters**
+
+I am now focusing on the 'COLLECT' action's specifics. My interpretation is that the `commander_vega` at (C2, R2) initiates the action. A visual element will connect the commander with the target artifact at (C3, R0). The artifact will then be removed from (C3, R0), and the background seamlessly restored. The commander remains in their original cell. Other game elements are untouched.
+
+**Assessing Request Compliance**
+
+I've verified the image against the user's instructions. The sparkle effect was successfully implemented on the commander, located at the specified coordinates. Also, the target artifact was fully removed and the background texture appropriately applied. No other modifications were made. This result appears to fully satisfy the user's request.

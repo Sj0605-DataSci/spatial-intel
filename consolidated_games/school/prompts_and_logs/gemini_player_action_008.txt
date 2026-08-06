@@ -1,0 +1,2 @@
+left
+Move left to interact with AnnaStudent.

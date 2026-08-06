@@ -1,0 +1,9 @@
+Grid: 6 cols × 6 rows. Each cell ≈170px.
+
+MOVE: 'playmaker' (looks like: An agile midfielder in a team jersey, poised with a ball, exuding precision and creativity on the field.)
+  FROM cell (C1, R0)  [pixels x≈170–340, y≈0–170]
+  TO   cell (C2, R0)  [pixels x≈340–510, y≈0–170]
+
+1. ERASE 'playmaker' from (C1, R0) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'playmaker' once at (C2, R0).
+3. Nothing else changes.

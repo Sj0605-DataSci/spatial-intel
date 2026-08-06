@@ -1,0 +1,2 @@
+right
+Move right to get closer to efficient_faucet at (2,2) and policy_card_2 at (3,1).

@@ -1,0 +1,52 @@
+**Game Summary: "Heartland Harvest"**
+
+**Outline:**
+"Heartland Harvest" is a grid-based puzzle and hidden object game where players manage a farm through strategic decisions involving crops, resources, livestock, and market dynamics. The game emphasizes sustainability and community culture.
+
+**Characters:**
+
+1. **Farmer Ella** - Oversees farm management, balancing crops, livestock care, and market strategies.
+2. **Grandpa Sam** - Imparts agricultural wisdom and insights into market trends.
+3. **Neighbor Ben** - Facilitates community resource exchanges, enhancing cooperative resilience.
+4. **Emma the Ecologist** - Guides sustainable practices, impacting both crop and livestock health.
+5. **Mentor Bird** - Offers clues to finding hidden resources and market opportunities.
+6. **Weather Forecaster Lily** - Advises on weather impacts and seasonal market fluctuations.
+
+**State Variables:**
+
+1. **Crop Arrangement** - Determines yield efficiency and market readiness.
+2. **Soil Health** - Influences crop and livestock feed quality.
+3. **Irrigation Levels** - Affects plant growth and water supply for livestock.
+4. **Seasonal Cycle** - Shapes strategic planting and market timing.
+5. **Wisdom Points** - Unlock market insights and advanced techniques.
+6. **Sustainability Score** - Measures eco-friendly actions, including livestock care.
+7. **Community Cooperation** - Tracks neighborly exchanges improving resilience.
+8. **Market Influence** - Reflects player impact on local trade dynamics.
+9. **Livestock Health** - Monitors animal welfare affecting productivity and market offerings.
+
+**Rules:**
+
+1. **Optimize Farm Layout**: Arrange crops and livestock strategically for maximum productivity and market value.
+2. **Balance Resources**: Maintain soil, irrigation, and livestock health for sustainable output.
+3. **Adapt to Seasons**: Use Lily’s forecasts for planting and market strategies, adjusting to seasonal demands.
+4. **Leverage Wisdom Points**: Access advanced farming and market tactics from Grandpa Sam.
+5. **Sustainability Practices**: Enhance eco-friendliness and productivity via Emma's advice on crops and livestock.
+6. **Foster Community Ties**: Boost Community Cooperation and Market Influence through trades with Ben.
+7. **Hidden Opportunities**: Discover market trends and resources using Mentor Bird’s hints.
+8. **Expand Market Presence**: Directly affect local trade dynamics by optimizing yield and quality for market sale.
+
+**Image Prompt Description:**
+
+- **Farmer Ella**: A dynamic figure in workwear, tending to both crops and animals, embodying balance and leadership in farming.
+
+- **Grandpa Sam**: A wise elder beside a barn, pointing out market charts, marrying tradition with commerce.
+
+- **Neighbor Ben**: Engaged in friendly barter with Ella, with livestock grazing nearby, reflecting community warmth and support.
+
+- **Emma the Ecologist**: In a verdant setting with solar panels and livestock shelters, symbolizing holistic sustainability.
+
+- **Mentor Bird**: Observing from atop a weather vane, with a keen eye on the farm's bustling activity and growth opportunities.
+
+- **Weather Forecaster Lily**: Standing by a weather station, notebook in hand, ready to predict both weather and market climates.
+
+- **Environment**: A lively, evolving farmland, marked by bustling market stalls, grazing animals, and shifting seasons, all rich with player-controlled transformations.

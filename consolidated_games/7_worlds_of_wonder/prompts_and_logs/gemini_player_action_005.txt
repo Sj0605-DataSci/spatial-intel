@@ -1,0 +1,2 @@
+down
+Moving down brings the player closer to puzzle_2 at (3,3) and artifact_2 at (2,2), both of which are 2 steps away. This move is efficient for progressing towards both goals.

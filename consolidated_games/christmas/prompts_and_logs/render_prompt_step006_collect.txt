@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R3):
+'A warm, cheerful figure dressed in a traditional red suit with a fluffy white beard, joyfully carrying a sack of gifts.' deliver 'A cozy home with a wreath on the door, awaiting Santa's visit.'.
+
+1. Show 'A warm, cheerful figure dressed in a traditional red suit with a fluffy white beard, joyfully carrying a sack of gifts.' with a sparkle/glow reaching toward 'A cozy home with a wreath on the door, awaiting Santa's visit.'.
+2. ERASE 'A cozy home with a wreath on the door, awaiting Santa's visit.' from (C3, R3) — fill with background texture. It must be completely gone.
+3. 'A warm, cheerful figure dressed in a traditional red suit with a fluffy white beard, joyfully carrying a sack of gifts.' stays at (C3, R3).
+4. Nothing else changes.

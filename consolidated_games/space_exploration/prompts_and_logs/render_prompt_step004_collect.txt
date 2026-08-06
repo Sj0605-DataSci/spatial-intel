@@ -1,0 +1,7 @@
+COLLECT at cell (C2, R2):
+'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' collect 'A mysterious device emanating a faint blue glow, hinting at alien technology.'.
+
+1. Show 'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' with a sparkle/glow reaching toward 'A mysterious device emanating a faint blue glow, hinting at alien technology.'.
+2. ERASE 'A mysterious device emanating a faint blue glow, hinting at alien technology.' from (C2, R2) — fill with background texture. It must be completely gone.
+3. 'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' stays at (C2, R2).
+4. Nothing else changes.

@@ -1,0 +1,7 @@
+CELEBRATE at cell (C3, R3):
+'A wise and adventurous figure in explorer's garb, equipped with historical maps and a journal, ready to discover and restore the wonders.' performs 'solve' with 'A wooden ancient lock that needs to be solved to reveal secrets of the wonder.'.
+
+1. Add a celebration effect at (C3, R3): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'All puzzles are solved! The wonder is restored!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

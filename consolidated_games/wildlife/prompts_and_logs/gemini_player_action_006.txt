@@ -1,0 +1,2 @@
+down
+Alex is currently on the savannah habitat at (2,1). Moving down to (2,2) will allow Alex to interact with the tiger, which is an animal that needs to be rescued to achieve the game's objective.

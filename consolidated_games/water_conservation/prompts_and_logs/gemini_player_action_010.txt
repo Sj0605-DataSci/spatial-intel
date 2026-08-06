@@ -1,0 +1,2 @@
+right
+The player needs to use policy card 1, which is located at (1,3). Moving right will place the player on the same cell as policy card 1.

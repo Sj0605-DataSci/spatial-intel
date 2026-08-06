@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R1):
+'A determined hospital administrator, managing resources and coordinating medical teams in a busy hospital setting.' performs 'treat patient' with 'A fatigued elderly patient requiring immediate care in a hospital ward.'.
+
+1. Add a celebration effect at (C1, R1): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'All patients have been cared for!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

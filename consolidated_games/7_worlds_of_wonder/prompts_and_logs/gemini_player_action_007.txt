@@ -1,0 +1,2 @@
+down
+The player is currently at (3,3), which is the location of puzzle_2. Moving onto a puzzle solves it. By staying on this cell, the player interacts with puzzle_2.

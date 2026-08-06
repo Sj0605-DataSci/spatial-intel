@@ -1,0 +1,54 @@
+instance School_Management { 
+
+	 domain = School_Management;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 teacher_avatar : { mr_teacher };
+		 student : { anna_student, sam_student };
+		 school_area : { school_classroom, school_library };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 student-x(anna_student, x2);
+		 student-y(anna_student, y2);
+		 student-x(sam_student, x3);
+		 student-y(sam_student, y3);
+		 school_area-x(school_classroom, x4);
+		 school_area-y(school_classroom, y2);
+		 school_area-x(school_library, x3);
+		 school_area-y(school_library, y4);
+	 };
+
+	 init-state {
+		 teacher_avatar-x(mr_teacher, x1);
+		 teacher_avatar-y(mr_teacher, y1);
+		 student_interactions = 0;
+		 class_layouts_optimized = 0;
+		 ~interacted_with_anna;
+		 ~interacted_with_sam;
+		 ~optimized_classroom;
+		 ~optimized_library;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

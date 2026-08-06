@@ -1,0 +1,141 @@
+topic: Climate Change
+objective: Alex must restore global ecosystems by strategically placing renewable
+  resources and engaging in community missions.
+environment_description: A dynamic interactive world grid showcasing diverse ecosystems
+  like polar regions, rainforests, and urban eco_cities, transitioning from degraded
+  to thriving states.
+domain:
+- name: alex
+  image_prompt: A determined young scientist with short, spiky hair and reflective
+    glasses, wearing a utility belt with tools and a renewable energy monitor.
+- name: forest_region
+  image_prompt: A lush forest suffering from deforestation, with scattered stumps
+    and struggling wildlife.
+- name: ice_cap
+  image_prompt: A melting ice cap depicted with reduced ice cover and polar animals
+    affected by the changes.
+- name: solar_array
+  image_prompt: An array of solar panels positioned to harness sunlight for sustainable
+    energy generation.
+- name: community_center
+  image_prompt: A vibrant community hub decorated with educational posters on sustainability
+    and renewable practices.
+classes:
+- class_name: player
+  list_of_objects:
+  - alex
+- class_name: environment
+  list_of_objects:
+  - forest_region
+  - ice_cap
+- class_name: resource
+  list_of_objects:
+  - solar_array
+- class_name: community
+  list_of_objects:
+  - community_center
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: environment
+  isMovable: false
+- class_name: resource
+  isMovable: false
+- class_name: community
+  isMovable: false
+state_variables:
+- name: ecosystem_health
+  type: integer
+- name: community_support
+  type: integer
+- name: resources_placed
+  type: integer
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: PlaceResource(player, environment, resource)
+- name: EngageCommunity(player, community)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: PlaceResource(?player, ?environment, ?resource)
+  preconditions:
+  - resources_placed < 2
+  - ?player.x == ?environment.x
+  - ?player.y == ?environment.y
+  - ecosystem_health < 4
+  effects:
+  - resources_placed = resources_placed + 1
+  - ecosystem_health = ecosystem_health + 2
+  side_effects:
+  - ShowText(true, 'Resource successfully placed!')
+- action: EngageCommunity(?player, ?community)
+  preconditions:
+  - ?player.x == ?community.x
+  - ?player.y == ?community.y
+  - community_support < 1
+  effects:
+  - community_support = community_support + 1
+  side_effects:
+  - ShowText(true, 'Community mission completed!')
+goal: ecosystem_health == 4 AND community_support == 1
+reward: ecosystem_health + community_support * 2
+max_reward: 10
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: alex
+  x: '1'
+  y: '1'
+- domain_object: forest_region
+  x: '2'
+  y: '2'
+- domain_object: ice_cap
+  x: '3'
+  y: '3'
+- domain_object: solar_array
+  x: '1'
+  y: '3'
+- domain_object: community_center
+  x: '4'
+  y: '4'
+initial_state_variables:
+- name: ecosystem_health
+  value: 0
+- name: community_support
+  value: 0
+- name: resources_placed
+  value: 0

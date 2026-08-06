@@ -1,0 +1,7 @@
+CELEBRATE at cell (C1, R2):
+'A cheerful young boy in a vibrant kurta, dynamically interacting with his environment, showcasing diyas and vibrant decor, set against a bustling festival backdrop.' performs 'complete task' with 'A collection of small, clay diyas arranged neatly, ready to be placed for the Diwali celebration.'.
+
+1. Add a celebration effect at (C1, R2): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'The meals are ready for Diwali!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

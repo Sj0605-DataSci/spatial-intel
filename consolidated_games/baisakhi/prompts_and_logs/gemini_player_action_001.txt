@@ -1,0 +1,2 @@
+right
+Move right to get closer to the wheat_bundle at (1,1).

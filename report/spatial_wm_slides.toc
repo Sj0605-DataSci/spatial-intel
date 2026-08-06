@@ -1,0 +1,8 @@
+\beamer@sectionintoc {1}{Data}{3}{0}{1}
+\beamer@sectionintoc {2}{Architecture}{6}{0}{2}
+\beamer@sectionintoc {3}{The journey}{8}{0}{3}
+\beamer@sectionintoc {4}{Results}{12}{0}{4}
+\beamer@sectionintoc {5}{Prediction gallery}{16}{0}{5}
+\beamer@sectionintoc {6}{Making the WM sharper}{28}{0}{6}
+\beamer@sectionintoc {7}{Rich conditioning}{33}{0}{7}
+\beamer@sectionintoc {8}{Metrics, results \& latency}{38}{0}{8}

@@ -1,0 +1,2 @@
+down
+Arjun is at (1,1) and the diyas are at (1,2). Moving down will allow Arjun to collect the diyas.

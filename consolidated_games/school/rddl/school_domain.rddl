@@ -1,0 +1,112 @@
+domain School_Management{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   teacher_avatar : object ;
+   student : object ;
+   school_area : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-teacher_avatar(teacher_avatar) : { action-fluent , bool , default=false } ;
+move-right-teacher_avatar(teacher_avatar) : { action-fluent , bool , default=false } ;
+move-up-teacher_avatar(teacher_avatar) : { action-fluent , bool , default=false } ;
+move-down-teacher_avatar(teacher_avatar) : { action-fluent , bool , default=false } ;
+has-moved-teacher_avatar(teacher_avatar) : { state-fluent , bool , default=false } ;
+teacher_avatar-x(teacher_avatar,xpos) : { state-fluent , bool , default=false } ;
+teacher_avatar-y(teacher_avatar,ypos) : { state-fluent , bool , default=false } ;
+student-x(student,xpos) : { non-fluent , bool , default=false } ;
+student-y(student,ypos) : { non-fluent , bool , default=false } ;
+school_area-x(school_area,xpos) : { non-fluent , bool , default=false } ;
+school_area-y(school_area,ypos) : { non-fluent , bool , default=false } ;
+student_interactions : { state-fluent , int , default=0 } ;
+class_layouts_optimized : { state-fluent , int , default=0 } ;
+interacted_with_anna : { state-fluent , bool , default=false } ;
+interacted_with_sam : { state-fluent , bool , default=false } ;
+optimized_classroom : { state-fluent , bool , default=false } ;
+optimized_library : { state-fluent , bool , default=false } ;
+interact_with-student(student) : { action-fluent , bool , default=false } ;
+optimize_layout-school_area(school_area) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+teacher_avatar-x'(?teacher_avatar,?xpos) = if (move-left-teacher_avatar( ?teacher_avatar)  & teacher_avatar-x( ?teacher_avatar, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-teacher_avatar( ?teacher_avatar)  & exists_{?x2:xpos}[teacher_avatar-x(?teacher_avatar, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-teacher_avatar( ?teacher_avatar)  & ~exists_{?x2:xpos}[teacher_avatar-x(?teacher_avatar, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-teacher_avatar( ?teacher_avatar)  & teacher_avatar-x( ?teacher_avatar, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-teacher_avatar( ?teacher_avatar)  & exists_{?x2:xpos}[teacher_avatar-x(?teacher_avatar, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-teacher_avatar( ?teacher_avatar)  & ~exists_{?x2:xpos}[teacher_avatar-x(?teacher_avatar, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else teacher_avatar-x(?teacher_avatar, ?xpos)
+;
+
+teacher_avatar-y'(?teacher_avatar,?ypos) = if (move-up-teacher_avatar( ?teacher_avatar)  & teacher_avatar-y( ?teacher_avatar, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-teacher_avatar( ?teacher_avatar)  & exists_{?y2:ypos}[teacher_avatar-y(?teacher_avatar, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-teacher_avatar( ?teacher_avatar)  & ~exists_{?y2:ypos}[teacher_avatar-y(?teacher_avatar, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-teacher_avatar( ?teacher_avatar)  & teacher_avatar-y( ?teacher_avatar, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-teacher_avatar( ?teacher_avatar)  & exists_{?y2:ypos}[teacher_avatar-y(?teacher_avatar, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-teacher_avatar( ?teacher_avatar)  & ~exists_{?y2:ypos}[teacher_avatar-y(?teacher_avatar, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else teacher_avatar-y(?teacher_avatar, ?ypos)
+;
+
+has-moved-teacher_avatar'(?teacher_avatar) = move-left-teacher_avatar(?teacher_avatar) | move-right-teacher_avatar(?teacher_avatar) | move-up-teacher_avatar(?teacher_avatar) | move-down-teacher_avatar(?teacher_avatar)
+;
+
+student_interactions' = if (exists_{?student:student} [ interact_with-student(?student) & exists_{?x:xpos} [student-x(?student, ?x) & teacher_avatar-x(mr_teacher, ?x)] & exists_{?y:ypos} [student-y(?student, ?y) & teacher_avatar-y(mr_teacher, ?y)] & student_interactions < 2 & ~(interacted_with_anna & ?student == anna_student) & ~(interacted_with_sam & ?student == sam_student) ] )  then student_interactions + 1
+ else student_interactions
+;
+
+class_layouts_optimized' = if (exists_{?school_area:school_area} [ optimize_layout-school_area(?school_area) & exists_{?x:xpos} [school_area-x(?school_area, ?x) & teacher_avatar-x(mr_teacher, ?x)] & exists_{?y:ypos} [school_area-y(?school_area, ?y) & teacher_avatar-y(mr_teacher, ?y)] & class_layouts_optimized < 2 & ~(optimized_classroom & ?school_area == school_classroom) & ~(optimized_library & ?school_area == school_library) ] )  then class_layouts_optimized + 1
+ else class_layouts_optimized
+;
+
+interacted_with_anna' = if (exists_{?student:student} [ interact_with-student(?student) & exists_{?x:xpos} [student-x(?student, ?x) & teacher_avatar-x(mr_teacher, ?x)] & exists_{?y:ypos} [student-y(?student, ?y) & teacher_avatar-y(mr_teacher, ?y)] & student_interactions < 2 & ~(interacted_with_anna & ?student == anna_student) & ~(interacted_with_sam & ?student == sam_student) ] )  then (interacted_with_anna OR ?student
+ else interacted_with_anna
+;
+
+interacted_with_sam' = if (exists_{?student:student} [ interact_with-student(?student) & exists_{?x:xpos} [student-x(?student, ?x) & teacher_avatar-x(mr_teacher, ?x)] & exists_{?y:ypos} [student-y(?student, ?y) & teacher_avatar-y(mr_teacher, ?y)] & student_interactions < 2 & ~(interacted_with_anna & ?student == anna_student) & ~(interacted_with_sam & ?student == sam_student) ] )  then (interacted_with_sam OR ?student
+ else interacted_with_sam
+;
+
+optimized_classroom' = if (exists_{?school_area:school_area} [ optimize_layout-school_area(?school_area) & exists_{?x:xpos} [school_area-x(?school_area, ?x) & teacher_avatar-x(mr_teacher, ?x)] & exists_{?y:ypos} [school_area-y(?school_area, ?y) & teacher_avatar-y(mr_teacher, ?y)] & class_layouts_optimized < 2 & ~(optimized_classroom & ?school_area == school_classroom) & ~(optimized_library & ?school_area == school_library) ] )  then (optimized_classroom OR ?school_area
+ else optimized_classroom
+;
+
+optimized_library' = if (exists_{?school_area:school_area} [ optimize_layout-school_area(?school_area) & exists_{?x:xpos} [school_area-x(?school_area, ?x) & teacher_avatar-x(mr_teacher, ?x)] & exists_{?y:ypos} [school_area-y(?school_area, ?y) & teacher_avatar-y(mr_teacher, ?y)] & class_layouts_optimized < 2 & ~(optimized_classroom & ?school_area == school_classroom) & ~(optimized_library & ?school_area == school_library) ] )  then (optimized_library OR ?school_area
+ else optimized_library
+;
+
+};
+
+action-preconditions {
+forall_{?teacher_avatar:teacher_avatar}[
+            move-left-teacher_avatar(?teacher_avatar) => exists_{?x1:xpos, ?x2:xpos}[teacher_avatar-x(?teacher_avatar, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?teacher_avatar:teacher_avatar}[
+            move-right-teacher_avatar(?teacher_avatar) => exists_{?x1:xpos, ?x2:xpos}[teacher_avatar-x(?teacher_avatar, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?teacher_avatar:teacher_avatar}[
+            move-up-teacher_avatar(?teacher_avatar) => exists_{?y1:ypos, ?y2:ypos}[teacher_avatar-y(?teacher_avatar, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?teacher_avatar:teacher_avatar}[
+            move-down-teacher_avatar(?teacher_avatar) => exists_{?y1:ypos, ?y2:ypos}[teacher_avatar-y(?teacher_avatar, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = student_interactions + class_layouts_optimized * 2;
+
+// max_reward = 8.0
+
+termination{
+student_interactions == 2  &  class_layouts_optimized == 2;
+};
+}

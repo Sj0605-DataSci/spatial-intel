@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R3):
+'A traveler in traditional attire, ready to explore, learn, and solve cultural challenges across different Indian states.' collect symbol 'A traditional instrument bringing alive the musical heritage of southern India.'.
+
+1. Show 'A traveler in traditional attire, ready to explore, learn, and solve cultural challenges across different Indian states.' with a sparkle/glow reaching toward 'A traditional instrument bringing alive the musical heritage of southern India.'.
+2. ERASE 'A traditional instrument bringing alive the musical heritage of southern India.' from (C3, R3) — fill with background texture. It must be completely gone.
+3. 'A traveler in traditional attire, ready to explore, learn, and solve cultural challenges across different Indian states.' stays at (C3, R3).
+4. Nothing else changes.

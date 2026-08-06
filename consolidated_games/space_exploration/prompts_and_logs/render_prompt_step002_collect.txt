@@ -1,0 +1,7 @@
+COLLECT at cell (C1, R1):
+'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' collect 'An ancient cosmic relic with glowing symbols, floating in space.'.
+
+1. Show 'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' with a sparkle/glow reaching toward 'An ancient cosmic relic with glowing symbols, floating in space.'.
+2. ERASE 'An ancient cosmic relic with glowing symbols, floating in space.' from (C1, R1) — fill with background texture. It must be completely gone.
+3. 'A confident leader in a high_tech, durable space suit with mission patches, ready to face the unknown.' stays at (C1, R1).
+4. Nothing else changes.

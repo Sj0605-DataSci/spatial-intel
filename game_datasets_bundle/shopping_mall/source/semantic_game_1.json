@@ -1,0 +1,258 @@
+{
+    "topic": "Shopping Mall Adventure",
+    "objective": "Collect all items on the shopping list and participate in mall events to increase reputation.",
+    "environment_description": "A lively and expansive shopping mall featuring vibrant store displays, bustling food courts, event stages, and interactive escalators. Decorations include colorful banners and an ambient atmosphere filled with the chatter of shoppers.",
+    "domain": [
+        {
+            "name": "Sam",
+            "image_prompt": "A stylish young adult equipped with a shopping cart and a list, ready to tackle mall challenges with enthusiasm."
+        },
+        {
+            "name": "Security",
+            "image_prompt": "An approachable security guard in uniform, assisting and providing guidance to shoppers in the mall."
+        },
+        {
+            "name": "Chef Maria",
+            "image_prompt": "A lively chef standing amidst a well_stocked food court, offering cooking challenges to eager visitors."
+        },
+        {
+            "name": "EventManagerAlex",
+            "image_prompt": "An energetic event manager orchestrating mall_wide events, juggling schedules and interacting with participants."
+        },
+        {
+            "name": "FellowShoppers",
+            "image_prompt": "A diverse group of shoppers, mingling and sharing their own quests while engaged in jovial interactions."
+        },
+        {
+            "name": "ShoppingList",
+            "image_prompt": "A checklist of specific items, including electronics and fashion accessories, essential for completing the mall journey."
+        }
+    ],
+    "classes": [
+        {
+            "class_name": "Player",
+            "list_of_objects": [
+                "Sam"
+            ]
+        },
+        {
+            "class_name": "Staff",
+            "list_of_objects": [
+                "Security",
+                "Chef Maria",
+                "EventManagerAlex"
+            ]
+        },
+        {
+            "class_name": "Shoppers",
+            "list_of_objects": [
+                "FellowShoppers"
+            ]
+        },
+        {
+            "class_name": "Objectives",
+            "list_of_objects": [
+                "ShoppingList"
+            ]
+        }
+    ],
+    "state_of_objects": [
+        {
+            "class_name": "Player",
+            "isMovable": true
+        },
+        {
+            "class_name": "Staff",
+            "isMovable": false
+        },
+        {
+            "class_name": "Shoppers",
+            "isMovable": false
+        },
+        {
+            "class_name": "Objectives",
+            "isMovable": false
+        }
+    ],
+    "state_variables": [
+        {
+            "name": "items_collected",
+            "type": "integer"
+        },
+        {
+            "name": "events_participated",
+            "type": "integer"
+        },
+        {
+            "name": "reputation_score",
+            "type": "integer"
+        },
+        {
+            "name": "list_completed",
+            "type": "bool"
+        },
+        {
+            "name": "item_acquired",
+            "type": "bool"
+        },
+        {
+            "name": "event_done",
+            "type": "bool"
+        },
+        {
+            "name": "interaction_done",
+            "type": "bool"
+        }
+    ],
+    "actions": [
+        {
+            "name": "CollectItem(Player, Objectives)"
+        },
+        {
+            "name": "EngageEvent(Player, Staff)"
+        },
+        {
+            "name": "Interact(Player, Shoppers)"
+        },
+        {
+            "name": "NavigateEscalator(Player, Staff)"
+        }
+    ],
+    "transitions": [
+        {
+            "action": "CollectItem(?Player, ?Objectives)",
+            "preconditions": [
+                "items_collected < 5",
+                "NOT list_completed",
+                "NOT item_acquired",
+                "?Player.x == ?Objectives.x",
+                "?Player.y == ?Objectives.y"
+            ],
+            "effects": [
+                "items_collected = items_collected + 1",
+                "item_acquired = true"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Item collected!')",
+                "MoveImage(?Objectives, ?Objectives.x, ?Objectives.y, HIDDEN, HIDDEN)"
+            ]
+        },
+        {
+            "action": "EngageEvent(?Player, ?Staff)",
+            "preconditions": [
+                "events_participated < 3",
+                "NOT event_done",
+                "?Player.x == ?Staff.x",
+                "?Player.y == ?Staff.y"
+            ],
+            "effects": [
+                "events_participated = events_participated + 1",
+                "event_done = true"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Participated in event!')"
+            ]
+        },
+        {
+            "action": "Interact(?Player, ?Shoppers)",
+            "preconditions": [
+                "reputation_score < 10",
+                "NOT interaction_done",
+                "?Player.x == ?Shoppers.x",
+                "?Player.y == ?Shoppers.y"
+            ],
+            "effects": [
+                "reputation_score = reputation_score + 1",
+                "interaction_done = true"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Gained reputation through interaction!')"
+            ]
+        },
+        {
+            "action": "NavigateEscalator(?Player, ?Staff)",
+            "preconditions": [
+                "list_completed",
+                "events_participated == 3",
+                "reputation_score < 10",
+                "?Player.x == ?Staff.x",
+                "?Player.y == ?Staff.y"
+            ],
+            "effects": [
+                "reputation_score = 2 * reputation_score"
+            ],
+            "side_effects": [
+                "ShowText(true, 'Navigated escalator, boosted reputation!')"
+            ]
+        }
+    ],
+    "goal": "items_collected == 5 AND events_participated == 3",
+    "reward": "items_collected + events_participated * 2 + reputation_score",
+    "max_reward": 19,
+    "grid_size": {
+        "x_size": 5,
+        "y_size": 5
+    },
+    "initial_state_objects": [
+        {
+            "domain_object": "Sam",
+            "x": "1",
+            "y": "1"
+        },
+        {
+            "domain_object": "Security",
+            "x": "2",
+            "y": "1"
+        },
+        {
+            "domain_object": "Chef Maria",
+            "x": "3",
+            "y": "2"
+        },
+        {
+            "domain_object": "EventManagerAlex",
+            "x": "1",
+            "y": "3"
+        },
+        {
+            "domain_object": "FellowShoppers",
+            "x": "4",
+            "y": "2"
+        },
+        {
+            "domain_object": "ShoppingList",
+            "x": "2",
+            "y": "3"
+        }
+    ],
+    "initial_state_variables": [
+        {
+            "name": "items_collected",
+            "value": 0
+        },
+        {
+            "name": "events_participated",
+            "value": 0
+        },
+        {
+            "name": "reputation_score",
+            "value": 0
+        },
+        {
+            "name": "list_completed",
+            "value": false
+        },
+        {
+            "name": "item_acquired",
+            "value": false
+        },
+        {
+            "name": "event_done",
+            "value": false
+        },
+        {
+            "name": "interaction_done",
+            "value": false
+        }
+    ]
+}

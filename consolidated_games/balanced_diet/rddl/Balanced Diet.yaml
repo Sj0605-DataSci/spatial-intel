@@ -1,0 +1,169 @@
+topic: Balanced Diet
+objective: Alex must collect a variety of food items and deliver them to designated
+  areas to assemble balanced meals, improving both health and happiness.
+environment_description: A dynamic setting starting as a cluttered urban area with
+  gray tones, transforming into vibrant, lush environments filled with greenery as
+  Alex's health improves, reflecting growth and well_being.
+domain:
+- name: alex
+  image_prompt: "A character with various visual stages\u2014starting in dull attire\
+    \ with tired expressions, evolving to vibrant clothing and energetic demeanor\
+    \ as health improves."
+- name: fruit
+  image_prompt: A bright, cheerful apple character, symbolizing healthy choices and
+    vitality.
+- name: protein_bar
+  image_prompt: A small bar with a colorful wrapper, packed with proteins and essential
+    nutrients.
+- name: vegetable
+  image_prompt: A green, leafy animated character, looking fresh and nutritious.
+- name: snack
+  image_prompt: An alluring, oversized donut with sprinkles, tempting but unhealthy.
+- name: balanced_meal_area
+  image_prompt: A designated area with plates illustrating a balanced diet, ready
+    to receive delivered foods.
+classes:
+- class_name: player
+  list_of_objects:
+  - alex
+- class_name: healthy_food
+  list_of_objects:
+  - fruit
+  - vegetable
+  - protein_bar
+- class_name: unhealthy_food
+  list_of_objects:
+  - snack
+- class_name: area
+  list_of_objects:
+  - balanced_meal_area
+state_of_objects:
+- class_name: player
+  isMovable: true
+- class_name: healthy_food
+  isMovable: false
+- class_name: unhealthy_food
+  isMovable: false
+- class_name: area
+  isMovable: false
+state_variables:
+- name: is_collected(healthy_food)
+  type: bool
+- name: is_collected(unhealthy_food)
+  type: bool
+- name: meals_assembled
+  type: integer
+- name: is_meal_prepared(area)
+  type: bool
+actions:
+- name: MoveUp(player)
+- name: MoveDown(player)
+- name: MoveLeft(player)
+- name: MoveRight(player)
+- name: Collect(player, healthy_food)
+- name: Collect(player, unhealthy_food)
+- name: AssembleMeal(player, area)
+transitions:
+- action: MoveUp(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y > 1
+  effects:
+  - ?player.y = ?player.y - 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)
+- action: MoveDown(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.y < grid_size.y
+  effects:
+  - ?player.y = ?player.y + 1
+  side_effects:
+  - MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)
+- action: MoveLeft(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x > 1
+  effects:
+  - ?player.x = ?player.x - 1
+  side_effects:
+  - MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)
+- action: MoveRight(?player)
+  preconditions:
+  - isMovable(?player)
+  - ?player.x < grid_size.x
+  effects:
+  - ?player.x = ?player.x + 1
+  side_effects:
+  - MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)
+- action: Collect(?player, ?healthy_food)
+  preconditions:
+  - NOT is_collected(?healthy_food)
+  - ?player.x == ?healthy_food.x
+  - ?player.y == ?healthy_food.y
+  effects:
+  - is_collected(?healthy_food) = true
+  side_effects:
+  - MoveImage(?healthy_food, ?healthy_food.x, ?healthy_food.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Healthy food collected!')
+- action: Collect(?player, ?unhealthy_food)
+  preconditions:
+  - NOT is_collected(?unhealthy_food)
+  - ?player.x == ?unhealthy_food.x
+  - ?player.y == ?unhealthy_food.y
+  effects:
+  - is_collected(?unhealthy_food) = true
+  side_effects:
+  - MoveImage(?unhealthy_food, ?unhealthy_food.x, ?unhealthy_food.y, HIDDEN, HIDDEN)
+  - ShowText(true, 'Beware of unhealthy temptation!')
+- action: AssembleMeal(?player, ?area)
+  preconditions:
+  - forall_{?healthy_food:healthy_food} [is_collected(?healthy_food)]
+  - ?player.x == ?area.x
+  - ?player.y == ?area.y
+  - NOT is_meal_prepared(?area)
+  - meals_assembled < 3
+  effects:
+  - meals_assembled = meals_assembled + 1
+  - is_meal_prepared(?area) = true
+  side_effects:
+  - ShowText(true, 'Balanced meal assembled!')
+  - ShowText(meals_assembled == 3, 'All meals assembled, great job!')
+goal: meals_assembled == 3
+reward: meals_assembled
+max_reward: 3
+grid_size:
+  x_size: 5
+  y_size: 5
+initial_state_objects:
+- domain_object: alex
+  x: '2'
+  y: '2'
+- domain_object: fruit
+  x: '3'
+  y: '1'
+- domain_object: vegetable
+  x: '4'
+  y: '3'
+- domain_object: protein_bar
+  x: '2'
+  y: '4'
+- domain_object: snack
+  x: '1'
+  y: '3'
+- domain_object: balanced_meal_area
+  x: '4'
+  y: '4'
+initial_state_variables:
+- name: is_collected(fruit)
+  value: false
+- name: is_collected(vegetable)
+  value: false
+- name: is_collected(protein_bar)
+  value: false
+- name: is_collected(snack)
+  value: false
+- name: meals_assembled
+  value: 0
+- name: is_meal_prepared(balanced_meal_area)
+  value: false

@@ -1,0 +1,57 @@
+instance Water_conservation { 
+
+	 domain = Water_conservation;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { player };
+		 collectible_item : { rain_barrel, efficient_faucet, native_plants };
+		 policy_card : { policy_card_1, policy_card_2 };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 collectible_item-x(rain_barrel, x2);
+		 collectible_item-y(rain_barrel, y2);
+		 collectible_item-x(efficient_faucet, x3);
+		 collectible_item-y(efficient_faucet, y3);
+		 collectible_item-x(native_plants, x4);
+		 collectible_item-y(native_plants, y4);
+		 policy_card-x(policy_card_1, x2);
+		 policy_card-y(policy_card_1, y4);
+		 policy_card-x(policy_card_2, x4);
+		 policy_card-y(policy_card_2, y2);
+	 };
+
+	 init-state {
+		 player-x(player, x1);
+		 player-y(player, y1);
+		 ~is_collected_rain_barrel;
+		 ~is_collected_efficient_faucet;
+		 ~is_collected_native_plants;
+		 ~is_used_policy_card_1;
+		 ~is_used_policy_card_2;
+		 items_collected = 0;
+		 cards_used = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

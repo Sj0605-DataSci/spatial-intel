@@ -1,0 +1,2 @@
+right
+Sam has just participated in an event with EventManagerAlex. Moving right will allow Sam to explore other parts of the mall and find more items or events.

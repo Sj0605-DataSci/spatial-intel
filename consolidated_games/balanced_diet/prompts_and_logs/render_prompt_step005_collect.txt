@@ -1,0 +1,7 @@
+COLLECT at cell (C3, R2):
+'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' collect 'A green, leafy animated character, looking fresh and nutritious.'.
+
+1. Show 'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' with a sparkle/glow reaching toward 'A green, leafy animated character, looking fresh and nutritious.'.
+2. ERASE 'A green, leafy animated character, looking fresh and nutritious.' from (C3, R2) — fill with background texture. It must be completely gone.
+3. 'A character with various visual stages—starting in dull attire with tired expressions, evolving to vibrant clothing and energetic demeanor as health improves.' stays at (C3, R2).
+4. Nothing else changes.

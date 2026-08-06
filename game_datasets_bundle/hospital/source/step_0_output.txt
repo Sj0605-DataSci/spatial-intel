@@ -1,0 +1,21 @@
+**Game Overview: Hospital Heroes**
+
+**Genre:** Collection & Sorting
+
+**Objective:** Navigate the intricacies of hospital management by ensuring optimal patient care and staff coordination.
+
+**Gameplay:**
+
+- **Collection:** Gather essential supplies like medications, surgical tools, and life-support equipment to prep for diverse patient cases.
+
+- **Sorting:** Prioritize and triage patients based on condition severity. Assign them to appropriate rooms and allocate nurses and doctors for necessary treatments.
+
+**Grid Setup:** The hospital grid includes various wards, operating rooms, and specialist stations. Players must efficiently manage the flow of patients and resources, reflecting real-world hospital pressures.
+
+**Story Elements:**
+
+- **Narrative Depth:** Each level presents unique storylines with distinct patient cases, such as a child needing emergency surgery or an elderly patient with chronic issues. Players experience the journey of hope, recovery, and occasional setbacks.
+
+- **Character Development:** Engage with a diverse cast of characters, including compassionate nurses, diligent doctors, and anxious patients. Build relationships, understand their backstories, and face moral dilemmas like allocating scarce resources during a crisis.
+
+- **Emotional Engagement:** Navigate emotionally charged scenarios that evoke empathy and understanding, such as comforting a distressed patient or celebrating successful recoveries. Experience the relentless dedication of hospital heroes working in a high-stakes environment.

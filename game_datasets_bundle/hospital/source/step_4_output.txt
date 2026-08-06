@@ -1,0 +1,54 @@
+**Game Summary: Hospital Heroes**
+
+**Game Outline:**  
+"Hospital Heroes" immerses players in the role of hospital administrators tasked with managing a bustling medical facility. Players focus on optimizing patient care, resource management, and staff coordination to overcome daily challenges and critical emergencies.
+
+**Characters:**
+
+1. **Dr. Samantha Lee:** Veteran emergency surgeon, pivotal for high-stakes procedures and mentorship of junior staff.
+2. **Nurse Javier Torres:** Compassionate caregiver, essential for patient morale and emotional support.
+3. **Patient Lydia Bennett:** Represents various patient stories, enriching player empathy and engagement.
+4. **Janitor Malik:** Ensures a germ-free environment, vital for patient health and well-being.
+5. **Resource Manager Ellen:** Manages logistics and supply chains, ensuring resources meet operational demands.
+6. **Resident Dr. Arun Patel:** A burgeoning doctor, reflecting growth and adaptability in challenging situations.
+
+**State Variables:**
+
+1. Patient Health Level
+2. Resource Inventory
+3. Staff Energy
+4. Operation Success Rate
+5. Patient Satisfaction
+6. Cleanliness Level
+7. Emergency Alert
+8. Supply Chain Efficiency
+9. Visitor Satisfaction
+10. Medication Accuracy
+
+**Game Rules:**
+
+1. **Patient Care:** Interact and prioritize based on health status and emergencies for effective treatment plans.
+2. **Resource Allocation:** Make strategic decisions to prevent shortages, crucial during peak times.
+3. **Staff Management:** Rotate staff to maintain efficiency; encourage skill development and morale.
+4. **Surgery Success:** Positive outcomes increase operation success rates, enhancing hospital reputation.
+5. **Maintain Cleanliness:** Regularly scheduled cleaning prevents infections and boosts patient satisfaction.
+6. **Emergency Response:** Rapid response to emergencies reflects hospital efficiency and reputation.
+7. **Supply Chain Management:** Optimize distribution processes to ensure timely resource availability.
+8. **Visitor Engagement:** Facilitate interactions, impacting patient morale and family satisfaction.
+9. **Medication Management:** Dispense accurate treatments to maximize recovery potential.
+
+**Image Prompt Descriptions:**
+
+- **Dr. Samantha Lee:** Confident Asian female surgeon in scrubs, poised in a modern operating room, highlighting her experience and leadership.
+
+- **Nurse Javier Torres:** Warm Hispanic male nurse, nurturing a patient in a vibrant ward, symbolizing care and empathy.
+
+- **Patient Lydia Bennett:** Bright-eyed Caucasian girl, engaging with medical staff in a cheerful children's ward, fostering player investment.
+
+- **Janitor Malik:** Diligent African American janitor, tidying a spotless corridor, underscoring hygiene's role in healthcare.
+
+- **Resource Manager Ellen:** Focused Caucasian woman, overseeing inventory in a packed storeroom, strategically distributing supplies.
+
+- **Resident Dr. Arun Patel:** Ambitious South Asian male, learning in a dynamic ER, showcasing potential for growth and transformation.
+
+- **Environment:** Lively hospital setting with active wards, dedicated staff, bustling visitor areas, and a state-of-the-art pharmacy room, emphasizing the immersive hospital operations experience.

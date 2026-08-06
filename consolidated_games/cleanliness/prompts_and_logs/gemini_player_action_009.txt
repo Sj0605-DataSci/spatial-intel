@@ -1,0 +1,2 @@
+left
+Moving left to (3,2) will place Eco Elara on a cell that appears to have visible dark patches of pollution.

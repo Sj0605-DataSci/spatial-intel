@@ -1,0 +1,2 @@
+up
+Eli needs to move towards the 'glass_jar' at (1,1). Moving 'up' to (0,1) is the first step in that direction.

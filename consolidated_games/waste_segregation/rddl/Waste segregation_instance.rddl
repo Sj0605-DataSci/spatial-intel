@@ -1,0 +1,59 @@
+instance Waste_segregation { 
+
+	 domain = Waste_segregation;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4 };
+		 player : { player };
+		 plastic : { plastic_waste };
+		 organic : { organic_waste };
+		 metal : { metal_waste };
+		 receptacle : { recycling_bin, compost_bin, landfill_bin };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 plastic-x(plastic_waste, x2);
+		 plastic-y(plastic_waste, y1);
+		 organic-x(organic_waste, x3);
+		 organic-y(organic_waste, y2);
+		 metal-x(metal_waste, x4);
+		 metal-y(metal_waste, y1);
+		 receptacle-x(recycling_bin, x1);
+		 receptacle-y(recycling_bin, y3);
+		 receptacle-x(compost_bin, x2);
+		 receptacle-y(compost_bin, y3);
+		 receptacle-x(landfill_bin, x3);
+		 receptacle-y(landfill_bin, y3);
+	 };
+
+	 init-state {
+		 player-x(player, x1);
+		 player-y(player, y1);
+		 ~is_collected_plastic(plastic);
+		 ~is_collected_organic(organic);
+		 ~is_collected_metal(metal);
+		 ~is_sorted_plastic_receptacle(plastic, recycling_bin);
+		 ~is_sorted_organic_receptacle(organic, compost_bin);
+		 ~is_sorted_metal_receptacle(metal, landfill_bin);
+		 number_sorted = 0;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

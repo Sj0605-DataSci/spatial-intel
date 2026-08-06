@@ -1,0 +1,102 @@
+domain Baisakhi_Celebration{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   festival_item : object ;
+   gurdwara : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+festival_item-x(festival_item,xpos) : { non-fluent , bool , default=false } ;
+festival_item-y(festival_item,ypos) : { non-fluent , bool , default=false } ;
+gurdwara-x(gurdwara,xpos) : { non-fluent , bool , default=false } ;
+gurdwara-y(gurdwara,ypos) : { non-fluent , bool , default=false } ;
+is_collected_festival_item(festival_item) : { state-fluent , bool , default=false } ;
+items_collected : { state-fluent , int , default=0 } ;
+rituals_completed : { state-fluent , int , default=0 } ;
+collection_done_festival_item(festival_item) : { state-fluent , bool , default=false } ;
+collect-player-festival_item(player,festival_item) : { action-fluent , bool , default=false } ;
+pray-player-gurdwara(player,gurdwara) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+is_collected_festival_item'(?festival_item) = if (exists_{?player:player} [ collect-player-festival_item(?player, ?festival_item) & ~is_collected_festival_item(?festival_item) & exists_{?x:xpos} [player-x(?player, ?x) & festival_item-x(?festival_item, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & festival_item-y(?festival_item, ?y)] & items_collected < 3 ] )  then true
+ else is_collected_festival_item(?festival_item)
+;
+
+items_collected' = if (exists_{?player:player, ?festival_item:festival_item} [ collect-player-festival_item(?player, ?festival_item) & ~is_collected_festival_item(?festival_item) & exists_{?x:xpos} [player-x(?player, ?x) & festival_item-x(?festival_item, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & festival_item-y(?festival_item, ?y)] & items_collected < 3 ] )  then items_collected + 1
+ else items_collected
+;
+
+rituals_completed' = if (exists_{?player:player, ?gurdwara:gurdwara} [ pray-player-gurdwara(?player, ?gurdwara) & items_collected == 3 & exists_{?x:xpos} [player-x(?player, ?x) & gurdwara-x(?gurdwara, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & gurdwara-y(?gurdwara, ?y)] & rituals_completed < 1 ] )  then rituals_completed + 1
+ else rituals_completed
+;
+
+collection_done_festival_item'(?festival_item) = if (exists_{?player:player} [ collect-player-festival_item(?player, ?festival_item) & ~is_collected_festival_item(?festival_item) & exists_{?x:xpos} [player-x(?player, ?x) & festival_item-x(?festival_item, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & festival_item-y(?festival_item, ?y)] & items_collected < 3 ] )  then true
+ else collection_done_festival_item(?festival_item)
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = items_collected + 3 * rituals_completed;
+
+// max_reward = 6.0
+
+termination{
+items_collected == 3  &  rituals_completed == 1;
+};
+}

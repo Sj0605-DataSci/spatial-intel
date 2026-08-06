@@ -1,0 +1,238 @@
+{
+    "topic": "Eid",
+    "objective": "Guide the family members to collect all hidden Eid artifacts and arrange the festive feast to complete the celebration.",
+    "environment_description": "A warm and inviting family home adorned with Eid decorations, featuring communal dining areas, a family prayer space, and an outdoor courtyard for festivities.",
+    "domain": [
+        {
+            "name": "player_ayaan",
+            "image_prompt": "A wise elder with a gentle smile, dressed in traditional Eid attire, leading family prayers."
+        },
+        {
+            "name": "eid_artifact_1",
+            "image_prompt": "A beautifully decorated crescent moon, symbolizing Eid, hidden among decorations."
+        },
+        {
+            "name": "eid_artifact_2",
+            "image_prompt": "A dish of traditional Eid sweets, symbolizing sharing and joy, placed on a dining table."
+        },
+        {
+            "name": "eid_artifact_3",
+            "image_prompt": "A small, ornate box with charity donations, symbolizing the spirit of giving."
+        },
+        {
+            "name": "festive_feast",
+            "image_prompt": "A grand dining table set with a variety of traditional Eid foods, ready for the family feast."
+        }
+    ],
+    "classes": [
+        {
+            "class_name": "player",
+            "list_of_objects": [
+                "player_ayaan"
+            ]
+        },
+        {
+            "class_name": "eid_artifact",
+            "list_of_objects": [
+                "eid_artifact_1",
+                "eid_artifact_2",
+                "eid_artifact_3"
+            ]
+        },
+        {
+            "class_name": "feast",
+            "list_of_objects": [
+                "festive_feast"
+            ]
+        }
+    ],
+    "state_of_objects": [
+        {
+            "class_name": "player",
+            "isMovable": true
+        },
+        {
+            "class_name": "eid_artifact",
+            "isMovable": false
+        },
+        {
+            "class_name": "feast",
+            "isMovable": false
+        }
+    ],
+    "state_variables": [
+        {
+            "name": "is_collected(eid_artifact)",
+            "type": "bool"
+        },
+        {
+            "name": "artifacts_collected",
+            "type": "integer"
+        },
+        {
+            "name": "feast_preparation_progress",
+            "type": "integer"
+        }
+    ],
+    "actions": [
+        {
+            "name": "MoveUp(player)"
+        },
+        {
+            "name": "MoveDown(player)"
+        },
+        {
+            "name": "MoveLeft(player)"
+        },
+        {
+            "name": "MoveRight(player)"
+        },
+        {
+            "name": "Collect(player, eid_artifact)"
+        },
+        {
+            "name": "PrepareFeast(player, feast)"
+        }
+    ],
+    "transitions": [
+        {
+            "action": "MoveUp(?player)",
+            "preconditions": [
+                "isMovable(?player)",
+                "?player.y < grid_size.y"
+            ],
+            "effects": [
+                "?player.y = ?player.y - 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x, ?player.y + 1, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "MoveDown(?player)",
+            "preconditions": [
+                "isMovable(?player)",
+                "?player.y > 1"
+            ],
+            "effects": [
+                "?player.y = ?player.y + 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x, ?player.y - 1, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "MoveLeft(?player)",
+            "preconditions": [
+                "isMovable(?player)",
+                "?player.x > 1"
+            ],
+            "effects": [
+                "?player.x = ?player.x - 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x + 1, ?player.y, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "MoveRight(?player)",
+            "preconditions": [
+                "isMovable(?player)",
+                "?player.x < grid_size.x"
+            ],
+            "effects": [
+                "?player.x = ?player.x + 1"
+            ],
+            "side_effects": [
+                "MoveImage(?player, ?player.x - 1, ?player.y, ?player.x, ?player.y)"
+            ]
+        },
+        {
+            "action": "Collect(?player, ?eid_artifact)",
+            "preconditions": [
+                "NOT is_collected(?eid_artifact)",
+                "?player.x == ?eid_artifact.x",
+                "?player.y == ?eid_artifact.y"
+            ],
+            "effects": [
+                "is_collected(?eid_artifact) = true",
+                "artifacts_collected = artifacts_collected + 1"
+            ],
+            "side_effects": [
+                "MoveImage(?eid_artifact, ?eid_artifact.x, ?eid_artifact.y, HIDDEN, HIDDEN)",
+                "ShowText(true, \"Artifact collected!\")"
+            ]
+        },
+        {
+            "action": "PrepareFeast(?player, ?feast)",
+            "preconditions": [
+                "artifacts_collected == 3",
+                "feast_preparation_progress == 0",
+                "?player.x == ?feast.x",
+                "?player.y == ?feast.y"
+            ],
+            "effects": [
+                "feast_preparation_progress = feast_preparation_progress + 1"
+            ],
+            "side_effects": [
+                "ShowText(true, \"Feast prepared! Celebration complete!\")"
+            ]
+        }
+    ],
+    "goal": "artifacts_collected == 3 AND feast_preparation_progress == 1",
+    "reward": "artifacts_collected + feast_preparation_progress * 3",
+    "max_reward": 6,
+    "grid_size": {
+        "x_size": 5,
+        "y_size": 5
+    },
+    "initial_state_objects": [
+        {
+            "domain_object": "player_ayaan",
+            "x": "1",
+            "y": "1"
+        },
+        {
+            "domain_object": "eid_artifact_1",
+            "x": "2",
+            "y": "3"
+        },
+        {
+            "domain_object": "eid_artifact_2",
+            "x": "4",
+            "y": "2"
+        },
+        {
+            "domain_object": "eid_artifact_3",
+            "x": "3",
+            "y": "4"
+        },
+        {
+            "domain_object": "festive_feast",
+            "x": "4",
+            "y": "4"
+        }
+    ],
+    "initial_state_variables": [
+        {
+            "name": "is_collected(eid_artifact_1)",
+            "value": false
+        },
+        {
+            "name": "is_collected(eid_artifact_2)",
+            "value": false
+        },
+        {
+            "name": "is_collected(eid_artifact_3)",
+            "value": false
+        },
+        {
+            "name": "artifacts_collected",
+            "value": 0
+        },
+        {
+            "name": "feast_preparation_progress",
+            "value": 0
+        }
+    ]
+}

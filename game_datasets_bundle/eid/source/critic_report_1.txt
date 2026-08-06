@@ -1,0 +1,23 @@
+SCORE: 4
+
+ISSUES:
+
+- Boolean guard missing on the action "Collect" causing potential infinite increments.
+- Goal condition incorrectly uses a boolean variable "feast_prepared".
+- Reward incorrectly uses a boolean variable "feast_prepared".
+- Transition arguments lack "?" prefix.
+- Spatial preconditions missing in "Collect" transition for boolean guard.
+
+EXPECTED_BEHAVIOR:
+
+- Integer counters should have boolean guards and not allow infinite increases.
+- Goal and reward should only use integer counters for evaluation.
+- Transition arguments should uniformly use "?" as a prefix for class variables.
+- Preconditions should prevent infinite reward accumulation by enforcing boolean guards.
+
+ACTUAL_BEHAVIOR:
+
+- No boolean guard on counter-modifying "Collect" action.
+- "feast_prepared" boolean used directly in goal and reward, violating format criteria.
+- Transition arguments fail to have correct "?" prefix.
+- "Collect" action is unbounded, allowing repeated increments.

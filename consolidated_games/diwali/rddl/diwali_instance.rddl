@@ -1,0 +1,54 @@
+instance Diwali_Celebration { 
+
+	 domain = Diwali_Celebration;
+
+	 objects {
+		 xpos : { x1, x2, x3, x4, x5 };
+		 ypos : { y1, y2, y3, y4, y5 };
+		 player : { arjun };
+		 diya : { diyas_1 };
+		 rangoli : { rangoli_patterns };
+		 meal : { meals };
+		 event_area : { community_area };
+	 };
+
+	 non-fluents {
+		 ADJACENT-LEFT(x2, x1);
+		 ADJACENT-LEFT(x3, x2);
+		 ADJACENT-LEFT(x4, x3);
+		 ADJACENT-LEFT(x5, x4);
+		 ADJACENT-RIGHT(x1, x2);
+		 ADJACENT-RIGHT(x2, x3);
+		 ADJACENT-RIGHT(x3, x4);
+		 ADJACENT-RIGHT(x4, x5);
+		 ADJACENT-UP(y2, y1);
+		 ADJACENT-UP(y3, y2);
+		 ADJACENT-UP(y4, y3);
+		 ADJACENT-UP(y5, y4);
+		 ADJACENT-DOWN(y1, y2);
+		 ADJACENT-DOWN(y2, y3);
+		 ADJACENT-DOWN(y3, y4);
+		 ADJACENT-DOWN(y4, y5);
+		 diya-x(diyas_1, x2);
+		 diya-y(diyas_1, y3);
+		 rangoli-x(rangoli_patterns, x4);
+		 rangoli-y(rangoli_patterns, y2);
+		 meal-x(meals, x3);
+		 meal-y(meals, y4);
+		 event_area-x(community_area, x5);
+		 event_area-y(community_area, y5);
+	 };
+
+	 init-state {
+		 player-x(arjun, x1);
+		 player-y(arjun, y1);
+		 tasks_completed = 0;
+		 ~is_diya_placed;
+		 ~is_rangoli_placed;
+		 ~is_meal_ready;
+	 };
+
+max-nondef-actions = 1;
+horizon = 100;
+discount = 0.80 ;
+}

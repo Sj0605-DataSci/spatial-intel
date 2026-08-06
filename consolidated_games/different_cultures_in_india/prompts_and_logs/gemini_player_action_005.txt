@@ -1,0 +1,2 @@
+right
+Move right to get closer to cultural_symbol_3.

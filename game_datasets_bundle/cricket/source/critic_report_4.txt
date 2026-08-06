@@ -1,0 +1,24 @@
+SCORE: 10
+
+ISSUES:
+
+- None
+
+EXPECTED_BEHAVIOR:
+
+- max_reward is correctly set to 10.
+- Only the player class is movable.
+- Actions and transitions use class names with correct prefixes.
+- side_effects are in the appropriate format.
+- Grid size is appropriate for the number of domain objects.
+- Probability is set correctly for transitions.
+- Domain object count is within acceptable limits.
+- All variables are type-consistent.
+- All domain objects are placed within the grid.
+- The goal uses only integer variables.
+- The reward function uses only integer variables.
+- Boolean guards effectively control counter increments, matching the goal.
+
+ACTUAL_BEHAVIOR:
+
+- All structural and semantic checks pass within acceptable parameters. The game is cohesive and achievable, aligning well with the intended mechanics and theme.

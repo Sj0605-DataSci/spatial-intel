@@ -1,0 +1,108 @@
+domain Holi_Festival_Harmony{ 
+
+requirements = {
+        concurrent,           
+        reward-deterministic 
+    };
+
+types {
+   xpos : object ;
+   ypos : object ;
+   player : object ;
+   festival_participants : object ;
+   obstacle : object ;
+};
+
+pvariables {
+ADJACENT-LEFT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-RIGHT(xpos,xpos) : { non-fluent , bool , default=false } ;
+ADJACENT-UP(ypos,ypos) : { non-fluent , bool , default=false } ;
+ADJACENT-DOWN(ypos,ypos) : { non-fluent , bool , default=false } ;
+move-left-player(player) : { action-fluent , bool , default=false } ;
+move-right-player(player) : { action-fluent , bool , default=false } ;
+move-up-player(player) : { action-fluent , bool , default=false } ;
+move-down-player(player) : { action-fluent , bool , default=false } ;
+has-moved-player(player) : { state-fluent , bool , default=false } ;
+player-x(player,xpos) : { state-fluent , bool , default=false } ;
+player-y(player,ypos) : { state-fluent , bool , default=false } ;
+festival_participants-x(festival_participants,xpos) : { non-fluent , bool , default=false } ;
+festival_participants-y(festival_participants,ypos) : { non-fluent , bool , default=false } ;
+obstacle-x(obstacle,xpos) : { non-fluent , bool , default=false } ;
+obstacle-y(obstacle,ypos) : { non-fluent , bool , default=false } ;
+harmony_level : { state-fluent , int , default=0 } ;
+conflicts_resolved : { state-fluent , int , default=0 } ;
+festival_zones_activated : { state-fluent , int , default=0 } ;
+is_obstacle_resolved_obstacle(obstacle) : { state-fluent , bool , default=false } ;
+is_zone_activated_festival_participants(festival_participants) : { state-fluent , bool , default=false } ;
+resolve_conflict-player-obstacle(player,obstacle) : { action-fluent , bool , default=false } ;
+activate_zone-player-festival_participants(player,festival_participants) : { action-fluent , bool , default=false } ;
+};
+
+cpfs {
+player-x'(?player,?xpos) = if (move-left-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-LEFT(?xpos, ?x2)] )  then true
+ else if (move-left-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then true
+ else if (move-left-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-LEFT(?x2, ?xpos)] )  then false
+ else if (move-right-player( ?player)  & player-x( ?player, ?xpos)  & ~exists_{?x2:xpos}[ADJACENT-RIGHT(?xpos, ?x2)] )  then true
+ else if (move-right-player( ?player)  & exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then true
+ else if (move-right-player( ?player)  & ~exists_{?x2:xpos}[player-x(?player, ?x2) & ADJACENT-RIGHT(?x2, ?xpos)] )  then false
+ else player-x(?player, ?xpos)
+;
+
+player-y'(?player,?ypos) = if (move-up-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-UP(?ypos, ?y2)] )  then true
+ else if (move-up-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then true
+ else if (move-up-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-UP(?y2, ?ypos)] )  then false
+ else if (move-down-player( ?player)  & player-y( ?player, ?ypos)  & ~exists_{?y2:ypos}[ADJACENT-DOWN(?ypos, ?y2)] )  then true
+ else if (move-down-player( ?player)  & exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then true
+ else if (move-down-player( ?player)  & ~exists_{?y2:ypos}[player-y(?player, ?y2) & ADJACENT-DOWN(?y2, ?ypos)] )  then false
+ else player-y(?player, ?ypos)
+;
+
+has-moved-player'(?player) = move-left-player(?player) | move-right-player(?player) | move-up-player(?player) | move-down-player(?player)
+;
+
+harmony_level' = if (exists_{?player:player, ?obstacle:obstacle} [ resolve_conflict-player-obstacle(?player, ?obstacle) & exists_{?x:xpos} [player-x(?player, ?x) & obstacle-x(?obstacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & obstacle-y(?obstacle, ?y)] & conflicts_resolved < 3 & ~is_obstacle_resolved_obstacle(?obstacle) ] )  then harmony_level + 10
+ else if (exists_{?player:player, ?festival_participants:festival_participants} [ activate_zone-player-festival_participants(?player, ?festival_participants) & conflicts_resolved == 3 & festival_zones_activated < 2 & exists_{?x:xpos} [player-x(?player, ?x) & festival_participants-x(?festival_participants, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & festival_participants-y(?festival_participants, ?y)] & ~is_zone_activated_festival_participants(?festival_participants) ] )  then harmony_level + 20
+ else harmony_level
+;
+
+conflicts_resolved' = if (exists_{?player:player, ?obstacle:obstacle} [ resolve_conflict-player-obstacle(?player, ?obstacle) & exists_{?x:xpos} [player-x(?player, ?x) & obstacle-x(?obstacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & obstacle-y(?obstacle, ?y)] & conflicts_resolved < 3 & ~is_obstacle_resolved_obstacle(?obstacle) ] )  then conflicts_resolved + 1
+ else conflicts_resolved
+;
+
+festival_zones_activated' = if (exists_{?player:player, ?festival_participants:festival_participants} [ activate_zone-player-festival_participants(?player, ?festival_participants) & conflicts_resolved == 3 & festival_zones_activated < 2 & exists_{?x:xpos} [player-x(?player, ?x) & festival_participants-x(?festival_participants, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & festival_participants-y(?festival_participants, ?y)] & ~is_zone_activated_festival_participants(?festival_participants) ] )  then festival_zones_activated + 1
+ else festival_zones_activated
+;
+
+is_obstacle_resolved_obstacle'(?obstacle) = if (exists_{?player:player} [ resolve_conflict-player-obstacle(?player, ?obstacle) & exists_{?x:xpos} [player-x(?player, ?x) & obstacle-x(?obstacle, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & obstacle-y(?obstacle, ?y)] & conflicts_resolved < 3 & ~is_obstacle_resolved_obstacle(?obstacle) ] )  then true
+ else is_obstacle_resolved_obstacle(?obstacle)
+;
+
+is_zone_activated_festival_participants'(?festival_participants) = if (exists_{?player:player} [ activate_zone-player-festival_participants(?player, ?festival_participants) & conflicts_resolved == 3 & festival_zones_activated < 2 & exists_{?x:xpos} [player-x(?player, ?x) & festival_participants-x(?festival_participants, ?x)] & exists_{?y:ypos} [player-y(?player, ?y) & festival_participants-y(?festival_participants, ?y)] & ~is_zone_activated_festival_participants(?festival_participants) ] )  then true
+ else is_zone_activated_festival_participants(?festival_participants)
+;
+
+};
+
+action-preconditions {
+forall_{?player:player}[
+            move-left-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-LEFT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-right-player(?player) => exists_{?x1:xpos, ?x2:xpos}[player-x(?player, ?x1) & ADJACENT-RIGHT(?x1, ?x2)] 
+        ];
+forall_{?player:player}[
+            move-up-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-UP(?y1, ?y2)] 
+        ];
+forall_{?player:player}[
+            move-down-player(?player) => exists_{?y1:ypos, ?y2:ypos}[player-y(?player, ?y1) & ADJACENT-DOWN(?y1, ?y2)] 
+        ];
+};
+
+reward = harmony_level;
+
+// max_reward = 60.0
+
+termination{
+festival_zones_activated == 2;
+};
+}

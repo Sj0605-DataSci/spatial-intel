@@ -1,0 +1,7 @@
+CELEBRATE at cell (C2, R1):
+'A young wildlife conservationist wearing practical outdoor gear with a notebook and binoculars, showing a determined expression.' performs 'restore rainforest' with 'Sprawling savannah with grasses and trees, highlighting the habitat of unique wildlife.'.
+
+1. Add a celebration effect at (C2, R1): flash, stars, confetti, or glow.
+2. Show floating text bubble: 'Rainforest restored!'.
+3. No sprite is removed or moved — everyone stays exactly in place.
+4. Nothing else changes.

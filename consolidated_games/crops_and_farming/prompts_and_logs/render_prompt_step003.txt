@@ -1,0 +1,9 @@
+Grid: 6 cols × 6 rows. Each cell ≈170px.
+
+MOVE: 'farmer_ella' (looks like: A determined young woman in sturdy boots and overalls, navigating a field with practical tools.)
+  FROM cell (C2, R0)  [pixels x≈340–510, y≈0–170]
+  TO   cell (C2, R1)  [pixels x≈340–510, y≈170–340]
+
+1. ERASE 'farmer_ella' from (C2, R0) — fill with background grass. Source cell must be completely empty.
+2. DRAW 'farmer_ella' once at (C2, R1).
+3. Nothing else changes.

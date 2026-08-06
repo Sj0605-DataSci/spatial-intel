@@ -1,0 +1,2 @@
+right
+Alex has collected all healthy food items. Moving right will take Alex to the balanced_meal_area at (3,3) to assemble a meal.

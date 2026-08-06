@@ -1,0 +1,15 @@
+Rules:
+
+1. **Sorting Rule**: Drag and drop recyclables into correct bins to increase "Recyclables Sorted." Incorrect placement resets progress in that grid area.
+
+2. **Project Completion**: Use collected recyclables to complete "Community Projects." When finished, unlock character narratives and increase "Character Satisfaction."
+
+3. **Character Interaction**: Complete tasks requested by characters to raise "Character Satisfaction." Higher satisfaction unlocks special abilities and rewards.
+
+4. **Eco-Credits Rule**: Earn "Eco-Credits" by sorting and completing projects. Spend them to purchase items for new community projects.
+
+5. **Knowledge Quizzes**: Answer Ms. Meadows' quizzes correctly to earn "Knowledge Points." Use points to unlock educational resources for better gameplay strategies.
+
+6. **Junkbot Management**: Maintain "Junkbot Efficiency" by regularly upgrading bots. Efficient Junkbots aid in faster sorting and upcycling.
+
+7. **Progress Achievement**: Measure "Progress Meter" via tasks completed. Full progress transforms the city, signaling ecological victory and ends the game with a celebratory message.

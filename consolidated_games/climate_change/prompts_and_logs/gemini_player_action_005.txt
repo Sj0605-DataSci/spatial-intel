@@ -1,0 +1,2 @@
+right
+Alex just placed a resource, likely increasing ecosystem health. To work towards the goal of `community_support == 1`, Alex should start moving towards the `community_center` at (3,3). Moving right to (2,1) is the first step in that direction.

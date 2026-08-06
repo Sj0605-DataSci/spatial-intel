@@ -1,0 +1,2 @@
+right
+Move right to col=2, row=1 to restore the savannah habitat.

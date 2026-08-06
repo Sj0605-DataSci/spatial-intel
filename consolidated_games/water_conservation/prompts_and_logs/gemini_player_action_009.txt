@@ -1,0 +1,1 @@
+No move is needed. I am currently on the same cell as `policy_card_1` (col=1, row=3), so it should be used in this turn.

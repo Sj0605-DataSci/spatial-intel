@@ -1,0 +1,2 @@
+right
+Moving right towards the center of the grid to access nearby animals and habitats like the elephant calf, savannah, and tiger.

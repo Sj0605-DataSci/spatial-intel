@@ -1,0 +1,2 @@
+right
+Moving right positions the playmaker more centrally in front of the opponent's goal, which is optimal for a potential shot or a strategic pass.
